@@ -63,27 +63,6 @@ class BinTree {
          * Private Helper Functions
          */
 
-/*
- * This is kind of broken...
-        // the actual interview question's solution, implemented as a class method
-        //
-        bool validateHelper(Node<T>* currPtr, Node<T>* divider, bool isLeft) {
-            // base case - return true if currptr is null
-            if (currPtr == nullptr)
-                return true;
-            bool balLhs = (currPtr->left == nullptr || currPtr->left->data <= currPtr->data);
-            bool balRhs = (currPtr->right == nullptr || currPtr->right->data > currPtr->data);
-            bool isDividedCorrectly = true;
-            if (isLeft && currPtr->data > divider->data) {
-                isDividedCorrectly = false;
-            } else if (!isLeft && currPtr->data <= divider->data) {
-                isDividedCorrectly = false;
-            }
-            bool switchDir = currPtr != divider;
-            return balLhs && balRhs && isDividedCorrectly && validateHelper(currPtr->left, divider, isLeft) && validateHelper(currPtr->right, divider, switchDir) && validateHelper(currPtr->left, currPtr, true) && validateHelper(currPtr->right, currPtr, false);
-        }
- */
-
         // the actual interview question's solution, implemented as a class method
         bool validateHelper(Node* currPtr, Node* minVal, Node* maxVal) {
             // base case: return true if current node is nullptr
@@ -204,9 +183,25 @@ void test4() {
     assert(!success);
 }
 
+void test5() {
+    /*
+     * Testing the following tree:
+     *              m
+     *          h       q
+     *      c    j     o    s
+     *  a    e  i k   n p  r    t
+     * Expecting test to pass
+     */
+    string inOrder[15]{"m", "h", "q", "c", "j", "o", "s", "a", "e", "i", "k", "n", "p", "r", "t"};
+    BinTree<string> b(inOrder, 15);
+    bool success = b.validate();
+    assert(success);
+}
+
 int main() {
     test1();
     test2();
     test3();
     test4();
+    test5();
 }
