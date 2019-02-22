@@ -36,3 +36,4 @@ test
 *.class
 env/
 .*.sw?
+*.pdf
