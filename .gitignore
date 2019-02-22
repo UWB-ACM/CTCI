@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+test
+
+# Other common files/dirs
+*.class
+env/
+.*.sw?
