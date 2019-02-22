@@ -1,6 +1,6 @@
 /**
  *
- * Complete, minimal, verifiable solution for "Validate BST".
+ * Complete, minimal implementation of a Binary Tree.
  * Created for UW Bothell ACM's Winter 2019 CTCI session.
  * Copyright 2019 Lizzy Presland
  *
@@ -9,6 +9,8 @@
 #include <iostream>
 #include <cmath>
 #include <cassert>
+#include <vector>
+
 using namespace std;
 
 /**
@@ -16,6 +18,14 @@ using namespace std;
  */
 template <class T>
 class BinTree {
+
+    private:
+        // the Node struct needed for class functions
+        struct Node {
+            Node* left{nullptr};
+            Node* right{nullptr};
+            T data;
+        };
 
     public:
         /**
@@ -47,20 +57,63 @@ class BinTree {
             return validateHelper(root, nullptr, nullptr);
         }
 
-    private:
-        // the Node struct needed for class functions
-        struct Node {
-            Node* left{nullptr};
-            Node* right{nullptr};
-            T data;
-        };
+        // locate nodes in the tree which match the provided data
+        vector<Node*> find(T data) {
+            vector<Node*> items;
+            findHelper(data, items, root);
+            return items;
+        }
 
+        // determine whether two subtrees are identical
+        bool identical(Node* ptr) {
+            return identicalHelper(ptr, root);
+        }
+
+        T getRoot() {
+            if (root != nullptr)
+                return root.data;
+        }
+
+        bool isSubtree(BinTree& t2) {
+            vector<Node*> subTrees = this->find(t2.root->data);
+            bool isSubtree = false;
+            for (typename vector<Node*>::iterator it = subTrees.begin(); it != subTrees.end(); ++it) {
+                isSubtree = t2.identical(*it);
+                if (isSubtree)
+                    break;
+            }
+            return isSubtree;
+        }
+
+    private:
         // the root of the tree
         Node* root;
 
         /**
          * Private Helper Functions
          */
+
+        // a helper method that searches the tree for all nodes that 
+        // contain the supplied data
+        void findHelper(T searchItem, vector<Node*>& items, Node* rootPtr) {
+            if (rootPtr == nullptr)
+                return;
+            if (rootPtr->data == searchItem)
+                items.push_back(rootPtr);
+            findHelper(searchItem, items, rootPtr->left);
+            findHelper(searchItem, items, rootPtr->right);
+        }
+
+        bool identicalHelper(Node* ptr1, Node* ptr2) {
+            if (ptr1 == nullptr && ptr2 == nullptr)
+                return true;
+            if (ptr1 == nullptr && ptr2 != nullptr)
+                return false;
+            if (ptr1 != nullptr && ptr2 == nullptr)
+                return false;
+            return identicalHelper(ptr1->left, ptr2->left) && (ptr1->data == ptr2->data) && identicalHelper(ptr1->right, ptr2->right);
+        }
+
 
         // the actual interview question's solution, implemented as a class method
         bool validateHelper(Node* currPtr, Node* minVal, Node* maxVal) {
