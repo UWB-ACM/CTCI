@@ -8,11 +8,13 @@ Solutions for Graphs & Trees session on February 22, 2019.
 Implement a function to check if a binary tree is a binary search tree.
 
 Definition: 
+```java
 class Node {
   public int data;
   public Node left;
   public Node right;
 }
+```
 
 Reference: CTCI 6th Ed. Problem 4.5
 
@@ -50,6 +52,8 @@ bool validateHelper(Node* currPtr, Node* minVal, Node* maxVal) {
 Given a directed graph, implement a function that determines whether there is a route between two nodes.
 
 Definitions:
+
+```java
 class Graph {
   Node[] nodes;
   public Node[] getNodes() { return nodes; }
@@ -60,6 +64,7 @@ class Node {
   Node[] adjacent;
   public Node[] getAdjacent() { return adjacent; }
 }
+```
 
 Reference: CTCI 6th Ed. Problem 4.1
 
@@ -102,11 +107,13 @@ T1 and T2 are two very large binary trees, with T1 much bigger than T2. Create a
 A Tree T2 is a subtree of T1 if there exists a node n in T1 such that the subtree of n is identical to to T2. That is, if you cut off the tree at node n, the two trees would be identical.
 
 Definition: 
+```java
 class Node {
   public int data;
   public Node left;
   public Node right;
 }
+```
 
 Reference: CTCI 6th Ed. Problem 4.10
 
