@@ -6,6 +6,8 @@ Problems and solutions for Maze & Dynamic Programming session on March 1, 2019.
 
 ### 1. Minimum Platforms
 
+Source: [GeeksForGeeks](https://www.geeksforgeeks.org/minimum-number-platforms-required-railwaybus-station/)
+
 **Scenario:** 
 
 Given arrival and departure times of all trains that reach a railway station, find the minimum number of platforms required for the railway station so that no train waits. We are given two arrays which represent arrival and departure times of trains that stop.
@@ -28,6 +30,8 @@ int minimum_platforms(Time[] arrivals, Time[] departures) {}
 The Time object has an overloaded subtraction operator and an overloaded sort method.
 
 ### 2. Coins
+
+Source: CTCI 8.11
 
 **Scenario:**
 
