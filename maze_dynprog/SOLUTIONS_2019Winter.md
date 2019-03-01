@@ -209,6 +209,8 @@ Testing timeit for dynamic solution solution (N = 500, repetitions = 1000)
 ```
 ## 3. Unique Paths II
 
+**Dynamic Programming Solution:**
+
 ```java
 public int uniquePaths(int[][] obstacleGrid) {
 
@@ -251,4 +253,45 @@ public int uniquePaths(int[][] obstacleGrid) {
   // That is the destination.
   return obstacleGrid[R - 1][C - 1];
 }
+```
+
+**Testing The Solutions:**
+
+A runnable example is availabe for this problem under `/maze_dynprog/robot_navigation/RobotMaze.java`. 
+Compile and run the example from the command line with:
+
+```shell
+$ javac RobotMaze.java
+$ java RobotMaze
+```
+
+Test output:
+
+```
+Printing Grid:
+[ [  0  0  0 ]
+  [  0 -1  0 ]
+  [  0  0  0 ] ]
+Result was 2
+Final grid was:
+Printing Grid:
+[ [  1  1  1 ]
+  [  1  0  1 ]
+  [  1  1  2 ] ]
+Printing Grid:
+[ [  0  0 -1  0  0  0 ]
+  [  0  0  0  0 -1  0 ]
+  [  0  0  0  0  0  0 ]
+  [  0  0  0 -1  0  0 ]
+  [ -1  0  0  0  0 -1 ]
+  [  0  0  0  0  0  0 ] ]
+Result was 50
+Final grid was:
+Printing Grid:
+[ [  1  1  0  0  0  0 ]
+  [  1  2  2  2  0  0 ]
+  [  1  3  5  7  7  7 ]
+  [  1  4  9  0  7 14 ]
+  [  0  4 13 13 20  0 ]
+  [  0  4 17 30 50 50 ] ]
 ```
