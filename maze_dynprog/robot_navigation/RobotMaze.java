@@ -75,7 +75,9 @@ public class RobotMaze {
         testObj.printGrid(grid2);
         int answer = testObj.uniquePaths(grid2);
         System.out.println("Result was " + answer);
-        
+        System.out.println("Final grid was:");
+        testObj.printGrid(grid2);
+
         // complex grid
         // initialize a grid and fill with zeros
         int[][] grid = new int[6][6];
@@ -93,6 +95,8 @@ public class RobotMaze {
         testObj.printGrid(grid);
         answer = testObj.uniquePaths(grid);
         System.out.println("Result was " + answer);
+        System.out.println("Final grid was:");
+        testObj.printGrid(grid);
         
     }
     
