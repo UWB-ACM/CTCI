@@ -37,3 +37,4 @@ test
 env/
 .*.sw?
 *.pdf
+__pycache__/
