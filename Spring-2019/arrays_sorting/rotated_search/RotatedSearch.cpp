@@ -63,8 +63,52 @@ int rotatedSearchOptimized(int searchItem, int arr[], int size) {
             break;
         }
     }
-    cout << "Optimized solution terminated at index " << idx << endl;
+    cout << "Improved solution terminated at index " << idx << endl;
     return result;
+}
+
+// Most optimal solution for problem: Binary Search
+int rotatedBinarySearch(int arr[], int left, int right, int searchItem) {
+    // find the midpoint between the left and right indeces
+    int mid = (left + right) / 2;
+    // element has been found
+    if (searchItem == arr[mid]) return mid;
+    // smallest possible increment of the array has been processed
+    if (right < left) return -1;
+
+    // We know, because the array is sorted, that the LHS or RHS of
+    // the array must be normally ordered.
+    // Use the bounds of the normally ordered half to determine which 
+    // half should be searched for the desired value.
+    if (arr[left] < arr[mid]) {         // LHS is normally ordered
+        if (searchItem >= arr[left] && searchItem < arr[mid]) {
+            // searchItem is within left-mid range; search this range
+            return rotatedBinarySearch(arr, left, mid - 1, searchItem);
+        } else {
+            // if searchItem is not within ordered LHS range, search RHS
+            return rotatedBinarySearch(arr, mid + 1, right, searchItem);
+        }
+    } else if (arr[mid] < arr[left]) {        // RHS is normally ordered
+        if (searchItem > arr[mid] && searchItem <= arr[right]) {
+            // searchItem is within mid-right range; search here
+            return rotatedBinarySearch(arr, mid + 1, right, searchItem);
+        } else {
+            // if searchItem is not within ordered RHS range, search LHS
+            return rotatedBinarySearch(arr, left, mid - 1, searchItem);
+        }
+    } else if (arr[left] == arr[mid]) {     // edge case: LHS or RHS is entirely repeated items
+        if (arr[mid] != arr[right]) {
+            return rotatedBinarySearch(arr, mid + 1, right, searchItem);
+        } else {        // both halves should be searched here
+            int result = rotatedBinarySearch(arr, left, mid - 1, searchItem);
+            if (result == -1) {
+                return rotatedBinarySearch(arr, mid + 1, right, searchItem);
+            } else {
+                return result;
+            }
+        }
+    }
+    return -1;
 }
 
 string printArray(int arr[], int size) {
@@ -85,6 +129,8 @@ void trySolution(int arr[], int size, int search, int expected) {
     cout << "Searched for " << search << "\tFound at " << result << endl;
     assert(result == expected);
     result = rotatedSearchOptimized(search, arr, size);
+    assert(result == expected);
+    result = rotatedBinarySearch(arr, 0, size - 1, search);
     assert(result == expected);
     cout << endl;
 }

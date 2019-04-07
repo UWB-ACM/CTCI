@@ -171,14 +171,18 @@ int rotatedSearch(int searchItem, int arr[], int size) {
 
 #### Optimal Solution
 
+There are two approaches to creating an optimal solution to this problem. 
+
+**Approach #1: Improving the Naive Solution**
+
 The naive solution to this problem will iterate over the entire array regardless of whether the sorted quality of the array tells us whether it would be fruitful to keep searching.
 
-There are a few edge cases that can be considered when writing an optimized solution to the problem:
+There are a few edge cases that can be considered when writing an improved solution to the problem:
 - Is the `searchItem` greater than the maximum element of the array?
 - Would the `searchItem` belong between the current index and previous index?
 - If the `searchItem` is smaller than the current element, has the "rotation point" of the array been found yet?
 
-The optimized solution is as follows:
+The improved solution is as follows:
 
 ```c++
 int rotatedSearchOptimized(int searchItem, int arr[], int size) {
@@ -203,6 +207,62 @@ int rotatedSearchOptimized(int searchItem, int arr[], int size) {
 ```
 
 This solution has more conditionals at each index step, but allows the search to terminate as soon as is practical, which can lead to significant gains in search time when the array's size is very large.
+
+**Approach #2: Binary Search of the Array**
+
+A binary search of the array is the most efficient solution, with the runtime complexity being `O(log N)` if all elements are unique.
+
+Duplicate items cause the runtime complexity to increase up to `O(N)`.
+
+The basic premise of the solution is the same as standard binary search techniques, but handling the unknown rotation points and duplicate items complicates the logic slightly.
+
+Here is the code for the optimal solution using binary search:
+
+```c++
+// Most optimal solution for problem: Binary Search
+int rotatedBinarySearch(int arr[], int left, int right, int searchItem) {
+    // find the midpoint between the left and right indeces
+    int mid = (left + right) / 2;
+    // element has been found
+    if (searchItem == arr[mid]) return mid;
+    // smallest possible increment of the array has been processed
+    if (right < left) return -1;
+
+    // We know, because the array is sorted, that the LHS or RHS of
+    // the array must be normally ordered.
+    // Use the bounds of the normally ordered half to determine which 
+    // half should be searched for the desired value.
+    if (arr[left] < arr[mid]) {         // LHS is normally ordered
+        if (searchItem >= arr[left] && searchItem < arr[mid]) {
+            // searchItem is within left-mid range; search this range
+            return rotatedBinarySearch(arr, left, mid - 1, searchItem);
+        } else {
+            // if searchItem is not within ordered LHS range, search RHS
+            return rotatedBinarySearch(arr, mid + 1, right, searchItem);
+        }
+    } else if (arr[mid] < arr[left]) {        // RHS is normally ordered
+        if (searchItem > arr[mid] && searchItem <= arr[right]) {
+            // searchItem is within mid-right range; search here
+            return rotatedBinarySearch(arr, mid + 1, right, searchItem);
+        } else {
+            // if searchItem is not within ordered RHS range, search LHS
+            return rotatedBinarySearch(arr, left, mid - 1, searchItem);
+        }
+    } else if (arr[left] == arr[mid]) {     // edge case: LHS or RHS is entirely repeated items
+        if (arr[mid] != arr[right]) {
+            return rotatedBinarySearch(arr, mid + 1, right, searchItem);
+        } else {        // both halves should be searched here
+            int result = rotatedBinarySearch(arr, left, mid - 1, searchItem);
+            if (result == -1) {
+                return rotatedBinarySearch(arr, mid + 1, right, searchItem);
+            } else {
+                return result;
+            }
+        }
+    }
+    return -1;
+}
+```
 
 #### Testing The Solutions
 
