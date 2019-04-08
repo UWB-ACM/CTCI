@@ -55,21 +55,44 @@ Java:
 int rotatedSearch(int[] arr) {}
 ```
 
-### 3. Unique Paths II
+### 3. Zero Matrix
 
-Source: TODO :bug:
+CTCI 1.8
 
-**Scenario:** 
+#### Scenario
 
-Problem Statement TODO :bug:
+Write an algorithm such that if an element in an `M x N` matrix is 0, its entire row and column are set to 0.
 
-**Example Input:**
+#### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+```
+[ [ 1  4  -3 2  5 ]
+  [ 2  0  4  6  3 ]
+  [ 10 12 6  4  9 ] ]
+```
 
-**Function Signature:**
+After running a valid solution, the matrix would become:
 
-TODO :bug:
+```
+[ [ 1  0  -3 2  5 ]
+  [ 0  0  0  0  0 ]
+  [ 10 0  6  4  9 ] ]
+```
+
+
+#### Function Signature
+
+C++:
+
+```c++
+int* zeroes(int* arr[]);
+```
+
+Java:
+
+```java
+int[] zeroes(int[] arr) {}
+```
 
 ## Solutions
 
