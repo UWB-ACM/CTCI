@@ -85,20 +85,22 @@ After running a valid solution, the matrix would become:
 C++:
 
 ```c++
-int* zeroes(int* arr[]);
+int* zeroes(int* arr[][], int rows, int cols);
 ```
+
+TODO :bug: this doesn't work as-is, need to implement as vector if implementing at all.
 
 Java:
 
 ```java
-int[] zeroes(int[] arr) {}
+int[] zeroes(int[][] arr) {}
 ```
 
 ## Solutions
 
 ### 1. Array Products
 
-Source: http://www.crazyforcode.com/array/
+Source: [Crazy for Code](http://www.crazyforcode.com/array/)
 
 #### Naive/Simple Solution
 
@@ -161,7 +163,7 @@ The executable Java solution for this problem is located under `Spring-2019/arra
 
 The output for the Java solution is:
 
-```
+```console
 $ javac GetProduct.java
 $ java GetProduct
 Original is:	1 2 3 4 5 6 
@@ -293,7 +295,7 @@ The executable C++ solution for this problem is located under `Spring-2019/array
 
 The output for the C++ solution is:
 
-```
+```console
 $ g++ -o test RotatedSearch.cpp
 $ ./test
 Input array: [15, 16, 19, 20, 25, 1, 3, 4, 5, 7, 10, 14]
@@ -319,20 +321,113 @@ Optimized solution terminated at index 5
 $
 ```
 
-## 3. Unique Paths II
+### 3. Zero Matrix
 
-Source: TODO :bug:
+CTCI 1.8
 
-**Naive/Simple Solution:** 
+#### Solution
 
-TODO :bug:
+At first glance, it is tempting to loop through the entire matrix, nullifying rows and columns as you go. However, this leads to rows and columns being nullified further in the process when the original matrix does not dictate that to happen! The question becomes how to track the rows and columns that need to be nullified before the array is changed.
 
-**Optimal solution:**
+A simple solution that utilizes more space is to track the index pairs of rows and columns to process in a `vector` or `list` structure, and then nullify those rows and columns later. However, this solution increases the space complexity of our solution substantially (up to `O(MxN)` additional space being allocated).
 
-TODO :bug:
+The more elegant solution is to change the column and row headers in-place and then nullify rows and columns based on the headers. This requires special handling of the `[0][0]` array index, but reduces the space complexity of the solution.
 
-**Testing The Solutions:** OR **Driver For Solution**  
+Here is the solution method:
 
-TODO :bug:
+```java
+// Method definition for solution
+public int[][] zeroes(int[][] arr) {
+    // Edge case: empty array
+    if (arr.length == 0 || arr[0].length == 0) {
+        return arr;
+    }
+    // First, locate zeroes in the matrix, and replace row/col header 
+    // with zeroes when they occur for indeces 1-m and 1-n.
+    // Replacement in this fasion will let us go back to the first 
+    // row and first column of the matrix to replace full row/col.
+    for (int i = 1; i < arr.length; i++) {
+        for (int j = 1; j < arr[0].length; j++) {
+            if (arr[i][j] == 0) {
+                arr[0][j] = 0;
+                arr[i][0] = 0;
+            }
+        }
+    }
+    // Now that our first row and column has zeroes marking the 
+    // rows and columns that require replacement, iterate over the 
+    // first row and first column to replace the respective column 
+    // or row with zeroes.
+    // NOTE: arr.length    ---> row index
+    // NOTE: arr[0].length ---> column index
+    boolean null00 = (arr[0][0] == 0);
+    // Nullify rows below row 0
+    for (int i = 1; i < arr.length; i++) {
+        if (arr[i][0] == 0) {
+            for (int j = 0; j < arr[0].length; j++) {
+                arr[i][j] = 0;
+            }
+        }
+    }
+    // Nullify all columns
+    for (int i = arr[0].length - 1; i >= 0; i--) {
+        if (arr[0][i] == 0) {
+            for (int j = 0; j < arr.length; j++) {
+                arr[j][i] = 0;
+            }
+        }
+    }
+    // if boolean conditional for null00 was true, nullify first row
+    if (null00) {
+        for (int i = 0; i < arr[0].length; i++) {
+            arr[0][i] = 0;
+        }
+    }
+    return arr;
+}
+```
 
+#### Testing The Solutions
 
+The executable Java solution for this problem is located under `Spring-2019/arrays_sorting/zero_matrix/ZeroMatrix.java`, with a utility class located in the same folder under `PrintUtility.java`.
+
+The output for the Java solution is:
+
+```console
+$ javac *.java
+$ java ZeroMatrix 
+First Example: basic example
+Printing Grid:
+[ [   1   4  -3   2   5 ]
+  [   2   0   4   6   3 ]
+  [  10  12   6   4   9 ] ]
+Printing Grid:
+[ [   1   0  -3   2   5 ]
+  [   0   0   0   0   0 ]
+  [  10   0   6   4   9 ] ]
+
+Second Example: 0 in arr[0][0]
+Printing Grid:
+[ [   0   3   6  18  44   2   9 ]
+  [  19  12   3   2   4   9   9 ]
+  [  66  -3   2   4  19   0   1 ]
+  [   1   6  13   4  10  -3   2 ]
+  [  14   8  19   2  66   2   9 ]
+  [   5   2   1   3 666  22   1 ] ]
+Printing Grid:
+[ [   0   0   0   0   0   0   0 ]
+  [   0  12   3   2   4   0   9 ]
+  [   0   0   0   0   0   0   0 ]
+  [   0   6  13   4  10   0   2 ]
+  [   0   8  19   2  66   0   9 ]
+  [   0   2   1   3 666   0   1 ] ]
+
+Third Example: null arrays
+Printing Grid:
+[  ]
+Printing Grid:
+[  ]
+Printing Grid:
+Printing Grid:
+$
+```
