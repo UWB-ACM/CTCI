@@ -85,15 +85,16 @@ After running a valid solution, the matrix would become:
 C++:
 
 ```c++
-int* zeroes(int* arr[][], int rows, int cols);
-```
+#include <vector>
+using namespace std;
 
-TODO :bug: this doesn't work as-is, need to implement as vector if implementing at all.
+vector<vector<int>*>* zeroes(vector<vector<int>*>*);
+```
 
 Java:
 
 ```java
-int[] zeroes(int[][] arr) {}
+int[][] zeroes(int[][] arr) {}
 ```
 
 ## Solutions
@@ -210,7 +211,7 @@ There are a few edge cases that can be considered when writing an improved solut
 The improved solution is as follows:
 
 ```c++
-int rotatedSearchOptimized(int searchItem, int arr[], int size) {
+int rotatedSearchImproved(int searchItem, int arr[], int size) {
     int result = -1;
     bool cycle = false;
     int max;
@@ -389,7 +390,7 @@ public int[][] zeroes(int[][] arr) {
 
 #### Testing The Solutions
 
-The executable Java solution for this problem is located under `Spring-2019/arrays_sorting/zero_matrix/ZeroMatrix.java`, with a utility class located in the same folder under `PrintUtility.java`.
+The executable Java solution for this problem is located under `Spring-2019/arrays_sorting/zero_matrix/ZeroMatrix.java`, with a utility class located in the same folder under `PrintUtil.java`.
 
 The output for the Java solution is:
 
