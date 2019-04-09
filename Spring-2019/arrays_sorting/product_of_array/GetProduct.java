@@ -21,11 +21,7 @@ public class GetProduct {
         int[] result = new int[start.length];
         for (int i = 0; i < start.length; i++) {
             if (start[i] == 0) {
-                if (zeroCount == 1) {
-                    result[i] = nonZeroTotal;
-                } else {
-                    result[i] = 0;
-                }
+                result[i] = (zeroCount == 1 ? nonZeroTotal : 0);
             } else {
                 result[i] = total / start[i];
             }
@@ -36,8 +32,7 @@ public class GetProduct {
     public String printArray(int[] array) {
         String result = "";
         for (int i = 0; i < array.length; i++) {
-            result += array[i];
-            result += " ";
+            result += array[i] + " ";
         }
         return result;
     }
