@@ -6,13 +6,20 @@ public class ZeroMatrix {
         if (arr.length == 0 || arr[0].length == 0) {
             return arr;
         }
+        boolean nulCol0 = false;
+        boolean nulRow0 = false;
         // First, locate zeroes in the matrix, and replace row/col header 
         // with zeroes when they occur for indeces 1-m and 1-n.
         // Replacement in this fasion will let us go back to the first 
         // row and first column of the matrix to replace full row/col.
-        for (int i = 1; i < arr.length; i++) {
-            for (int j = 1; j < arr[0].length; j++) {
-                if (arr[i][j] == 0) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[0].length; j++) {
+                if ((i == 0 || j == 0) && arr[i][j] == 0) {
+                    // we need to know whether to nullfiy the first 
+                    // row or first column
+                    if (i == 0) nulRow0 = true;
+                    if (j == 0) nulCol0 = true;
+                } else if (arr[i][j] == 0) {
                     arr[0][j] = 0;
                     arr[i][0] = 0;
                 }
@@ -24,7 +31,6 @@ public class ZeroMatrix {
         // or row with zeroes.
         // NOTE: arr.length    ---> row index
         // NOTE: arr[0].length ---> column index
-        boolean null00 = (arr[0][0] == 0);
         // Nullify rows below row 0
         for (int i = 1; i < arr.length; i++) {
             if (arr[i][0] == 0) {
@@ -34,17 +40,23 @@ public class ZeroMatrix {
             }
         }
         // Nullify all columns
-        for (int i = arr[0].length - 1; i >= 0; i--) {
+        for (int i = 1; i < arr[0].length; i++) {
             if (arr[0][i] == 0) {
                 for (int j = 0; j < arr.length; j++) {
                     arr[j][i] = 0;
                 }
             }
         }
-        // if boolean conditional for null00 was true, nullify first row
-        if (null00) {
+        // if boolean conditional for first row/col was true, 
+        // nullify first row or col respectively
+        if (nulRow0) {
             for (int i = 0; i < arr[0].length; i++) {
                 arr[0][i] = 0;
+            }
+        }
+        if (nulCol0) {
+            for (int i = 0; i < arr.length; i++) {
+                arr[i][0] = 0;
             }
         }
         return arr;
@@ -61,7 +73,7 @@ public class ZeroMatrix {
         util.printGrid(arr);
         arr = zm.zeroes(arr);
         util.printGrid(arr);
-        // test an edge case: 0 in arr[0][0]
+        // test an edge case: 0 in first row or col
         System.out.println("\nSecond Example: 0 in arr[0][0]");
         int[][] arr1 = { {0, 3, 6, 18, 44, 2, 9},
                          {19, 12, 3, 2, 4, 9, 9},
@@ -72,15 +84,23 @@ public class ZeroMatrix {
         util.printGrid(arr1);
         arr1 = zm.zeroes(arr1);
         util.printGrid(arr1);
+        System.out.println("Second Example: 0 in first row and first column (not [0][0]");
+        int[][] arr4 = { {3, 6, 9, 12, 0, 4, 2},
+                         {14, 6, 3, 22, 5, 2, 4},
+                         {0, 2, 9, 6, 14, 3, 11},
+                         {-1, 2, 7, 6, 4, 9, 3} }; 
+        util.printGrid(arr4);
+        arr4 = zm.zeroes(arr4);
+        util.printGrid(arr4);
         // test an edge case: empty array
         System.out.println("\nThird Example: null arrays");
         int[][] arr2 = {{}};
         util.printGrid(arr2);
-        arr1 = zm.zeroes(arr2);
+        arr2 = zm.zeroes(arr2);
         util.printGrid(arr2);
         int[][] arr3 = {};
         util.printGrid(arr3);
-        arr1 = zm.zeroes(arr3);
+        arr3 = zm.zeroes(arr3);
         util.printGrid(arr3);
     }
 
