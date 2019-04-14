@@ -46,13 +46,13 @@ Find `5` in `[15, 16, 19, 20, 25, 1, 3, 4, 5, 7, 10, 14]`
 C++:
 
 ```c++
-int rotatedSearch(int arr[], int size);
+int rotatedSearch(int searchItem, int arr[], int size);
 ```
 
 Java:
 
 ```java
-int rotatedSearch(int[] arr) {}
+int rotatedSearch(int searchItem, int arr[]) {}
 ```
 
 ### 3. Zero Matrix
