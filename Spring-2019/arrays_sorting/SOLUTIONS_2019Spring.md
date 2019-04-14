@@ -332,7 +332,7 @@ At first glance, it is tempting to loop through the entire matrix, nullifying ro
 
 A simple solution that utilizes more space is to track the index pairs of rows and columns to process in a `vector` or `list` structure, and then nullify those rows and columns later. However, this solution increases the space complexity of our solution substantially (up to `O(MxN)` additional space being allocated).
 
-The more elegant solution is to change the column and row headers in-place and then nullify rows and columns based on the headers. This requires special handling of the `[0][0]` array index, but reduces the space complexity of the solution.
+The more elegant solution is to change the column and row headers in-place and then nullify rows and columns based on the headers. This requires special handling of zeroes in the first row and column, but reduces the space complexity of the solution.
 
 Here is the solution method:
 
@@ -343,13 +343,20 @@ public int[][] zeroes(int[][] arr) {
     if (arr.length == 0 || arr[0].length == 0) {
         return arr;
     }
+    boolean nulCol0 = false;
+    boolean nulRow0 = false;
     // First, locate zeroes in the matrix, and replace row/col header 
     // with zeroes when they occur for indeces 1-m and 1-n.
     // Replacement in this fasion will let us go back to the first 
     // row and first column of the matrix to replace full row/col.
-    for (int i = 1; i < arr.length; i++) {
-        for (int j = 1; j < arr[0].length; j++) {
-            if (arr[i][j] == 0) {
+    for (int i = 0; i < arr.length; i++) {
+        for (int j = 0; j < arr[0].length; j++) {
+            if ((i == 0 || j == 0) && arr[i][j] == 0) {
+                // we need to know whether to nullfiy the first 
+                // row or first column
+                if (i == 0) nulRow0 = true;
+                if (j == 0) nulCol0 = true;
+            } else if (arr[i][j] == 0) {
                 arr[0][j] = 0;
                 arr[i][0] = 0;
             }
@@ -361,7 +368,6 @@ public int[][] zeroes(int[][] arr) {
     // or row with zeroes.
     // NOTE: arr.length    ---> row index
     // NOTE: arr[0].length ---> column index
-    boolean null00 = (arr[0][0] == 0);
     // Nullify rows below row 0
     for (int i = 1; i < arr.length; i++) {
         if (arr[i][0] == 0) {
@@ -371,17 +377,23 @@ public int[][] zeroes(int[][] arr) {
         }
     }
     // Nullify all columns
-    for (int i = arr[0].length - 1; i >= 0; i--) {
+    for (int i = 1; i < arr[0].length; i++) {
         if (arr[0][i] == 0) {
             for (int j = 0; j < arr.length; j++) {
                 arr[j][i] = 0;
             }
         }
     }
-    // if boolean conditional for null00 was true, nullify first row
-    if (null00) {
+    // if boolean conditional for first row/col was true, 
+    // nullify first row or col respectively
+    if (nulRow0) {
         for (int i = 0; i < arr[0].length; i++) {
             arr[0][i] = 0;
+        }
+    }
+    if (nulCol0) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i][0] = 0;
         }
     }
     return arr;
@@ -422,6 +434,17 @@ Printing Grid:
   [   0   6  13   4  10   0   2 ]
   [   0   8  19   2  66   0   9 ]
   [   0   2   1   3 666   0   1 ] ]
+Second Example: 0 in first row and first column (not [0][0]
+Printing Grid:
+[ [   3   6   9  12   0   4   2 ]
+  [  14   6   3  22   5   2   4 ]
+  [   0   2   9   6  14   3  11 ]
+  [  -1   2   7   6   4   9   3 ] ]
+Printing Grid:
+[ [   0   0   0   0   0   0   0 ]
+  [   0   6   3  22   0   2   4 ]
+  [   0   0   0   0   0   0   0 ]
+  [   0   2   7   6   0   9   3 ] ]
 
 Third Example: null arrays
 Printing Grid:
