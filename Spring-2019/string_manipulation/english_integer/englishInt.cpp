@@ -95,5 +95,7 @@ int main() {
     cout << "765,349,011 is " << englishInteger(765349011) << endl;
     cout << "-89,001,001 is " << englishInteger(-89001001) << endl;
     cout << "1,001,499,819 is " << englishInteger(1001499819) << endl;
+    cout << "3,000,999 is " << englishInteger(3000999) << endl;
+    cout << "1 is " << englishInteger(1) << endl;
     return 0;
 }
