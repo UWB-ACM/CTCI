@@ -32,23 +32,7 @@ Java:
 char[] urlify(char[] arr, int length) {}
 ```
 
-### 2. TODO :bug:
-
-Source: TODO :bug:
-
-**Scenario:** 
-
-Problem Statement TODO :bug:
-
-**Example Input:**
-
-If the problem is simple enough, remove this section. TODO :bug:
-
-**Function Signature:**
-
-TODO :bug:
-
-### 3. English Integer
+### 2. English Integer
 
 Source: CTCI 16.8
 
@@ -138,23 +122,7 @@ $ ./test
 $
 ```
 
-### 2. Coins
-
-Source: TODO :bug:
-
-**Naive/Simple Solution:** 
-
-TODO :bug:
-
-**Optimal solution:**
-
-TODO :bug:
-
-**Testing The Solutions:** OR **Driver For Solution**  
-
-TODO :bug:
-
-## 3. English Integer
+## 2. English Integer
 
 Source: CTCI 16.8
 
