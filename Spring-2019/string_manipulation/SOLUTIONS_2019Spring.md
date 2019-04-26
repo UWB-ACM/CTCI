@@ -51,7 +51,7 @@ Output: `Negative Thirty Four Thousand Six Hundred Eighty Two`
 C++:
 
 ```c++
-#import <string>
+#include <string>
 using namespace std;
 
 string englishInteger(int num);
