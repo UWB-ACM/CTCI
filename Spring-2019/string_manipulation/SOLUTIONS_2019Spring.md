@@ -119,6 +119,8 @@ $ ./test
 'hi%20there'
 'can I get a heal        '
 'can%20I%20get%20a%20heal'
+' oh oops    '
+'%20oh%20oops'
 $
 ```
 

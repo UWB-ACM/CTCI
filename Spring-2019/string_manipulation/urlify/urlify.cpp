@@ -59,7 +59,12 @@ int main() {
     printArray(test2, 24);
     test2 = urlify(test2, 16);
     printArray(test2, 24);
+    char* test3 = new char[12]{' ', 'o', 'h', ' ', 'o', 'o', 'p', 's', ' ', ' ', ' ', ' '};
+    printArray(test3, 12);
+    test3 = urlify(test3, 8);
+    printArray(test3, 12);
     delete test1;
     delete test2;
+    delete test3;
     return 0;
 }
