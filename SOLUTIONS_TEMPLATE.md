@@ -11,97 +11,97 @@ In the style of:
 
 Source: TODO :bug:
 
-**Scenario:** 
+#### Scenario
 
 Problem Statement TODO :bug:
 
-**Example Input:**
+#### Example Input
 
 If the problem is simple enough, remove this section. TODO :bug:
 
-**Function Signature:**
+#### Function Signature
 
 TODO :bug:
 
-### 2. Coins
+### 2. PROBLEM 2 TODO :bug:
 
 Source: TODO :bug:
 
-**Scenario:** 
+#### Scenario
 
 Problem Statement TODO :bug:
 
-**Example Input:**
+#### Example Input
 
 If the problem is simple enough, remove this section. TODO :bug:
 
-**Function Signature:**
+#### Function Signature
 
 TODO :bug:
 
-### 3. Unique Paths II
+### 3. PROBLEM 3 TODO :bug:
 
 Source: TODO :bug:
 
-**Scenario:** 
+#### Scenario
 
 Problem Statement TODO :bug:
 
-**Example Input:**
+#### Example Input
 
 If the problem is simple enough, remove this section. TODO :bug:
 
-**Function Signature:**
+#### Function Signature
 
 TODO :bug:
 
 ## Solutions
 
-### 1. Minimum Platforms
+### 1. PROBLEM 1 TODO :bug:
 
 Source: TODO :bug:
 
-**Naive/Simple Solution:** 
+#### Naive/Simple Solution
 
 TODO :bug:
 
-**Optimal solution:**
+#### Optimal Solution
 
 TODO :bug:
 
-**Testing The Solutions:** OR **Driver For Solution**  
+#### Testing The Solutions OR Driver For Solution
 
 TODO :bug:
 
-### 2. Coins
+### 2. PROBLEM 2 TODO :bug:
 
 Source: TODO :bug:
 
-**Naive/Simple Solution:** 
+#### Naive/Simple Solution
 
 TODO :bug:
 
-**Optimal solution:**
+#### Optimal Solution
 
 TODO :bug:
 
-**Testing The Solutions:** OR **Driver For Solution**  
+#### Testing The Solutions OR Driver For Solution
 
 TODO :bug:
 
-## 3. Unique Paths II
+## 3. PROBLEM 3 TODO :bug:
 
 Source: TODO :bug:
 
-**Naive/Simple Solution:** 
+#### Naive/Simple Solution 
 
 TODO :bug:
 
-**Optimal solution:**
+#### Optimal Solution
 
 TODO :bug:
 
-**Testing The Solutions:** OR **Driver For Solution**  
+#### Testing The Solutions OR Driver For Solution
 
 TODO :bug:
 
