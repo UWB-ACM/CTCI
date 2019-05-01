@@ -103,20 +103,67 @@ TODO :bug:
 
 TODO :bug:
 
-## 3. PROBLEM 3 TODO :bug:
+## 3. Rotate List
 
-Source: TODO :bug:
-
-#### Naive/Simple Solution 
-
-TODO :bug:
+Source: [CrazyForCode](http://www.crazyforcode.com/rotate-linked-list-k-nodes/)
 
 #### Optimal Solution
 
-TODO :bug:
+_Note: An important question to ask with this question is whether `k` is 
+guaranteed to be smaller than the length of the list. This implementation 
+assumes this is true._
 
-#### Testing The Solutions OR Driver For Solution
+Because linked lists contain pointers/references to their successor links, 
+we can take advantage of the list structure without allocating extra memory 
+for copy operations.
 
-TODO :bug:
+This problem requires 2 modifications to list links:
 
+1. The `kth` list item must point to `null`
+2. The last list item must point to the original head of the list
 
+So, our solution must keep track of the `kth + 1` object so the `kth` link can 
+be broken without losing access to subsequent items.
+
+Here is the datatype-agnostic implementation in C++:
+
+```c++
+template <typename T>
+Node<T>* rotate(Node<T>* node, int k) {
+    // placeholder pointers
+    Node<T>* curr = node;
+    Node<T>* newHead = nullptr;
+    // find k-th element
+    for (int i = 1; i < k; i++) {
+        curr = curr->next;
+    }
+    // curr now points to new end of list; break list here
+    newHead = curr->next;
+    curr->next = nullptr;
+    // now find end of old list, and point to old head
+    curr = newHead;
+    while (curr->next != nullptr) {
+        curr = curr->next;
+    }
+    curr->next = node;
+    return newHead;
+}
+```
+
+#### Driver For Solution
+
+The executable C++ solution for this problem is located under 
+`Spring-2019/linked_lists/rotate_list/rotate_list.cpp`.
+
+The output for the C++ solution is:
+
+```console
+$ g++ -o test rotate_list.cpp -g
+$ ./test
+List before: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10
+List after:  7 -> 8 -> 9 -> 10 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6
+
+[ etc... ]
+
+$
+```
