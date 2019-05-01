@@ -39,21 +39,35 @@ If the problem is simple enough, remove this section. TODO :bug:
 
 TODO :bug:
 
-### 3. PROBLEM 3 TODO :bug:
+### 3. Rotate List 
 
-Source: TODO :bug:
+Source: [CrazyForCode](http://www.crazyforcode.com/rotate-linked-list-k-nodes/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Given a singly linked list, rotate the list by `k` nodes.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+```
+k = 3
+Input:   1 -> 2 -> 3 -> 4 -> 5
+Result:  4 -> 5 -> 1 -> 2 -> 3
+```
 
 #### Function Signature
 
-TODO :bug:
+Java:
+
+```java
+public void rotate(ListNode node, int k) { }
+```
+
+C++:
+
+```c++
+void rotate(Node* node, int k);
+```
 
 ## Solutions
 
