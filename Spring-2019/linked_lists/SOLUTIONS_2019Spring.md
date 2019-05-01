@@ -1,9 +1,6 @@
-# Topic Name TODO :bug:
+# Linked Lists
 
-Simple description TODO :bug:
-
-In the style of:
-***Problems and solutions for Maze & Dynamic Programming session on March 1, 2019.***
+Problems and solutions for Linked List session on May 3, 2019.
 
 ## Problems
 
