@@ -60,13 +60,13 @@ Result:  4 -> 5 -> 1 -> 2 -> 3
 Java:
 
 ```java
-public void rotate(ListNode node, int k) { }
+public ListNode rotate(ListNode node, int k) { }
 ```
 
 C++:
 
 ```c++
-void rotate(Node* node, int k);
+Node<T>* rotate(Node<T>* node, int k);
 ```
 
 ## Solutions
