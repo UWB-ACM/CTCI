@@ -94,7 +94,7 @@ TODO :bug:
 
 ### 1. PROBLEM 1 TODO :bug:
 
-Source: 
+Source: [GreeksforGreeks](https://www.geeksforgeeks.org/reverse-a-list-in-groups-of-given-size/)
 
 #### Optimal Solution
 
