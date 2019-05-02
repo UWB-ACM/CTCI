@@ -22,11 +22,11 @@ TODO :bug:
 
 ### 2. PROBLEM 2 TODO :bug:
 
-Source: TODO :bug:
+Source: CTCI 6th edition 2.3
 
 #### Scenario
 
-Problem Statement TODO :bug:
+""
 
 #### Example Input
 
