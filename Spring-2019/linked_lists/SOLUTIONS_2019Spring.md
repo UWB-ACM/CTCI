@@ -55,7 +55,7 @@ Java:
 * }
 */
 
-public ListNode reverseKGroup(ListNode head, int k) {}
+ListNode reverseKGroup(ListNode head, int k) {}
 ```
 ### 2. PROBLEM 1 TODO :bug:
 
@@ -139,7 +139,7 @@ ListNode* reverseKGroup(ListNode* head, int k) {
 Java:
 
 ```java
-ListNode reverseKGroup(Node head, int k) { 
+ListNode reverseKGroup(ListNode head, int k) { 
 
    ListNode current = head; 
    ListNode next = null; 
@@ -168,6 +168,7 @@ ListNode reverseKGroup(Node head, int k) {
 }                       
 ```
 #### Testing The Solutions OR Driver For Solution
+
 
 TODO :bug:
 
