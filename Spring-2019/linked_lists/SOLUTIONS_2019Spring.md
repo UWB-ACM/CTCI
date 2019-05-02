@@ -4,39 +4,7 @@ Problems and solutions for Linked List session on May 3, 2019.
 
 ## Problems
 
-### 1. PROBLEM 1 TODO :bug:
-
-Source: TODO :bug:
-
-#### Scenario
-
-Problem Statement TODO :bug:
-
-#### Example Input
-
-If the problem is simple enough, remove this section. TODO :bug:
-
-#### Function Signature
-
-TODO :bug:
-
-### 2. PROBLEM 2 TODO :bug:
-
-Source: TODO :bug:
-
-#### Scenario
-
-Problem Statement TODO :bug:
-
-#### Example Input
-
-If the problem is simple enough, remove this section. TODO :bug:
-
-#### Function Signature
-
-TODO :bug:
-
-### 3. Reverse Nodes in k-Group
+### 1. Reverse Nodes in k-Group
 
 Source: [leetcode](https://leetcode.com/problems/reverse-nodes-in-k-group/)
 
@@ -89,21 +57,116 @@ Java:
 
 public ListNode reverseKGroup(ListNode head, int k) {}
 ```
+### 2. PROBLEM 1 TODO :bug:
+
+Source: TODO :bug:
+
+#### Scenario
+
+Problem Statement TODO :bug:
+
+#### Example Input
+
+If the problem is simple enough, remove this section. TODO :bug:
+
+#### Function Signature
+
+TODO :bug:
+
+### 3. PROBLEM 2 TODO :bug:
+
+Source: TODO :bug:
+
+#### Scenario
+
+Problem Statement TODO :bug:
+
+#### Example Input
+
+If the problem is simple enough, remove this section. TODO :bug:
+
+#### Function Signature
+
+TODO :bug:
+
 
 ## Solutions
 
 ### 1. PROBLEM 1 TODO :bug:
 
-Source: TODO :bug:
-
-#### Naive/Simple Solution
-
-TODO :bug:
+Source: 
 
 #### Optimal Solution
 
-TODO :bug:
+The optimal solution for this problem is to reverse the first sub-list of size `k` while keeping track of the next node and previous node. Then, recursively call for rest of the list and link the two sub-lists toghether. 
 
+Time Complexity: `O(n)` where n is the number of nodes in the given list.
+
+Here is a solution method:
+
+C++:
+
+```c++
+/* Reverses the linked list in groups 
+of size k and returns the pointer 
+to the new head node. */
+ListNode* reverseKGroup(ListNode* head, int k) {
+  ListNode* current = head;  
+  ListNode* next = NULL;  
+  ListNode* prev = NULL;  
+  int count = 0;  
+
+  //reverse first k nodes of the linked list 
+    while(current != NULL && count < k) {  
+       next = current->next;  
+       current->next = prev;  
+       prev = current;  
+       current = next;  
+       count++;  
+   }  
+ /* next is now a pointer to (k+1)th node  
+    Recursively call for the list starting from current.  
+    And make rest of the list as next of first node */
+    if (next != NULL)  
+    head->next = reverseKGroup(next, k);  
+
+   /* prev is new head of the input list */
+  return prev;  
+ }  
+}
+```
+
+Java:
+
+```java
+ListNode reverseKGroup(Node head, int k) { 
+
+   ListNode current = head; 
+   ListNode next = null; 
+   ListNode prev = null; 
+
+   int count = 0; 
+
+      /* Reverse first k nodes of linked list */
+         while (count < k && current != null) { 
+      
+           next = current.next; 
+           current.next = prev; 
+           prev = current; 
+           current = next; 
+           count++; 
+      } 
+
+      /* next is now a pointer to (k+1)th node  
+         Recursively call for the list starting from current. 
+         And make rest of the list as next of first node */
+         if (next != null)  
+         head.next = reverse(next, k); 
+
+    // prev is now head of input list 
+       return prev; 
+}                       
+```
 #### Testing The Solutions OR Driver For Solution
 
 TODO :bug:
