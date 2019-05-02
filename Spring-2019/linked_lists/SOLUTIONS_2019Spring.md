@@ -4,39 +4,7 @@ Problems and solutions for Linked List session on May 3, 2019.
 
 ## Problems
 
-### 1. PROBLEM 1 TODO :bug:
-
-Source: TODO :bug:
-
-#### Scenario
-
-Problem Statement TODO :bug:
-
-#### Example Input
-
-If the problem is simple enough, remove this section. TODO :bug:
-
-#### Function Signature
-
-TODO :bug:
-
-### 2. PROBLEM 2 TODO :bug:
-
-Source: TODO :bug:
-
-#### Scenario
-
-Problem Statement TODO :bug:
-
-#### Example Input
-
-If the problem is simple enough, remove this section. TODO :bug:
-
-#### Function Signature
-
-TODO :bug:
-
-### 3. Reverse Nodes in k-Group
+### 1. Reverse Nodes in k-Group
 
 Source: [leetcode](https://leetcode.com/problems/reverse-nodes-in-k-group/)
 
@@ -89,6 +57,37 @@ Java:
 
 public ListNode reverseKGroup(ListNode head, int k) {}
 ```
+### 2. PROBLEM 2 TODO :bug:
+
+Source: TODO :bug:
+
+#### Scenario
+
+Problem Statement TODO :bug:
+
+#### Example Input
+
+If the problem is simple enough, remove this section. TODO :bug:
+
+#### Function Signature
+
+TODO :bug:
+
+### 3. PROBLEM 3 TODO :bug:
+
+Source: TODO :bug:
+
+#### Scenario
+
+Problem Statement TODO :bug:
+
+#### Example Input
+
+If the problem is simple enough, remove this section. TODO :bug:
+
+#### Function Signature
+
+TODO :bug:
 
 ## Solutions
 
