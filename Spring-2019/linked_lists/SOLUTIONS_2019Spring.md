@@ -34,9 +34,9 @@ using namespace std;
 /**
 * Definition for singly-linked list.
 * struct ListNode {
-*     int val;
+*     int data;
 *     ListNode *next;
-*     ListNode(int x) : val(x), next(NULL) {}
+*     ListNode(int x) : data(x), next(NULL) {}
 * };
 */
 
@@ -49,9 +49,9 @@ Java:
 /**
 * Definition for singly-linked list.
 * public class ListNode {
-*     int val;
+*     int data;
 *     ListNode next;
-*     ListNode(int x) { val = x; }
+*     ListNode(int x) { data = x; }
 * }
 */
 
@@ -169,9 +169,19 @@ ListNode reverseKGroup(ListNode head, int k) {
 ```
 #### Testing The Solutions OR Driver For Solution
 
+The executable Java solution for this problem is located under `Spring-2019/linked_lists/Reverse_Nodes_In_k-Group/ReverseLinkedList.cpp`.
 
-TODO :bug:
+The output for C++ solution where `k` = 5 is:
 
+```c++
+$ g++ -c -std=c++11 ReverseLinkedList.cpp
+$ g++ -o a.out ReverseLinkedList.o
+$ ./a.out
+Given linked list 
+1 2 3 4 5 6 7 8 9 10 11 12 13 15 16 17 18 19 
+Reversed Linked list in groups of given size
+5 4 3 2 1 10 9 8 7 6 16 15 13 12 11 19 18 17
+```
 ### 2. PROBLEM 2 TODO :bug:
 
 Source: TODO :bug:
