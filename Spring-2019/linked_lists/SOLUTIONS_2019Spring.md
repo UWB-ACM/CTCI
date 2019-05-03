@@ -63,13 +63,27 @@ Result:  4 -> 5 -> 1 -> 2 -> 3
 Java:
 
 ```java
+public class ListNode {
+    public int data;
+    public ListNode next;
+
+    ListNode(int x) {
+        data = x;
+    }
+}
+
 public ListNode rotate(ListNode node, int k) { }
 ```
 
 C++:
 
 ```c++
-Node<T>* rotate(Node<T>* node, int k);
+struct Node {
+    Node* next;
+    int data;
+};
+
+Node* rotate(Node* node, int k);
 ```
 
 ## Solutions
