@@ -18,22 +18,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="md" value="1" />
+          <entry key="md" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="md" value="19" />
+          <entry key="md" value="470" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="19" />
+          <entry key="PLAIN_TEXT" value="470" />
         </counts>
       </usages-collector>
     </session>
@@ -43,8 +43,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Spring-2019/linked_lists/SOLUTIONS_2019Spring.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+            <state relative-caret-position="356">
+              <caret line="132" column="113" selection-start-line="132" selection-start-column="113" selection-end-line="132" selection-end-column="113" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Spring-2019/arrays_sorting/SOLUTIONS_2019Spring.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="23" column="3" lean-forward="true" selection-start-line="18" selection-end-line="23" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -62,8 +71,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="392" />
-    <option name="y" value="23" />
+    <option name="x" value="335" />
+    <option name="y" value="501" />
     <option name="width" value="1260" />
     <option name="height" value="669" />
   </component>
@@ -88,7 +97,20 @@
               <item name="CTCI" type="b2602c69:ProjectViewProjectNode" />
               <item name="CTCI" type="462c0819:PsiDirectoryNode" />
               <item name="Spring-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="arrays_sorting" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CTCI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CTCI" type="462c0819:PsiDirectoryNode" />
+              <item name="Spring-2019" type="462c0819:PsiDirectoryNode" />
               <item name="linked_lists" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CTCI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CTCI" type="462c0819:PsiDirectoryNode" />
+              <item name="Spring-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="linked_lists" type="462c0819:PsiDirectoryNode" />
+              <item name="Delete_Middle_Node" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -127,7 +149,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="242" y="23" width="1260" height="669" extended-state="0" />
+    <frame x="335" y="501" width="1260" height="669" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
@@ -161,10 +183,17 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Spring-2019/arrays_sorting/SOLUTIONS_2019Spring.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="23" column="3" lean-forward="true" selection-start-line="18" selection-end-line="23" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Spring-2019/linked_lists/SOLUTIONS_2019Spring.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        <state relative-caret-position="356">
+          <caret line="132" column="113" selection-start-line="132" selection-start-column="113" selection-end-line="132" selection-end-column="113" />
         </state>
       </provider>
     </entry>
