@@ -70,25 +70,10 @@ int main()
     /* Start with the empty list */
     ListNode* head = NULL;
 
-    push(&head, 19);
-    push(&head, 18);
-    push(&head, 17);
-    push(&head, 16);
-    push(&head, 15);
-    push(&head, 13);
-    push(&head, 12);
-    push(&head, 11);
-    push(&head, 10);
-    push(&head, 9);
-    push(&head, 8);
-    push(&head, 7);
-    push(&head, 6);
-    push(&head, 5);
-    push(&head, 4);
-    push(&head, 3);
-    push(&head, 2);
-    push(&head, 1);
-
+    for(int i = 19; i >= 1; i--)
+    {
+        push(&head, i);
+    }
 
     cout<<"Given linked list \n";
     printList(head);

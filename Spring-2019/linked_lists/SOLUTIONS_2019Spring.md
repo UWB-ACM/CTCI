@@ -210,7 +210,7 @@ $ ./a.out
 Given linked list 
 1 2 3 4 5 6 7 8 9 10 11 12 13 15 16 17 18 19 
 Reversed Linked list in groups of given size
-5 4 3 2 1 10 9 8 7 6 16 15 13 12 11 19 18 17
+5 4 3 2 1 10 9 8 7 6 15 14 13 12 11 19 18 17 16
 ```
 ### 2. PROBLEM 2 TODO :bug:
 
