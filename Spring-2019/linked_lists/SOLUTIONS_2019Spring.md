@@ -13,17 +13,6 @@ Source: [leetcode](https://leetcode.com/problems/reverse-nodes-in-k-group/)
 Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
 `k` is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of `k`  then left-out nodes in the end should remain as it is.
 
-**Note:**
-* Only constant extra memory is allowed.
-* You may not alter the values in the list's nodes, only nodes itself may be changed.
-
-#### Example Input
-
-```
-Given this linked list: 1->2->3->4->5
-For k = 2, you should return: 2->1->4->3->5
-For k = 3, you should return: 3->2->1->4->5
-```
 #### Function Signature
 
 C++:
@@ -57,21 +46,33 @@ Java:
 
 ListNode reverseKGroup(ListNode head, int k) {}
 ```
-### 2. PROBLEM 2 TODO :bug:
 
-Source: TODO :bug:
+### 2. Delete Middle Node
+
+Source: CTCI 6th edition 2.3
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Write a method to delete a node in the middle (i.e., any node but the first and last node,
+not necessarily the exact middle) of a singly linked list, given only access to that node.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+Node c from the linked list a->b->c->d->e->f is passed to the method
+Result: nothing is returned, but the new linked list looks like a->b->d->e->f
 
 #### Function Signature
 
-TODO :bug:
+Java:
+```
+boolean deleteMiddleNode(LinkedListNode n) {}
+```
+
+C++:
+
+```
+boolean deleteMiddleNode(LinkedListNode* n) {}
+```
 
 ### 3. Rotate List 
 
@@ -203,7 +204,7 @@ The executable C++ solution for this problem is located under `Spring-2019/linke
 
 The output for C++ solution where `k` = 5 is:
 
-```c++
+```console
 $ g++ -c -std=c++11 ReverseLinkedList.cpp
 $ g++ -o a.out ReverseLinkedList.o
 $ ./a.out
@@ -212,21 +213,49 @@ Given linked list
 Reversed Linked list in groups of given size
 5 4 3 2 1 10 9 8 7 6 15 14 13 12 11 19 18 17 16
 ```
-### 2. PROBLEM 2 TODO :bug:
 
-Source: TODO :bug:
+### 2. Delete Middle Node
 
-#### Naive/Simple Solution
-
-TODO :bug:
+Source: CTCI 6th edition 2.3
 
 #### Optimal Solution
 
-TODO :bug:
+Because we don't have access to the head node of the list, we cannot cycle back to the node in 
+question from the head of the list. This constrains our ability to safely delete the last node 
+in the list, so checking that the node and the node's next item is not `null` is important. If 
+these two checks pass, then we simply replace the node's value with it's successor's value and 
+delete the successor node.
+
+```java
+boolean deleteNode(LinkedListNode n) {
+    if(n == null || n.next == null) {
+        return false; // Failure
+    }
+    LinkedListNode next = n.next;
+    n.data = next.data;
+    n.next = next.next;
+    return true;
+}
+```
 
 #### Testing The Solutions OR Driver For Solution
 
-TODO :bug:
+The executable java test driver is located `spring-2019/linked_lists/Delete_Middle_Node/TestDeleteMiddleNode.java`
+
+```
+Given Linked List:
+a->b->c->d->e->f->Null
+
+Linked List after deletion of middle
+a->b->d->e->f->Null
+
+Result of Null node passed to delete middle function
+false
+
+
+Result of Null node passed to delete middle function
+false
+```
 
 ## 3. Rotate List
 
