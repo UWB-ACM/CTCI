@@ -45,7 +45,10 @@ Source: [CrazyForCode](http://www.crazyforcode.com/rotate-linked-list-k-nodes/)
 
 #### Scenario
 
-Given a singly linked list, rotate the list by `k` nodes.
+Given a singly linked list, rotate the list by `k` nodes. The rotation 
+will cause the first `k` items to be moved to the back of the list.
+
+You may assume that `k` is smaller than the length of the list.
 
 #### Example Input
 
