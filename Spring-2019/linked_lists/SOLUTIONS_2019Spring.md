@@ -34,6 +34,19 @@ not necessarily the exact middle) of a singly linked list, given only access to 
 Node c from the linked list a->b->c->d->e->f is passed to the method
 Result: nothing is returned, but the new linked list looks like a->b->d->e->f
 
+#### Function Signature
+
+Java:
+
+```
+boolean deleteMiddleNode(LinkedListNode n) {}
+```
+
+C++:
+
+```
+boolean deleteMiddleNode(LinkedListNode* n) {}
+```
 
 ### 3. Reverse Nodes in k-Group
 
@@ -107,12 +120,13 @@ TODO :bug:
 
 TODO :bug:
 
-### 2. PROBLEM 2
+### 2. PROBLEM 2. Delete Middle Node
 
-Source:
+Source: CTCI 6th edition 2.3
 
-#### Naive/Simple Solution
+#### Optimal Solution
 
+```
 boolean deleteNode(LinkedListNode n) {
     if(n == null || n.next == null) {
         return false; // Failure
@@ -122,12 +136,7 @@ boolean deleteNode(LinkedListNode n) {
     n.next = next.next;
     return true;
 }
-
-TODO :bug:
-
-#### Optimal Solution
-
-TODO :bug:
+```
 
 #### Testing The Solutions OR Driver For Solution
 The executable java test driver is located `spring-2019/linked_lists/Delete_Middle_Node/TestDeleteMiddleNode.java`
