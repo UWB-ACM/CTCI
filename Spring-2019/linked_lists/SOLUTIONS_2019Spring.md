@@ -94,7 +94,7 @@ Source: CTCI 6th edition 2.3
 
 #### Optimal Solution
 Because we don't have access to the head node of the list, we cannot cycle back to the node in question from the head of the list. This constrains our ability to safely delete the last node in the list, so checking that the node and the node's next item is not `null` is important. If these two checks pass, then we simply replace the node's value with it's successor's value and delete the successor node.
-```
+```java
 boolean deleteNode(LinkedListNode n) {
     if(n == null || n.next == null) {
         return false; // Failure
