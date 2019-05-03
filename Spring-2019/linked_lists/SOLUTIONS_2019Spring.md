@@ -4,21 +4,29 @@ Problems and solutions for Linked List session on May 3, 2019.
 
 ## Problems
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. Reverse Nodes in k-Group
 
-Source: TODO :bug:
+Source: [leetcode](https://leetcode.com/problems/reverse-nodes-in-k-group/)
 
-#### Scenario
+#### Scenario:
 
-Problem Statement TODO :bug:
-
-#### Example Input
-
-If the problem is simple enough, remove this section. TODO :bug:
+Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
+`k` is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of `k`  then left-out nodes in the end should remain as it is.
 
 #### Function Signature
 
-TODO :bug:
+```java
+/**
+* Definition for singly-linked list.
+* public class ListNode {
+*     int val;
+*     ListNode next;
+*     ListNode(int x) { val = x; }
+* }
+*/
+
+public ListNode reverseKGroup(ListNode head, int k) {}
+```
 
 ### 2. Delete Middle Node
 
@@ -37,7 +45,6 @@ Result: nothing is returned, but the new linked list looks like a->b->d->e->f
 #### Function Signature
 
 Java:
-
 ```
 boolean deleteMiddleNode(LinkedListNode n) {}
 ```
