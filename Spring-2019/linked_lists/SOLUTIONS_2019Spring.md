@@ -92,7 +92,7 @@ TODO :bug:
 
 ## Solutions
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. Reverse Nodes in k-Group
 
 Source: [GreeksforGreeks](https://www.geeksforgeeks.org/reverse-a-list-in-groups-of-given-size/)
 
@@ -169,7 +169,7 @@ ListNode reverseKGroup(ListNode head, int k) {
 ```
 #### Testing The Solutions OR Driver For Solution
 
-The executable Java solution for this problem is located under `Spring-2019/linked_lists/Reverse_Nodes_In_k-Group/ReverseLinkedList.cpp`.
+The executable C++ solution for this problem is located under `Spring-2019/linked_lists/Reverse_Nodes_In_k-Group/ReverseLinkedList.cpp`.
 
 The output for C++ solution where `k` = 5 is:
 
