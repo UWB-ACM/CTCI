@@ -57,7 +57,37 @@ Java:
 
 ListNode reverseKGroup(ListNode head, int k) {}
 ```
-### 2. PROBLEM 1 TODO :bug:
+### 2. PROBLEM 2 TODO :bug:
+
+Source: TODO :bug:
+
+#### Scenario
+
+Problem Statement TODO :bug:
+
+#### Example Input
+
+If the problem is simple enough, remove this section. TODO :bug:
+
+#### Function Signature
+
+TODO :bug:
+
+### 3. PROBLEM 3 TODO :bug:
+
+Source: TODO :bug:
+
+#### Scenario
+
+Problem Statement TODO :bug:
+
+#### Example Input
+
+If the problem is simple enough, remove this section. TODO :bug:
+
+#### Function Signature
+
+TODO :bug:
 
 Source: TODO :bug:
 
