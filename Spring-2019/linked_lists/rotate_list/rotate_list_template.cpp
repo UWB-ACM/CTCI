@@ -4,15 +4,17 @@
 
 using namespace std;
 
+template <typename T>
 struct Node {
     Node* next;
-    int data;
+    T data;
 };
 
-Node* rotate(Node* node, int k) {
+template <typename T>
+Node<T>* rotate(Node<T>* node, int k) {
     // placeholder pointers
-    Node* curr = node;
-    Node* newHead = nullptr;
+    Node<T>* curr = node;
+    Node<T>* newHead = nullptr;
     // find k-th element
     for (int i = 1; i < k; i++) {
         curr = curr->next;
@@ -29,7 +31,8 @@ Node* rotate(Node* node, int k) {
     return newHead;
 }
 
-string printList(Node* node) {
+template <typename T>
+string printList(Node<T>* node) {
     stringstream s;
     while (node != nullptr) {
         s << node->data;
@@ -41,7 +44,8 @@ string printList(Node* node) {
     return s.str();
 }
 
-void deleteList(Node* node) {
+template <typename T>
+void deleteList(Node<T>* node) {
     if (node->next != nullptr) {
         deleteList(node->next);
     }
@@ -50,11 +54,11 @@ void deleteList(Node* node) {
 }
 
 int main() {
-    Node* prev = nullptr;
-    Node* curr = nullptr;
-    Node* head = nullptr;
+    Node<int>* prev = nullptr;
+    Node<int>* curr = nullptr;
+    Node<int>* head = nullptr;
     for (int i = 0; i < 10; i++) {
-        curr = new Node();
+        curr = new Node<int>();
         curr->data = i + 1;
         if (prev != nullptr) prev->next = curr;
         if (i == 0) head = curr;

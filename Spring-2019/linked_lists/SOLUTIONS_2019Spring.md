@@ -131,11 +131,10 @@ be broken without losing access to subsequent items.
 Here is the datatype-agnostic implementation in C++:
 
 ```c++
-template <typename T>
-Node<T>* rotate(Node<T>* node, int k) {
+Node* rotate(Node* node, int k) {
     // placeholder pointers
-    Node<T>* curr = node;
-    Node<T>* newHead = nullptr;
+    Node* curr = node;
+    Node* newHead = nullptr;
     // find k-th element
     for (int i = 1; i < k; i++) {
         curr = curr->next;
