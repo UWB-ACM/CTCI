@@ -73,22 +73,6 @@ If the problem is simple enough, remove this section. TODO :bug:
 
 TODO :bug:
 
-### 3. PROBLEM 3 TODO :bug:
-
-Source: TODO :bug:
-
-#### Scenario
-
-Problem Statement TODO :bug:
-
-#### Example Input
-
-If the problem is simple enough, remove this section. TODO :bug:
-
-#### Function Signature
-
-TODO :bug:
-
 ### 3. Rotate List 
 
 Source: [CrazyForCode](http://www.crazyforcode.com/rotate-linked-list-k-nodes/)
@@ -135,23 +119,6 @@ struct Node {
 
 Node* rotate(Node* node, int k);
 ```
-
-### 3. PROBLEM 2 TODO :bug:
-
-Source: TODO :bug:
-
-#### Scenario
-
-Problem Statement TODO :bug:
-
-#### Example Input
-
-If the problem is simple enough, remove this section. TODO :bug:
-
-#### Function Signature
-
-TODO :bug:
-
 
 ## Solutions
 
