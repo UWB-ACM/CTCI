@@ -20,17 +20,30 @@ If the problem is simple enough, remove this section. TODO :bug:
 
 TODO :bug:
 
-### 2. PROBLEM 2 TODO :bug:
+### 2.  Remove K Digits
 
-Source: TODO :bug:
+Source: [leetcode](https://leetcode.com/problems/remove-k-digits/)
 
-#### Scenario
+#### Scenario:
 
-Problem Statement TODO :bug:
+Given a non-negative integer num represented as a string, remove `k` digits from the number so that the new number is the smallest possible.
+
+#### Note:
+
+* The length of num is less than 10002 and will be ≥ k.
+* The given num does not contain any leading zero.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+```
+Input: num = "1432219", k = 3
+Output: "1219"
+Explanation: Remove the three digits 4, 3, and 2 to form the new number 1219 which is the smallest.
+
+Input: num = "10200", k = 1
+Output: "200"
+Explanation: Remove the leading 1 and the number is 200. Note that the output must not contain leading zeroes.
+```
 
 #### Function Signature
 
