@@ -51,7 +51,7 @@ leading zeroes.
 C++:
 
 ```c++
-string removeKdigits(string num, int k){}
+String removeKdigits(String num, int k){}
 ```
 
 Java:
