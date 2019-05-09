@@ -145,4 +145,8 @@ The Driver for this solution can be found under the `validate_stack_sequences` d
 ```
 Pushed: [1, 2, 3, 4, 5], Popped: [4, 5, 3, 2, 1], Output: true
 Pushed: [1, 2, 3, 4, 5], Popped: [4, 3, 5, 1, 2], Output: false
+Pushed: [10, 11, 12, 13, 14, 15, 16], Popped: [10, 11, 12, 13, 14, 15, 16], Output: true
+Pushed: [10, 11, 12, 13, 14, 15, 16], Popped: [13, 16, 15, 14, 12, 11, 10], Output: true
+Pushed: [10, 11, 12, 13, 14, 15, 16], Popped: [10, 11, 12, 13, 14, 15, 17], Output: false
+Pushed: [10, 11, 12, 13, 14, 15, 16], Popped: [16, 16, 16, 16, 16, 16, 16], Output: false
 ```
