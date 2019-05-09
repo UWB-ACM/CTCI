@@ -66,12 +66,14 @@ Explanation: 1 cannot be popped before 2.
 
 C/C++
 ```c++
-bool validateStackSequences(vector<int>& pushed, vector<int>& popped)
+bool validateStackSequences(vector<int>& pushed, vector<int>& popped);
 ```
 
 Java
 ```java
-bool validateStackSequences(int[] pushed, int[] popped)
+bool validateStackSequences(int[] pushed, int[] popped) {
+    // your solution here
+}
 ```
 
 ## Solutions
@@ -123,7 +125,7 @@ At the end, we check if we have popped all the values successfully.
 ```java
 public boolean validateStackSequences(int[] pushed, int[] popped) {
     int N = pushed.length;
-    Stack<Integer> stack = new Stack();
+    Stack<Integer> stack = new Stack<Integer>();
 
     int j = 0;
     for (int x: pushed) {
