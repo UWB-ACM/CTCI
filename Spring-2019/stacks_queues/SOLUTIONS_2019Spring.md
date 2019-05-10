@@ -170,6 +170,10 @@ Input1: 765028321
 Output1: 221
 Input2: 478502841
 Output2: 241
+Input3: 1432219
+Output3: 1219
+Input4: 10200
+Output4: 200
 ```
 
 ## 3. PROBLEM 3 Validate Stack Sequences
