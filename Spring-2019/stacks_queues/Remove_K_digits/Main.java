@@ -2,7 +2,7 @@ import java.util.Stack;
 
 public class Main {
 
-    public static String removeKdigits(String num, int k) {
+    public String removeKdigits(String num, int k) {
         if (num.length() == 0) {
             return "0";
         }
