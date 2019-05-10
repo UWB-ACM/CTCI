@@ -43,7 +43,7 @@ public class Main {
         n = 3;
         String str2 = "1432219";
         System.out.println("Input3: " + str2);
-        String result3 = removeKdigits(str2, n);
+        String result3 = test.removeKdigits(str2, n);
         System.out.println("Output3: " + result3);
         n = 1;
         String str3 = "10200";
