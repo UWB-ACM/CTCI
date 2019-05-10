@@ -30,6 +30,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        Main test = new Main();
         String str = "765028321";
         String str1 = "478502841";
         int n = 5;
