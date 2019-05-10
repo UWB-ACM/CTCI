@@ -35,7 +35,7 @@ public class Main {
         String str1 = "478502841";
         int n = 5;
         System.out.println("Input1: " + str);
-        String result = removeKdigits(str, n);
+        String result = test.removeKdigits(str, n);
         System.out.println("Output1: " + result);
         System.out.println("Input2: " + str1);
         String result2 = removeKdigits(str1, n);
