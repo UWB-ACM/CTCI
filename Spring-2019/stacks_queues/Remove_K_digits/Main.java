@@ -48,7 +48,7 @@ public class Main {
         n = 1;
         String str3 = "10200";
         System.out.println("Input4: " + str3);
-        String result4 = removeKdigits(str3, n);
+        String result4 = test.removeKdigits(str3, n);
         System.out.println("Output4: " + result4);
     }
 }
