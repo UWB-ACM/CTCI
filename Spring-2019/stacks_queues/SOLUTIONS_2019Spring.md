@@ -4,23 +4,7 @@ Problems and solutions for Stacks and Queues session on May 10, 2019.
 
 ## Problems
 
-### 1. PROBLEM 1 TODO :bug:
-
-Source: TODO :bug:
-
-#### Scenario
-
-Problem Statement TODO :bug:
-
-#### Example Input
-
-If the problem is simple enough, remove this section. TODO :bug:
-
-#### Function Signature
-
-TODO :bug:
-
-### 2.  Remove K Digits
+### 1.  Remove K Digits
 
 Source: [leetcode](https://leetcode.com/problems/remove-k-digits/)
 
@@ -60,7 +44,7 @@ Java:
 public String removeKdigits(String num, int k){}
 ```
 
-### 3. PROBLEM 3 Validate Stack Sequences
+### 2. Validate Stack Sequences
 
 Source: [LeetCode](https://leetcode.com/problems/validate-stack-sequences/)
 
@@ -102,23 +86,7 @@ bool validateStackSequences(int[] pushed, int[] popped) {
 
 ## Solutions
 
-### 1. PROBLEM 1 TODO :bug:
-
-Source: TODO :bug:
-
-#### Naive/Simple Solution
-
-TODO :bug:
-
-#### Optimal Solution
-
-TODO :bug:
-
-#### Testing The Solutions OR Driver For Solution
-
-TODO :bug:
-
-### 2. Remove K Digits
+### 1. Remove K Digits
 
 Source: [The Fake Geek's Blog](http://shirleyisnotageek.blogspot.com/2016/10/remove-k-digits.html)
 
@@ -176,7 +144,7 @@ Input4: 10200
 Output4: 200
 ```
 
-## 3. PROBLEM 3 Validate Stack Sequences
+## 2. Validate Stack Sequences
 
 Source: [LeetCode](https://leetcode.com/problems/validate-stack-sequences/)
 
