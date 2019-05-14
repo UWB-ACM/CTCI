@@ -12,7 +12,7 @@ Source: [HackerRank](https://www.hackerrank.com/challenges/balanced-brackets/pro
 
 Given a string containing brackets, determine if it is balanced.
 
-Brackets are defined as `()`, `[]`, or `{}`. Brackets are considered balanced if there is a matching left bracket for every right bracket (vice versa).
+Brackets are defined as `()`, `[]`, or `{}`. Brackets are considered balanced if there is a matching left bracket for every right bracket (and vice versa), and if bracket sets are nested properly.
 
 #### Example Input
 
@@ -81,7 +81,7 @@ Source: [HackerRank](https://www.hackerrank.com/challenges/balanced-brackets/pro
 
 #### Optimal Solution
 
-The fundamental algorith is as follows:
+The fundamental algorithm is as follows:
 
 ```
 Create a stack structure
@@ -147,7 +147,7 @@ Source: [HackerRank](https://www.hackerrank.com/challenges/queue-using-two-stack
 
 #### Optimal Solution
 
-For this structure to work and element order preserved, new items will get pushed to the stack designated `back`. When the stack for `front` is empty, all items in `back` will get pushed to the `front` stack, so that the LIFO back items have their order reversed and the oldest items in `back` are the newest items in `front`.
+For this structure to work and element order to be preserved, new items will get pushed to the stack designated `back`. When the stack for `front` is empty, all items in `back` will get pushed to the `front` stack, so that the LIFO back items have their order reversed and the oldest items in `back` are the newest items in `front`.
 
 The three core methods of the implementation in C++ are as follows:
 
