@@ -29,6 +29,11 @@ Some key tips from the CTCI chapter on the subject (Chap. 9):
   Start with assumptions that seem reasonable. If your interviewer is 
   looking for specific use cases, listen to them carefully and consider 
   how you might incorporate them.
+- **Handle issues as best you can.** When whiteboarding a design, you 
+  will, almost inevitably, discover a problem with your design. That's 
+  okay. Sketch out as much of your design as you can, make note of the 
+  issues you encounter, and rework the design to solve or mitigate the 
+  issue (if you can, or if you have time to).
 - **Do your best.** There is no such thing as a perfect system, and no 
   reasonable person would expect you to design one in an interview. Work 
   hard to communicate your ideas and flesh out an idea based on your 
