@@ -36,21 +36,23 @@ If the problem is simple enough, remove this section. TODO :bug:
 
 TODO :bug:
 
-### 3. PROBLEM 3 TODO :bug:
+### 3. TinyURL
 
-Source: TODO :bug:
+Source: CTCI Chapter 9
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Design a service that produces and manages minified URLs.
 
-#### Example Input
+#### Questions to Consider
 
-If the problem is simple enough, remove this section. TODO :bug:
-
-#### Function Signature
-
-TODO :bug:
+1. As a user, how would you use such a service? What would you expect 
+   from the service?
+2. What are some core (necessary) features of such a service? Are there 
+   additional features that would be useful?
+3. How would you store the destination URL? How would you generate it?
+4. Should minified links expire?
+5. Do you need to make any considerations for deploying this system?
 
 ## Solutions
 
