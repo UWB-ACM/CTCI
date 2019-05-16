@@ -88,20 +88,50 @@ TODO :bug:
 
 TODO :bug:
 
-## 3. PROBLEM 3 TODO :bug:
+### 3. TinyURL
 
-Source: TODO :bug:
+Source: CTCI Chapter 9
 
-#### Naive/Simple Solution 
+#### Taking a First Crack at the Problem
 
-TODO :bug:
+Here's a rough sketch of ideas, potential system components, and 
+design considerations:
 
-#### Optimal Solution
+![system design sketch](./tinyurl/tiny-url-draft.jpg)
 
-TODO :bug:
+#### A Short Writeup
 
-#### Testing The Solutions OR Driver For Solution
+TinyURL would have 2 primary classes of customers:
 
-TODO :bug:
+- Users who generate and manage links
+- Individuals who receive the distributed links and visit the link (and 
+  get redirected to the target destination)
 
+To serve the first class of customers effectively, a web-based UI with 
+registration and account persistence makes the most sense. Users can log 
+in, create links, and update/delete links as desired.
 
+To serve the second class of customers, a web server (or cluster of 
+servers) would need to receive the traffic for the minified URL and 
+redirect the visitor to the target URL.
+
+A database is needed to store the minified links, along with other pertinent 
+information about the link. Using a database would allow for tracking 
+the number of hits for the link, whether the link is active or 
+expired/deleted, and other useful information as necessary. The database 
+might also contain a separate table for the traffic associated with the 
+links, so that the IP address and access date for each individual hit 
+can be tracked.
+
+Additionally, user information (credentials, created links, etc.) will 
+be stored in the database.
+
+The web server(s) used to serve the minified links is a subset of this 
+system that requires careful design inofitself. The expected traffic for 
+the link service is the most important consideration for implementation 
+details. The diagram above describes an outline for using a load 
+balancer to ensure individual servers do not get overwhelmed with traffic, 
+and each individual server will be able to connect with a centralized 
+database. The web application handling the database access requests 
+each time a link is accessed could be a number of platforms; `Flask` 
+has been proposed for small-scale solutions.
