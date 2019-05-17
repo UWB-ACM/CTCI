@@ -54,6 +54,18 @@ Design a service that produces and manages minified URLs.
 4. Should minified links expire?
 5. Do you need to make any considerations for deploying this system?
 
+Example use cases:
+
+- A marketing manager might want to generate a short, memorable link 
+  to a long URL for advertising a service on billboards or on the radio.
+- Providing a single link to a resource that might change over time 
+  so that the short link can be consistent even if the corresponding 
+  long link might change.
+- Specific examples of links that would benefit from short links:
+  - https://github.com/UWB-ACM/CTCI/blob/master/Spring-2019/linked_lists/Reverse_Nodes_In_k-Group/ReverseLinkedList.cpp
+  - https://www.google.com/maps/place/University+of+Washington+Bothell+Library/@47.7596,-122.1962305,16.23z/data=!4m5!3m4!1s0x54900e6449b9be3d:0x2dd46fc8c43b08bd!8m2!3d47.7599151!4d-122.1913241
+  - https://smile.amazon.com/ap/signin?_encoding=UTF8&openid.assoc_handle=amzn_smile&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fsmile.amazon.com%2Fgp%2Fcharity%2Fhomepage.html%3Fie%3DUTF8%26newts%3D1%26orig%3DLw%253D%253D
+
 ## Solutions
 
 ### 1. PROBLEM 1 TODO :bug:
@@ -107,9 +119,23 @@ TinyURL would have 2 primary classes of customers:
 - Individuals who receive the distributed links and visit the link (and 
   get redirected to the target destination)
 
-To serve the first class of customers effectively, a web-based UI with 
+To serve the first class of users effectively, two considerations 
+are needed. 
+1. The customer might just require a single quick link, and doesn't need 
+   an account with the service.
+2. The customer might want to register an account to generate and manage 
+   many links for a specific entity or project.
+
+For the first class of customer, the links should be generated without 
+requiring login credentials.
+
+For the second class of customer, a web-based UI with 
 registration and account persistence makes the most sense. Users can log 
-in, create links, and update/delete links as desired.
+in, create links, and update/delete links as desired. 
+This is also a good opportunity to provide a rich set of features to 
+incentivize account creation (or even paid accounts); metrics reporting, 
+custom URL endpoint names, and other options can be incorporated into 
+the system implementation.
 
 To serve the second class of customers, a web server (or cluster of 
 servers) would need to receive the traffic for the minified URL and 
@@ -124,7 +150,7 @@ links, so that the IP address and access date for each individual hit
 can be tracked.
 
 Additionally, user information (credentials, created links, etc.) will 
-be stored in the database.
+be stored in the database as applicable.
 
 The web server(s) used to serve the minified links is a subset of this 
 system that requires careful design inofitself. The expected traffic for 
