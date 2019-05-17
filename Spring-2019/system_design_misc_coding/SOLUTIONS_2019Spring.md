@@ -59,21 +59,15 @@ seats on the plane are not over booked. Create a UML class diagram illustrating 
 relationship between any classes you would need to represent this reservation system.
 
 
-### 2. PROBLEM 2 TODO :bug:
+### 2. Instagram
 
-Source: TODO :bug:
+Source: Alex van Zuiden-Rylander
 
 #### Scenario
 
-Problem Statement TODO :bug:
-
-#### Example Input
-
-If the problem is simple enough, remove this section. TODO :bug:
-
-#### Function Signature
-
-TODO :bug:
+- What is a high-level system design of a photo sharing app, like instagram? 
+- What database tables might you want to use to store data? 
+- Extra: what fields might you want to put in the tables?
 
 ### 3. TinyURL
 
@@ -110,21 +104,14 @@ Example use cases:
 ### 1. Flight Reservation UML Class Diagram
 This diagram can be located in `Spring-2019/system_design_misc_coding/Flight_Reservation/Flight_Reservation_System.png`
 ![Reservation Diagram](./Flight_Reservation/Flight_Reservation_System.png)
-### 2. PROBLEM 2 TODO :bug:
 
-Source: TODO :bug:
+### 2. Instagram
 
-#### Naive/Simple Solution
+Source: Alex van Zuiden-Rylander
 
-TODO :bug:
+#### Diagrams and System Sketches
 
-#### Optimal Solution
-
-TODO :bug:
-
-#### Testing The Solutions OR Driver For Solution
-
-TODO :bug:
+![system sketch](./instagram/instagram-problem-diagram.jpg)
 
 ### 3. TinyURL
 
