@@ -10,7 +10,7 @@ Source: Tom Blanchard
 
 #### Scenario
 
-A plane with 300 seats; 50 first class seats, 50 comfort seats and 200 economy seats
+A plane has 300 seats; 50 first class seats, 50 comfort seats and 200 economy seats.
 The airline must have a way for customers to reserve their seats. How would you design a system for 
 keeping track of customers reserving seats, managing confirmations, and making sure that 
 seats on the plane are not over booked. Create a UML class diagram illustrating the 
