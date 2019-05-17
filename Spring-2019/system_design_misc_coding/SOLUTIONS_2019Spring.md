@@ -53,7 +53,7 @@ TODO :bug:
 
 ### 1. Flight Reservation UML Class Diagram
 This diagram can be located in `Spring-2019/system_design_misc_coding/Flight_Reservation/Flight_Reservation_System.png`
-
+![Reservation Diagram](./Flight_Reservation/Flight_Reservation_System.png)
 ### 2. PROBLEM 2 TODO :bug:
 
 Source: TODO :bug:
