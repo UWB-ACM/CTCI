@@ -28,7 +28,7 @@ A node with no children is called a leaf node.
 A binary tree has no inherent order to how data is added to the tree 
 or organized inside the tree. However, the structure of the tree itself 
 is guaranteed (that is, any node in a binary tree has either 0, 1, or 2 
-children.
+children).
 
 A binary tree can be defined in C++ as follows:
 
@@ -44,6 +44,7 @@ class BinaryTree {
 A binary tree node can be defined in C++ as follows:
 
 ```c++
+<template typename T>
 struct Node {
     T data;
     Node leftChild;
