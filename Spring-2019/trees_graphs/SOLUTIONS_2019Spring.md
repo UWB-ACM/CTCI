@@ -60,14 +60,18 @@ An example of a binary tree that contains integers is:
 A binary search tree (BST) has all of the same properties as a binary 
 tree, but also has the following additional property:
 
-**In the BST, each node's left-hand child, if it exists, has data which is 
-comparatively *smaller* than its own data. Similarly, each node's right-hand 
-child, if it exists, has data which is comparatively *larger* than its own 
-data.**
+**In the BST, each node's left-hand subtree has data which is comparatively 
+*smaller* than its own data. 
+Similarly, each node's right-hand subtree has data which is comparatively 
+*larger* than its own data.**
 
 This property implies inherent order in the tree's data. Searching for a 
-particular item in a BST is quite efficient, with a runtime time complexity 
-of `O(log N)` TODO confirm this :bug:.
+particular item in a BST is quite efficient, with a typical runtime time 
+complexity of `O(log N)`.
+
+An example of a binary search tree that contains characters is:
+
+![binary search tree](./background/binarysearchtree.png)
 
 ### What is a graph?
 
