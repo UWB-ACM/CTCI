@@ -76,6 +76,40 @@ An example of a binary search tree that contains characters is:
 
 ### What is a graph?
 
+A graph is also a data structure that organizes and shows relationships 
+between individual data nodes. However, a graph is not organized in a 
+heirarchal way the way a tree is. Nodes in a graph are not required 
+to be connected, and connections (or _edges_) between nodes can be 
+created and destroyed dynamically.
+
+Graphs are meaningful in the context of computer science because they 
+are an excellent model for social interactions. Most social media interactions 
+can be represented using graphs.
+
+#### Undirected Graphs
+
+![facebook as an undirected graph](./background/facebook-undirected.png)
+
+#### Directed Graphs
+
+![twitter as a directed graph](./background/twitter-directed.png)
+
+#### Weighted Graphs
+
+Until now, we have looked at graphs whose connections do not have any 
+special qualities. A common quality that graph edges might possess are 
+_weights_. Weights are usually associated with a cost or benefit of 
+the relationship between the nodes. 
+
+Consider a graph which represents 
+a map of highways between major US cities. Each graph edge, representing 
+a highway, might have a _weight_ that represents the number of miles 
+between those cities using that highway. This data structure can be 
+used to calculate the shortest route between two different cities, 
+for example. For more information about this subclass of problems, 
+we recommend reading about 
+[Dijkstra's Algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm).
+
 ## Problems
 
 ### 1. PROBLEM 1 TODO :bug:
