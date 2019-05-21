@@ -82,6 +82,8 @@ heirarchal way the way a tree is. Nodes in a graph are not required
 to be connected, and connections (or _edges_) between nodes can be 
 created and destroyed dynamically.
 
+It is useful to observe that a tree is a form of an undirected graph.
+
 Graphs are meaningful in the context of computer science because they 
 are an excellent model for social interactions. Most social media interactions 
 can be represented using graphs.
