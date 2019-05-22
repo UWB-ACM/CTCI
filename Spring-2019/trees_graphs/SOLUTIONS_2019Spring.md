@@ -130,17 +130,44 @@ TODO :bug:
 
 TODO :bug:
 
-## 3. PROBLEM 3 TODO :bug:
+### 3. Six Degrees of Kevin Bacon
 
-Source: TODO :bug:
+Source: Lizzy Presland
 
-#### Naive/Simple Solution 
+#### Solution
 
-TODO :bug:
+The solution for this problem is a specialized version of Dijkstra's 
+algorithm. The use of tenets of the algorithm is important because 
+multiple different paths may lead to the same node, and we want to 
+progress if a smaller path allows more subsequent nodes to be found.
 
-#### Optimal Solution
+A pseudocode algorithm for the implementation might look something like this:
 
-TODO :bug:
+TODO :bug: fix the pseudocode after implementation is done
+
+```
+// edge case
+check the graph's set of nodes for "Kevin Bacon"; return null if absent
+// graph search setup
+create:
+    a set of objects which contain a valid node and the weight sum to access that node from Kevin Bacon
+    a queue of nodes to check next, containing the node and the neighbor's weight
+add all of Kevin Bacon's neighbors to the queue
+// conduct a breadth-first search of the graph
+while the queue is not empty:
+    get weightsum of current path (predecessor weight + queue item's weight)
+    if weightsum > 6; do not proceed with current item
+    else:
+        if the queue item is not in the set of objects:
+            check to make sure the weight value is less than 6
+            if this check passes, add the queue item to the set
+        otherwise (the queue item is in the set):
+            take the set item's current weightsum
+            compare with weightsum of current path we are travelling
+            if current path has lower weightsum, replace the weightsum in the set
+       add all neighbors of current queue item to queue
+        
+```
 
 #### Testing The Solutions OR Driver For Solution
 
