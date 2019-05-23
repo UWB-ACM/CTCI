@@ -362,7 +362,7 @@ create:
     a map of objects which contain a valid node and the weight sum to access that node from Kevin Bacon
     an additional map that maps the current node to the previous node in lowest-sum traversal
     a set of nodes that have already been visited
-    a queue of nodes to check next, containing the node and the neighbor's weight
+    a queue (priority queue) of nodes to check next, containing the node and the neighbor's weight
 add all of Kevin Bacon's neighbors to the queue, if the weight is less than 6
 // use Dijkstra's algorithm to traverse the graph
 while the queue is not empty:
@@ -372,10 +372,11 @@ while the queue is not empty:
     else:
         if the queue item is not in the weightsum map:
             add the queue item to the weightsum and previous-node maps
-        otherwise (the queue item is in the set):
+        otherwise (the queue item is in the weightsum map):
             if the current path results in smaller weight than what is already recorded:
                 update the weightsum and previous maps with the current values
-       add all neighbors of current queue item to queue
+        add all neighbors of current queue item to queue, if not previously visited
+        mark the current node as visited
 return the weightsum map
 ```
 
@@ -452,7 +453,7 @@ map<Node*, int>* Graph::sixDegrees() {
     }
     return weights;
 }
-
+```
 
 #### Testing The Solutions OR Driver For Solution
 
