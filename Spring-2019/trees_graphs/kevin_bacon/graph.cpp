@@ -3,6 +3,9 @@
 #include <set>
 #include <map>
 #include <string>
+#include <queue>        // priority_queue
+#include <utility>      // pair
+#include <functional>   // greater (for pairs in pq)
 
 Graph::Graph() {
     vertices = new set<Node*>();
@@ -38,10 +41,6 @@ bool Graph::connect(string from, string to, int weight) {
 }
 
 set<Node*>* Graph::sixDegrees() {
-    // return immediately if Kevin Bacon does not exist in graph
-    if (vertices->count("Kevin Bacon") == 0) {
-        return nullptr;
-    }
     // create an iterator for the method
     set<Node*>::iterator it;
     // get the pointer to start node (Kevin Bacon)
@@ -49,26 +48,26 @@ set<Node*>* Graph::sixDegrees() {
     for (it = vertices->begin(); it != vertices->end(); ++it) {
         if ((*it)->getName() == "Kevin Bacon") currNode = *it;
     }
-    // TODO: fix everything below this point
-    /*
+    // return immediately if Kevin Bacon does not exist in graph
+    if (currNode == nullptr) return nullptr;
     // create a priority queue for handling paths in order
-    priority_queue<pair<int, string>, vector<pair<int, string>>,
-                        greater<pair<int, string>>> pq;
+    priority_queue<pair<int, Node*>, vector<pair<int, Node*>>,
+                        less<pair<int, Node*>>> pq;
     // create sets for managing visited and unvisited vertices
-    set<string> explored;
-    // create a temp string to track which vertex is being inspected
-    string currLabel = startLabel;
+    set<Node*> explored;
+    map<Node*, int> weights;
+    map<Node*, Node*> previous;
     // add the outbound neighbors of currLabel to the queue, and reset
     // the weights for those items
-    list<pair<string, int>>& edgeList = edges->at(currLabel);
-    for (list<pair<string, int>>::iterator it = edgeList.begin();
-                        it != edgeList.end(); ++it) {
-        pq.push(make_pair((*it).second, (*it).first));
-        weights[(*it).first] = (*it).second;
-        previous[(*it).first] = currLabel;
+    map<Node*, int>::iterator mit;
+    map<Node*, int>* currEdges = currNode->getEdges();
+    for (mit = currEdges->begin(); mit != currEdges->end(); ++mit) {
+        pq.push(make_pair(mit->second, mit->first));
+        weights[mit->first] = mit->second;
+        previous[mit->first] = currNode;
     }
     // add currLabel to explored set
-    explored.insert(currLabel);
+    explored.insert(currNode);
     // here comes the fun part
     while (!pq.empty()) {
         // Basic Steps:
@@ -79,39 +78,34 @@ set<Node*>* Graph::sixDegrees() {
         // then, iterate through current neighbor's next neighbors.
         // if next neighbors have not already been explored, push
         // them to the priority queue.
-        pair<int, string> currVertex = pq.top();
-        currLabel = currVertex.second;
+        pair<int, Node*> currVertex = pq.top();
+        currNode = currVertex.second;
         pq.pop();
-        explored.insert(currLabel);
+        explored.insert(currNode);
         // inspect neighbors for weight differentials and
         // queue neighbors for further inspection
-        list<pair<string, int>>& nextEdgeList = edges->at(currLabel);
-        for (list<pair<string, int>>::iterator it = nextEdgeList.begin();
-                        it != nextEdgeList.end(); ++it) {
+        currEdges = currNode->getEdges();
+        for (mit = currEdges->begin(); mit != currEdges->end(); ++mit) {
             // for each neighbor, check whether current weight val of
             // startLabel->neighbor is g.t. current weight val of
-            // currLabel + neighbor.weight; if so, reassign weight val.
-            if (weights.count((*it).first) == 0) {
-                weights[(*it).first] = weights[currLabel] + (*it).second;
-                previous[(*it).first] = currLabel;
-            } else if (weights[(*it).first] >
-                                weights[currLabel] + (*it).second) {
-                weights[(*it).first] = weights[currLabel] + (*it).second;
-                previous[(*it).first] = currLabel;
+            // currNode + neighbor.weight; if so, reassign weight val.
+            if (weights.count(mit->first) == 0 && mit->second <= 6) {
+                weights[mit->first] = weights[currNode] + mit->second;
+                previous[mit->first] = currNode;
+            } else if (weights[mit->first] > weights[currNode] + mit->second
+                            && weights[currNode] + mit->second <= 6) {
+                weights[mit->first] = weights[currNode] + mit->second;
+                previous[mit->first] = currNode;
             }
-            if (explored.count((*it).first) == 0) {
+            if (explored.count(mit->first) == 0) {
                 // add the node to the priority queue to be explored
-                pq.push(make_pair((*it).second, (*it).first));
+                pq.push(make_pair(mit->second, mit->first));
             }
         }
     }
-    // if a cycle occurs in the graph, then the originating node will
-    // be added with cyclical weight & previous node entries; these
-    // should be removed.
-    if (weights.count(startLabel) != 0) {
-        weights.erase(startLabel);
-        previous.erase(startLabel);
-    }
-    */
-    return nullptr;
+    // assemble a set of the nodes contained in weights
+    set<Node*>* result = new set<Node*>();
+    for (mit = weights.begin(); mit != weights.end(); ++mit)
+        if (mit->first->getName() != "Kevin Bacon") result->insert(mit->first);
+    return result;
 }

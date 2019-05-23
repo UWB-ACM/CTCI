@@ -14,7 +14,7 @@ Node::~Node() {
 }
 
 bool Node::addEdge(Node* neighbor, int weight) {
-    if (edges->count(neighbor) == 0) return false;
+    if (edges->count(neighbor) != 0) return false;
     (*edges)[neighbor] = weight;
     return true;
 }
