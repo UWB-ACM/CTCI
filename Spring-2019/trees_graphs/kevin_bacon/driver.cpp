@@ -2,6 +2,8 @@
 #include "node.h"
 #include <set>
 #include <string>
+#include <sstream>
+#include <iostream>
 
 using namespace std;
 
@@ -13,10 +15,36 @@ Graph* createGraph1() {
     return g1;
 }
 
+Graph* createGraph2() {
+    Graph* g2 = new Graph();
+    g2->connect("Kevin Bacon", "lennyface", 14);
+    g2->connect("Kevin Bacon", "crabperson", 2);
+    g2->connect("crabperson", "lennyface", 2);
+    g2->connect("lennyface", "reachthis", 2);
+    g2->connect("reachthis", "notthis", 1);
+    g2->connect("reachthis", "thisalso", 0);
+    return g2;
+}
+
+string printGraph(map<Node*, int> m) {
+    stringstream ss;
+    for (map<Node*, int>::iterator it = m.begin(); it != m.end(); ++it) {
+        ss << "Name: " << it->first->getName();
+        ss << "\tDegrees: " << it->second << endl;
+    }
+    return ss.str();
+}
+
 int main() {
     Graph* g1 = createGraph1();
-    set<Node*>* g1results = g1->sixDegrees();
-    // TODO: print results?
+    map<Node*, int> g1results = g1->sixDegrees();
+    cout << "G1:\n" << printGraph(g1results);
+    Graph* g2 = createGraph2();
+    map<Node*, int> g2results = g2->sixDegrees();
+    cout << "G2:\n" << printGraph(g2results);
     delete g1;
+    delete g2;
+    // delete g1results;
+    // delete g2results;
     return 0;
 }
