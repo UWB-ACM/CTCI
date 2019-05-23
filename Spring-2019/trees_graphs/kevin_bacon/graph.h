@@ -14,7 +14,7 @@ class Graph {
         Graph();
         ~Graph();
         bool connect(string, string, int);
-        map<Node*, int> sixDegrees();
+        map<Node*, int>* sixDegrees();
 };
 
 #endif      // GRAPH_H__

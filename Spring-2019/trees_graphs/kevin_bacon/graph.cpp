@@ -41,7 +41,7 @@ bool Graph::connect(string from, string to, int weight) {
     return true;
 }
 
-map<Node*, int> Graph::sixDegrees() {
+map<Node*, int>* Graph::sixDegrees() {
     // create an iterator for the method
     set<Node*>::iterator it;
     // get the pointer to start node (Kevin Bacon)
@@ -50,14 +50,14 @@ map<Node*, int> Graph::sixDegrees() {
         if ((*it)->getName() == "Kevin Bacon") currNode = *it;
     }
     // return immediately if Kevin Bacon does not exist in graph
-    map<Node*, int> weights;
-    if (currNode == nullptr) return weights;
+    if (currNode == nullptr) return nullptr;
     // create a priority queue for handling paths in order
     priority_queue<pair<int, Node*>, vector<pair<int, Node*>>,
                         greater<pair<int, Node*>>> pq;
     // create sets for managing visited and unvisited vertices
     set<Node*> explored;
     map<Node*, Node*> previous;
+    map<Node*, int>* weights = new map<Node*, int>();
     // add the outbound neighbors of currLabel to the queue, and reset
     // the weights for those items
     map<Node*, int>::iterator mit;
@@ -65,7 +65,7 @@ map<Node*, int> Graph::sixDegrees() {
     for (mit = currEdges->begin(); mit != currEdges->end(); ++mit) {
         if (mit->second <= 6) {
             pq.push(make_pair(mit->second, mit->first));
-            weights[mit->first] = mit->second;
+            (*weights)[mit->first] = mit->second;
             previous[mit->first] = currNode;
         }
     }
@@ -94,13 +94,13 @@ map<Node*, int> Graph::sixDegrees() {
             // for each neighbor, check whether current weight val of
             // startLabel->neighbor is g.t. current weight val of
             // currNode + neighbor.weight; if so, reassign weight val.
-            if (weights.count(mit->first) == 0 && weights[currNode] + mit->second <= 6) {
-                weights[mit->first] = weights[currNode] + mit->second;
+            if (weights->count(mit->first) == 0 && (*weights)[currNode] + mit->second <= 6) {
+                (*weights)[mit->first] = (*weights)[currNode] + mit->second;
                 previous[mit->first] = currNode;
-            } else if (weights.count(mit->first) > 0 
-                            && weights[mit->first] > weights[currNode] + mit->second
-                            && weights[currNode] + mit->second <= 6) {
-                weights[mit->first] = weights[currNode] + mit->second;
+            } else if (weights->count(mit->first) > 0 
+                            && (*weights)[mit->first] > (*weights)[currNode] + mit->second
+                            && (*weights)[currNode] + mit->second <= 6) {
+                (*weights)[mit->first] = (*weights)[currNode] + mit->second;
                 previous[mit->first] = currNode;
             }
             if (explored.count(mit->first) == 0) {
