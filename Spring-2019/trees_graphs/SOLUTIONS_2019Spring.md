@@ -213,8 +213,8 @@ individuals which are within six degrees of Kevin Bacon.
 
 #### Part II
 
-Write code (or pseudocode) to determine which nodes, if any, are within 6 degrees of 
-Kevin Bacon.
+Write code (or pseudocode) to determine which nodes in a given graph 
+are within 6 degrees of Kevin Bacon, if any.
 
 ##### Function Signature
 
