@@ -122,7 +122,7 @@ Source: [GeeksforGeeks](https://www.geeksforgeeks.org/construct-all-possible-bst
 
 The optimal solution for this problem is to maintain a list of roots of all BSTs. Recursively construct all possible left and right subtrees. Create a tree for every pair of left and right subtree and add the tree to list.
 
-Time Complexity: `O(2n)`
+Time Complexity: `O(n)`
 
 Here is a solution method:
 
