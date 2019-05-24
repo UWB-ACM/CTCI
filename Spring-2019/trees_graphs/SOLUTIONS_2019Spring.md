@@ -114,23 +114,7 @@ we recommend reading about
 
 ## Problems
 
-### 1. PROBLEM 1 TODO :bug:
-
-Source: TODO :bug:
-
-#### Scenario
-
-Problem Statement TODO :bug:
-
-#### Example Input
-
-If the problem is simple enough, remove this section. TODO :bug:
-
-#### Function Signature
-
-TODO :bug:
-
-### 2. Unique Binary Search Trees
+### 1. Unique Binary Search Trees
 
 Source: [leetcode](https://leetcode.com/problems/unique-binary-search-trees-ii/)
 
@@ -191,7 +175,7 @@ C++:
 vector<TreeNode*> generateTrees(int n) {}
 ```
 
-### 3. Six Degrees of Kevin Bacon
+### 2. Six Degrees of Kevin Bacon
 
 Source: Lizzy Presland
 
@@ -254,23 +238,7 @@ class Node {
 
 ## Solutions
 
-### 1. PROBLEM 1 TODO :bug:
-
-Source: TODO :bug:
-
-#### Naive/Simple Solution
-
-TODO :bug:
-
-#### Optimal Solution
-
-TODO :bug:
-
-#### Testing The Solutions OR Driver For Solution
-
-TODO :bug:
-
-### 2. Unique Binary Search Trees
+### 1. Unique Binary Search Trees
 
 Source: [GeeksforGeeks](https://www.geeksforgeeks.org/construct-all-possible-bsts-for-keys-1-to-n/)
 
@@ -339,7 +307,7 @@ Generate the tree in preorder traversal
 [4, 3, 2, 1,]
 ```
 
-### 3. Six Degrees of Kevin Bacon
+### 2. Six Degrees of Kevin Bacon
 
 Source: Lizzy Presland
 
