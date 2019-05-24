@@ -471,9 +471,9 @@ G1:
 Name: Marilyn Manson    Degrees: 5
 Name: Fred Flinstone    Degrees: 6
 G2:
-Name: lennyface     Degrees: 4
-Name: crabperson    Degrees: 2
-Name: reachthis     Degrees: 6
-Name: thisalso      Degrees: 6
+Name: Christian Bale        Degrees: 5
+Name: Helena Bonham-Carter  Degrees: 2
+Name: Bruce Wayne           Degrees: 6
+Name: Batman                Degrees: 6
 ```
 

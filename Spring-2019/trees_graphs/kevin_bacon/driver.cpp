@@ -17,12 +17,13 @@ Graph* createGraph1() {
 
 Graph* createGraph2() {
     Graph* g2 = new Graph();
-    g2->connect("Kevin Bacon", "lennyface", 14);
-    g2->connect("Kevin Bacon", "crabperson", 2);
-    g2->connect("crabperson", "lennyface", 2);
-    g2->connect("lennyface", "reachthis", 2);
-    g2->connect("reachthis", "notthis", 1);
-    g2->connect("reachthis", "thisalso", 0);
+    g2->connect("Kevin Bacon", "Christian Bale", 14);
+    g2->connect("Kevin Bacon", "Helena Bonham-Carter", 2);
+    g2->connect("Helena Bonham-Carter", "Christian Bale", 3);
+    g2->connect("Christian Bale", "Bruce Wayne", 1);
+    g2->connect("Bruce Wayne", "The Joker", 1);
+    g2->connect("Bruce Wayne", "Batman", 0);
+    g2->connect("The Joker", "Batman", 1);
     return g2;
 }
 
