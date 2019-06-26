@@ -79,15 +79,63 @@ Source: [LeetCode](https://leetcode.com/problems/two-sum/)
 
 #### Naive/Simple Solution
 
-TODO :bug:
+The naive solution is expressed in the following pseudocode:
+
+```
+for each number in the array:
+    check all other numbers in the array
+        for each pair, check to see if the sum matches the target
+        if so, return the two corresponding indeces for the found numbers
+```
+
+This is a rather cumbersome and inefficient solution, because all pairs of numbers get checked twice, and the overall complexity of the solution is `O(N^2)`.
 
 #### Optimal Solution
 
-TODO :bug:
+A much better solution to this problem requires an additional data structure to store previous entries, but only requires a single traversal of the argument array.
+
+It is expressed in the following pseudocode:
+
+```
+create an empty map, which maps the array's value to its index
+for each number in the array:
+    find the difference between number and target value
+    if the difference exists in the map:
+        return the two corresponding indeces
+    else:
+        add the current number to the map
+```
+
+This implementation has a time complexity of `O(N)` and a worst-case space complexity of `O(N)`. The full implementation in Java is as follows:
+
+```java
+public int[] twoSum(int[] arr, int target) {
+    // create an array for resulting indeces
+    int[] result = null; // = new int[2];
+    // check edge cases
+    if (arr == null || arr.length < 2) {
+        return result;
+    }
+    // create the map
+    Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+    // loop over array, build map
+    for (int i = 0; i < arr.length; i++) {
+        if (map.containsKey(target - arr[i])) {
+            result = new int[2];
+            result[0] = map.get(target - arr[i]);
+            result[1] = i;
+            return result;
+        } else {
+            map.put(arr[i], i);
+        }
+    }
+    return result;
+}
+```
 
 #### Testing The Solutions
 
-TODO :bug:
+The full solution for the optimized version is available in `Winter-2019/arrays_sorting/two_sum/TwoSum.java`.
 
 ### 2. Rotate Matrix
 
