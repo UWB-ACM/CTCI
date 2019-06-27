@@ -120,17 +120,52 @@ public int getNodeFromTail(Node head, int idx) {
 
 Source: [HackerRank](https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list-in-reverse/problem)
 
-#### Naive/Simple Solution
+#### Solution
 
-TODO :bug:
+For the provided `Node` class, the best solution recursively traverses the list and prints the node value before each recursive stack frame is destroyed.
 
-#### Optimal solution
+This is not a great solution for extensive lists because recursion incurs stack frames and can cause a stack overflow if the list is sufficiently large. In situations like that, an iterative approach is appropriate, and using a doubly linked list would allow iterative printing of the reversed list without repeatedly iterating down the list at incrementally smaller depths.
 
-TODO :bug:
+The Java solution is below:
+
+```java
+public static void reverse(Node head) {
+    if (head == null) return;
+    reverse(head.next);
+    System.out.println(head.data);
+}
+```
 
 #### Testing The Solutions
 
-TODO :bug:
+The Java solution is in `Winter-2019/linked_lists/reverse_print/ReversePrint.java`. The solution can be run as follows:
+
+```console
+$ javac *.java
+$ java ReversePrint
+Original array:
+4
+13
+12
+-3
+4
+8
+9
+17
+0
+3
+Reversed array:
+3
+0
+17
+9
+8
+4
+-3
+12
+13
+4
+```
 
 ### 2. Cycle Detection
 
