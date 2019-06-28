@@ -210,15 +210,45 @@ Testing list without cycle.	Result: False
 
 Source: [HackerRank](https://www.hackerrank.com/challenges/get-the-value-of-the-node-at-a-specific-position-from-the-tail/problem)
 
-#### Naive/Simple Solution
+#### Recursive Solution
 
 TODO :bug:
 
-#### Optimal solution
+#### Iterative Solution
 
-TODO :bug:
+A more clever and language-agnostic solution to this problem takes advantage of keeping track of the offset between the current node position and the node we are trying to target.
+
+A leader pointer traverses the list in a for loop which keeps track of the integer index. When the index value becomes equal to the desired value of `k`, the desired offset has been found, and the result node pointer begins to traverse in lockstep with the leader pointer.
+
+When the leader pointer has reached a null value, the result node pointer has been located because the `k` interval has been preserved.
+
+The Java implementation is as follows:
+
+```java
+public static int getValueIterative(Node head, int target) {
+    Node result = head;
+    for (int i = 0; head != null; i++) {
+        head = head.next;
+        // preserve the interval between head and result
+        if (i >= target) result = result.next;
+    }
+    return result.data;
+}
+```
 
 #### Testing The Solutions
+
+The solutions can be found in `Winter-2019/linked_lists/node_value`.
+
+The iterative solution is in `GetValue.java`, and can be run as follows with the following output:
+
+```console
+$ javac *.java
+$ java GetValue
+Original array: 3 18 4 9 12 -6 2 
+k = 3:  12
+k = 20: 3
+```
 
 TODO :bug:
 
