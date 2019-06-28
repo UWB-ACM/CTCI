@@ -212,7 +212,32 @@ Source: [HackerRank](https://www.hackerrank.com/challenges/get-the-value-of-the-
 
 #### Recursive Solution
 
-TODO :bug:
+In a problem like this, we would normally look to recursion as a possible solution to the problem. This is a valid approach, but requires unusual and awkward language features to accomplish it correctly.
+
+C++ was used for this implementation because of the way references are treated. The language features allow the `k`th item to be tracked correctly across all stack frames, and it allows the resulting value to be updated when the correct node has been found after the recursive path has been travelled.
+
+```c++
+int getValue(Node* head, int& k) {
+    int result = -1;
+    getValueRecursiveHelper(head, k, k, result);
+    return result;
+}
+
+void getValueRecursiveHelper(Node* head, int& k, int original, int& val) {
+    // base case; begin backtracking through frames
+    if (head == nullptr) {
+        k--;
+        return;
+    }
+    // make recursive call otherwise
+    getValueRecursiveHelper(head->next, k, original, val);
+    // ensure the correct value is stored in the result reference
+    if (k == 0) val += (0 - val + head->data);
+    if (k < original) k--;
+}
+```
+
+_Note: the caveat of this solution is that the _`result`_ value will not reflect a real array value if _`k`_ is greater than the list's length. A slightly better way of indicating as much would be to use a minimum or maximum constant value from the language's library._
 
 #### Iterative Solution
 
@@ -221,6 +246,8 @@ A more clever and language-agnostic solution to this problem takes advantage of 
 A leader pointer traverses the list in a for loop which keeps track of the integer index. When the index value becomes equal to the desired value of `k`, the desired offset has been found, and the result node pointer begins to traverse in lockstep with the leader pointer.
 
 When the leader pointer has reached a null value, the result node pointer has been located because the `k` interval has been preserved.
+
+
 
 The Java implementation is as follows:
 
@@ -236,6 +263,8 @@ public static int getValueIterative(Node head, int target) {
 }
 ```
 
+_Note: the caveat of this solution is that the _`result`_ value will actually reflect the head node's value if _`k`_ is greater than the list's length._
+
 #### Testing The Solutions
 
 The solutions can be found in `Winter-2019/linked_lists/node_value`.
@@ -250,6 +279,11 @@ k = 3:  12
 k = 20: 3
 ```
 
-TODO :bug:
+The recursive solution is in `getvalue.cpp`, and can be run as follows with the following output:
 
-
+```console
+$ g++ -o test getvalue.cpp
+$ ./test
+k = 3:	4	(Expecting 4)
+k = 8:	-1	(Expecting -1)
+```
