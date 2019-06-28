@@ -30,14 +30,14 @@ class Node {
 
 };
 
-int getValueRecursiveHelper(Node* head, int& k, int original, int& val) {
-    if (head == nullptr) return k--;
+void getValueRecursiveHelper(Node* head, int& k, int original, int& val) {
+    if (head == nullptr) {
+        k--;
+        return;
+    }
     getValueRecursiveHelper(head->next, k, original, val);
     if (k == 0) val += (0 - val + head->data);
     if (k < original) k--;
-    if (k <= 0) return val;
-    // if all else fails
-    return -1;
 }
 
 int getValue(Node* head, int& k) {
