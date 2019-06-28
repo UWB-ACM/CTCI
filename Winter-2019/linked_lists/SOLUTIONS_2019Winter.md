@@ -171,17 +171,40 @@ Reversed array:
 
 Source: [HackerRank](https://www.hackerrank.com/challenges/detect-whether-a-linked-list-contains-a-cycle/forum)
 
-#### Naive/Simple Solution
+#### Solution
 
-TODO :bug:
+The only reliable way to ensure any cycle at any point in the list is detected is to take a leapfrog approach. Two pointers traverse the list at different rates, so that one pointer can reach the end of the list (or traverse the cycle point) ahead of the other one. Regardless of the length of the cycle or the number of steps the faster pointer takes in each iteration, the pointers are guaranteed to eventually land on the same list node at some point, at which point the function will return true.
 
-#### Optimal Solution
+Note: both pointers must continue to traverse the list because the cycle can occur at any point in the list (not necessarily at the head).
 
-TODO :bug:
+This solution is implemented in Python in the function below.
+
+```python
+def hasCycle(head):
+    # check the edge case
+    if head is None:
+        return False
+    # create the leapfrog pointers
+    tortoise = head
+    hare = head
+    # begin traversing the list
+    while hare is not None and hare.next is not None:
+        tortoise = tortoise.next
+        hare = hare.next.next
+        if tortoise == hare:
+            return True
+    return False
+```
 
 #### Testing The Solutions
 
-TODO :bug:
+The complete Python implementation is available in `Winter-2019/linked_lists/cycle_detect/cycle.py`. The output of the script is as follows:
+
+```console
+$ python cycle.py
+Testing list with cycle.	Result: True
+Testing list without cycle.	Result: False
+```
 
 ### 3. Get Node Value
 
