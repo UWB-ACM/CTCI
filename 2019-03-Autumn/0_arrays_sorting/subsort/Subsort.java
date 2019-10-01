@@ -1,11 +1,16 @@
 public class Subsort {
     public static int[] subsort(int[] array) {
-        // edge cases
-        if (array.length <= 1) return new int[]{array.length, array.length};
-        if (array[0] > array[array.length - 1]) return new int[]{0, array.length - 1};
+        // edge case
+        // if array is empty or length 1, no sorting is required. 
+        // return -1 as indeces (or null, if the client can guarantee null checking)
+        if (array.length <= 1) return new int[]{-1, -1};
 
-        // find bounds for sorted LHS + RHS
+        // find bounds for sorted LHS 
         int lhs = getSortedLhs(array);
+        // if LHS spans entire array, we can return a minimal window of 0 length
+        if (lhs >= array.length - 1) return new int[]{-1, -1};
+
+        // find bounds for sorted RHS
         int rhs = getSortedRhs(array);
         // find min and max in center section
         int min = array[lhs];
@@ -27,13 +32,15 @@ public class Subsort {
     private static int getSortedLhs(int[] arr) {
         for (int i = 1; i < arr.length; i++)
             if (arr[i] < arr[i-1]) return i;
-        return 0;
+        // because we move right, maximum bound is array's last idx
+        return arr.length - 1;
     }
 
     private static int getSortedRhs(int[] arr) {
         for (int i = arr.length - 1; i > 0; i--)
             if (arr[i - 1] > arr[i]) return i;
-        return arr.length - 1;
+        // because we move left, minimum bound is 0
+        return 0;
     }
 
     private static void printArray(int[] arr) {
@@ -53,5 +60,17 @@ public class Subsort {
         printArray(test2);
         System.out.print("Result: ");
         printArray(subsort(test2));
+        int[] test3 = new int[]{};
+        printArray(test3);
+        System.out.print("Result: ");
+        printArray(subsort(test3));
+        int[] test4 = new int[]{1, 2, 3, 4, 5, 6, 7, 10, 15, 20};
+        printArray(test4);
+        System.out.print("Result: ");
+        printArray(subsort(test4));
+        int[] test5 = new int[]{10, 9, 8, 6, 5, 3, 2, 1, 0};
+        printArray(test5);
+        System.out.print("Result: ");
+        printArray(subsort(test5));
     }
 }

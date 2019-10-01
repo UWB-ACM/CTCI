@@ -53,21 +53,10 @@ Output: `(3, 9)`
 
 #### Function Signature
 
-Java example:
+No function signature is provided as part of the problem statement.
 
-```java
-public int[] subSort(int[] array) {
-    // your code here
-}
-```
-
-C++ example:
-
-```c++
-pair<int, int> subSort(int* array, int length) {
-    // your code here
-}
-```
+In interviews, you are typically expected to design your own function 
+signature and explain the reasoning behind your decision.
 
 ## Solutions
 
@@ -127,12 +116,17 @@ Then, we expand outwards, comparing our `unsorted_min` to `arr[lhs]` and decreme
 
 ```java
 public static int[] subsort(int[] array) {
-    // edge cases
-    if (array.length <= 1) return new int[]{array.length, array.length};
-    if (array[0] > array[array.length - 1]) return new int[]{0, array.length - 1};
+    // edge case
+    // if array is empty or length 1, no sorting is required. 
+    // return -1 as indeces (or null, if the client can guarantee null checking)
+    if (array.length <= 1) return new int[]{-1, -1};
 
-    // find bounds for sorted LHS + RHS
+    // find bounds for sorted LHS 
     int lhs = getSortedLhs(array);
+    // if LHS spans entire array, we can return a minimal window of 0 length
+    if (lhs >= array.length - 1) return new int[]{-1, -1};
+
+    // find bounds for sorted RHS
     int rhs = getSortedRhs(array);
     // find min and max in center section
     int min = array[lhs];
@@ -154,13 +148,15 @@ public static int[] subsort(int[] array) {
 private static int getSortedLhs(int[] arr) {
     for (int i = 1; i < arr.length; i++)
         if (arr[i] < arr[i-1]) return i;
-    return 0;
+    // because we move right, maximum bound is array's last idx
+    return arr.length - 1;
 }
 
 private static int getSortedRhs(int[] arr) {
     for (int i = arr.length - 1; i > 0; i--)
         if (arr[i - 1] > arr[i]) return i;
-    return arr.length - 1;
+    // because we move left, minimum bound is 0
+    return 0;
 }
 ```
 
