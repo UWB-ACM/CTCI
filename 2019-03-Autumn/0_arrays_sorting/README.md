@@ -26,7 +26,9 @@ Source: [GeeksforGeeks](https://www.geeksforgeeks.org/minimum-swaps-required-gro
 
 #### Scenario
 
-Given an array of **0’s** and **1’s**, we need to write a program to find the **minimum** number of swaps required to group all 1’s present in the array together.
+Given an array of **0’s** and **1’s**, we need to write a program to find the  
+**minimum** number of swaps required to group all 1’s present in the array  
+together.
 
 #### Example Input
 
@@ -39,7 +41,7 @@ Explanation `swap a[1] and a[4] results in [1, 1, 1, 0, 0]`
 Python example:
 
 ```python
-def min_swaps(l):
+def min_swaps(array):
     # your code here
 ```
 
@@ -93,28 +95,31 @@ Source: [GeeksforGeeks](https://www.geeksforgeeks.org/minimum-swaps-required-gro
 
 ##### Steps
 
-Our goal is to (somehow) swap the 1's in the array so that all of the 1's are next to each other. So, we can think in reverse and figure out the thing we are looking for is the subarray with length *`1's count`* that already contains the most 1's (aka the destination). The count of 0's in that subarray will then be the minimum swaps required.
-<!-- First, we count the total number of 1's in the array. Suppose the count is *x*, we then count the number of 1's in each subarray of length *x*. The minimum of that will be our answer. -->
+Our goal is to (somehow) swap the 1's in the array so that all of the 1's are  
+next to each other. So, we can think in reverse and figure out the thing we are  
+looking for is the subarray with length *`1's count`* that already contains the  
+most 1's (aka the destination). The count of 0's in that subarray will then be  
+the minimum swaps required.
 
 ##### Implementation
 
 ```python
-def min_swaps(l):
+def min_swaps_naive(array):
     # count total number of 1's
     total_count = 0
-    for num in l:
+    for num in array:
         if num == 1:
             total_count += 1
     
     max_one_count = 0
-    # iterate thru `len(l) - total_count` subarrays
-    for i in range(len(l) - total_count + 1):
+    # iterate thru `len(array) - total_count` subarrays
+    for i in range(len(array) - total_count + 1):
         
         one_count = 0
 
         # count number of 1's in a subarray
         for j in range(total_count):
-            if l[i + j] == 1:
+            if array[i + j] == 1:
                 one_count += 1
         
         if one_count > max_one_count:
@@ -128,22 +133,27 @@ def min_swaps(l):
 
 ##### Steps
 
-Optimize the naive solution using the **sliding window** approach. We first count the number of 1's in the first subarray. Then we just advance the right and left side of the window, adding the right element to `running_count` and subtracting the left element from `running_count` followed by a check for max. This approach improves by cutting down the number of times of inspecting each element of the array.
+Optimize the naive solution using the **sliding window** approach. We first  
+count the number of 1's in the first subarray. Then we just advance the right  
+and left side of the window, adding the right element to `running_count` and  
+subtracting the left element from `running_count` followed by a check for max.  
+This approach improves by cutting down the number of times of inspecting each  
+element of the array.
 
 ##### Implementation
 
 ```python
-def min_swaps(l):
+def min_swaps_efficient(array):
     # count total number of 1's
     total_count = 0
-    for num in l:
+    for num in array:
         if num == 1:
             total_count += 1
 
     running_count = 0
     # need to count the first subarray
     for i in range(total_count):
-        if l[i] == 1:
+        if array[i] == 1:
             running_count += 1
     
     max_one_count = running_count
@@ -151,11 +161,11 @@ def min_swaps(l):
     # sliding window
     left = 0
     right = total_count
-    while right < len(l):
+    while right < len(array):
 
-        if l[left] == 1:
+        if array[left] == 1:
             running_count -= 1
-        if l[right] == 1:
+        if array[right] == 1:
             running_count += 1
 
         if running_count > max_one_count:
@@ -166,20 +176,21 @@ def min_swaps(l):
     return total_count - max_one_count
 ```
 
-Pythonic?
+An implementation in Python which makes use of language features and compresses  
+some of the verbosity of the optimal solution is as follows:
 
 ```python
-def min_swaps(l):
-    total_count = l.count(1)
-    running_count = l[:total_count].count(1)
+def min_swaps_pythonic(array):
+    total_count = array.count(1)
+    running_count = array[:total_count].count(1)
     max_one_count = running_count
-    for x,y in zip(l, l[total_count:]):
-        running_count += y - x
+    for left, right in zip(array, array[total_count:]):
+        running_count += right - left
         max_one_count = max(max_one_count, running_count)
     return total_count - max_one_count
 ```
 
-#### Testing The Solutions OR Driver For Solution
+#### Testing The Solutions
 
 [The python implementation is available here.](./min-group1s/min-group1s.py)
 
