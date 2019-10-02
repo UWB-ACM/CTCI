@@ -19,19 +19,25 @@ public class Subsort {
             if (array[i] < min) min = array[i];
             if (array[i] > max) max = array[i];
         }
-
         // Shrink LHS and RHS segments so that 
         // all LHS items are less than min and 
         // all RHS items are greater than max.
         while (lhs > 0 && array[lhs - 1] > min) lhs--;
         while (rhs < array.length - 2 && array[rhs + 1] < max) rhs++;
+        // Fencepost case for rhs index; if rhs gets incremented to 
+        // final array index, the truth condition above fails and the 
+        // value of the last index place never gets checked.
+        // If the desired bounds were not inclusive bounds, this would 
+        // not be necessary.
+        // (see [ 2, 1, 1 ] example)
+        if (rhs == array.length - 2 && array[rhs + 1] < max) rhs++;
 
         return new int[]{lhs, rhs};
     }
 
     private static int getSortedLhs(int[] arr) {
         for (int i = 1; i < arr.length; i++)
-            if (arr[i] < arr[i-1]) return i;
+            if (arr[i] < arr[i-1]) return i - 1;
         // because we move right, maximum bound is array's last idx
         return arr.length - 1;
     }
@@ -72,5 +78,17 @@ public class Subsort {
         printArray(test5);
         System.out.print("Result: ");
         printArray(subsort(test5));
+        int[] test6 = new int[]{1, 2, 1};
+        printArray(test6);
+        System.out.print("Result: ");
+        printArray(subsort(test6));
+        int[] test7 = new int[]{2, 1, 1};
+        printArray(test7);
+        System.out.print("Result: ");
+        printArray(subsort(test7));
+        int[] test8 = new int[]{1, 2, 4, 2};
+        printArray(test8);
+        System.out.print("Result: ");
+        printArray(subsort(test8));
     }
 }
