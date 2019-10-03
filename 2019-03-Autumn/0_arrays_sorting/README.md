@@ -111,7 +111,7 @@ def min_swaps_naive(array):
         if num == 1:
             total_count += 1
     
-    max_one_count = 0
+    max_count_in_subarray = 0
     # iterate thru `len(array) - total_count` subarrays
     for i in range(len(array) - total_count + 1):
         
@@ -122,11 +122,11 @@ def min_swaps_naive(array):
             if array[i + j] == 1:
                 one_count += 1
         
-        if one_count > max_one_count:
-            max_one_count = one_count
+        if one_count > max_count_in_subarray:
+            max_count_in_subarray = one_count
 
     # count of 0's is the actual answer
-    return total_count - max_one_count
+    return total_count - max_count_in_subarray
 ```
 
 #### Optimal Solution
@@ -156,7 +156,7 @@ def min_swaps_efficient(array):
         if array[i] == 1:
             running_count += 1
     
-    max_one_count = running_count
+    max_count_in_subarray = running_count
     
     # sliding window
     left = 0
@@ -168,12 +168,12 @@ def min_swaps_efficient(array):
         if array[right] == 1:
             running_count += 1
 
-        if running_count > max_one_count:
-            max_one_count = running_count
+        if running_count > max_count_in_subarray:
+            max_count_in_subarray = running_count
         left += 1
         right += 1
 
-    return total_count - max_one_count
+    return total_count - max_count_in_subarray
 ```
 
 An implementation in Python which makes use of language features and compresses  
@@ -183,11 +183,11 @@ some of the verbosity of the optimal solution is as follows:
 def min_swaps_pythonic(array):
     total_count = array.count(1)
     running_count = array[:total_count].count(1)
-    max_one_count = running_count
+    max_count_in_subarray = running_count
     for left, right in zip(array, array[total_count:]):
         running_count += right - left
-        max_one_count = max(max_one_count, running_count)
-    return total_count - max_one_count
+        max_count_in_subarray = max(max_count_in_subarray, running_count)
+    return total_count - max_count_in_subarray
 ```
 
 #### Testing The Solutions
