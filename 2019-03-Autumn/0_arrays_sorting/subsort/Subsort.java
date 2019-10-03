@@ -23,14 +23,7 @@ public class Subsort {
         // all LHS items are less than min and 
         // all RHS items are greater than max.
         while (lhs > 0 && array[lhs - 1] > min) lhs--;
-        while (rhs < array.length - 2 && array[rhs + 1] < max) rhs++;
-        // Fencepost case for rhs index; if rhs gets incremented to 
-        // final array index, the truth condition above fails and the 
-        // value of the last index place never gets checked.
-        // If the desired bounds were not inclusive bounds, this would 
-        // not be necessary.
-        // (see [ 2, 1, 1 ] example)
-        if (rhs == array.length - 2 && array[rhs + 1] < max) rhs++;
+        while (rhs < array.length - 1 && array[rhs + 1] < max) rhs++;
 
         return new int[]{lhs, rhs};
     }
