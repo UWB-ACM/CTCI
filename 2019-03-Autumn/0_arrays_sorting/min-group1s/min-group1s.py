@@ -93,3 +93,34 @@ for test in testcases:
     print("Naive: " + str(naive), 
           "Efficient: " + str(efficient), 
           "Pythonic: " + str(pythonic), sep=", ")
+
+import random
+import timeit
+
+random.seed(123)
+print("Building array of length 10000 for runtime comparison...")
+
+large_array = [random.randint(0, 1) for _ in range(10000)]
+
+print("Testing naive solution...")
+start = timeit.default_timer()
+naive = min_swaps_naive(large_array)
+stop = timeit.default_timer()
+print("Runtime of naive:", stop - start)
+
+print("Testing efficient solution...")
+start = timeit.default_timer()
+efficient = min_swaps_efficient(large_array)
+stop = timeit.default_timer()
+print("Runtime of efficient:", stop - start)
+
+print("Testing pythonic solution...")
+start = timeit.default_timer()
+pythonic = min_swaps_pythonic(large_array)
+stop = timeit.default_timer()
+print("Runtime of pythonic:", stop - start)
+
+print("Results: ", end="")
+print("Naive: " + str(naive),
+      "Efficient: " + str(efficient),
+      "Pythonic: " + str(pythonic), sep=", ")

@@ -26,8 +26,8 @@ Source: [GeeksforGeeks](https://www.geeksforgeeks.org/minimum-swaps-required-gro
 
 #### Scenario
 
-Given an array of **0’s** and **1’s**, we need to write a program to find the  
-**minimum** number of swaps required to group all 1’s present in the array  
+Given an array of **0’s** and **1’s**, we need to write a program to find the 
+**minimum** number of swaps required to group all 1’s present in the array 
 together.
 
 #### Example Input
@@ -192,13 +192,14 @@ def min_swaps_pythonic(array):
 
 #### Time Complexity
 
-The naive solution has a **best case of O(n)** in cases of 1 `1's` and all `1's`; 
+The naive solution has a **best case of `O(n)`** in cases of 1 `1` and all `1`'s; 
 however, if half of the elements are `1's`, time complexity becomes the **worst 
-case of O(n^2)**.
+case of `O(n^2)`**.
+The average case would be `O(n^2)`.
 
-(n/2 elements per subarray) * (n/2 + 1 subarrays) = (n^2 + 2n)/4 = O(n^2)
+`(n/2 elements per subarray) * (n/2 + 1 subarrays) = (n^2 + 2n)/4 = O(n^2)`
 
-The efficient solution **maintains O(n)** for the worst case, since we adopted the 
+The efficient solution **maintains `O(n)`** for the worst case, since we adopted the 
 sliding window approach, every element will only be accessed at most twice 
 during calculation of `running_count`.
 
