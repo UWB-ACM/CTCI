@@ -112,7 +112,7 @@ def min_swaps_naive(array):
             total_count += 1
     
     max_count_in_subarray = 0
-    # iterate thru `len(array) - total_count` subarrays
+    # iterate thru `len(array) - total_count + 1` subarrays
     for i in range(len(array) - total_count + 1):
         
         one_count = 0
@@ -189,6 +189,18 @@ def min_swaps_pythonic(array):
         max_count_in_subarray = max(max_count_in_subarray, running_count)
     return total_count - max_count_in_subarray
 ```
+
+#### Time Complexity
+
+The naive solution has a **best case of O(n)** in cases of 1 `1's` and all `1's`;  
+however, if half of the elements are `1's`, time complexity becomes the **worst  
+case of O(n^2)**.
+
+(n/2 elements per subarray) * (n/2 + 1 subarrays) = (n^2 + 2n)/2 = O(n^2)
+
+The efficient solution **maintains O(n)** for the worst case, since we adopted the  
+sliding window approach, every element will only be accessed at most twice  
+during calculation of `running_count`.
 
 #### Testing The Solutions
 

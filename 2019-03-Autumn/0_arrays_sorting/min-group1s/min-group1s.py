@@ -8,7 +8,7 @@ def min_swaps_naive(array):
             total_count += 1
     
     max_count_in_subarray = 0
-    # iterate thru `len(array) - total_count` subarrays
+    # iterate thru `len(array) - total_count + 1` subarrays
     for i in range(len(array) - total_count + 1):
         
         one_count = 0
