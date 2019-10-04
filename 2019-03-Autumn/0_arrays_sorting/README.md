@@ -25,9 +25,9 @@ return [0, 1].
 
 Java:
 
-```public int[] twoSum(int[] nums, int target) {}```
-
-TODO :bug:
+```java
+public int[] twoSum(int[] nums, int target) {}
+```
 
 ### 2. Minimum Swaps to Group All 1's Together
 
