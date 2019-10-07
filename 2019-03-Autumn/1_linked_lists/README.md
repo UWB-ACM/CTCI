@@ -290,26 +290,11 @@ Algorithm
 Convert merge \text{k}k lists problem to merge 2 lists (\text{k-1}k-1) times. Here is the merge 2 lists problem page.
 
 Complexity Analysis
-
 Time complexity : O(kN) where k is the number of linked lists.
-
 We can merge two sorted linked list in O(n) time where nn is the total number of nodes in two lists.
-Sum up the merge process and we can get: O(\sum_{i=1}^{k-1} (i*(\frac{N}{k}) + \frac{N}{k})) = O(kN)O(∑ 
-i=1
-k−1
-​    
-​    (i∗( 
-​    k
-​    N
-​    
-​    )+ 
-​    k
-​    N
-​    
-​    ))=O(kN).
-​    Space complexity : O(1)
-​    
-​    We can merge two sorted linked list in O(1) space. 
+
+Space complexity : O(1)
+​We can merge two sorted linked list in O(1) space. 
 
 #### Testing The Solutions OR Driver For Solution
 
