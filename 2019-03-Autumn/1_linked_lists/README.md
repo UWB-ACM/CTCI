@@ -143,11 +143,12 @@ bool detectLoop(Node* head) {
 
 In the previous solution, we were able to detect the existence of a loop. Now, 
 to find where the loop starts, one technique is to count the number of nodes in 
-the loop. Since we know if we have a loop, the `n`th node in the loop will be 
-the same as the (`n` + `sizeOfLoop`)th node. Having that information, we can 
-adopt a technique similar to the one used in Problem 1. Starting from the head, 
-make the two pointers having a distance of the size of the loop, and step 
-through the linked list (at the same pace this time) until they meet.
+the loop. Since we know we have a loop, for any node `n` in the list where `n` 
+is also in the loop, `n` will be the same node as the (`n` + `sizeOfLoop`)th 
+node. Having that information, we can adopt a technique similar to the one used 
+in Problem 1. Starting from the head, make the two pointers having a distance 
+of the size of the loop, and step through the linked list (at the same pace 
+this time) until they meet.
 
 ```c++
 struct Node {
