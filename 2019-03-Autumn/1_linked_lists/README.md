@@ -89,7 +89,7 @@ C++:
 struct Node {
     int data;
     Node* next;
-}
+};
 
 Node* sumReversedNums(Node* n1, Node* n2) {
     // your code here
@@ -144,6 +144,9 @@ Source: CTCI 2.5
 Because the order in which we add the digits is the same order in which 
 they are presented, we iterate through the lists in lockstep and add 
 the `sum % 10` of the respective list nodes to a new list we call `result`. 
+As with traditional addition, we carry a 1 when `sum` is greater than 9, 
+and that extra value gets included in the next `sum` operation for 
+the subsequent node. 
 This approach requires checking whether the either of the current nodes 
 are `null`, and when both are `null`, the loop terminates.
 
@@ -271,7 +274,7 @@ void addElements(Node* n1, Node* n2, Result* result) {
 }
 
 // Entry point for recursive solution
-Node* getListSum(Node* n1, Node* n2) {
+Node* sumOrderedNums(Node* n1, Node* n2) {
     // pad list if needed
     int n1Length = length(n1);
     int n2Length = length(n2);

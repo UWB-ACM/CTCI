@@ -68,7 +68,7 @@ void addElements(Node* n1, Node* n2, Result* result) {
 }
 
 // Entry point for recursive solution
-Node* getListSum(Node* n1, Node* n2) {
+Node* sumOrderedNums(Node* n1, Node* n2) {
     // pad list if needed
     int n1Length = length(n1);
     int n2Length = length(n2);
@@ -117,7 +117,7 @@ void test1() {
     cout << "L2: ";
     printList(n2);
     cout << "Sum: ";
-    Node* result = getListSum(n1, n2);
+    Node* result = sumOrderedNums(n1, n2);
     printList(result);
     deleteList(n1, false);
     deleteList(n2, false);
@@ -148,7 +148,7 @@ void test2() {
     cout << "L2: ";
     printList(n2);
     cout << "Sum: ";
-    Node* result = getListSum(n1, n2);
+    Node* result = sumOrderedNums(n1, n2);
     printList(result);
     deleteList(n1, false);
     deleteList(n2, false);
