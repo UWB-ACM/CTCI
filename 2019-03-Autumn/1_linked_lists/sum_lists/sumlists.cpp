@@ -54,6 +54,12 @@ void printList(Node* n) {
     cout << n->data << " )" << endl;
 }
 
+void deleteList(Node* n) {
+    if (n == nullptr) return;
+    deleteList(n->next);
+    delete n;
+}
+
 void test1() {
     // 9999 + 1 = 10000
     Node* n1 = new Node();
@@ -71,7 +77,11 @@ void test1() {
     cout << "L2: ";
     printList(n2);
     cout << "Sum: ";
-    printList(sumReversedNums(n1, n2));
+    Node* result = sumReversedNums(n1, n2);
+    printList(result);
+    deleteList(n1);
+    deleteList(n2);
+    deleteList(result);
 }
 
 void test2() {
@@ -98,7 +108,11 @@ void test2() {
     cout << "L2: ";
     printList(n2);
     cout << "Sum: ";
-    printList(sumReversedNums(n1, n2));
+    Node* result = sumReversedNums(n1, n2);
+    printList(result);
+    deleteList(n1);
+    deleteList(n2);
+    deleteList(result);
 }
 
 int main() {

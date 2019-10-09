@@ -23,6 +23,13 @@ void printList(Node* n) {
 }
 
 // Helper function
+void deleteList(Node* n, bool trim) {
+    if (n == nullptr || trim && n->data != 0) return;
+    deleteList(n->next, trim);
+    delete n;
+}
+
+// Helper function
 int length(Node* n) {
     int count = 0;
     while (n != nullptr) {
@@ -65,8 +72,15 @@ Node* getListSum(Node* n1, Node* n2) {
     // pad list if needed
     int n1Length = length(n1);
     int n2Length = length(n2);
-    if (n1Length > n2Length) n2 = padListWithZeroes(n2, n1Length - n2Length);
-    else n1 = padListWithZeroes(n1, n2Length - n1Length);
+    bool trimN1 = false;
+    bool trimN2 = false;        // needed for memory cleanup
+    if (n1Length > n2Length) {
+        n2 = padListWithZeroes(n2, n1Length - n2Length);
+        trimN2 = true;
+    } else {
+        n1 = padListWithZeroes(n1, n2Length - n1Length);
+        trimN1 = true;
+    }
     // create result wrapper
     Result* result = new Result();
     // begin recursion
@@ -78,7 +92,12 @@ Node* getListSum(Node* n1, Node* n2) {
         tmp->next = result->head;
         result->head = tmp;
     }
-    return result->head;
+    // memory cleanup
+    if (trimN1) deleteList(n1, true);
+    if (trimN2) deleteList(n2, true);
+    Node* tmp = result->head;
+    delete result;
+    return tmp;
 }
 
 void test1() {
@@ -98,7 +117,11 @@ void test1() {
     cout << "L2: ";
     printList(n2);
     cout << "Sum: ";
-    printList(getListSum(n1, n2));
+    Node* result = getListSum(n1, n2);
+    printList(result);
+    deleteList(n1, false);
+    deleteList(n2, false);
+    deleteList(result, false);
 }
 
 void test2() {
@@ -125,7 +148,11 @@ void test2() {
     cout << "L2: ";
     printList(n2);
     cout << "Sum: ";
-    printList(getListSum(n1, n2));
+    Node* result = getListSum(n1, n2);
+    printList(result);
+    deleteList(n1, false);
+    deleteList(n2, false);
+    deleteList(result, false);
 }
 
 int main() {
