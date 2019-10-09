@@ -21,7 +21,7 @@ bool detectLoop(Node* head) {
     return false;
 }
 
-Node* startOfLoop(Node* head) {
+Node* startOfLoopIntro(Node* head) {
     Node* fast = head;
     Node* slow = head;
     while (fast != nullptr && fast->next != nullptr) {
@@ -29,6 +29,38 @@ Node* startOfLoop(Node* head) {
         slow = slow->next;
         if (fast == slow) {
             // now we need to find the start of the loop
+            // count number of nodes in loop
+            int sizeOfLoop = 1;
+            slow = slow->next;
+            while (fast != slow) {
+                slow = slow->next;
+                sizeOfLoop++;
+            }
+            // now we can go back to the head
+            fast = head; slow = head;
+            // and make the distance of the pointers the size of the loop
+            for (int i = 0; i < sizeOfLoop; i++) {
+                fast = fast->next;
+            }
+            // now move both at the same pace
+            while (slow != fast) {
+                slow = slow->next;
+                fast = fast->next;
+            }
+            return slow;
+        }
+    }
+    // fast hit nullptr, no loop
+    return nullptr;
+}
+
+Node* startOfLoop(Node* head) {
+    Node* fast = head;
+    Node* slow = head;
+    while (fast != nullptr && fast->next != nullptr) {
+        fast = fast->next->next;
+        slow = slow->next;
+        if (fast == slow) {
             fast = head;
             while (slow != fast) {
                 slow = slow->next;
@@ -65,21 +97,25 @@ void addToEnd(Node* head, Node* toAdd) {
 int main() {
     Node* test1 = array2LinkedList({1,2,3,4,5,6,7,8});
     std::cout << "Test1, detectLoop: " << detectLoop(test1) << std::endl;
+    std::cout << "Test1, startOfLoopIntro: " << startOfLoopIntro(test1) << std::endl;
     std::cout << "Test1, startOfLoop: " << startOfLoop(test1) << std::endl;
     
     Node* test2 = array2LinkedList({1,2,3,4,5,6,7,8});
     addToEnd(test2, test2->next->next);     // the '3' Node
     std::cout << "Test2, detectLoop: " << detectLoop(test2) << std::endl;
+    std::cout << "Test2, startOfLoopIntro: " << startOfLoopIntro(test2)->data << std::endl;
     std::cout << "Test2, startOfLoop: " << startOfLoop(test2)->data << std::endl;
     
     Node* test3 = array2LinkedList({1,2,3,4,5,6,7,8});
     addToEnd(test3, test3);     // the head aka '1' Node
     std::cout << "Test3, detectLoop: " << detectLoop(test3) << std::endl;
+    std::cout << "Test3, startOfLoopIntro: " << startOfLoopIntro(test3)->data << std::endl;
     std::cout << "Test3, startOfLoop: " << startOfLoop(test3)->data << std::endl;
     
     Node* test4 = array2LinkedList({1,2,3,4,5,6,7,8});
     addToEnd(test4, test4->next->next->next->next->next->next->next);   // last Node
     std::cout << "Test4, detectLoop: " << detectLoop(test4) << std::endl;
+    std::cout << "Test4, startOfLoopIntro: " << startOfLoopIntro(test4)->data << std::endl;
     std::cout << "Test4, startOfLoop: " << startOfLoop(test4)->data << std::endl;
     
     return 0;

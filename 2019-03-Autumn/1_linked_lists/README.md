@@ -26,7 +26,8 @@ Source: CTCI 2.8
 
 #### Scenario
 
-Given a circular (or non-circular) linked list, implement an algorithm that returns the node at the beginning of the loop.
+Given a circular (or non-circular) linked list, implement an algorithm that 
+returns the node at the beginning of the loop if a loop exists.
 
 #### Example Input
 
@@ -113,8 +114,9 @@ Source: CTCI 2.8
 
 #### Solution for Detect Loop
 
-By using the *slow pointer and fast pointer* approach, we can guarantee that in 
-the case which there is a loop, the 2 pointers will meet at some node in the loop.
+By using the *slow pointer and fast pointer* (or *tortoise and hare*) approach,
+we can guarantee that in the case which there is a loop, the 2 pointers will 
+meet at some node in the loop.
 
 ```c++
 struct Node {
@@ -137,13 +139,60 @@ bool detectLoop(Node* head) {
 }
 ```
 
-#### Solution for Start of Loop
+#### Solution for Start of Loop (Intro)
 
-To find the start of the loop, we first do the same steps as the solution above.
-When the pointers collide, we move one of the pointers back to head, and move 
-both pointers again, but at the normal (one at the time) speed. When they 
-collide again, we have found the answer.
+In the previous solution, we were able to detect the existence of a loop. Now, 
+to find where the loop starts, one technique is to count the number of nodes in 
+the loop. Since we know if we have a loop, the `n`th node in the loop will be 
+the same as the (`n` + `sizeOfLoop`)th node. Having that information, we can 
+adopt a technique similar to the one used in Problem 1. Starting from the head, 
+make the two pointers having a distance of the size of the loop, and step 
+through the linked list (at the same pace this time) until they meet.
 
+```c++
+struct Node {
+    int data;
+    Node* next;
+};
+
+Node* startOfLoopIntro(Node* head) {
+    Node* fast = head;
+    Node* slow = head;
+    while (fast != nullptr && fast->next != nullptr) {
+        fast = fast->next->next;
+        slow = slow->next;
+        if (fast == slow) {
+            // now we need to find the start of the loop
+            // count number of nodes in loop
+            int sizeOfLoop = 1;
+            slow = slow->next;
+            while (fast != slow) {
+                slow = slow->next;
+                sizeOfLoop++;
+            }
+            // now we can go back to the head
+            fast = head; slow = head;
+            // and make the distance of the pointers the size of the loop
+            for (int i = 0; i < sizeOfLoop; i++) {
+                fast = fast->next;
+            }
+            // now move both at the same pace
+            while (slow != fast) {
+                slow = slow->next;
+                fast = fast->next;
+            }
+            return slow;
+        }
+    }
+    // fast hit nullptr, no loop
+    return nullptr;
+}
+```
+
+#### Optimal Solution for Start of Loop
+
+It turns out that counting the size of the loop isn't needed. We just need to 
+set one of the pointers back to head and move both pointers until they meet.
 
 [GeeksforGeeks](https://www.geeksforgeeks.org/detect-and-remove-loop-in-a-linked-list/)
 has a good explanation of why this works.
@@ -161,7 +210,6 @@ Node* startOfLoop(Node* head) {
         fast = fast->next->next;
         slow = slow->next;
         if (fast == slow) {
-            // now we need to find the start of the loop
             fast = head;
             while (slow != fast) {
                 slow = slow->next;
