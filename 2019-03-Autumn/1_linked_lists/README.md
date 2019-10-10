@@ -4,21 +4,51 @@ Problems and solutions for Linked List session on October 11, 2019.
 
 ## Problems
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. Return Kth To Last
 
-Source: TODO :bug:
+Source: CTCI 2.2
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Implement an algorithm to find the `k`th to last element of a singly 
+linked list.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+Input: `8 -> 3 -> 14 -> -3 -> 8 -> 9 -> 4`, `k = 6`
+
+Output: `3`
 
 #### Function Signature
 
-TODO :bug:
+Java:
+
+```java
+public class Node {
+    Node next;
+    int data;
+}
+
+public Node getKthToLast(Node head, int k) {
+    // your code here
+}
+```
+
+C++:
+
+```c++
+struct Node {
+    Node* next;
+    int data;
+};
+
+Node* getKthToLast(Node* head, int k) {
+    // your code here
+}
+```
+
+_Note: you are not limited to the languages or given utility 
+classes/functions you see here._
 
 ### 2. Loop Detection
 
@@ -141,21 +171,128 @@ Node* sumOrderedNums(Node* n1, Node* n2) {
 
 ## Solutions
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. Return Kth To Last
 
-Source: TODO :bug:
+Source: CTCI 2.2
 
-#### Naive/Simple Solution
+#### Iterative Solution (Simple)
 
-TODO :bug:
+If we know that we desire the `k`th to last element of the list, we can 
+easily displace two separate pointers `k - 1` distance apart from each 
+other. When these pointers move in lockstep down the list and the 
+`leader` pointer arrives at the last element of the list, we know that 
+the `follower` has arrived at the desired element.
 
-#### Optimal Solution
+A Python implementation would be:
 
-TODO :bug:
+```python3
+def get_kth_to_last_iterative(k: int, head: Node = None):
+    if head is None:
+        return None
+    leader = head
+    target = head
+    # Move our leader pointer forward k - 1 nodes.
+    for x in range(k - 1):
+        # Edge case: our list is shorter than k nodes.
+        if leader.next is None:
+            return None
+        else:
+            leader = leader.next
+    # Move leader and target pointers forward in lockstep until 
+    # the end of the list is reached.
+    while leader.next is not None:
+        leader = leader.next
+        target = target.next
+    return target
+```
+
+#### Recursive Solution (Less Simple)
+
+Achieving the same result using recursion is more cumbersome when 
+compared to the iterative solution and requires some inventiveness on 
+our part.
+
+In theory, we should be able to traverse the entire list and increment 
+a counter as the stack frames resolve until the counter reaches `k`. 
+However, this presents several problems for implementation: 
+
+1. We must ensure that the `counter` value is updated correctly for 
+    all parent stack frames.
+2. We must be able to pass up the found node (if it is found) without 
+    the previous stack frames continuing `counter` incrementation.
+3. If we have not traversed `k - 1` nodes already, we must be able to 
+    determine if the current stack frame represents the head node. If 
+    this is the case, our list is too short and finding the desired 
+    element is impossible.
+
+The core challenge of the recursive implementation is one of engineering 
+a solution that will work, and there are many possible solutions. Some 
+of these possibilities use language-specific features to their advantage, 
+such as using references in C++ to keep the counter value consistent 
+between stack frames. Others use common OOP patterns to achieve their 
+objectives, such as using wrapper classes to contain data that must be 
+common between all stack frames. The CTCI book has 3 written solutions 
+along with a final note restating this same point. 
+
+The challenge for you, as a candidate, is to demonstrate your ability 
+to navigate the implementation challenges. It also gives you an opportunity 
+to show that you understand core concepts of recursion, data sharing, 
+and specific programming languages.
+
+We present a Python solution which uses language-specific features to 
+achieve the objective.
+
+```python3
+def get_kth_to_last_recursive(k: int, head: Node = None):
+    # edge case
+    if head is None:
+        return None
+    # enter recursive function, return desired value
+    return recurse_kth(k, head, head)[1]
+
+def recurse_kth(k: int, current: Node, head: Node):
+    # Base case: we have reached end of list.
+    # Return the value we expect to report for the previous node, 
+    # along with a boolean flag about whether our search should continue.
+    if current is None:
+        return True, 1
+    proceed, depth = recurse_kth(k, current.next, head)
+    # We have terminated; pass the reported values up the stack.
+    if not proceed:
+        return False, depth
+    # We have found our target node.
+    if depth == k:
+        return False, current
+    # We need to continue looking for our target node.
+    elif depth < k and current is not head:
+        return True, depth + 1
+    # If no previous conditions are met, we will not be able to find a match.
+    return False, None
+```
 
 #### Testing The Solutions OR Driver For Solution
 
-TODO :bug:
+[The Python solutions file is available here.](./kth_to_last/solutions.py) 
+Additional [utility classes](./kth_to_last/utils.py) and 
+[a driver file](./kth_to_last/driver.py) were created to achieve a 
+working implementation with a few test cases.
+
+To run the example, navigate to [the directory](./kth_to_last) and run: 
+
+```console
+$ python3 driver.py
+Iterative tests:
+List:  [ a b c d e f ] 	Looking for k = 3
+Result:  d
+List:  [ 1 2 3 a b c ] 	Looking for k = 7
+Result:  None
+
+Recursive tests:
+List:  [ a b c d e f ] 	Looking for k = 3
+Result:  d
+List:  [ 1 2 3 a b c ] 	Looking for k = 7
+Result:  None
+```
 
 ### 2. Loop Detection
 
