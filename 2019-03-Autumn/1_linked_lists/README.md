@@ -213,7 +213,7 @@ compared to the iterative solution and requires some inventiveness on
 our part.
 
 In theory, we should be able to traverse the entire list and then increment 
-a counter as the stack frames resolve until the counter reaches `k`. 
+a counter as each recursive call returns until the counter reaches `k`. 
 However, this presents several problems for implementation: 
 
 1. We must ensure that the `counter` value is updated correctly for 
