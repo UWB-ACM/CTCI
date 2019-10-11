@@ -212,7 +212,7 @@ Achieving the same result using recursion is more cumbersome when
 compared to the iterative solution and requires some inventiveness on 
 our part.
 
-In theory, we should be able to traverse the entire list and increment 
+In theory, we should be able to traverse the entire list and then increment 
 a counter as the stack frames resolve until the counter reaches `k`. 
 However, this presents several problems for implementation: 
 
