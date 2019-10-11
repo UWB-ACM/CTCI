@@ -270,7 +270,7 @@ def recurse_kth(k: int, current: Node, head: Node):
     return False, None
 ```
 
-#### Testing The Solutions OR Driver For Solution
+#### Testing The Solutions
 
 [The Python solutions file is available here.](./kth_to_last/solutions.py) 
 Additional [utility classes](./kth_to_last/utils.py) and 
