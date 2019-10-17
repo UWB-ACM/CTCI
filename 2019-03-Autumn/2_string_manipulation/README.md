@@ -58,21 +58,42 @@ Output:     "cbad"     // or "dcba", "cdba", "cbda"
 
 DIY (Design it yourself).
 
-### 3. PROBLEM 3 TODO :bug:
+### 3. Longest Substring
 
-Source: TODO :bug:
+Source: [GeeksForGeeks](https://www.geeksforgeeks.org/longest-common-substring-dp-29/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Given two strings, find the longest common substring between them.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+_Example 1:_
+
+```
+s1: "BADBADNOTGOODFlightoftheConchordsRivalConsolesFourTetAesopRock"
+s2: "RivalConsolesAesopRockFlightoftheConchordsBADBADNOTGOOD"
+```
+
+Output: `FlightoftheConchords` is the common substring and `[13, 32]` 
+is the inclusive character range of the substring's location in `s1`.
+
+_Example 2:_
+
+Input: 
+
+```
+s1: "hi this is a sentence"
+s2: "you might not like it but this is a hrng;lsdkfja;lkejs;ldj"
+```
+
+Output: `this is a ` is the common substring and `[3, 12]` is the inclusive 
+character range of the substring's location in `s1`.
 
 #### Function Signature
 
-TODO :bug:
+Design the function signature to return the most useful result. 
+Yes, this is left as an exercise to you.
 
 ## Solutions
 
@@ -355,9 +376,9 @@ Test3 - S=disqyr T=iwyrysqrdj
 Result: disqyyrrjw
 ```
 
-### 3. PROBLEM 3 TODO :bug:
+### 3. Longest Substring
 
-Source: TODO :bug:
+Source: [GeeksForGeeks](https://www.geeksforgeeks.org/longest-common-substring-dp-29/)
 
 #### Naive/Simple Solution 
 
@@ -367,7 +388,7 @@ TODO :bug:
 
 TODO :bug:
 
-#### Testing The Solutions OR Driver For Solution
+#### Driver For Solution
 
 TODO :bug:
 
