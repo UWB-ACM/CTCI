@@ -395,16 +395,16 @@ A code implementation in Python is as follows:
 ```python3
 # a naive implementation
 def longest_substring(s1: str, s2: str) -> tuple:
-    indeces = (-1, -1)
+    indices = (-1, -1)
     # get all possible substrings in s1
     length = len(s1)
     for i in range(length):
         for j in range(i, length):
             # for each possible substring, check for presence in s2
             substr = s1[i : j + 1]
-            if _check_substring(substr, s2) and len(substr) >= indeces[1] - indeces[0]:
-                indeces = (i, i + len(substr))
-    return indeces
+            if _check_substring(substr, s2) and len(substr) >= indices[1] - indices[0]:
+                indices = (i, i + len(substr))
+    return indices
 
 # helper function
 def _check_substring(substr: str, s2: str) -> bool:
@@ -448,7 +448,7 @@ a mechanism to reference the same solution later.
 Our memoization strategy is to record the number of consecutive 
 preceding characters for each possible comparison between `s1` and `s2`. 
 
-Because this comparison must be made for each combination of indeces in `s1` 
+Because this comparison must be made for each combination of indices in `s1` 
 and `s2`, we will use a 2-dimensional array to store these values. 
 
 When we can reference this array which we will call `found`, we can 
@@ -456,18 +456,29 @@ perform the following steps:
 
 1. Loop over `s1` and `s2` to get all possible index combinations (`i` and `j`)
 2. For each index pair:
-    a. If either `i` or `j` is `0`, we can't possibly check preceding characters, so we enter `0` in `found[i][j]`
-    b. Otherwise, if `s1[i] == s2[j]`, we have found part of a common substring.
-    c. If we have a common substring, we check the preceding character pair `s1[i - 1]` and `s2[j - 1]`; if these are equal, the substring extends to previous characters. We take the value in `found[i - 1][j - 1]`, add 1 to it, and store it in `found[i][j]`.
-    d. If `s1[i] != s2[j]`, we store `0` in `found[i][j]`.
-    e. Last but not least, we want to update our `result` value if `s1[i] == s2[j]` and our previous `result` value represents a shorter string. We can easily use the value in `found[i][j]` to determine the substring's length, the indeces of the substring's location, or the substring itself. The implementation of this is dependent on what you chose to return from the function; the example provided here returns the index bounds of the substring in `s1` so we can produce any of the 3 interesting outputs.
+    * If either `i` or `j` is `0`, we can't possibly check preceding characters, so 
+        we enter `0` in `found[i][j]`
+    * Otherwise, if `s1[i] == s2[j]`, we have found part of a common substring.
+    * If we have a common substring, we check the preceding character pair 
+        `s1[i - 1]` and `s2[j - 1]`; if these are equal, the substring extends 
+        to previous characters. We take the value in `found[i - 1][j - 1]`, add 
+        1 to it, and store it in `found[i][j]`.
+    * If `s1[i] != s2[j]`, we store `0` in `found[i][j]`.
+    * Last but not least, we want to update our `result` value if `s1[i] == s2[j]` 
+        and our previous `result` value represents a shorter string. We can easily 
+        use the value in `found[i][j]` to determine the substring's length, the 
+        indices of the substring's location, or the substring itself. The implementation 
+        of this is dependent on what you chose to return from the function; the 
+        example provided here returns the index bounds of the substring in `s1` 
+        so we can produce any of the 3 interesting outputs.
+3. Return the `result` value last recorded
 
 A Python implementation of this is as follows:
 
 ```python3
 # an implementation with memoization
 def longest_substring_dynamic(s1: str, s2: str, found: list) -> tuple:
-    indeces = (-1, -1)
+    indices = (-1, -1)
     for i in range(len(s1)):
         for j in range(len(s2)):
             # base case: beginning of string, can't check previous chars
@@ -480,8 +491,10 @@ def longest_substring_dynamic(s1: str, s2: str, found: list) -> tuple:
             # failure case: consecutive char count resets
             else:
                 found[i][j] = 0
-            indeces = (i - found[i][j], i + 1) if found[i][j] + 1 >= indeces[1] - indeces[0] and s1[i] == s2[j] else indeces
-    return indeces
+            # update indices
+            if s1[i] == s2[j] and found[i][j] + 1 >= indices[1] - indices[0]:
+                indices = (i - found[i][j], i + 1)
+    return indices
 ```
 
 #### Driver For Solution
