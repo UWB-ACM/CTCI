@@ -27,12 +27,12 @@ def longest_substring_dynamic(s1: str, s2: str, found: list) -> tuple:
             # base case: beginning of string, can't check previous chars
             if i == 0 or j == 0:
                 found[i][j] = 0
-                indeces = (i, i + 1) if 0 >= indeces[1] - indeces[0] and s1[i] == s2[j] else indeces
             # general case: check for identical neighbors in each string
             elif s1[i] == s2[j] and s1[i - 1] == s2[j - 1]:
+                # increment if characters are consecutive
                 found[i][j] = found[i - 1][j - 1] + 1
-                indeces = (i - found[i][j], i + 1) if found[i][j] >= indeces[1] - indeces[0] else indeces
             # failure case: consecutive char count resets
             else:
                 found[i][j] = 0
+            indeces = (i - found[i][j], i + 1) if found[i][j] + 1 >= indeces[1] - indeces[0] and s1[i] == s2[j] else indeces
     return indeces

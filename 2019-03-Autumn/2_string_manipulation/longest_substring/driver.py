@@ -12,7 +12,7 @@ def main():
                 "hi this is a sentence": "you might not like it but this is a hrng;lsdkfja;lkejs;ldj",
                 "123": "312",
                 "1s": "193587s",
-                "x;lakfjaduwbothellacmafscrackingthecodinginterview": "codingwithuwbothellacm",
+                "uwbothellacmhostscrackingthecodinginterview": "codingwithuwbothellacm",
                 "abcdefg1": "hijklmnopqrstuv1"
               }
     for s1, s2 in tests.items():
