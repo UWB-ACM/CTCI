@@ -72,6 +72,10 @@ Source: CTCI 6th edition 1.4
 Implementing this algorithm is fairly straightforward. We use a hash table to count how many times each character 
 appears. Then, we iterate through the hash table and ensure that no more than one character has an odd count.
 
+*Note: this solution hand-implements a hash table to illustrate the solution; an equivalent solution using 
+Java libraries would make use of Java's `HashMap<char, int>`, `Character.toLowerCase()`, and `Character.isLetter()` 
+utilities.*
+
 Solution (java):
 
 ```java
@@ -110,7 +114,7 @@ int getCharacterNumber(Character c) {
 int[] buildCharFrequencyTable(String phrase) {
     int[] table = new int[Character.getNumericValue('z') - Character.getNumericValue('a') + 1];
     for(char c : phrase.toCharArray()) {
-        int x = getCharNumber(c);
+        int x = getCharacterNumber(c);
         if(x != -1) {
             table[x]++;
         }
@@ -232,44 +236,49 @@ The executable java solution for this problem is located under:
 The output for the Java solution is:
 
 ```console
-input: Step on no pets
-output: true
+$ javac Palindrome_Test.java
+$ java Palindrome_Test
+Solution Results:
+
+test of string: Step on no pets
+result = true
 
 test of string: No lemon, no melon
-output: true
+result = true
 
-input: Mississippi
-output: true
+test of string: Mississippi
+result = true
 
-input: aacbb
-output: true
+test of string: aacbb
+result = true
 
-input: a cat I saw was it
-output: true
+test of string: a cat I saw was it
+result = true
 
-input: 01010101010
-output: true
+test of string: 01010101010
+result = true
 
-input: Tact Coa
-output: true
+test of string: Tact Coa
+result = true
 
-input: Step on some ramen
-output: false
+test of string: Step on some ramen
+result = false
 
-input: No lemon, service
-output: false
+test of string: No lemon, service
+result = false
 
-input: Rpairing
-output: false
+test of string: Rpairing
+result = false
 
-input: Maden
-output: false
+test of string: Maden
+result = false
 
-input: Wiki
-output: false
+test of string: Wiki
+result = false
 
-input: ham and cheese
-output: false
+test of string: ham and cheese
+result = false
+
 ```
 
 ### 2. PROBLEM 2 TODO :bug:
