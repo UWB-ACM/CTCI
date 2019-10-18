@@ -2,7 +2,7 @@ from solution import *
 from timeit import timeit
 
 def dyn_soltn_list(s1: str, s2: str):
-    return [ [-1 for x in range(len(s2) + 1)] for y in range(len(s1) + 1) ]
+    return [ [-1 for x in range(len(s2))] for y in range(len(s1)) ]
 
 def main():
     # our "found" variable will store the substring size for previous searches
