@@ -58,21 +58,42 @@ Output:     "cbad"     // or "dcba", "cdba", "cbda"
 
 DIY (Design it yourself).
 
-### 3. PROBLEM 3 TODO :bug:
+### 3. Longest Substring
 
-Source: TODO :bug:
+Source: [GeeksForGeeks](https://www.geeksforgeeks.org/longest-common-substring-dp-29/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Given two strings, find the longest common substring between them.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+_Example 1:_
+
+```
+s1: "123"
+s2: "312"
+```
+
+Output: `"12"` is the common substring and `[0, 1]` 
+is the inclusive character range of the substring's location in `s1`.
+
+_Example 2:_
+
+Input: 
+
+```
+s1: "hi this is a sentence"
+s2: "you might not like it but this is a hrng;lsdkfja;lkejs;ldj"
+```
+
+Output: `" this is a "` is the common substring and `[2, 12]` is the inclusive 
+character range of the substring's location in `s1`.
 
 #### Function Signature
 
-TODO :bug:
+Design the function signature to return the most useful result. 
+Yes, this is left as an exercise to you.
 
 ## Solutions
 
@@ -355,20 +376,172 @@ Test3 - S=disqyr T=iwyrysqrdj
 Result: disqyyrrjw
 ```
 
-### 3. PROBLEM 3 TODO :bug:
+### 3. Longest Substring
 
-Source: TODO :bug:
+Source: [GeeksForGeeks](https://www.geeksforgeeks.org/longest-common-substring-dp-29/)
 
-#### Naive/Simple Solution 
+#### Simple Solution 
 
-TODO :bug:
+A naive approach to solving this problem takes the following steps:
 
-#### Optimal Solution
+```
+1. Find all possible substring combinations of s1
+2. For each substring, check whether that substring exists in s2.
+3. Return identifiers for the longest substring that was found.
+```
 
-TODO :bug:
+A code implementation in Python is as follows:
 
-#### Testing The Solutions OR Driver For Solution
+```python3
+# a naive implementation
+def longest_substring(s1: str, s2: str) -> tuple:
+    indices = (-1, -1)
+    # get all possible substrings in s1
+    length = len(s1)
+    for i in range(length):
+        for j in range(i, length):
+            # for each possible substring, check for presence in s2
+            substr = s1[i : j + 1]
+            if _check_substring(substr, s2) and len(substr) >= indices[1] - indices[0]:
+                indices = (i, i + len(substr))
+    return indices
 
-TODO :bug:
+# helper function
+def _check_substring(substr: str, s2: str) -> bool:
+    # search s2 for desired substring
+    for i in range(len(s2) - len(substr) + 1):
+        if s2[i : i + len(substr)] == substr:
+            return True
+    return False
 
+```
 
+This strategy has an average-case time complexity of `O(n * m^2)` 
+where `m` is `len(s1)` and `n` is `len(s2)`. In this Python 
+implementation, our complexity is even more greedy because string slicing 
+is a linear-time operation.
+
+We want to do better than this if we can, though the techniques to do 
+so are much less intuitive.
+
+#### Optimized Solution
+
+Two additional strategies exist to improve on our naive solution:
+
+1. Use memoization to record solutions to previous subproblems.
+2. Use a suffix tree.
+
+We will discuss the memoization strategy; investigating suffix trees 
+is left as an exercise to interested students.
+
+##### What is "Memoization"?
+
+Memoization is a strategy from **dynamic programming**.
+
+When we solve a small subset of a problem, we would like to have easy 
+access to this solution so that we don't have to resolve the problem 
+all over again later. This goes to the heart of **memoization**: we create 
+a mechanism to reference the same solution later.
+
+##### Using Memoization in This Solution
+
+Our memoization strategy is to record the number of consecutive 
+preceding characters for each possible comparison between `s1` and `s2`. 
+
+Because this comparison must be made for each combination of indices in `s1` 
+and `s2`, we will use a 2-dimensional array to store these values. 
+
+When we can reference this array which we will call `found`, we can 
+perform the following steps:
+
+1. Loop over `s1` and `s2` to get all possible index combinations (`i` and `j`)
+2. For each index pair:
+    * If either `i` or `j` is `0`, we can't possibly check preceding characters, so 
+        we enter `0` in `found[i][j]`
+    * Otherwise, if `s1[i] == s2[j]`, we have found part of a common substring.
+    * If we have a common substring, we check the preceding character pair 
+        `s1[i - 1]` and `s2[j - 1]`; if these are equal, the substring extends 
+        to previous characters. We take the value in `found[i - 1][j - 1]`, add 
+        1 to it, and store it in `found[i][j]`.
+    * If `s1[i] != s2[j]`, we store `0` in `found[i][j]`.
+    * Last but not least, we want to update our `result` value if `s1[i] == s2[j]` 
+        and our previous `result` value represents a shorter string. We can easily 
+        use the value in `found[i][j]` to determine the substring's length, the 
+        indices of the substring's location, or the substring itself. The implementation 
+        of this is dependent on what you chose to return from the function; the 
+        example provided here returns the index bounds of the substring in `s1` 
+        so we can produce any of the 3 interesting outputs.
+3. Return the `result` value last recorded
+
+A Python implementation of this is as follows:
+
+```python3
+# an implementation with memoization
+def longest_substring_dynamic(s1: str, s2: str, found: list) -> tuple:
+    indices = (-1, -1)
+    for i in range(len(s1)):
+        for j in range(len(s2)):
+            # base case: beginning of string, can't check previous chars
+            if i == 0 or j == 0:
+                found[i][j] = 0
+            # general case: check for identical neighbors in each string
+            elif s1[i] == s2[j] and s1[i - 1] == s2[j - 1]:
+                # increment if characters are consecutive
+                found[i][j] = found[i - 1][j - 1] + 1
+            # failure case: consecutive char count resets
+            else:
+                found[i][j] = 0
+            # update indices
+            if s1[i] == s2[j] and found[i][j] + 1 >= indices[1] - indices[0]:
+                indices = (i - found[i][j], i + 1)
+    return indices
+```
+
+#### Driver For Solution
+
+[The solution functions are located here](./longest_substring/solution.py), and [the solution driver is here](./longest_substring/driver.py).
+
+The output of the provided solution is as follows:
+
+```console
+$ python3 driver.py
+S1: s1
+S2: s2
+Naive solution:		Indeces: (0, 1)	Substring: 's'
+Dynprog solution:	Indeces: (0, 1)	Substring: 's'
+
+S1: 
+S2: 123
+Naive solution:		Indeces: (-1, -1)	Substring: 'None'
+Dynprog solution:	Indeces: (-1, -1)	Substring: 'None'
+
+S1: BADBADNOTGOODFlightoftheConchordsRivalConsolesFourTetAesopRock
+S2: RivalConsolesAesopRockFlightoftheConchordsBADBADNOTGOOD
+Naive solution:		Indeces: (13, 33)	Substring: 'FlightoftheConchords'
+Dynprog solution:	Indeces: (13, 33)	Substring: 'FlightoftheConchords'
+
+S1: hi this is a sentence
+S2: you might not like it but this is a hrng;lsdkfja;lkejs;ldj
+Naive solution:		Indeces: (2, 13)	Substring: ' this is a '
+Dynprog solution:	Indeces: (2, 13)	Substring: ' this is a '
+
+S1: 123
+S2: 312
+Naive solution:		Indeces: (0, 2)	Substring: '12'
+Dynprog solution:	Indeces: (0, 2)	Substring: '12'
+
+S1: 1s
+S2: 193587s
+Naive solution:		Indeces: (1, 2)	Substring: 's'
+Dynprog solution:	Indeces: (1, 2)	Substring: 's'
+
+S1: x;lakfjaduwbothellacmafscrackingthecodinginterview
+S2: codingwithuwbothellacm
+Naive solution:		Indeces: (9, 21)	Substring: 'uwbothellacm'
+Dynprog solution:	Indeces: (9, 21)	Substring: 'uwbothellacm'
+
+S1: abcdefg1
+S2: hijklmnopqrstuv1
+Naive solution:		Indeces: (7, 8)	Substring: '1'
+Dynprog solution:	Indeces: (7, 8)	Substring: '1'
+```
