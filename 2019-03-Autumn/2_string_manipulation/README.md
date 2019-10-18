@@ -133,6 +133,17 @@ characters in the strings are highly homogeneous.
 
 [The C++ driver and solution is here.](./custom_sort_string/custom_sort_string.cpp)
 
+```console
+$ g++ -o test custom_sort_string.cpp
+$ ./test
+Test1 - S=cba T=abcd
+Result: cbad
+Test2 - S=cbafg T=abcd
+Result: cbad
+Test3 - S=disqyr T=iwyrysqrdj
+Result: disqyyrrjw
+```
+
 ### 3. PROBLEM 3 TODO :bug:
 
 Source: TODO :bug:
