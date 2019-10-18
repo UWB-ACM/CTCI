@@ -75,7 +75,7 @@ s1: "123"
 s2: "312"
 ```
 
-Output: `12` is the common substring and `[0, 1]` 
+Output: `"12"` is the common substring and `[0, 1]` 
 is the inclusive character range of the substring's location in `s1`.
 
 _Example 2:_
@@ -87,7 +87,7 @@ s1: "hi this is a sentence"
 s2: "you might not like it but this is a hrng;lsdkfja;lkejs;ldj"
 ```
 
-Output: ` this is a ` is the common substring and `[2, 12]` is the inclusive 
+Output: `" this is a "` is the common substring and `[2, 12]` is the inclusive 
 character range of the substring's location in `s1`.
 
 #### Function Signature
