@@ -71,11 +71,11 @@ Given two strings, find the longest common substring between them.
 _Example 1:_
 
 ```
-s1: "BADBADNOTGOODFlightoftheConchordsRivalConsolesFourTetAesopRock"
-s2: "RivalConsolesAesopRockFlightoftheConchordsBADBADNOTGOOD"
+s1: "123"
+s2: "312"
 ```
 
-Output: `FlightoftheConchords` is the common substring and `[13, 32]` 
+Output: `12` is the common substring and `[0, 1]` 
 is the inclusive character range of the substring's location in `s1`.
 
 _Example 2:_
