@@ -13,6 +13,7 @@ An ongoing workshop series by UW Bothell's Association for Computing Machinery c
 * [Resume Resources](#resume)
 
 <a name="about"/>
+
 ## About the Workshop
 
 Every quarter, UWB ACM hosts a 6-8 week workshop series covering common 
@@ -31,12 +32,15 @@ current UW Bothell students.
 [Brady](https://github.com/bpas247), [Lizzy](https://github.com/etcadinfinitum)
 
 <a name="resources"/>
+
 ## Interview Preparation Resources
 
 <a name="resources-qs"/>
+
 ### Question Banks
 
 <a name="resources-qs-depth"/>
+
 #### Depth First (Topic-Intensive)
 
 If you need intensive, concept-specific practice, the following resources 
@@ -54,6 +58,7 @@ contributors.
 * [EDUCBA Question Bank](https://www.educba.com/category/software-development/software-development-blog/top-interview-question/)[\*](#footnotes):
 
 <a name="resources-qs-breadth"/>
+
 #### Breadth First (General Guides, Structured Courses)
 
 * [Interview Cake](https://www.interviewcake.com/): a friendly-sounding structured 
@@ -62,6 +67,7 @@ contributors.
 * [The Interview Study Guide for Software Engineers](https://dev.to/seattledataguy/the-interview-study-guide-for-software-engineers-764): a study guide for core concepts, specifically targeted for interview preparation
 
 <a name="resources-mock"/>
+
 ### Mock Interview Resources
 
 If you're looking for forums to practice interviewing and communication skills, 
@@ -75,11 +81,13 @@ these resources are a good place to start.
 * [UWB-ACM](https://uwbacm.com/): annual Mock Interview event, free for all attendees. Check the club's event calendar for upcoming dates.
 
 <a name="resume"/>
+
 ## Resume Resources
 
 :warning: Under Construction :warning:
 
 <a name="footnotes"/>
+
 ## Footnotes
 
 \* The contributors haven't used this platform before; YMMV.
