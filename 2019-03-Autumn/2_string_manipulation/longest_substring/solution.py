@@ -34,5 +34,7 @@ def longest_substring_dynamic(s1: str, s2: str, found: list) -> tuple:
             # failure case: consecutive char count resets
             else:
                 found[i][j] = 0
-            indeces = (i - found[i][j], i + 1) if found[i][j] + 1 >= indeces[1] - indeces[0] and s1[i] == s2[j] else indeces
+            # update indeces
+            if s1[i] == s2[j] and found[i][j] + 1 >= indeces[1] - indeces[0]:
+                indeces = (i - found[i][j], i + 1)
     return indeces
