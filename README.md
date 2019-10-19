@@ -61,10 +61,12 @@ contributors.
 
 #### Breadth First (General Guides, Structured Courses)
 
-* [Interview Cake](https://www.interviewcake.com/): a friendly-sounding structured 
-    course for technical interview practice
-* [Four Semesters of Computer Science in Six Hours](https://btholt.github.io/four-semesters-of-cs/): a study guide for core concepts
-* [The Interview Study Guide for Software Engineers](https://dev.to/seattledataguy/the-interview-study-guide-for-software-engineers-764): a study guide for core concepts, specifically targeted for interview preparation
+* [Interview Cake](https://www.interviewcake.com/): a friendly-sounding 
+    structured course for technical interview practice
+* [Four Semesters of Computer Science in Six Hours](https://btholt.github.io/four-semesters-of-cs/): 
+    a study guide for core concepts
+* [The Interview Study Guide for Software Engineers](https://dev.to/seattledataguy/the-interview-study-guide-for-software-engineers-764): 
+    a study guide for core concepts, specifically targeted for interview preparation
 
 <a name="resources-mock"/>
 
@@ -78,13 +80,25 @@ these resources are a good place to start.
     The worst answer you can get is "no".
 * [PraMP](https://www.pramp.com/): free for 6 sessions[\*\*](#footnotes)
 * [interviewing.io](https://interviewing.io): free[\*\*](#footnotes)
-* [UWB-ACM](https://uwbacm.com/): annual Mock Interview event, free for all attendees. Check the club's event calendar for upcoming dates.
+* [UWB-ACM](https://uwbacm.com/): annual Mock Interview event, free for all 
+    attendees. Check the club's event calendar for upcoming dates.
 
 <a name="resume"/>
 
 ## Resume Resources
 
-:warning: Under Construction :warning:
+Revising and polishing your resume is a little bit easier with these resources 
+and guides.
+
+* [CareerCup Resume Guide](https://careercup.com/resume): written by the 
+    author of CTCI, this resume guide breaks down the structure, content, 
+    and best practices of Software Engineer resumes.
+* [X, Y, Z Formula and Other Google Application Advice](https://www.inc.com/bill-murphy-jr/google-recruiters-say-these-5-resume-tips-including-x-y-z-formula-will-improve-your-odds-of-getting-hired-at-google.html):
+    best practices and company-specific advice that helps your resume 
+    make an impression on recruiters and engineers (at Google and elsewhere).
+
+Make sure you get other humans to review your resume drafts for issues and 
+points of interest; a second pair of eyes is your best defense against typos.
 
 <a name="footnotes"/>
 
@@ -95,3 +109,8 @@ these resources are a good place to start.
 \*\* We have specifically looked for resources that are free of charge. At the time 
 of this writing, the contributors have not personally vetted these platforms 
 for limitations and pricing. YMMV.
+
+The content listed here is opinionated and is not all-encompassing. If you 
+use or know of resources you believe are relevant and valuable and you 
+think they should be listed here, please let us know by opening an issue 
+or a pull request!
