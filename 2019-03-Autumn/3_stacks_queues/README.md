@@ -4,21 +4,25 @@ Problems and solutions for Stacks & Queues session on October 25, 2019.
 
 ## Problems
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. Queue with Array
 
-Source: TODO :bug:
+Source: Lizzy (and a [LeetCode](https://leetcode.com/problems/design-circular-queue/) variation)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Design a queue that uses a single array as its underlying data structure.
 
-#### Example Input
+#### Points to Address
 
-If the problem is simple enough, remove this section. TODO :bug:
+With your partner, work through as many of these questions as you can.
 
-#### Function Signature
-
-TODO :bug:
+1. What kind of scenarios would this structure be useful for?
+2. How would you track the head and tail of the queue? How would you 
+   use this information to keep track of the size?
+3. Design a class interface for this data structure.
+4. Write the `isEmpty()` call for this class.
+5. Write the `push()` call for this class.
+6. Write the `pop()` call for this class.
 
 ### 2. Backspace String Compare
 
@@ -110,21 +114,175 @@ public String reverseParentheses(String s) {
 
 ## Solutions
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. Queue with Array
 
-Source: TODO :bug:
+Source: Lizzy (also on [LeetCode](https://leetcode.com/problems/design-circular-queue/))
 
-#### Naive/Simple Solution
+#### Solution
 
-TODO :bug:
+**What kind of scenarios would this structure be useful for?**
 
-#### Optimal Solution
+This sort of structure is great for queues that necessitate bounded capacity. 
+For example, we might use this structure to implement a bounded message 
+queue between processes. The [Wikipedia](https://en.wikipedia.org/wiki/Circular_buffer#Uses) 
+article on the topic suggests additional producer/consumer problems, 
+especially ones where losing old entries is not detrimental to other 
+processes (such as losing video frames or audio data when sent to a 
+slower output device). There are additional applications for caching 
+recent data; such an application also allows for overwriting the oldest 
+entries.
 
-TODO :bug:
+**How would you track the head and tail of the queue? How would you 
+use this information to keep track of the size?**
 
-#### Testing The Solutions OR Driver For Solution
+Because we are implementing this class with an array backing the queue, 
+we need to have a way to determine:
 
-TODO :bug:
+* The queue's total capacity
+* The queue's current size
+* The index of the front of the queue
+* The index of the back of the queue
+
+There are several valid combinations of data which produce the state 
+information that we would need to manage the queue. The implementation below 
+uses the queue's capacity, current size, and the position of the front 
+of the queue.
+
+Calculating and updating these values requires careful attention to 
+index bounds; we employ modulo math to ensure indices are correctly 
+adjusted.
+
+**Design a class interface for this data structure.**
+
+```c++
+// non-template Queue class for queueing integers
+class Queue {
+private:
+    int* queue[] = nullptr;
+    int front = 0;
+    int entries = 0;
+    int capacity = 0;
+public:
+    Queue(int capacity) {
+        queue = new int[capacity];
+        this.capacity = capacity;
+    }
+    ~Queue() {
+        delete[] queue;
+    }
+    bool push(int data);
+    bool pop(int& data);
+    bool isEmpty();
+};
+```
+
+**Write the `isEmpty()` call for this class.**
+
+```c++
+bool isEmpty() {
+    return entries == 0;
+}
+```
+
+**Write the `push()` call for this class.**
+
+You can choose to allow old data to be overwritten if the queue is 
+full; such a decision should be made if appropriate for the client 
+application. This implementation refuses such requests if the queue 
+is currently full.
+
+```c++
+bool push(int data) {
+    if (entries < capacity) {
+        queue[(front + entries) % capacity] = data;
+        entries++;
+        return true;
+    }
+    return false;
+}
+```
+
+If we choose to overwrite the oldest data in the queue in favor of 
+storing new entries without halting the producer, we can forgo using 
+a return value for our `push()` function. An alternate implementation 
+which overwrites the oldest entries would be:
+
+```c++
+void push(int data) {
+    queue[(front + entries) % capacity] = data;
+    if (entries == capacity) {
+        // push the front index forward by 1
+        front = (front + 1) % capacity;
+    } else {
+        entries++;
+    }
+}
+```
+
+**Write the `pop()` call for this class.**
+
+We could choose to return the value pulled from the queue instead of 
+receiving a placeholder variable as a parameter and returning a boolean 
+flag indicating success or failure. Such an implementation 
+becomes difficult when the queue is empty. In our example class, if the 
+queue is empty and the `pop()` method is expected to return an integer, 
+we must either return `INT_MIN` or `INT_MAX` or choose to throw an 
+exception that the client must catch. Alternatively, we can return 
+a boolean flag indicating a successful retrieval of data and store 
+the retrieved value in the reference argument.
+
+The following C++ implementation takes the second approach.
+
+```c++
+bool pop(int& data) {
+    if (!isEmpty()) {
+        data = queue[front];
+        front = (front + 1) % capacity;
+        entries--;
+        return true;
+    }
+    return false;
+}
+```
+
+#### Testing The Solutions 
+
+The class implementation and a simple driver [are in the 
+repository](./queue_with_array).
+
+The output for the driver is:
+
+```console
+$ g++ -o test *.cpp
+$ ./test
+Queue created with size 5.
+Queue size: 0; empty? true
+
+Pushing 1 to queue. Success?: true Size: 1
+Pushing 2 to queue. Success?: true Size: 2
+Pushing 3 to queue. Success?: true Size: 3
+Pushing 4 to queue. Success?: true Size: 4
+Pushing 5 to queue. Success?: true Size: 5
+Pushing 6 to queue. Success?: false Size: 5
+
+Popping from queue. Success?: true Size: 4 Val: 1
+Popping from queue. Success?: true Size: 3 Val: 2
+Popping from queue. Success?: true Size: 2 Val: 3
+Popping from queue. Success?: true Size: 1 Val: 4
+
+Pushing 6 to queue. Success?: true Size: 2
+Pushing 7 to queue. Success?: true Size: 3
+Pushing 8 to queue. Success?: true Size: 4
+Pushing 9 to queue. Success?: true Size: 5
+Pushing 10 to queue. Success?: false Size: 5
+
+Popping from queue. Success?: true Size: 4 Val: 5
+Popping from queue. Success?: true Size: 3 Val: 6
+Popping from queue. Success?: true Size: 2 Val: 7
+Popping from queue. Success?: true Size: 1 Val: 8
+Popping from queue. Success?: true Size: 0 Val: 9
+Popping from queue. Success?: false Size: 0 Val: 9
+```
 
 ### 2. Backspace String Compare
 
