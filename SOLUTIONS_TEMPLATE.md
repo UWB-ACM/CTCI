@@ -94,7 +94,10 @@ Go to [Solution](#s3)   [Top](#top)
 
 ## Solutions
 
-### 1. PROBLEM 1 TODO :bug:
+<!-- Don't remove -->
+<a name="s1"/>
+
+### 1. SOLUTION 1 TODO :bug:
 
 Source: TODO :bug:
 
@@ -116,7 +119,7 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s2"/>
 
-### 2. PROBLEM 2 TODO :bug:
+### 2. SOLUTION 2 TODO :bug:
 
 Source: TODO :bug:
 
@@ -138,7 +141,7 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s3"/>
 
-### 3. PROBLEM 3 TODO :bug:
+### 3. SOLUTION 3 TODO :bug:
 
 Source: TODO :bug:
 
