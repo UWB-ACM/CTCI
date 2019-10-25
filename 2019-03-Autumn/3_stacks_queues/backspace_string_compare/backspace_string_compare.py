@@ -52,7 +52,7 @@ tests = [
 
 for i, test in enumerate(tests):
     input, output = test
-    print('Test ' + str(i + 1) + ', S=' + input[0], ", T=" + input[1])
+    print('Test ' + str(i + 1) + ', S=' + input[0] + ", T=" + input[1])
     stack_res = backspace_compare_stack(*input)
     constant_res = backspace_compare_constant(*input)
     print('Result: stack: ' + str(stack_res) + ', constant: ' + str(constant_res))
