@@ -111,7 +111,7 @@ In the end, the stack will represent the string the key sequence produces.
 
 The Python solution is as follows:
 
-```python
+```python3
 def backspace_compare_stack(S: str, T: str) -> bool:
     def ending_string(sequence: str) -> str:
         stack = []
@@ -148,7 +148,7 @@ answer to be true.
 
 The code in Python is as follows:
 
-```python
+```python3
 def backspace_compare_constant(S: str, T: str) -> bool:
     s_count, t_count = 0, 0     # running count of '#'
     s_ptr, t_ptr = len(S) - 1, len(T) - 1
