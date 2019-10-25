@@ -146,9 +146,27 @@ def backspace_compare_constant(S: str, T: str) -> bool:
         t_ptr -= 1
 ```
 
-#### Testing The Solutions OR Driver For Solution
+#### Testing The Solutions
 
-TODO :bug:
+[The Python implementation and tests are here.](./backspace_string_compare/backspace_string_compare.py)
+
+The output is:
+
+```console
+$ python3 backspace_string_compare.py
+Test 1, S=ab#c , T=ad#c
+Result: stack: True, constant: True
+Test 2, S=a##c , T=#a#c
+Result: stack: True, constant: True
+Test 3, S=ab## , T=c#d#
+Result: stack: True, constant: True
+Test 4, S=a#c , T=b
+Result: stack: False, constant: False
+Test 5, S=### , T=
+Result: stack: True, constant: True
+Test 6, S=####a , T=a###b#a
+Result: stack: True, constant: True
+```
 
 ### 3. PROBLEM 3 TODO :bug:
 
