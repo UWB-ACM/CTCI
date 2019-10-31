@@ -67,21 +67,63 @@ Go to [Solution](#s2)   [Top](#top)
 <!-- Don't remove -->
 <a name="p3"/>
 
-### 3. PROBLEM 3 TODO :bug:
+### 3. Delete Nodes and Return Forest
 
-Source: TODO :bug:
+Source: [LeetCode](https://leetcode.com/problems/delete-nodes-and-return-forest/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+You are given a tree, where each node in the tree has 
+a distinct value. You are also given a structure with 
+a selection of values to be deleted from the tree.
+
+When a node is deleted from the tree, that node's 
+children become the roots of their own remaining 
+subtrees. The new set of tree roots form a forest.
+
+Write a method which deletes the specified nodes, and 
+return a collection of the root nodes of the trees in 
+the remaining forest.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+![tree to forest example](./forest/forest-example.png)
 
 #### Function Signature
 
-TODO :bug:
+C++:
+
+```c++
+/**
+ * Node may be defined as:
+ * struct Node {
+ *     int data;
+ *     Node* left = nullptr;
+ *     Node* right = nullptr;
+ * };
+ */
+
+vector<Node*> deleteForest(Node* root, vector<int> deleteVals) {
+    // your code here
+}
+```
+
+Java:
+
+```
+/**
+ * Node may be defined as:
+ * public class Node {
+ *     public int data;
+ *     public Node left;
+ *     public Node right;
+ * }
+ */
+
+public ArrayList<Node> deleteForest(Node root, int[] deleteVals) {
+    // your code here
+}
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s3)   [Top](#top)
