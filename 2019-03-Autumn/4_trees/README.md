@@ -23,21 +23,59 @@ Problems and solutions for Trees session on November 1, 2019.
 
 <a name="p1"/>
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. Maximum Depth
 
-Source: TODO :bug:
+Source: [LeetCode](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Given a binary tree, find its maximum depth.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+Input:
+
+```
+      3
+     / \
+    1   2
+   / \   \
+  4   7   9
+ / \
+5   6
+   /
+  1
+```
+
+Output: `5`
 
 #### Function Signature
 
-TODO :bug:
+C++:
+
+```c++
+int maxDepth(Node* root) {
+    // your code here
+}
+```
+
+Java:
+
+```java
+public int maxDepth(Node root) {
+    // your code here
+}
+```
+
+The class/struct Node may be defined as:
+
+```c++
+struct Node {
+    int data;
+    Node* left = nullptr;
+    Node* right = nullptr;
+};
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s1)   [Top](#top)
@@ -136,21 +174,45 @@ Go to [Solution](#s3)   [Top](#top)
 <!-- Don't remove -->
 <a name="s1"/>
 
-### 1. SOLUTION 1 TODO :bug:
+### 1. Maximum Depth
 
-Source: TODO :bug:
+Source: [LeetCode](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
 
-#### Naive/Simple Solution
+#### Solution Reasoning
 
-TODO :bug:
+This function is essentially a `height()` function for a binary tree.
 
-#### Optimal Solution
+To find the height, we recursively traverse the tree to its leaves, 
+and increment a return value for each recursive call we execute. 
+We take the maximum of the return values for the left and right children, 
+and continue until we have resolved all recursive calls.
 
-TODO :bug:
+#### Solution
 
-#### Testing The Solutions OR Driver For Solution
+The solution is given in Python.
 
-TODO :bug:
+```python
+def maxDepth(root):
+    if not root:
+        return 0
+    return max(maxDepth(root.left), maxDepth(root.right)) + 1
+```
+
+The definition for the Node class is:
+
+```python
+# Definition for a binary tree node.
+class Node:
+    def __init__(self, v):
+        self.val = v
+        self.left = None
+        self.right = None
+```
+
+#### Driver For Solution
+
+The Python [solution](./height/solution.py) and 
+[test cases](./height/driver.py) are available.
 
 <!-- Don't remove -->
 Go to [Top](#top)
