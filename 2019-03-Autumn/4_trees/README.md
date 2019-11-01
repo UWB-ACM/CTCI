@@ -9,12 +9,10 @@ Problems and solutions for Trees session on November 1, 2019.
 
 * [Problems](#problems)
   * [1](#p1)
-  * [2](#p2)
-  * [3](#p3)
+  * [2](#p3)
 * [Solutions](#solutions)
   * [1](#s1)
-  * [2](#s2)
-  * [3](#s3)
+  * [2](#s3)
 
 <!-- Don't remove -->
 <a name="problems"/>
@@ -81,31 +79,9 @@ struct Node {
 Go to [Solution](#s1)   [Top](#top)
 
 <!-- Don't remove -->
-<a name="p2"/>
-
-### 2. PROBLEM 2 TODO :bug:
-
-Source: TODO :bug:
-
-#### Scenario
-
-Problem Statement TODO :bug:
-
-#### Example Input
-
-If the problem is simple enough, remove this section. TODO :bug:
-
-#### Function Signature
-
-TODO :bug:
-
-<!-- Don't remove -->
-Go to [Solution](#s2)   [Top](#top)
-
-<!-- Don't remove -->
 <a name="p3"/>
 
-### 3. Delete Nodes and Return Forest
+### 2. Delete Nodes and Return Forest
 
 Source: [LeetCode](https://leetcode.com/problems/delete-nodes-and-return-forest/)
 
@@ -218,31 +194,9 @@ The Python [solution](./height/solution.py) and
 Go to [Top](#top)
 
 <!-- Don't remove -->
-<a name="s2"/>
-
-### 2. SOLUTION 2 TODO :bug:
-
-Source: TODO :bug:
-
-#### Naive/Simple Solution
-
-TODO :bug:
-
-#### Optimal Solution
-
-TODO :bug:
-
-#### Testing The Solutions OR Driver For Solution
-
-TODO :bug:
-
-<!-- Don't remove -->
-Go to [Top](#top)
-
-<!-- Don't remove -->
 <a name="s3"/>
 
-### 3. Delete Nodes and Return Forest
+### 2. Delete Nodes and Return Forest
 
 Source: [LeetCode](https://leetcode.com/problems/delete-nodes-and-return-forest/)
 
