@@ -27,9 +27,13 @@ public class Vertex {
 
     @Override
     public String toString() {
+        String friendNames = "";
+        for (Vertex v : friends) {
+            friendNames += v.getName() + " ";
+        }
         return "Vertex{" +
-                "name='" + name + '\'' +
-                ", friends=" + friends +
-                '}';
+                "name='" + name + "'" +
+                ", friends: " + friendNames +
+                "}";
     }
 }

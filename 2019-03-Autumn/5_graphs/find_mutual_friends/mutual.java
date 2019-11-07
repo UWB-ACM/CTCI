@@ -62,24 +62,32 @@ public class mutual {
 
         System.out.println();
         System.out.println("input: james, lauren");
+        System.out.println(james.toString());
+        System.out.println(lauren.toString());
         System.out.println("mutual friends: kim");
         System.out.println("expected output: 1");
         System.out.println("Number of mutual friends: " + findMutualFriends(james, lauren));
         System.out.println();
 
         System.out.println("input: kim, lauren");
+        System.out.println(kim.toString());
+        System.out.println(lauren.toString());
         System.out.println("mutual friends: kalin, daniel");
         System.out.println("expected output: 2");
         System.out.println("Number of mutual friends: " + findMutualFriends(kim, lauren));
         System.out.println();
 
         System.out.println("input: suyun, norris");
+        System.out.println(suyun.toString());
+        System.out.println(norris.toString());
         System.out.println("mutual friends: none");
         System.out.println("expected output: 0");
         System.out.println("Number of mutual friends: " + findMutualFriends(suyun, norris));
         System.out.println();
 
         System.out.println("input: sung, daniel");
+        System.out.println(sung.toString());
+        System.out.println(daniel.toString());
         System.out.println("mutual friends: norris, lauren, kim, kalin, james");
         System.out.println("expected output: 5");
         System.out.println("Number of mutual friends: " + findMutualFriends(sung, daniel));
