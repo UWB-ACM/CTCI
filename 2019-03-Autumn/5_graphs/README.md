@@ -26,21 +26,33 @@ In the style of:
 
 <a name="p1"/>
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. Find Mutual Friends 
 
-Source: TODO :bug:
+Source: Lizzy
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Imagine a Facebook-esque social network that is represented by a graph. Each vertex represents a person's account, 
+and the edges between vertices represent friend status.
 
-#### Example Input
+Write a method that counts the number of mutual friends between two people.
 
-If the problem is simple enough, remove this section. TODO :bug:
+You can assume the `Vertex` class/struct is defined as follows:
+
+```
+class Vertex {
+    string name;
+    set<Vertex> friends;
+}
+```
 
 #### Function Signature
 
-TODO :bug:
+```java
+int findMutualFriends(Vertex p1, Vertex p2) {
+    // your code here
+}
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s1)   [Top](#top)
@@ -97,21 +109,32 @@ Go to [Solution](#s3)   [Top](#top)
 <!-- Don't remove -->
 <a name="s1"/>
 
-### 1. SOLUTION 1 TODO :bug:
+### 1. Find Mutual Friends
 
-Source: TODO :bug:
+Source: Tom, Lizzy, Google 
 
 #### Naive/Simple Solution
 
-TODO :bug:
+The solution for this problem is to find the intersection of both input 
+vertices set of friends. This solution copies one input vertex's set of friends into a `HashSet`,
+calls `retainAll` method on this set, which iterates through the set while checking
+if the next node is contained in the other input vertex's set of friends. If it is not, the `retainAll`
+method will remove the node the iterator is pointing to and move to the next, leaving only common nodes (or mutual
+friends) of both vertices. At this point, to get the count of mutual friends, access the size of the modified set
+where vertex1 intersects vertex2. 
 
-#### Optimal Solution
+Java Implementation:
+```java
+int findMutualFriends(Vertex p1, Vertex p2) {
+        Set<Vertex> intersection = new HashSet<>(p1.getFriends());
+        intersection.retainAll(p2.getFriends());
+        return intersection.size();
+    }
+```
 
-TODO :bug:
+#### Driver For Solution
 
-#### Testing The Solutions OR Driver For Solution
-
-TODO :bug:
+[The java solution is here.](./find_mutual_friends/mutual.java)
 
 <!-- Don't remove -->
 Go to [Top](#top)
