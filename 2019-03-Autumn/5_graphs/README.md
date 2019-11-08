@@ -123,6 +123,9 @@ method will remove the node the iterator is pointing to and move to the next, le
 friends) of both vertices. At this point, to get the count of mutual friends, access the size of the modified set
 where vertex1 intersects vertex2. 
 
+The other thing to note is that this implementation's Vertex class scopes the `Set` members to private, hence the 
+`getFriends()` method call.
+
 Java Implementation:
 ```java
 int findMutualFriends(Vertex p1, Vertex p2) {
