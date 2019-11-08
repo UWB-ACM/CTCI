@@ -1,12 +1,9 @@
 <!-- Don't remove -->
 <a name="top"/>
 
-# Topic Name TODO :bug:
+# Graphs
 
-Simple description TODO :bug:
-
-In the style of:
-***Problems and solutions for Maze & Dynamic Programming session on March 1, 2019.***
+Problems and solutions for Graphs session on November 8, 2019.
 
 ### Table of Contents
 
