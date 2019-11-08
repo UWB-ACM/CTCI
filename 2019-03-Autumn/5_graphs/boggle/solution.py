@@ -9,12 +9,12 @@ def solve(grid, word):
 
 def dfs(grid, word, word_idx, row, col, visited):
     # handle edge cases:
-    # 1. check to ensure our indices are still in bounds
-    # 2. check to ensure we have not processed entire word
+    # 1. check to ensure we have not processed entire word
+    # 2. check to ensure our indices are still in bounds
     # 3. check to make sure we haven't visited this node
+    if word_idx >= len(word): return True
     if row < 0 or row >= len(grid): return False
     if col < 0 or col >= len(grid[0]): return False
-    if word_idx >= len(word): return True
     if (row, col) in visited: return False
     # we are still traversing graph; now, check for letter alignment
     if grid[row][col] != word[word_idx]:

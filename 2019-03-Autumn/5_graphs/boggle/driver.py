@@ -9,6 +9,9 @@ def make_grid_1():
 def make_grid_empty():
     return [[]]
 
+def make_grid_single():
+    return [['a']]
+
 def print_board(grid):
     s = '\nBoard:\n'
     for l in grid:
@@ -31,6 +34,14 @@ def main():
     r3 = solve(grid_empty, 'a')
     print('For word \'a\', the result is ' + str(r3))
     assert(not r3)
+    grid_single = make_grid_single();
+    print_board(grid_single)
+    r4 = solve(grid_single, 'a')
+    print('For word \'a\', the result is ' + str(r4))
+    assert(r4)
+    r5 = solve(grid_single, 'i')
+    print('For word \'i\', the result is ' + str(r5))
+    assert(not r5)
 
 if __name__ == '__main__':
     main()
