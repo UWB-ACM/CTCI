@@ -32,4 +32,5 @@ def main():
     print('For word \'a\', the result is ' + str(r3))
     assert(not r3)
 
-main()
+if __name__ == '__main__':
+    main()
