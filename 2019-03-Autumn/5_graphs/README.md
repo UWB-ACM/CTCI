@@ -7,6 +7,7 @@ Problems and solutions for Graphs session on November 8, 2019.
 
 ### Table of Contents
 
+* [Background](#background)
 * [Problems](#problems)
   * [1](#p1)
   * [2](#p2)
@@ -15,6 +16,97 @@ Problems and solutions for Graphs session on November 8, 2019.
   * [1](#s1)
   * [2](#s2)
   * [3](#s3)
+
+<!-- Don't remove -->
+<a name="background"/>
+
+## Background
+
+### What is a graph?
+
+A graph is a data structure that organizes and shows relationships 
+between individual data nodes. However, a graph is not organized in a 
+heirarchal way the way a tree is. Nodes in a graph are not required 
+to be connected, and connections (or _edges_) between nodes can be 
+created and destroyed dynamically.
+
+It is useful to observe that a tree is a form of a directed graph. The 
+edges are the connections leading to child nodes. In a tree, a 
+strict one-to-many relationship between nodes and their children is 
+required; generic graphs do not have this requirement.
+
+### Why are graphs important?
+
+Graphs are meaningful in the context of computer science because they 
+are an excellent model for entity relationships in many systems. For 
+example, most social media interactions can be represented using graphs.
+
+If you are skeptical about the importance of graphs in computer science, 
+you should bear in mind that many highly competitive employers require 
+a thorough understanding of graphs and algorithms related to their 
+traversal and representation. If you want anecdotal examples of this, 
+feel free to ask.
+
+### Undirected Graphs
+
+Undirected graphs have _bidirectional_ edges; any connection between 
+individual nodes is reflexively mirrored by the other, and the edge 
+can be traversed in either direction.
+
+Facebook friendships are a useful analogy for undirected graphs; when 
+two people become friends on Facebook, both people are friends with 
+each other.
+
+![facebook as an undirected graph](./background/facebook-undirected.png)
+
+### Directed Graphs
+
+Directed graphs have _unidirectional_ edges; an outbound edge to 
+another node is not necessarily reciprocated. Twitter serves as a 
+model for this kind of relationship.
+
+![twitter as a directed graph](./background/twitter-directed.png)
+
+### Representing Graph Edges
+
+There are two common ways of representing edges between nodes in a 
+graph:
+
+* An **adjacency list**
+* An **adjacency matrix**
+
+An adjacency list is unique to the node which owns it, and contains 
+pointers or references to the nodes it is connected to. Depending on 
+the structure of the graph, the lists may vary in size and contents. 
+We can represent the adjacency list with a `list`, `set`, or `map` 
+depending on the properties of the graph and the programmer's preference.
+
+An adjacency matrix is a fixed-size structure, unlike the list equivalent, 
+and is 2-dimensional. Each possible node relationship (such as from 
+node A to node B) is referenced by the index pattern `matrix[A][B]`, 
+and the value at that cell is indicative of the existence of the 
+relationship. For example, for a directed graph, we might generate 
+an `N x N` matrix of boolean values, and when an edge is created 
+between nodes, we set the value of that cell to `true`; otherwise, the 
+value of the cell is `false`.
+
+### Weighted Graphs
+
+Until now, we have looked at graphs whose connections do not have any 
+special qualities. A common quality that graph edges might possess are 
+_weights_. Weights are usually associated with a cost or benefit of 
+the relationship between the nodes. 
+
+Consider a graph which represents 
+a map of highways between major US cities. Each graph edge, representing 
+a highway, might have a _weight_ that represents the number of miles 
+between those cities using that highway. This data structure can be 
+used to calculate the shortest route between two different cities, 
+for example. For more information about this subclass of problems, 
+we recommend reading about 
+[Dijkstra's Algorithm](https://en.wikipedia.org/wiki/Dijkstra's_algorithm).
+
+Go to [Top](#top)
 
 <!-- Don't remove -->
 <a name="problems"/>
