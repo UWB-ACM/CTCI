@@ -23,21 +23,49 @@ Problems and solutions for Math & Dynamic Programming session on November 15, 20
 
 <a name="p1"/>
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. Climbing Stairs
 
-Source: TODO :bug:
+Source: [LeetCode](https://leetcode.com/problems/climbing-stairs/) 
+(2-stair variation) and CTCI <TODO get problem> (3-stair variation).
 
 #### Scenario
 
-Problem Statement TODO :bug:
+There is a staircase with `n` stairs. You can climb the stairs 1, 2, 
+or 3 at a time. How many different unique combinations of steps can you 
+take to reach the top of the stairs?
+
+_Bonus: could you generalize this type of solution for different stair 
+intervals, such as 1, 3, and 7 steps?_
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+Input: `n = 3`
+
+Output: `4`
+
+Explanation: You could have any of the following ordered combinations 
+of steps:
+
+```
+{ 3 },  { 2, 1 },  { 1, 2 },  { 1, 1, 1 }
+```
 
 #### Function Signature
 
-TODO :bug:
+C++:
+
+```c++
+int stepCombos(int n) {
+    // your code here
+}
+```
+
+Python:
+
+```python3
+def step_combos(n: int) -> int:
+    # your code here
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s1)   [Top](#top)
