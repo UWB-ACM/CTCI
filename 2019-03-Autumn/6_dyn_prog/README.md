@@ -148,7 +148,17 @@ Go to [Top](#top)
 
 Source: [LeetCode](https://leetcode.com/problems/word-break/)
 
-#### Optimized Solution
+#### Naive Approach
+
+A naive approach would be to start from index `0`, check if the substrings 
+`s[0:1]` through `s[0:length of s]` is in `wordDict`. If a match is found, call 
+the function recursively but to start at the index where the previous match was 
+found. The function returns **true** up the call stack if `s[x:length of s]` is 
+in `wordDict`. Otherwise we would return **false** and continue the search until 
+`s[0:length of s]` is not found in `wordDict`, then the search terminates and 
+**false** is returned.
+
+#### Memoization Solution
 
 We can leverage a memo to store indices each time we find a word match in the 
 sequence. As we loop through the sequence, we need to compare the substrings 
@@ -183,6 +193,11 @@ def word_break(s: str, wordDict: list) -> bool:
                 break
     return len(s) in dp
 ```
+
+**Note:** While this solution is sufficient for more general cases, inputs such 
+as `s = "abbbbbbbbbbbbbbb...", wordDict = ["a"]` causes unnecessary work to be 
+done since we don't need to check further after we couldn't find a match at 
+index `2`. Time complexity doesn't change in any case.
 
 #### Driver For Solution
 
