@@ -10,11 +10,9 @@ Problems and solutions for Math & Dynamic Programming session on November 15, 20
 * [Problems](#problems)
   * [1](#p1)
   * [2](#p2)
-  * [3](#p3)
 * [Solutions](#solutions)
   * [1](#s1)
   * [2](#s2)
-  * [3](#s3)
 
 <!-- Don't remove -->
 <a name="problems"/>
@@ -119,28 +117,6 @@ def word_break(s: str, wordDict: list) -> bool:
 
 <!-- Don't remove -->
 Go to [Solution](#s2)   [Top](#top)
-
-<!-- Don't remove -->
-<a name="p3"/>
-
-### 3. PROBLEM 3 TODO :bug:
-
-Source: TODO :bug:
-
-#### Scenario
-
-Problem Statement TODO :bug:
-
-#### Example Input
-
-If the problem is simple enough, remove this section. TODO :bug:
-
-#### Function Signature
-
-TODO :bug:
-
-<!-- Don't remove -->
-Go to [Solution](#s3)   [Top](#top)
 
 <!-- Don't remove -->
 <a name="solutions"/>
@@ -306,28 +282,6 @@ index `2`. Time complexity doesn't change in any case.
 #### Driver For Solution
 
 The Python driver and solution is [here](./word_break/word_break.py).
-
-<!-- Don't remove -->
-Go to [Top](#top)
-
-<!-- Don't remove -->
-<a name="s3"/>
-
-### 3. SOLUTION 3 TODO :bug:
-
-Source: TODO :bug:
-
-#### Naive/Simple Solution 
-
-TODO :bug:
-
-#### Optimal Solution
-
-TODO :bug:
-
-#### Testing The Solutions OR Driver For Solution
-
-TODO :bug:
 
 <!-- Don't remove -->
 Go to [Top](#top)
