@@ -45,21 +45,45 @@ Go to [Solution](#s1)   [Top](#top)
 <!-- Don't remove -->
 <a name="p2"/>
 
-### 2. PROBLEM 2 TODO :bug:
+### 2. Word Break
 
-Source: TODO :bug:
+Source: [LeetCode](https://leetcode.com/problems/word-break/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Given a **non-empty** string s and a dictionary wordDict containing a list of 
+**non-empty** words, determine if s can be segmented into a space-separated 
+sequence of one or more dictionary words.
+
+* Dictionary does not contain duplicate words.
+* Same word may be used multiple times.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+```
+Input: s = "applepenapple", wordDict = ["apple", "pen"]
+Output: true
+Explanation: Return true because "applepenapple" can be segmented as "apple pen apple".
+             Note that you are allowed to reuse a dictionary word.
+```
+
+```
+Input: s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]
+Output: false
+```
 
 #### Function Signature
 
-TODO :bug:
+```java
+boolean wordBreak(String s, List<String> wordDict) {
+    // your code here
+}
+```
+
+```python3
+def word_break(s: str, wordDict: list) -> bool:
+    # your code here
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s2)   [Top](#top)
@@ -116,21 +140,29 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s2"/>
 
-### 2. SOLUTION 2 TODO :bug:
+### 2. Word Break
 
-Source: TODO :bug:
+Source: [LeetCode](https://leetcode.com/problems/word-break/)
 
-#### Naive/Simple Solution
+#### Solution
 
-TODO :bug:
+```python3
+def word_break(s: str, wordDict: list) -> bool:
+    wordDict = set(wordDict)
+    lengths = sorted(set(len(word) for word in wordDict))
+    dp = set()
+    dp.add(0)
+    for i in range(1, len(s) + 1):
+        for length in lengths:
+            if i - length in dp and s[i - length: i] in wordDict:
+                dp.add(i)
+                break
+    return len(s) in dp
+```
 
-#### Optimal Solution
+#### Driver For Solution
 
-TODO :bug:
-
-#### Testing The Solutions OR Driver For Solution
-
-TODO :bug:
+The Python driver and solution is [here](./word_break/word_break.py).
 
 <!-- Don't remove -->
 Go to [Top](#top)
