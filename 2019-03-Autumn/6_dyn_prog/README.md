@@ -51,12 +51,12 @@ Source: [LeetCode](https://leetcode.com/problems/word-break/)
 
 #### Scenario
 
-Given a **non-empty** string s and a dictionary wordDict containing a list of 
-**non-empty** words, determine if s can be segmented into a space-separated 
+Given a **non-empty** string `s` and a dictionary `wordDict` containing a list of 
+**non-empty** words, determine if `s` can be segmented into a space-separated 
 sequence of one or more dictionary words.
 
-* Dictionary does not contain duplicate words.
-* Same word may be used multiple times.
+* Dictionary does **not** contain duplicate words.
+* Same word may be used *multiple* times.
 
 #### Example Input
 
@@ -74,11 +74,15 @@ Output: false
 
 #### Function Signature
 
-```java
-boolean wordBreak(String s, List<String> wordDict) {
+C++:
+
+```c++
+bool wordBreak(string s, vector<string>& wordDict) {
     // your code here
 }
 ```
+
+Python:
 
 ```python3
 def word_break(s: str, wordDict: list) -> bool:
@@ -146,16 +150,18 @@ Source: [LeetCode](https://leetcode.com/problems/word-break/)
 
 #### Solution
 
+Here's the solution in Python:
+
 ```python3
 def word_break(s: str, wordDict: list) -> bool:
-    wordDict = set(wordDict)
-    lengths = sorted(set(len(word) for word in wordDict))
-    dp = set()
-    dp.add(0)
-    for i in range(1, len(s) + 1):
+    wordDict = set(wordDict)    # fast lookup
+    lengths = sorted(set(len(word) for word in wordDict))   # limit search range
+    dp = set()  # memo
+    dp.add(0)   # starting index
+    for i in range(1, len(s) + 1):  # iterate range [1, length of s]
         for length in lengths:
             if i - length in dp and s[i - length: i] in wordDict:
-                dp.add(i)
+                dp.add(i)   # mark new match
                 break
     return len(s) in dp
 ```
