@@ -148,7 +148,25 @@ Go to [Top](#top)
 
 Source: [LeetCode](https://leetcode.com/problems/word-break/)
 
-#### Solution
+#### Optimized Solution
+
+We can leverage a memo to store indices each time we find a word match in the 
+sequence. As we loop through the sequence, we need to compare the substrings 
+**only** if the *`current index`* **-** *`word length`* is marked previously.
+
+For instance:  
+`Input: s = "applepenapple", wordDict = ["apple", "pen"]`  
+* At index `3`, the check for *`current index`* **-** *`word length`* becomes 
+`true` (`0` is marked, since the start of the sequence is a valid starting 
+location for a word to insert), so we take the substring `s[0:3]` (***'app'***) 
+and check if it's in the dictionary. It is not, so `3` isn't marked.
+* At index `5`, the check becomes `true` again. We check if `s[0:5]` 
+(***'apple'***) is in the dictionary. It is, so we mark `5`.
+* At index `8`, the check `___`(fill it in yourself). We then check if 
+`s[?:8]`(what is `?`) (***'pen'***) is in `___`. It `___`, so we `___`.
+* And so on...
+* Finally, we check if the length of the sequence is marked. If it is we return 
+`true`, otherwise we return `false`.
 
 Here's the solution in Python:
 
