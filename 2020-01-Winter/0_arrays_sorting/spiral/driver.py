@@ -19,6 +19,10 @@ def main():
           [31, 32, 33, 34, 35]]
     print_matrix(t2)
     print('Result: ', str(spiral_order(t2)))
+    print('\nTest 3x0 (empty) matrix:')
+    t3 = [[], [], []]
+    print_matrix(t3)
+    print('Result: ', str(spiral_order(t3)))
 
 if __name__=='__main__':
     main()
