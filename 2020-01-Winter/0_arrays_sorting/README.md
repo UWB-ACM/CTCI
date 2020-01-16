@@ -136,7 +136,6 @@ Go to [Top](#top)
 Source: [LeetCode](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 
 
-TODO :bug:
 
 #### Optimal Solution O(log n)
 
