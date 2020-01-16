@@ -105,7 +105,7 @@ Go to [Solution](#s3)   [Top](#top)
 <!-- Don't remove -->
 <a name="s1"/>
 
-### 1. SOLUTION 1 TODO :bug:
+### 1. Merge Sorted Array
 
 Source: TODO :bug:
 
@@ -113,13 +113,82 @@ Source: TODO :bug:
 
 TODO :bug:
 
-#### Optimal Solution
+PSUEDOCODE:
+```
+While in the bounds of the array
+    Compare beginning slot to each other
+    Increment until nums2 is smaller than nums1
+    Push nums1 back
+    Insert nums2 into spot
+Return merged array
+```
 
-TODO :bug:
+EXAMPLE CODE: TODO
+
+Not time optimal, since you will have to push back n number of elements, n times, for each insert.
+
+#### Alternate Solution
+
+TODO: writeup
+```
+std::vector<int>& merge(std::vector<int>& nums1, int m, std::vector<int>& nums2, int n) 
+{
+  int backOfArray = nums1.size()-1;
+
+  while(m-1 > 0)
+  {
+    if(nums1[m-1] < nums2[n-1])
+    {
+      nums1[backOfArray] = nums2[n-1];
+      std::cout << n;
+      n--;
+      backOfArray--;
+    }
+    else if (nums1[m-1] > nums2[n-1])
+    {
+      nums1[backOfArray] = nums1[m-1];
+      nums1[m-1] = 0;
+
+      m--;
+      backOfArray--;
+    }
+    else
+    {
+      nums1[backOfArray] = nums2[n-1];
+      n--;
+      m--;
+      backOfArray--;
+    }
+  
+  }
+  return nums1;
+}
+```
+
+#### Optimal solution
+
+TODO: writeup
+
+```
+std::vector<int>& merge(std::vector<int>& nums1, int m, std::vector<int>& nums2, int n) 
+{
+    //starter adding elements after the last one at m
+    for(int i = m; i < nums1.size(); i++)
+    {
+        //i-m gives indexes 0 - end of nums 2 indexes
+        
+        nums1[i] = nums2[i-m];
+    }
+    sort(nums1.begin(), nums1.end());
+  return nums1;
+}
+```
+
 
 #### Testing The Solutions OR Driver For Solution
 
 TODO :bug:
+// Note[Erica] Will finish 1/17/2020
 
 <!-- Don't remove -->
 Go to [Top](#top)
