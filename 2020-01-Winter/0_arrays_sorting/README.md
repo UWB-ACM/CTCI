@@ -47,7 +47,7 @@ Go to [Solution](#s1)   [Top](#top)
 
 ### 2. Search in Rotated Sorted Array
 
-Source: <a href="https://leetcode.com/problems/search-in-rotated-sorted-array/">LeetCode</a> :bug:
+Source: [LeetCode](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 
 #### Scenario
 
