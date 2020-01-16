@@ -179,7 +179,6 @@ int main()
     cout << test2.search(testNumbers2, 3) << endl;
 }
 
-TODO :bug:
 
 <!-- Don't remove -->
 Go to [Top](#top)
