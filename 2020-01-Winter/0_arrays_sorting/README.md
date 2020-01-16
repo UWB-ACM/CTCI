@@ -135,7 +135,6 @@ Go to [Top](#top)
 
 Source: [LeetCode](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 
-#### Naive/Simple Solution
 
 TODO :bug:
 
