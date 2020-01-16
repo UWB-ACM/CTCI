@@ -213,7 +213,6 @@ std::vector<int>& merge(std::vector<int>& nums1, int m, std::vector<int>& nums2,
       m--;
       backOfArray--;
     }
-  
   }
   return nums1;
 }
@@ -222,7 +221,7 @@ std::vector<int>& merge(std::vector<int>& nums1, int m, std::vector<int>& nums2,
 #### Testing The Solutions OR Driver For Solution
 
 TODO :bug:
-// Note[Erica] Will finish 1/17/2020
+// Note[Erica] Will finish 1/16/2020
 
 <!-- Don't remove -->
 Go to [Top](#top)
