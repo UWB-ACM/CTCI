@@ -51,7 +51,6 @@ Source: [LeetCode](https://leetcode.com/problems/search-in-rotated-sorted-array/
 
 #### Scenario
 
-Problem Statement TODO :bug:
 
 Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
 
