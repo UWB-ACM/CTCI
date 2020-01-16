@@ -45,7 +45,7 @@ Go to [Solution](#s1)   [Top](#top)
 <!-- Don't remove -->
 <a name="p2"/>
 
-### 2. Search in Rotated Sorted Array :bug:
+### 2. Search in Rotated Sorted Array
 
 Source: <a href="https://leetcode.com/problems/search-in-rotated-sorted-array/">LeetCode</a> :bug:
 
