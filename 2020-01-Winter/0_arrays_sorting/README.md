@@ -107,29 +107,83 @@ Go to [Solution](#s3)   [Top](#top)
 
 ### 1. Merge Sorted Array
 
-Source: TODO :bug:
+[LeetCode](https://leetcode.com/problems/merge-sorted-array/)
 
 #### Naive/Simple Solution
 
-TODO :bug:
-
-PSUEDOCODE:
+A simple solution to the problem is expressed in the following psuedocode:
 ```
-While in the bounds of the array
-    Compare beginning slot to each other
-    Increment until nums2 is smaller than nums1
-    Push nums1 back
-    Insert nums2 into spot
+Create a tracker for nums2
+For the length of the nums1 array
+    Check if nums2 is smaller than nums1, or equal to nums1
+    If yes
+        Push all nums1 items from current position back one
+        Insert nums2 into current posistion
+        Increment current nums1 character counter
+        Increment nums2 tracker
+    Otherwise, go through the array until you reach end of nums1 character counter
+        All nums2 larger than nums1 at this point
+        Insert all nums2 at end
 Return merged array
 ```
+This solution is space optimal, with O(1) space. However, this solution is not time optimal. For each insertion operation you make, you will have to push back N number of objects, N number of times. This implementation would have a runtime of O(N^2)
 
-EXAMPLE CODE: TODO
+Example code of this implementation:
+```
+std::vector<int> &merge(std::vector<int> &nums1, int m, std::vector<int> &nums2, int n)
+{
+  int tracker = 0;
+  
+  for(int i = 0; i < nums1.size(); i++)
+  {
+    if(nums2[tracker] < nums1[i] || nums2[tracker] == nums1[i])
+    {
+      for(int k = m-1; k >= i; k--)
+      {
+        nums1[k+1] = nums1[k];
+      }
+    
+      nums1[i] = nums2[tracker];
+      m++;
+      tracker++;
+    }
+    else if (i > m-1)
+    {
+      nums1[i] = nums2[tracker];
+      tracker++;
+    }
+  }
 
-Not time optimal, since you will have to push back n number of elements, n times, for each insert.
+  return nums1;
+}
+```
 
-#### Alternate Solution
 
-TODO: writeup
+#### Optimal solution
+
+A better solution can hit both the space requirements, while being time optimal. It requires starting from the back of the array, rather than stepping forward from the front, and is expressed in the following psuedocode:
+```
+Start from the back of the nums1 array
+
+While the number of characters nums1 has stored is greater than 0
+    Check if the last character of nums1 is smaller than nums2 last character
+        If true, place nums2 last element in the back of the array
+        Decrement nums2 character counter
+        Set back of the array to be before the newly added character
+    Otherwise, check if nums1 last character is bigger than nums2 last character
+        If so, move nums2 last character to back of array
+        Set nums1 previous position to 0
+        Decrement nums1 character counter
+        Set back of the array to be before the newly added character
+    Otherwise, nums1 and nums 2 characters are the same
+        Set back of array equal to nums2 last charact
+        Decrement both nums1 and nums2 character counter
+When all done, return the newly merge nums1
+
+``` 
+
+This implementation has a runtime of O(N), and space complexity of O(1). The full implementation in C++ is as follows:
+
 ```
 std::vector<int>& merge(std::vector<int>& nums1, int m, std::vector<int>& nums2, int n) 
 {
@@ -164,26 +218,6 @@ std::vector<int>& merge(std::vector<int>& nums1, int m, std::vector<int>& nums2,
   return nums1;
 }
 ```
-
-#### Optimal solution
-
-TODO: writeup
-
-```
-std::vector<int>& merge(std::vector<int>& nums1, int m, std::vector<int>& nums2, int n) 
-{
-    //starter adding elements after the last one at m
-    for(int i = m; i < nums1.size(); i++)
-    {
-        //i-m gives indexes 0 - end of nums 2 indexes
-        
-        nums1[i] = nums2[i-m];
-    }
-    sort(nums1.begin(), nums1.end());
-  return nums1;
-}
-```
-
 
 #### Testing The Solutions OR Driver For Solution
 
