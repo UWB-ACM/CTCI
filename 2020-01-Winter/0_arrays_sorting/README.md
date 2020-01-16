@@ -72,7 +72,6 @@ Output: 4
 Input: nums = [4,5,6,7,0,1,2], target = 3
 Output: -1
 
-If the problem is simple enough, remove this section. TODO :bug:
 
 #### Function Signature
 int search(vector<int>& nums, int target) {}
