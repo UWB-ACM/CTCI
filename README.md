@@ -1,116 +1,194 @@
-# Technical Interview Preparation for CS Majors
+<!-- Don't remove -->
+<a name="top"/>
 
-An ongoing workshop series by UW Bothell's Association for Computing Machinery chapter.
+# Arrays & Sorting
 
-## Table of Contents
+Problems and solutions for Arrays & Sorting session on January 17, 2020.
 
-* [About the Workshop](#about)
-* [Interview Preparation Resources](#resources)
-  * [Question Banks](#resources-qs)
-    * [Depth First (Topic-Intensive)](#resources-qs-depth)
-    * [Breadth First (General Guides, Structured Courses](#resources-qs-breadth)
-  * [Mock Interview Resources](#resources-mock)
-* [Resume Resources](#resume)
+### Table of Contents
 
-<a name="about"/>
+* [Problems](#problems)
+  * [1](#p1)
+  * [2](#p2)
+  * [3](#p3)
+* [Solutions](#solutions)
+  * [1](#s1)
+  * [2](#s2)
+  * [3](#s3)
 
-## About the Workshop
+<!-- Don't remove -->
+<a name="problems"/>
 
-Every quarter, UWB ACM hosts a 6-8 week workshop series covering common 
-technical topics and programming paradigms that are of special interest 
-to future employers. The workshop is formatted to give students an opportunity 
-to practice problem-solving techniques in a low-stress, low-risk environment 
-prior to encountering similar problems in stressful interview settings. 
+## Problems
 
-In particular, the workshop focuses on solving programming problems and 
-communicating thought processes to participants' peers. It is lead by 
-current UW Bothell students.
+<a name="p1"/>
 
-* 2019-2020 Hosts: [Lizzy](https://github.com/etcadinfinitum),
-[Kevin](https://github.com/mkhsu)
-* 2018-2019 Hosts: [Thomas](https://github.com/spacekatt), 
-[Brady](https://github.com/bpas247), [Lizzy](https://github.com/etcadinfinitum)
+### 1. PROBLEM 1 TODO :bug:
 
-<a name="resources"/>
+Source: TODO :bug:
 
-## Interview Preparation Resources
+#### Scenario
 
-<a name="resources-qs"/>
+Problem Statement TODO :bug:
 
-### Question Banks
+#### Example Input
 
-<a name="resources-qs-depth"/>
+If the problem is simple enough, remove this section. TODO :bug:
 
-#### Depth First (Topic-Intensive)
+#### Function Signature
 
-If you need intensive, concept-specific practice, the following resources 
-are excellent. Each of them includes an extensive question bank organized 
-by concept, accompanied by complete solutions.
+TODO :bug:
 
-These resources include solutions for the given problems; some are 
-published and provably correct and others are sourced from community 
-contributors.
+<!-- Don't remove -->
+Go to [Solution](#s1)   [Top](#top)
 
-* [CTCI](http://www.crackingthecodinginterview.com/), the workshop's namesake
-* [LeetCode](https://leetcode.com/)
-* [HackerRank](https://www.hackerrank.com/)
-* [GeeksForGeeks](https://www.geeksforgeeks.org/)
-* [EDUCBA Question Bank](https://www.educba.com/category/software-development/software-development-blog/top-interview-question/)[\*](#footnotes):
+<!-- Don't remove -->
+<a name="p2"/>
 
-<a name="resources-qs-breadth"/>
+### 2. Search in Rotated Sorted Array :bug:
 
-#### Breadth First (General Guides, Structured Courses)
+Source: <a href="https://www.youtube.com/watch?v=5BI0Rdm9Yhk">reference</a> :bug:
 
-* [Interview Cake](https://www.interviewcake.com/): a friendly-sounding 
-    structured course for technical interview practice
-* [Four Semesters of Computer Science in Six Hours](https://btholt.github.io/four-semesters-of-cs/): 
-    a study guide for core concepts
-* [The Interview Study Guide for Software Engineers](https://dev.to/seattledataguy/the-interview-study-guide-for-software-engineers-764): 
-    a study guide for core concepts, specifically targeted for interview preparation
+#### Scenario
 
-<a name="resources-mock"/>
 
-### Mock Interview Resources
+Problem Statement TODO :bug:
 
-If you're looking for forums to practice interviewing and communication skills, 
-these resources are a good place to start. 
+Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
 
-* Fellow students, friends, alumni, and LinkedIn connections. Reach out and ask 
-    if these people would be willing to give you some time to do a mock interview. 
-    The worst answer you can get is "no".
-* [PraMP](https://www.pramp.com/): free for 6 sessions[\*\*](#footnotes)
-* [interviewing.io](https://interviewing.io): free[\*\*](#footnotes)
-* [UWB-ACM](https://uwbacm.com/): annual Mock Interview event, free for all 
-    attendees. Check the club's event calendar for upcoming dates.
+(i.e., [0,1,2,4,5,6,7] might become [4,5,6,7,0,1,2]).
 
-<a name="resume"/>
+You are given a target value to search. If found in the array return its index, otherwise return -1.
 
-## Resume Resources
+You may assume no duplicate exists in the array.
 
-Revising and polishing your resume is a little bit easier with these resources 
-and guides.
+Your algorithm's runtime complexity must be in the order of O(log n).
 
-* [CareerCup Resume Guide](https://careercup.com/resume): written by the 
-    author of CTCI, this resume guide breaks down the structure, content, 
-    and best practices of Software Engineer resumes.
-* [X, Y, Z Formula and Other Google Application Advice](https://www.inc.com/bill-murphy-jr/google-recruiters-say-these-5-resume-tips-including-x-y-z-formula-will-improve-your-odds-of-getting-hired-at-google.html):
-    best practices and company-specific advice that helps your resume 
-    make an impression on recruiters and engineers (at Google and elsewhere).
+#### Example Input 1
+Input: nums = [4,5,6,7,0,1,2], target = 0
+Output: 4
 
-Make sure you get other humans to review your resume drafts for issues and 
-points of interest; a second pair of eyes is your best defense against typos.
+#### Example Input 2
 
-<a name="footnotes"/>
+Input: nums = [4,5,6,7,0,1,2], target = 3
+Output: -1
 
-## Footnotes
+If the problem is simple enough, remove this section. TODO :bug:
 
-\* The contributors haven't used this platform before; YMMV.
+#### Function Signature
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int left = 0, right = nums.size() - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] == target) return mid;
+            if (nums[mid] >= nums[left]) {
+                if (nums[left] <= target && nums[mid] > target) right = mid - 1;
+                else left = mid + 1;
+            } else {
+                if (nums[mid] < target && nums[right] >= target) left = mid + 1;
+                else right = mid - 1;
+            }
+        }
+        return -1;
+    }
+};
 
-\*\* We have specifically looked for resources that are free of charge. At the time 
-of this writing, the contributors have not personally vetted these platforms 
-for limitations and pricing. YMMV.
+TODO :bug:
 
-The content listed here is opinionated and is not all-encompassing. If you 
-use or know of resources you believe are relevant and valuable and you 
-think they should be listed here, please let us know by opening an issue 
-or a pull request!
+<!-- Don't remove -->
+Go to [Solution](#s2)   [Top](#top)
+
+<!-- Don't remove -->
+<a name="p3"/>
+
+### 3. PROBLEM 3 TODO :bug:
+
+Source: TODO :bug:
+
+#### Scenario
+
+Problem Statement TODO :bug:
+
+#### Example Input
+
+If the problem is simple enough, remove this section. TODO :bug:
+
+#### Function Signature
+
+TODO :bug:
+
+<!-- Don't remove -->
+Go to [Solution](#s3)   [Top](#top)
+
+<!-- Don't remove -->
+<a name="solutions"/>
+
+## Solutions
+
+<!-- Don't remove -->
+<a name="s1"/>
+
+### 1. SOLUTION 1 TODO :bug:
+
+Source: TODO :bug:
+
+#### Naive/Simple Solution
+
+TODO :bug:
+
+#### Optimal Solution
+
+TODO :bug:
+
+#### Testing The Solutions OR Driver For Solution
+
+TODO :bug:
+
+<!-- Don't remove -->
+Go to [Top](#top)
+
+<!-- Don't remove -->
+<a name="s2"/>
+
+### 2. SOLUTION 2 TODO :bug:
+
+Source: TODO :bug:
+
+#### Naive/Simple Solution
+
+TODO :bug:
+
+#### Optimal Solution
+
+TODO :bug:
+
+#### Testing The Solutions OR Driver For Solution
+
+TODO :bug:
+
+<!-- Don't remove -->
+Go to [Top](#top)
+
+<!-- Don't remove -->
+<a name="s3"/>
+
+### 3. SOLUTION 3 TODO :bug:
+
+Source: TODO :bug:
+
+#### Naive/Simple Solution
+
+TODO :bug:
+
+#### Optimal Solution
+
+TODO :bug:
+
+#### Testing The Solutions OR Driver For Solution
+
+TODO :bug:
+
+<!-- Don't remove -->
+Go to [Top](#top)
