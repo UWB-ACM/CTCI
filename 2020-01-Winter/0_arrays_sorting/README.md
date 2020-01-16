@@ -48,7 +48,7 @@ Output: [1,2,2,3,5,6]
 
 #### Function Signature
 
-TODO :bug:
+`std::vector<int>& merge(std::vector<int>& nums1, int m, std::vector<int>& nums2, int n)`
 
 <!-- Don't remove -->
 Go to [Solution](#s1)   [Top](#top)
@@ -220,8 +220,7 @@ std::vector<int>& merge(std::vector<int>& nums1, int m, std::vector<int>& nums2,
 
 #### Testing The Solutions OR Driver For Solution
 
-TODO :bug:
-// Note[Erica] Will finish 1/16/2020
+The full solution to the optomized solution can be found at `CTCI/2020-01-Winter/0_arrays_sorting/Merge_Sorted_Arrays/mergeSortArr.cpp`.
 
 <!-- Don't remove -->
 Go to [Top](#top)
