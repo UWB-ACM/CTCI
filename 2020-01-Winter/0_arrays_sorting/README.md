@@ -131,14 +131,34 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s2"/>
 
-### 2. SOLUTION 2 TODO :bug:
+### 2. Search in Rotated Sorted Array
 
 Source: [LeetCode](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 
+#### Optimal Solution
 
+A good approach to this type of problem uses a **sliding window** approach
+to conduct a binary search of the array.
 
-#### Optimal Solution O(log n)
+A search window is initially declared as the entire array. The middle 
+element of the search window is tested against the target value, and the 
+search window is narrowed accordingly. The following tests are made:
 
+* If the middle element contains the target, the index of the middle 
+  element is returned. 
+* If the middle element is larger than the leftmost element, then the 
+  array's pivot is contained in the right half. The bounds of the left 
+  half are compared to the target value; if the target value is contained 
+  within those bounds, the window is narrowed to the left half of the 
+  search window. Otherwise, it is narrowed to the right half of the 
+  search window.
+* Conversely, if the pivot is contained in the left half of the array, 
+  the bounds of the right half of the array are compared against the 
+  target value and the window is narrowed in a similar fashion.
+
+Because the array is bisected with each search pattern, we have a solution 
+which has a time complexity of `O(log N)`.
+ 
 ```c++
 #include <iostream>
 #include <vector>
@@ -164,9 +184,13 @@ public:
 };
 ```
 
-
 #### Testing The Solutions OR Driver For Solution
 
+[The code and tests are provided in this repository.](./search_in_rotated/solution.cpp)
+
+The test method is as follows:
+
+```c++
 int main()
 {
     Solution test1;
@@ -178,7 +202,7 @@ int main()
     cout << test1.search(testNumbers, 0) << endl;
     cout << test2.search(testNumbers2, 3) << endl;
 }
-
+```
 
 <!-- Don't remove -->
 Go to [Top](#top)
