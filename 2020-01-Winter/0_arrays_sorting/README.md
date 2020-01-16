@@ -75,7 +75,6 @@ Output: -1
 #### Function Signature
 int search(vector<int>& nums, int target) {}
 
-TODO :bug:
 
 <!-- Don't remove -->
 Go to [Solution](#s2)   [Top](#top)
