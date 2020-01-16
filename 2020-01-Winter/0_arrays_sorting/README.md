@@ -133,7 +133,7 @@ Go to [Top](#top)
 
 ### 2. SOLUTION 2 TODO :bug:
 
-Source: <a href="https://leetcode.com/problems/search-in-rotated-sorted-array/">LeetCode</a> :bug:
+Source: [LeetCode](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 
 #### Naive/Simple Solution
 
