@@ -23,21 +23,32 @@ Problems and solutions for Arrays & Sorting session on January 17, 2020.
 
 <a name="p1"/>
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. Merge Sorted Array
 
-Source: TODO :bug:
+Source: [LeetCode](https://leetcode.com/problems/merge-sorted-array/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
+
+**Note:**
+
+- The number of elements initialized in nums1 and nums2 are m and n respectively.
+- You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+```
+Input:
+nums1 = [1,2,3,0,0,0], m = 3
+nums2 = [2,5,6],       n = 3
+
+Output: [1,2,2,3,5,6]
+```
 
 #### Function Signature
 
-TODO :bug:
+`std::vector<int>& merge(std::vector<int>& nums1, int m, std::vector<int>& nums2, int n)`
 
 <!-- Don't remove -->
 Go to [Solution](#s1)   [Top](#top)
@@ -117,21 +128,118 @@ Go to [Solution](#s3)   [Top](#top)
 <!-- Don't remove -->
 <a name="s1"/>
 
-### 1. SOLUTION 1 TODO :bug:
+### 1. Merge Sorted Array
 
-Source: TODO :bug:
+[LeetCode](https://leetcode.com/problems/merge-sorted-array/)
 
 #### Naive/Simple Solution
 
-TODO :bug:
+A simple solution to the problem is expressed in the following psuedocode:
+```
+Create a tracker for nums2
+For the length of the nums1 array
+    Check if nums2 is smaller than nums1, or equal to nums1
+    If yes
+        Push all nums1 items from current position back one
+        Insert nums2 into current posistion
+        Increment current nums1 character counter
+        Increment nums2 tracker
+    Otherwise, go through the array until you reach end of nums1 character counter
+        All nums2 larger than nums1 at this point
+        Insert all nums2 at end
+Return merged array
+```
+This solution is space optimal, with O(1) space. However, this solution is not time optimal. For each insertion operation you make, you will have to push back N number of objects, N number of times. This implementation would have a runtime of O(N^2)
 
-#### Optimal Solution
+Example code of this implementation:
+```c++
+std::vector<int> &merge(std::vector<int> &nums1, int m, std::vector<int> &nums2, int n)
+{
+  int tracker = 0;
+  
+  for(int i = 0; i < nums1.size(); i++)
+  {
+    if(nums2[tracker] < nums1[i] || nums2[tracker] == nums1[i])
+    {
+      for(int k = m-1; k >= i; k--)
+      {
+        nums1[k+1] = nums1[k];
+      }
+    
+      nums1[i] = nums2[tracker];
+      m++;
+      tracker++;
+    }
+    else if (i > m-1)
+    {
+      nums1[i] = nums2[tracker];
+      tracker++;
+    }
+  }
 
-TODO :bug:
+  return nums1;
+}
+```
+
+
+#### Optimal solution
+
+A better solution can hit both the space requirements, while being time optimal. It requires starting from the back of the array, rather than stepping forward from the front, and is expressed in the following psuedocode:
+```
+Start from the back of the nums1 array
+
+While the number of characters nums1 and nums2 has stored is 0 or higher 
+    Check if the last character of nums1 is smaller than nums2 last character
+        If true, place nums2 last element in the back of the array
+        Decrement nums2 character counter
+    Otherwise, nums1 last character is bigger than nums2 last character
+        Move nums1 last character to back of array
+        Decrement nums1 character counter
+    Decrement the back of the array
+
+If by end of first loop nums2 still has characters left
+    Push the rest of nums2 values into nums1
+
+When all done, return the newly merge nums1
+
+``` 
+
+This implementation has a runtime of O(N), and space complexity of O(1). The full implementation in C++ is as follows:
+
+```c++
+std::vector<int> &merge(std::vector<int> &nums1, int m, std::vector<int> &nums2, int n)
+{
+  int backOfArray = nums1.size() - 1;
+
+  while (m - 1 >= 0 && n - 1 >= 0)
+  {
+    if (nums1[m - 1] < nums2[n - 1])
+    {
+      nums1[backOfArray] = nums2[n - 1];
+      n--;
+    }
+    else
+    {
+      nums1[backOfArray] = nums1[m - 1];
+      m--;
+    }
+    backOfArray--;
+  }
+
+  while (n - 1 >= 0)
+  {
+    nums1[backOfArray] = nums2[n - 1];
+    backOfArray--;
+    n--;
+  }
+
+  return nums1;
+}
+```
 
 #### Testing The Solutions OR Driver For Solution
 
-TODO :bug:
+The full solution to the optomized solution can be found at `CTCI/2020-01-Winter/0_arrays_sorting/Merge_Sorted_Arrays/mergeSortArr.cpp`.
 
 <!-- Don't remove -->
 Go to [Top](#top)
