@@ -173,8 +173,10 @@ While the number of characters nums1 and nums2 has stored is 0 or higher
         Move nums1 last character to back of array
         Decrement nums1 character counter
     Decrement the back of the array
+
 If by end of first loop nums2 still has characters left
     Push the rest of nums2 values into nums1
+
 When all done, return the newly merge nums1
 
 ``` 
