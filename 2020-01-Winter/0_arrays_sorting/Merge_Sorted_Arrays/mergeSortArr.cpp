@@ -50,4 +50,5 @@ int main()
   {
     std::cout << nums1[i] << ", ";
   }
+  std::cout << std::endl;
 }
