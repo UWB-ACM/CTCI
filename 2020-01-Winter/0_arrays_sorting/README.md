@@ -184,7 +184,7 @@ When all done, return the newly merge nums1
 
 This implementation has a runtime of O(N), and space complexity of O(1). The full implementation in C++ is as follows:
 
-```
+```c++
 std::vector<int>& merge(std::vector<int>& nums1, int m, std::vector<int>& nums2, int n) 
 {
   int backOfArray = nums1.size()-1;
