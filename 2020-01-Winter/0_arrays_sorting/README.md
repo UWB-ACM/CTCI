@@ -194,7 +194,6 @@ std::vector<int>& merge(std::vector<int>& nums1, int m, std::vector<int>& nums2,
     if(nums1[m-1] < nums2[n-1])
     {
       nums1[backOfArray] = nums2[n-1];
-      std::cout << n;
       n--;
       backOfArray--;
     }
