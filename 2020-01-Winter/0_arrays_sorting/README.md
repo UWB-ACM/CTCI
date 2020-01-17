@@ -129,7 +129,7 @@ Return merged array
 This solution is space optimal, with O(1) space. However, this solution is not time optimal. For each insertion operation you make, you will have to push back N number of objects, N number of times. This implementation would have a runtime of O(N^2)
 
 Example code of this implementation:
-```
+```c++
 std::vector<int> &merge(std::vector<int> &nums1, int m, std::vector<int> &nums2, int n)
 {
   int tracker = 0;
@@ -165,55 +165,49 @@ A better solution can hit both the space requirements, while being time optimal.
 ```
 Start from the back of the nums1 array
 
-While the number of characters nums1 has stored is greater than 0
+While the number of characters nums1 and nums2 has stored is 0 or higher 
     Check if the last character of nums1 is smaller than nums2 last character
         If true, place nums2 last element in the back of the array
         Decrement nums2 character counter
-        Set back of the array to be before the newly added character
-    Otherwise, check if nums1 last character is bigger than nums2 last character
-        If so, move nums2 last character to back of array
-        Set nums1 previous position to 0
+    Otherwise, nums1 last character is bigger than nums2 last character
+        Move nums1 last character to back of array
         Decrement nums1 character counter
-        Set back of the array to be before the newly added character
-    Otherwise, nums1 and nums 2 characters are the same
-        Set back of array equal to nums2 last charact
-        Decrement both nums1 and nums2 character counter
+    Decrement the back of the array
+If by end of first loop nums2 still has characters left
+    Push the rest of nums2 values into nums1
 When all done, return the newly merge nums1
 
 ``` 
 
 This implementation has a runtime of O(N), and space complexity of O(1). The full implementation in C++ is as follows:
 
-```
-std::vector<int>& merge(std::vector<int>& nums1, int m, std::vector<int>& nums2, int n) 
+```c++
+std::vector<int> &merge(std::vector<int> &nums1, int m, std::vector<int> &nums2, int n)
 {
-  int backOfArray = nums1.size()-1;
+  int backOfArray = nums1.size() - 1;
 
-  while(m-1 > 0)
+  while (m - 1 >= 0 && n - 1 >= 0)
   {
-    if(nums1[m-1] < nums2[n-1])
+    if (nums1[m - 1] < nums2[n - 1])
     {
-      nums1[backOfArray] = nums2[n-1];
-      std::cout << n;
+      nums1[backOfArray] = nums2[n - 1];
       n--;
-      backOfArray--;
-    }
-    else if (nums1[m-1] > nums2[n-1])
-    {
-      nums1[backOfArray] = nums1[m-1];
-      nums1[m-1] = 0;
-
-      m--;
-      backOfArray--;
     }
     else
     {
-      nums1[backOfArray] = nums2[n-1];
-      n--;
+      nums1[backOfArray] = nums1[m - 1];
       m--;
-      backOfArray--;
     }
+    backOfArray--;
   }
+
+  while (n - 1 >= 0)
+  {
+    nums1[backOfArray] = nums2[n - 1];
+    backOfArray--;
+    n--;
+  }
+
   return nums1;
 }
 ```
