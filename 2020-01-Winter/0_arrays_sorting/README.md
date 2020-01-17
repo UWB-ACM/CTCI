@@ -129,7 +129,7 @@ Return merged array
 This solution is space optimal, with O(1) space. However, this solution is not time optimal. For each insertion operation you make, you will have to push back N number of objects, N number of times. This implementation would have a runtime of O(N^2)
 
 Example code of this implementation:
-```
+```c++
 std::vector<int> &merge(std::vector<int> &nums1, int m, std::vector<int> &nums2, int n)
 {
   int tracker = 0;
