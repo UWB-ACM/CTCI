@@ -171,7 +171,7 @@ While the number of characters nums1 has stored is greater than 0
         Decrement nums2 character counter
         Set back of the array to be before the newly added character
     Otherwise, check if nums1 last character is bigger than nums2 last character
-        If so, move nums2 last character to back of array
+        If so, move nums1 last character to back of array
         Set nums1 previous position to 0
         Decrement nums1 character counter
         Set back of the array to be before the newly added character
