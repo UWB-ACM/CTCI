@@ -21,7 +21,7 @@ public:
 
   int GetValue() { return this->Value; }
 
-  Node *GetNext() { return this->Next; }
+  Node *&GetNext() { return this->Next; }
 
 private:
   int Value;
@@ -36,7 +36,7 @@ void RemoveDuplicatesWithBuffer(Node *Start) {
   unordered_set<int> set;
 
   Node *Curr = Start;
-  Node *Prev = Prev;
+  Node *Prev = nullptr;
 
   while (Curr != nullptr) {
     // Doesn't exist
@@ -87,7 +87,6 @@ void clearList(Node *Start) {
     Curr = Curr->GetNext();
     delete Prev;
   }
-  delete Start;
 }
 
 void Test1() {
