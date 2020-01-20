@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ryan/School/ACM/CTCI/2020-01-Winter/1_linked_lists/main.cpp
+cassert
+-
+iostream
+-
+list
+-
+sstream
+-
+unordered_set
+-
+

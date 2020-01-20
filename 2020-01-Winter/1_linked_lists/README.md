@@ -67,13 +67,14 @@ Go to [Solution](#s2)   [Top](#top)
 <!-- Don't remove -->
 <a name="p3"/>
 
-### 3. PROBLEM 3 TODO :bug:
+### 3. Linked List Duplicates
 
 Source: TODO :bug:
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Remove duplicated from an **unsorted** linked list.
+*Follow Up Question:* How would you solve this without a temporary buffer?
 
 #### Example Input
 
