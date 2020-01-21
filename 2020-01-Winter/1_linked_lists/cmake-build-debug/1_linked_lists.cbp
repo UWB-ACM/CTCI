@@ -84,6 +84,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/ryan/School/ACM/CTCI/2020-01-Winter/1_linked_lists/Node.h">
+			<Option target="1_linked_lists"/>
+		</Unit>
 		<Unit filename="/home/ryan/School/ACM/CTCI/2020-01-Winter/1_linked_lists/main.cpp">
 			<Option target="1_linked_lists"/>
 		</Unit>

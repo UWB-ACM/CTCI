@@ -6,12 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/home/ryan/School/ACM/CTCI/2020-01-Winter/1_linked_lists/Node.h
+
 /home/ryan/School/ACM/CTCI/2020-01-Winter/1_linked_lists/main.cpp
+Node.h
+/home/ryan/School/ACM/CTCI/2020-01-Winter/1_linked_lists/Node.h
 cassert
 -
 iostream
--
-list
 -
 sstream
 -

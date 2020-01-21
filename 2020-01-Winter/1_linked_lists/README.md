@@ -76,6 +76,8 @@ Source: TODO :bug:
 Remove duplicated from an **unsorted** linked list.
 *Follow Up Question:* How would you solve this without a temporary buffer?
 
+**Assume the Tail will NOT connect back to the Head. Meaning it is NOT circular.**
+
 #### Example Input
 
 If the problem is simple enough, remove this section. TODO :bug:
