@@ -10,59 +10,13 @@ using namespace std;
 void TestAllBuffer();
 void TestAllNoBuffer();
 
+
 void RemoveDuplicatesWithBuffer(Node *Start) {
-  if (Start == nullptr || Start->GetNext() == nullptr) {
-    return;
-  }
 
-  unordered_set<int> set;
-
-  Node *Curr = Start;
-  Node *Prev = nullptr;
-
-  while (Curr != nullptr) {
-    // Doesn't exist
-    if (set.find(Curr->GetValue()) == set.end()) {
-
-      set.insert(Curr->GetValue());
-      Prev = Curr;
-      Curr = Curr->GetNext();
-
-    } else { // Exists
-
-      Prev->SetNext(Curr->GetNext());
-      delete Curr;
-      Curr = Prev->GetNext();
-    }
-  }
 }
 
 void RemoveDuplicatesWithoutBuffer(Node *Start) {
-  if (Start == nullptr || Start->GetNext() == nullptr) {
-    return;
-  }
 
-  Node *Prev = Start;
-  Node *Curr = Prev->GetNext();
-
-  while (Curr != nullptr) {
-
-    Node *Check = Start;
-
-    while (Check != Curr) { // Check for earlier duplicates
-
-      if (Check->GetValue() == Curr->GetValue()) {
-        Prev->SetNext(Curr->GetNext());
-        Curr = Curr->GetNext();
-        break; // All other duplicates have been removed
-      }
-      Check = Check->GetNext();
-    }
-    if (Check == Curr) { // Update the current
-      Prev = Curr;
-      Curr = Curr->GetNext();
-    }
-  }
 }
 
 int main() {
