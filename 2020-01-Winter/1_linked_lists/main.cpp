@@ -1,6 +1,7 @@
 #include "Node.h"
 #include <cassert>
 #include <iostream>
+#include <memory>
 #include <sstream>
 #include <unordered_set>
 
@@ -10,13 +11,60 @@ using namespace std;
 void TestAllBuffer();
 void TestAllNoBuffer();
 
-
 void RemoveDuplicatesWithBuffer(Node *Start) {
+  if (Start == nullptr || Start->GetNext() == nullptr) {
+    return;
+  }
 
+  unordered_set<int> set;
+
+  Node *Curr = Start;
+  Node *Prev = nullptr;
+
+  while (Curr != nullptr) {
+    // Doesn't exist
+    if (set.find(Curr->GetValue()) == set.end()) {
+
+      set.insert(Curr->GetValue());
+      Prev = Curr;
+      Curr = Curr->GetNext();
+
+    } else { // Exists
+
+      Prev->SetNext(Curr->GetNext());
+      delete Curr;
+      Curr = Prev->GetNext();
+    }
+  }
 }
 
 void RemoveDuplicatesWithoutBuffer(Node *Start) {
+  if (Start == nullptr || Start->GetNext() == nullptr) {
+    return;
+  }
 
+  Node *Prev = Start;
+  auto Curr = Prev->GetNext();
+
+  while (Curr != nullptr) {
+
+    Node *Check = Start;
+
+    while (Check != Curr) { // Check for earlier duplicates
+
+      if (Check->GetValue() == Curr->GetValue()) {
+        Prev->SetNext(Curr->GetNext());
+        delete Curr;
+        Curr = Prev->GetNext();
+        break; // All other duplicates have been removed
+      }
+      Check = Check->GetNext();
+    }
+    if (Check == Curr) { // Update the current
+      Prev = Curr;
+      Curr = Curr->GetNext();
+    }
+  }
 }
 
 int main() {
@@ -254,7 +302,7 @@ void DuplicateShortList_NoBuffer() {
 void DuplicateLongList_Buffer() {
   Node *Head = new Node(1, nullptr);
   Node *Prev = Head;
-  for (int i = 0; i < 50; ++i) {
+  for (int i = 0; i < 100; ++i) {
     Prev->SetNext(new Node(11)); // Add to LinkedList
     Prev = Prev->GetNext();      // Move prev forward
   }
@@ -269,7 +317,7 @@ void DuplicateLongList_Buffer() {
 void DuplicateLongList_NoBuffer() {
   Node *Head = new Node(1, nullptr);
   Node *Prev = Head;
-  for (int i = 0; i < 10; ++i) {
+  for (int i = 0; i < 100; ++i) {
     Prev->SetNext(new Node(11)); // Add to LinkedList
     Prev = Prev->GetNext();      // Move prev forward
   }
