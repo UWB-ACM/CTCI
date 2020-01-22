@@ -33,5 +33,31 @@ public class driver{
     public static boolean isPalindrome(Node head) 
     {
         //Your code here
+        Node current = head; 
+        boolean ispalin = true; 
+        Stack<Integer> stack = new Stack<Integer>(); 
+
+        if(head.next == null){
+            return true;
+        }
+  
+        while (current != null) { 
+            stack.push(current.data); 
+            current = current.next; 
+        } 
+  
+        while (head != null) { 
+  
+            int i = stack.pop(); 
+            if (head.data == i) { 
+                ispalin = true; 
+            } 
+            else { 
+                ispalin = false; 
+                break; 
+            } 
+            head = head.next; 
+        } 
+        return ispalin;
     }    
 }
