@@ -18,7 +18,7 @@ public:
 
   int GetValue() { return this->Value; }
 
-  Node *&GetNext() { return this->Next; }
+  Node *GetNext() { return this->Next; }
 
 private:
   int Value;

@@ -85,7 +85,7 @@ public class Linked_List_Duplicates {
 
     }
 
-    public static void Test1Buffer() {
+    public static void LastTwoRepeating_Buffer() {
         System.out.println("Test 1");
 
         LinkedListNode Head = new LinkedListNode(5, null);
@@ -116,7 +116,7 @@ public class Linked_List_Duplicates {
         }
     }
 
-    public static void Test2Buffer() {
+    public static void SingleElement_Buffer() {
         System.out.println("Test 2");
 
         LinkedListNode Head = new LinkedListNode(1, null);
@@ -137,7 +137,7 @@ public class Linked_List_Duplicates {
         }
     }
 
-    public static void Test3Buffer() {
+    public static void LongList_Buffer() {
         System.out.println("Test 3");
 
         LinkedListNode Head = new LinkedListNode(1, null);

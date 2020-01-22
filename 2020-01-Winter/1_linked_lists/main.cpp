@@ -42,30 +42,26 @@ void RemoveDuplicatesWithoutBuffer(Node *Start) {
     return;
   }
 
-  Node *Curr = Start;
-  Node *Check = nullptr; // Used to iterate over the list
-  Node *Prev = nullptr;
+  Node *Prev = Start;
+  Node *Curr = Prev->GetNext();
 
   while (Curr != nullptr) {
 
-    //    bool duplicate = false;
-    Check = Start; // Start at second Node of list
-    Prev = Check;
+    Node *Check = Start;
 
-    while (Check != nullptr) {
+    while (Check != Curr) { // Check for earlier duplicates
 
-      if (Check->GetValue() == Curr->GetValue() && Check != Curr) {
-        Prev->SetNext(Check->GetNext());
-        delete Check;
-        //        delete Curr;
-        //        Curr = Prev->GetNext();
+      if (Check->GetValue() == Curr->GetValue()) {
+        Prev->SetNext(Curr->GetNext());
+        Curr = Curr->GetNext();
+        break; // All other duplicates have been removed
       }
-      Prev = Check;
       Check = Check->GetNext();
     }
-
-    //    Prev = Curr;
-    Curr = Curr->GetNext();
+    if (Check == Curr) { // Update the current
+      Prev = Curr;
+      Curr = Curr->GetNext();
+    }
   }
 }
 
@@ -90,28 +86,29 @@ int main() {
  */
 
 // Displays all starting at the given Node
+// Do not edit
 string displayAll(Node *Start) {
 
   if (Start == nullptr) {
-    return "[]";
+    return "";
   }
 
   ostringstream out;
 
   Node *Curr = Start;
 
-  out << "[";
-  out << "<" << Curr->GetValue() << ">";
+  out << Curr->GetValue() << " -> ";
 
   while (Curr->GetNext() != nullptr) {
     Curr = Curr->GetNext();
-    out << " <" << Curr->GetValue() << ">";
+    out << Curr->GetValue() << " -> ";
   }
-  out << "]";
 
   return out.str();
 }
 
+// Cleans up memory by removing all nodes
+// Do not edit
 void clearList(Node *Start) {
   // Delete old list
   Node *Curr = Start;
@@ -123,7 +120,7 @@ void clearList(Node *Start) {
   }
 }
 
-void Test1Buffer() {
+void LastTwoRepeating_Buffer() {
   Node *Head = new Node(1, nullptr);
   Node *Prev = Head;
   // Generate Nodes
@@ -133,12 +130,13 @@ void Test1Buffer() {
     Prev = Prev->GetNext();  // Move prev forward
   }
   RemoveDuplicatesWithBuffer(Head);
-  assert("[<1> <5>]" == displayAll(Head) && "Expected: [<1> <5>]");
+
+  assert("1 -> 5 -> " == displayAll(Head));
 
   clearList(Head);
 }
 
-void Test1NoBuffer() {
+void LastTwoRepeating_NoBuffer() {
   Node *Head = new Node(1, nullptr);
   Node *Prev = Head;
   // Generate Nodes
@@ -150,32 +148,32 @@ void Test1NoBuffer() {
 
   RemoveDuplicatesWithoutBuffer(Head);
 
-  assert("[<1> <5>]" == displayAll(Head) && "Expected: [<1> <5>]");
+  assert("1 -> 5 -> " == displayAll(Head));
 
   clearList(Head);
 }
 
-void Test2Buffer() {
+void SingleElement_Buffer() {
   Node *Head = new Node(1, nullptr);
 
   RemoveDuplicatesWithBuffer(Head);
 
-  assert("[<1>]" == displayAll(Head) && "Expected: [<1>]");
+  assert("1 -> " == displayAll(Head));
 
   clearList(Head);
 }
 
-void Test2NoBuffer() {
+void SingleElement_NoBuffer() {
   Node *Head = new Node(1, nullptr);
 
   RemoveDuplicatesWithoutBuffer(Head);
 
-  assert("[<1>]" == displayAll(Head) && "Expected: [<1>]");
+  assert("1 -> " == displayAll(Head));
 
   clearList(Head);
 }
 
-void Test3Buffer() {
+void LongList_Buffer() {
   Node *Head = new Node(1, nullptr);
   Node *Prev = Head;
   // Generate Nodes
@@ -199,15 +197,14 @@ void Test3Buffer() {
     ++total;
   }
 
-  assert("[<1> <0> <2> <3> <4> <5> <6> <7> <8> <9> <10> <11> <12> <13> <14> "
-         "<15> <16> <17> <18> <19>]" == displayAll(Head) &&
-         "Failed Test 3 with Buffer");
+  assert("1 -> 0 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10 -> 11 -> 12 -> "
+         "13 -> 14 -> 15 -> 16 -> 17 -> 18 -> 19 -> " == displayAll(Head));
   assert(total == 20);
 
   clearList(Head);
 }
 
-void Test3NoBuffer() {
+void LongList_NoBuffer() {
   Node *Head = new Node(1, nullptr);
   Node *Prev = Head;
   // Generate Nodes
@@ -231,15 +228,14 @@ void Test3NoBuffer() {
     ++total;
   }
 
-  assert("[<1> <0> <2> <3> <4> <5> <6> <7> <8> <9> <10> <11> <12> <13> <14> "
-         "<15> <16> <17> <18> <19>]" == displayAll(Head) &&
-         "Failed Test 3 without Buffer");
+  assert("1 -> 0 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10 -> 11 -> 12 -> "
+         "13 -> 14 -> 15 -> 16 -> 17 -> 18 -> 19 -> " == displayAll(Head));
   assert(total == 20);
 
   clearList(Head);
 }
 
-void Test4Buffer() {
+void UniqueShortList_Buffer() {
   Node *Head = new Node(1, nullptr);
   Node *Prev = Head;
   // Generate Nodes
@@ -250,12 +246,12 @@ void Test4Buffer() {
 
   RemoveDuplicatesWithBuffer(Head);
 
-  assert("[<1> <0>]" == displayAll(Head) && "Failed Test 4 with Buffer");
+  assert("1 -> 0 -> " == displayAll(Head));
 
   clearList(Head);
 }
 
-void Test4NoBuffer() {
+void UniqueShortList_NoBuffer() {
   Node *Head = new Node(1, nullptr);
   Node *Prev = Head;
   // Generate Nodes
@@ -266,21 +262,85 @@ void Test4NoBuffer() {
 
   RemoveDuplicatesWithoutBuffer(Head);
 
-  assert("[<1> <0>]" == displayAll(Head) && "Failed Test 4 without Buffer");
+  assert("1 -> 0 -> " == displayAll(Head));
+
+  clearList(Head);
+}
+
+void DuplicateShortList_Buffer() {
+  Node *Head = new Node(1, nullptr);
+  Node *Prev = Head;
+  for (int i = 0; i < 5; ++i) {
+    Prev->SetNext(new Node(73)); // Add to LinkedList
+    Prev = Prev->GetNext();      // Move prev forward
+  }
+
+  RemoveDuplicatesWithBuffer(Head);
+
+  assert("1 -> 73 -> " == displayAll(Head));
+
+  clearList(Head);
+}
+
+void DuplicateShortList_NoBuffer() {
+  Node *Head = new Node(1, nullptr);
+  Node *Prev = Head;
+  for (int i = 0; i < 5; ++i) {
+    Prev->SetNext(new Node(73)); // Add to LinkedList
+    Prev = Prev->GetNext();      // Move prev forward
+  }
+
+  RemoveDuplicatesWithoutBuffer(Head);
+
+  assert("1 -> 73 -> " == displayAll(Head));
+
+  clearList(Head);
+}
+
+void DuplicateLongList_Buffer() {
+  Node *Head = new Node(1, nullptr);
+  Node *Prev = Head;
+  for (int i = 0; i < 50; ++i) {
+    Prev->SetNext(new Node(11)); // Add to LinkedList
+    Prev = Prev->GetNext();      // Move prev forward
+  }
+
+  RemoveDuplicatesWithBuffer(Head);
+
+  assert("1 -> 11 -> " == displayAll(Head));
+
+  clearList(Head);
+}
+
+void DuplicateLongList_NoBuffer() {
+  Node *Head = new Node(1, nullptr);
+  Node *Prev = Head;
+  for (int i = 0; i < 10; ++i) {
+    Prev->SetNext(new Node(11)); // Add to LinkedList
+    Prev = Prev->GetNext();      // Move prev forward
+  }
+
+  RemoveDuplicatesWithoutBuffer(Head);
+
+  assert("1 -> 11 -> " == displayAll(Head));
 
   clearList(Head);
 }
 
 void TestAllBuffer() {
-  Test1Buffer();
-  Test2Buffer();
-  Test3Buffer();
-  Test4Buffer();
+  LastTwoRepeating_Buffer();
+  SingleElement_Buffer();
+  LongList_Buffer();
+  UniqueShortList_Buffer();
+  DuplicateLongList_Buffer();
+  DuplicateShortList_Buffer();
 }
 
 void TestAllNoBuffer() {
-  Test1NoBuffer();
-  Test2NoBuffer();
-  Test3NoBuffer();
-  Test4NoBuffer();
+  LastTwoRepeating_NoBuffer();
+  SingleElement_NoBuffer();
+  LongList_NoBuffer();
+  UniqueShortList_NoBuffer();
+  DuplicateLongList_NoBuffer();
+  DuplicateShortList_NoBuffer();
 }
