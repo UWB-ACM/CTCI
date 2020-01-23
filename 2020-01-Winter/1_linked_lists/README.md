@@ -82,48 +82,6 @@ bool isPalindrome(Node *head)
 <!-- Don't remove -->
 Go to [Solution](#s1)   [Top](#top)
 
-A simple solution is to use a stack of list nodes.
-This mainly involves three steps:
-1.Traverse the given list from head to tail and push every visited node to stack.
-2.Traverse the list again. For every visited node, pop a node from stack and 
-compare data of popped node with currently visited node.
-3.If all nodes matched, then return true, else false.
-
-Runtime of this will be O(N)
-
-```java
-
-public static boolean isPalindrome(Node head) 
-    {
-        //Your code here
-        Node current = head; 
-        boolean ispalin = true; 
-        Stack<Integer> stack = new Stack<Integer>(); 
-
-        if(head.next == null){
-            return true;
-        }
-  
-        while (current != null) { 
-            stack.push(current.data); 
-            current = current.next; 
-        } 
-  
-        while (head != null) { 
-  
-            int i = stack.pop(); 
-            if (head.data == i) { 
-                ispalin = true; 
-            } 
-            else { 
-                ispalin = false; 
-                break; 
-            } 
-            head = head.next; 
-        } 
-        return ispalin;
-    }    
-```
 
 <!-- Don't remove -->
 <a name="p2"/>
@@ -177,21 +135,57 @@ Go to [Solution](#s3)   [Top](#top)
 <!-- Don't remove -->
 <a name="s1"/>
 
-### 1. SOLUTION 1 TODO :bug:
+### 1. LIST PALINDROME 
 
-Source: TODO :bug:
+Source: geeksforgeeks 
 
-#### Naive/Simple Solution
+#### Solution
 
-TODO :bug:
+A simple solution is to use a stack of list nodes.
+This mainly involves three steps:
+1.Traverse the given list from head to tail and push every visited node to stack.
+2.Traverse the list again. For every visited node, pop a node from stack and 
+compare data of popped node with currently visited node.
+3.If all nodes matched, then return true, else false.
 
-#### Optimal Solution
+Runtime of this will be O(N)
 
-TODO :bug:
+```java
+public static boolean isPalindrome(Node head) 
+    {
+        //Your code here
+        Node current = head; 
+        boolean ispalin = true; 
+        Stack<Integer> stack = new Stack<Integer>(); 
 
-#### Testing The Solutions OR Driver For Solution
+        if(head.next == null){
+            return true;
+        }
+  
+        while (current != null) { 
+            stack.push(current.data); 
+            current = current.next; 
+        } 
+  
+        while (head != null) { 
+  
+            int i = stack.pop(); 
+            if (head.data == i) { 
+                ispalin = true; 
+            } 
+            else { 
+                ispalin = false; 
+                break; 
+            } 
+            head = head.next; 
+        } 
+        return ispalin;
+    }    
+```
 
-TODO :bug:
+#### Driver For Solution
+
+The coded solution [is available here.](./list-palindrome/driver.java)
 
 <!-- Don't remove -->
 Go to [Top](#top)
