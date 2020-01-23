@@ -23,7 +23,7 @@ Problems and solutions for Linked Lists session on January 24, 2020.
 
 <a name="p1"/>
 
-### 1. PROBLEM 1 LIST PALINDROME 
+### 1. LIST PALINDROME 
 
 Source: geeksforgeeks 
 
@@ -31,15 +31,19 @@ Source: geeksforgeeks
 
 Check if a linked list of N integers is a palindrome.
 Return 1 if palindrome, 0 otherwise
+1 <= n <= 10
 
 #### Example Input
 
 Input: 1->2->1
 Output: 1
 
+Input: 1
+Output: 0
+
 #### Function Signature
 
-Java:
+```Java
 
 class Node
 {
@@ -57,8 +61,9 @@ boolean isPalindrome(Node head)
 {
     //Your code here
 }  
+```
 
-C++:
+```C++
 
 struct Node {
   int data;
@@ -73,7 +78,7 @@ bool isPalindrome(Node *head)
 {
     //Your code here
 }
-
+```
 <!-- Don't remove -->
 Go to [Solution](#s1)   [Top](#top)
 
@@ -83,6 +88,42 @@ This mainly involves three steps:
 2.Traverse the list again. For every visited node, pop a node from stack and 
 compare data of popped node with currently visited node.
 3.If all nodes matched, then return true, else false.
+
+Runtime of this will be O(N)
+
+```java
+
+public static boolean isPalindrome(Node head) 
+    {
+        //Your code here
+        Node current = head; 
+        boolean ispalin = true; 
+        Stack<Integer> stack = new Stack<Integer>(); 
+
+        if(head.next == null){
+            return true;
+        }
+  
+        while (current != null) { 
+            stack.push(current.data); 
+            current = current.next; 
+        } 
+  
+        while (head != null) { 
+  
+            int i = stack.pop(); 
+            if (head.data == i) { 
+                ispalin = true; 
+            } 
+            else { 
+                ispalin = false; 
+                break; 
+            } 
+            head = head.next; 
+        } 
+        return ispalin;
+    }    
+```
 
 <!-- Don't remove -->
 <a name="p2"/>
