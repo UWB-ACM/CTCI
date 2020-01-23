@@ -65,17 +65,17 @@ Output: [1,2,3,7,8,11,12,9,10,4,5,6]
 Explanation:
 
 The multilevel linked list in the input is as follows:
- 1---2---3---4---5---6---NULL
- 
-         |
-         7---8---9---10---NULL
-             |
-             11--12---NULL
+
+ 	1---2---3---4---5---6---NULL
+        	 |
+        	 7---8---9---10---NULL
+            	 |
+            	 11--12---NULL
 
 
 After flattening the multilevel linked list it becomes:
 
-1---2---3---7---8---11---12---9---10---4---5---6---NULL
+	1---2---3---7---8---11---12---9---10---4---5---6---NULL
 
 Example 2:
 
@@ -85,12 +85,14 @@ Explanation:
 
 The input multilevel linked list is as follows:
 
-  1---2---NULL
-  |
-  3---NULL
+  	1---2---NULL
+  	|
+  	3---NULL
   
  After flattening the multilevel linked list it becomes:
-  1---3---2---NULL
+ 
+ 	 1---3---2---NULL
+	 
 Example 3:
 
 Input: head = []
