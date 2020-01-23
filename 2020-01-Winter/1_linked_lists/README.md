@@ -64,12 +64,12 @@ Input: head = [1,2,3,4,5,6,null,null,null,7,8,9,10,null,null,11,12]
 Output: [1,2,3,7,8,11,12,9,10,4,5,6]
 Explanation:
 
-The multilevel linked list in the input is as follows:
- 1---2---3---4---5---6---NULL
+The multilevel linked list in the input is as follows:\n
+ 1---2---3---4---5---6---NULL\n
          |
-         7---8---9---10---NULL
+         7---8---9---10---NULL\n
              |
-             11--12---null
+             11--12---null\n
 
 
 After flattening the multilevel linked list it becomes:
