@@ -1,9 +1,4 @@
 /**
- * 
- */
-package weekTwoACMCTCI;
-
-/**
  * Linked List 
  * 
  * A class to represent a multilevel doubly linked list.
