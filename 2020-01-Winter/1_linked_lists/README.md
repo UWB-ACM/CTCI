@@ -64,15 +64,21 @@ Input: head = [1,2,3,4,5,6,null,null,null,7,8,9,10,null,null,11,12]
 Output: [1,2,3,7,8,11,12,9,10,4,5,6]
 Explanation:
 
-The multilevel linked list in the input is as follows:\n
- 1---2---3---4---5---6---NULL\n
+The multilevel linked list in the input is as follows:
+
+ 1---2---3---4---5---6---NULL
+ 
          |
-         7---8---9---10---NULL\n
+         
+         7---8---9---10---NULL
+         
              |
-             11--12---null\n
+             
+             11--12---null
 
 
 After flattening the multilevel linked list it becomes:
+
 1---2---3---7---8---11---12---9---10---4---5---6---NULL
 
 Example 2:
@@ -153,15 +159,50 @@ Go to [Top](#top)
 
 ### 2. SOLUTION 2 TODO :bug:
 
-Source: TODO :bug:
+Source:https://www.geeksforgeeks.org/flatten-a-linked-list-with-next-and-child-pointers/
 
-#### Naive/Simple Solution
+#### Solution
 
-TODO :bug:
+	public Node flatten(Node head) {
+		/*Base case*/
+		if (head == null) { 
+			return head; 
+		} 
 
-#### Optimal Solution
+		/* Find tail node of first level linked list */
+		Node tail = head; 
+		while (tail.next != null) { 
+			tail = tail.next; 
+		} 
 
-TODO :bug:
+		// One by one traverse through all nodes of first level 
+		// linked list till we reach the tail node 
+		Node current = head; 
+		while (current != tail) { 
+			
+
+			// If current node has a child 
+			if (current.child != null) { 
+				// then link child in between current and current.next
+				//store last link on next level as temp to connect to
+				//current.next
+				Node temp = current.child; 
+				while (temp.next != null) { 
+					temp = temp.next; 
+				} 
+				//break and create new links
+				temp.next = current.next;
+				current.next.prev = temp;
+				current.next = current.child; 
+				current.child.prev = current;
+				current.child = null;
+			} 
+
+			// Change current node 
+			current = current.next; 
+		} 
+		return head;
+	}
 
 #### Testing The Solutions OR Driver For Solution
 
