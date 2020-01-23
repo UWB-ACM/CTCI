@@ -143,10 +143,10 @@ Source: geeksforgeeks
 
 A simple solution is to use a stack of list nodes.
 This mainly involves three steps:
-1.Traverse the given list from head to tail and push every visited node to stack.
-2.Traverse the list again. For every visited node, pop a node from stack and 
+1. Traverse the given list from head to tail and push every visited node to stack.
+2. Traverse the list again. For every visited node, pop a node from stack and 
 compare data of popped node with currently visited node.
-3.If all nodes matched, then return true, else false.
+3. If all nodes matched, then return true, else false.
 
 Runtime of this will be O(N)
 
