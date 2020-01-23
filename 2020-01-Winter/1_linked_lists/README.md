@@ -80,9 +80,11 @@ Remove duplicated from an **unsorted** linked list of integers.
 
 #### Function Signature
 
-`RemoveDuplicatesWithBuffer(Node *Start);`
+```C++
+void RemoveDuplicatesWithBuffer(Node *Start);
 
-`RemoveDuplicatesWithoutBuffer(Node *Start)`
+void RemoveDuplicatesWithoutBuffer(Node *Start)
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s3)   [Top](#top)
@@ -139,15 +141,16 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s3"/>
 
-### 3. SOLUTION 3 TODO :bug:
+### 3. SOLUTION 3
 
 Source: Cracking the Code Interview Book, Chapter 2, Question 2.1
 
 #### Solution 
 
 With the Buffer: Use a set to keep track of what integers have been encountered.
+This solution is O(n) because it iterates over the list one time, and the `unordered_set` has a O(1) efficiency.
 
-```
+```C++
 void RemoveDuplicatesWithBuffer(Node *Start) {
   if (Start == nullptr || Start->GetNext() == nullptr) {
     return;
@@ -177,8 +180,10 @@ void RemoveDuplicatesWithBuffer(Node *Start) {
 ```
 
 Without a Buffer: Have a pointer/runner that iterates over the list to check for duplicates.
+This solution is O(n^2) because it could potentially iterate over the entire list twice checking for duplicates.
+Although the time complexity is high, it does not use extra memory.
 
-```
+```C++
 void RemoveDuplicatesWithoutBuffer(Node *Start) {
   if (Start == nullptr || Start->GetNext() == nullptr) {
     return;

@@ -1,6 +1,7 @@
-//
-// Created by ryan on 1/20/20.
-//
+/**
+ * Created by Ryan Russell
+ * https://github.com/RyanRussell00
+ */
 
 #ifndef INC_1_LINKED_LISTS_NODE_H
 #define INC_1_LINKED_LISTS_NODE_H

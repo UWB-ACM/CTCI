@@ -1,7 +1,11 @@
-#include "Node.h"
+/**
+ * Created by Ryan Russell
+ * https://github.com/RyanRussell00
+ */
+
+#include "Node/Node.h"
 #include <cassert>
 #include <iostream>
-#include <memory>
 #include <sstream>
 #include <unordered_set>
 
@@ -11,61 +15,30 @@ using namespace std;
 void TestAllBuffer();
 void TestAllNoBuffer();
 
-void RemoveDuplicatesWithBuffer(Node *Start) {
-  if (Start == nullptr || Start->GetNext() == nullptr) {
-    return;
+/**
+ * Node Class
+ *
+ *  explicit Node(int Value = 0, Node *Next = nullptr) {
+    this->Value = Value;
+    this->Next = Next;
   }
 
-  unordered_set<int> set;
+  void SetValue(int V) { this->Value = V; }
 
-  Node *Curr = Start;
-  Node *Prev = nullptr;
+  void SetNext(Node *N) { this->Next = N; }
 
-  while (Curr != nullptr) {
-    // Doesn't exist
-    if (set.find(Curr->GetValue()) == set.end()) {
+  int GetValue() { return this->Value; }
 
-      set.insert(Curr->GetValue());
-      Prev = Curr;
-      Curr = Curr->GetNext();
+  Node *GetNext() { return this->Next; }
 
-    } else { // Exists
+private:
+  int Value;
+  Node *Next;
+ */
 
-      Prev->SetNext(Curr->GetNext());
-      delete Curr;
-      Curr = Prev->GetNext();
-    }
-  }
-}
+void RemoveDuplicatesWithBuffer(Node *Start) {}
 
-void RemoveDuplicatesWithoutBuffer(Node *Start) {
-  if (Start == nullptr || Start->GetNext() == nullptr) {
-    return;
-  }
-
-  Node *Prev = Start;
-  auto Curr = Prev->GetNext();
-
-  while (Curr != nullptr) {
-
-    Node *Check = Start;
-
-    while (Check != Curr) { // Check for earlier duplicates
-
-      if (Check->GetValue() == Curr->GetValue()) {
-        Prev->SetNext(Curr->GetNext());
-        delete Curr;
-        Curr = Prev->GetNext();
-        break; // All other duplicates have been removed
-      }
-      Check = Check->GetNext();
-    }
-    if (Check == Curr) { // Update the current
-      Prev = Curr;
-      Curr = Curr->GetNext();
-    }
-  }
-}
+void RemoveDuplicatesWithoutBuffer(Node *Start) {}
 
 int main() {
   cout << "Start of Problem 3: Linked List Duplicate\n" << endl;
