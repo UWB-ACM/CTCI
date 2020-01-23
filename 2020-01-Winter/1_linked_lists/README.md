@@ -29,21 +29,22 @@ Source: geeksforgeeks
 
 #### Scenario
 
-Check if a linked list of N integers is a palindrome.
-Return 1 if palindrome, 0 otherwise
+Check if a linked list of N integers is a palindrome.\
+Return 1 if palindrome, 0 otherwise\
 1 <= n <= 10
 
 #### Example Input
 
-Input: 1->2->1
+Input: 1->2->1\
 Output: 1
 
-Input: 1
+Input: 1\
 Output: 0
 
 #### Function Signature
 
-```Java
+```
+Java
 
 class Node
 {
@@ -63,7 +64,8 @@ boolean isPalindrome(Node head)
 }  
 ```
 
-```C++
+```
+C++
 
 struct Node {
   int data;
