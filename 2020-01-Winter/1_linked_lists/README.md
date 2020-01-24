@@ -65,13 +65,13 @@ Output: [1,2,3,7,8,11,12,9,10,4,5,6]
 Explanation:
 
 The multilevel linked list in the input is as follows:
-``
+
 	1---2---3---4---5---6---NULL
 		|
 		7---8---9---10---NULL
 	    	|
 	   	 11--12---NULL
-``
+
 
 After flattening the multilevel linked list it becomes:
 
