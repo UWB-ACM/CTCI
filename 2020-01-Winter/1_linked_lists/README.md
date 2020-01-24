@@ -181,7 +181,7 @@ In this solution, you first check the base case that the Linked List you call th
 		// One by one traverse through all nodes of first level 
 		// linked list till we reach the tail node 
 		Node current = head; 
-		while (current != tail) { 
+		while (current != null) { 
 			
 
 			// If current node has a child 
