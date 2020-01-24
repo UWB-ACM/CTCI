@@ -90,8 +90,8 @@ public class LinkedList {
 
 
 		/* modify child pointers to create the list shown above */
-		head1.child = head2; 
-		head1.next.next.next.child = head3; 
+		head1.next.next.child = head2;
+		head2.next.child = head3;
 
 		/* Return head pointer of first linked list.  Note that all nodes are 
 	         reachable from head1 */
@@ -139,7 +139,7 @@ public class LinkedList {
 		// One by one traverse through all nodes of first level 
 		// linked list till we reach the tail node 
 		Node current = head; 
-		while (current != tail) { 
+		while (current != null) { 
 			
 
 			// If current node has a child 
@@ -153,7 +153,9 @@ public class LinkedList {
 				} 
 				//break and create new links
 				temp.next = current.next;
-				current.next.prev = temp;
+				if(current.next != null){
+					current.next.prev = temp;
+				}
 				current.next = current.child; 
 				current.child.prev = current;
 				current.child = null;
