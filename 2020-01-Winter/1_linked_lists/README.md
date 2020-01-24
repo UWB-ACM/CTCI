@@ -212,7 +212,7 @@ In this solution, you first check the base case that the Linked List you call th
 
 #### Driver For Solution
 
-[Driver](CTCI/2020-01-Winter/1_linked_lists/Flatten_Multilevel_Doubly_Linked_List/LinkeList.java)
+[Driver](CTCI/2020-01-Winter/1_linked_lists/Flatten_Multilevel_Doubly_Linked_List/LinkedList.java)
 
 <!-- Don't remove -->
 Go to [Top](#top)
