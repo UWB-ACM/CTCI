@@ -195,7 +195,9 @@ In this solution, you first check the base case that the Linked List you call th
 				} 
 				//break and create new links
 				temp.next = current.next;
-				current.next.prev = temp;
+				if(current.next != null){
+					current.next.prev = temp;
+				}
 				current.next = current.child; 
 				current.child.prev = current;
 				current.child = null;
