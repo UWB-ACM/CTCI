@@ -47,7 +47,7 @@ Go to [Solution](#s1)   [Top](#top)
 
 ### 2. PROBLEM 2 TODO :bug:
 
-Source: [LeetCode] (https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)
+Source: [LeetCode](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)
 
 #### Scenario
 
@@ -66,11 +66,11 @@ Explanation:
 
 The multilevel linked list in the input is as follows:
 ``
-1---2---3---4---5---6---NULL
-	|
-	7---8---9---10---NULL
-	    |
-	    11--12---NULL
+	1---2---3---4---5---6---NULL
+		|
+		7---8---9---10---NULL
+	    	|
+	   	 11--12---NULL
 ``
 
 After flattening the multilevel linked list it becomes:
