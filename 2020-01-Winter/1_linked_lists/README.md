@@ -159,7 +159,7 @@ Go to [Top](#top)
 
 ### 2. SOLUTION 2 TODO :bug:
 
-Source:https://www.geeksforgeeks.org/flatten-a-linked-list-with-next-and-child-pointers/
+Source: [LeetCode](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)
 
 #### Solution
 
