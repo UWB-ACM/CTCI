@@ -47,7 +47,7 @@ Go to [Solution](#s1)   [Top](#top)
 
 ### 2. PROBLEM 2 TODO :bug:
 
-Source: https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/
+Source: [LeetCode] (https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)
 
 #### Scenario
 
@@ -65,13 +65,13 @@ Output: [1,2,3,7,8,11,12,9,10,4,5,6]
 Explanation:
 
 The multilevel linked list in the input is as follows:
-
- 	1---2---3---4---5---6---NULL
-        	|
-        	7---8---9---10---NULL
-            	|
-            	11--12---NULL
-
+``
+1---2---3---4---5---6---NULL
+	|
+	7---8---9---10---NULL
+	    |
+	    11--12---NULL
+``
 
 After flattening the multilevel linked list it becomes:
 
@@ -162,6 +162,9 @@ Go to [Top](#top)
 Source: [LeetCode](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)
 
 #### Solution
+In this solution, you first check the base case that the Linked List you call the flatten method on is not null. If it is you return the empty list. Otherwise you will use the tail node to travel to the tail of the first level of the list. You then begin traversing through the first level of the list until you reach the tail checking each node and whether or not they have a child node and thus another level to the list. If a second level is found move the level below in between current and current.next. Continue this until you have reached the tail node of the list.
+
+```java
 
 	public Node flatten(Node head) {
 		/*Base case*/
@@ -203,10 +206,11 @@ Source: [LeetCode](https://leetcode.com/problems/flatten-a-multilevel-doubly-lin
 		} 
 		return head;
 	}
+```
 
-#### Testing The Solutions OR Driver For Solution
+#### Driver For Solution
 
-TODO :bug:
+[Driver](CTCI/2020-01-Winter/1_linked_lists/Flatten_Multilevel_Doubly_Linked_List/LinkeList.java)
 
 <!-- Don't remove -->
 Go to [Top](#top)
