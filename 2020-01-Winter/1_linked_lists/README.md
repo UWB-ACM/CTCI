@@ -155,21 +155,24 @@ Go to [Solution](#s2)   [Top](#top)
 <!-- Don't remove -->
 <a name="p3"/>
 
-### 3. PROBLEM 3 TODO :bug:
+### 3. Linked List Duplicates
 
-Source: TODO :bug:
+Source: Cracking The Code Interview Book, Chapter 2, Question 2.1
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Remove duplicated from an **unsorted** linked list of integers.
+*Follow Up Question:* How would you solve this without a temporary buffer?
 
-#### Example Input
-
-If the problem is simple enough, remove this section. TODO :bug:
+**Assume the Tail will NOT connect back to the Head. Meaning it is NOT circular.**
 
 #### Function Signature
 
-TODO :bug:
+```C++
+void RemoveDuplicatesWithBuffer(Node *Start);
+
+void RemoveDuplicatesWithoutBuffer(Node *Start)
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s3)   [Top](#top)
@@ -303,21 +306,81 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s3"/>
 
-### 3. SOLUTION 3 TODO :bug:
+### 3. SOLUTION 3
 
-Source: TODO :bug:
+Source: Cracking the Code Interview Book, Chapter 2, Question 2.1
 
-#### Naive/Simple Solution 
+#### Solution 
 
-TODO :bug:
+With the Buffer: Use a set to keep track of what integers have been encountered.
+This solution is O(n) because it iterates over the list one time, and the `unordered_set` has a O(1) efficiency.
 
-#### Optimal Solution
+```C++
+void RemoveDuplicatesWithBuffer(Node *Start) {
+  if (Start == nullptr || Start->GetNext() == nullptr) {
+    return;
+  }
 
-TODO :bug:
+  unordered_set<int> set;
+
+  Node *Curr = Start;
+  Node *Prev = nullptr;
+
+  while (Curr != nullptr) {
+    // Doesn't exist
+    if (set.find(Curr->GetValue()) == set.end()) {
+
+      set.insert(Curr->GetValue());
+      Prev = Curr;
+      Curr = Curr->GetNext();
+
+    } else { // Exists
+
+      Prev->SetNext(Curr->GetNext());
+      delete Curr;
+      Curr = Prev->GetNext();
+    }
+  }
+}
+```
+
+Without a Buffer: Have a pointer/runner that iterates over the list to check for duplicates.
+This solution is O(n^2) because it could potentially iterate over the entire list twice checking for duplicates.
+Although the time complexity is high, it does not use extra memory.
+
+```C++
+void RemoveDuplicatesWithoutBuffer(Node *Start) {
+  if (Start == nullptr || Start->GetNext() == nullptr) {
+    return;
+  }
+
+  Node *Prev = Start;
+  Node *Curr = Prev->GetNext();
+
+  while (Curr != nullptr) {
+
+    Node *Check = Start;
+
+    while (Check != Curr) { // Check for earlier duplicates
+
+      if (Check->GetValue() == Curr->GetValue()) {
+        Prev->SetNext(Curr->GetNext());
+        Curr = Curr->GetNext();
+        break; // All other duplicates have been removed
+      }
+      Check = Check->GetNext();
+    }
+    if (Check == Curr) { // Update the current
+      Prev = Curr;
+      Curr = Curr->GetNext();
+    }
+  }
+}
+```
 
 #### Testing The Solutions OR Driver For Solution
 
-TODO :bug:
+Write your code in the `main.cpp` file, the tests are located at the bottom of the file.
 
 <!-- Don't remove -->
 Go to [Top](#top)
