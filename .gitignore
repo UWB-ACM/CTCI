@@ -40,3 +40,5 @@ env/
 __pycache__/
 .DS_Store
 .idea/
+cmake-build-debug
+CMakeLists.txt
