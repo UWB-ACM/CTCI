@@ -23,21 +23,26 @@ Problems and solutions for String Manipulation session on January 31, 2020.
 
 <a name="p1"/>
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. Validate IP Address
 
-Source: TODO :bug:
+Source: [Leetcode](https://leetcode.com/problems/validate-ip-address/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Write a function to check whether an input string is a valid IPv4 address. 
 
-#### Example Input
+IPv4 addresses are canonically represented in dot-decimal notation, which consists of four decimal numbers, each ranging from 0 to 255, separated by dots ('.'), e.g., `172.16.254.1`.
 
-If the problem is simple enough, remove this section. TODO :bug:
+Leading zeros in the IPv4 is invalid. For example, the address `172.16.254.01` is invalid.
+
+Note: You may assume there is no extra space or special characters in the input string.
 
 #### Function Signature
 
-TODO :bug:
+```python
+def isValidIP(IP):
+    # your code here
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s1)   [Top](#top)
@@ -94,21 +99,52 @@ Go to [Solution](#s3)   [Top](#top)
 <!-- Don't remove -->
 <a name="s1"/>
 
-### 1. SOLUTION 1 TODO :bug:
+### 1. Validate IP Address
 
-Source: TODO :bug:
+Source: [Leetcode](https://leetcode.com/problems/validate-ip-address/)
 
-#### Naive/Simple Solution
+#### Solution
+Python is an excellent language for string manipulation owing to its powerful and intuitive built-in string library. 
 
-TODO :bug:
+We can start this problem by calling the `.split('.')` function on our IP string parameter to separate the input by `.` symbols. 
 
-#### Optimal Solution
+From there, we can perform a quick check of the length of the list returned from the `.split()` using the `len()` function (length). 
+If we don't have exactly four elements in our list, we know the input is invalid.
 
-TODO :bug:
+Otherwise, we will traverse through the four values, checking each one for leading zeros using the `[0]` index operator. 
+Then we  can cast each string value to an int to check that the values are between 0 and 255.
 
-#### Testing The Solutions OR Driver For Solution
+If we are able to traverse through all four values without setting off any of these conditions, we know we have a valid IPv4 
+address. 
+```python
+def isValidIP(IP):
+    values = IP.split('.')
+    if len(values) != 4:
+        return False
+    for str_val in values:
+        if len(str_val) > 1 and str_val[0] == '0':
+            return False
+        int_val = int(str_val)
+        if int_val < 0 or int_val > 255:
+            return False
+    return True
+```
 
-TODO :bug:
+#### Driver For Solution
+
+The solution code is [in the repository]()  TODO - add link :bug:
+
+It produces the following output:
+
+```console
+$ python3 validate_IP.py
+IP Address Test Cases:
+Testing 192.168.1.1 (Valid - home <3), Result: True
+Testing 0.0.0.0 (Valid - standalone zeros are ok), Result: True
+Testing 355.0.168.0 (Invalid - leading zeros), Result: False
+Testing 192.168.0 (Invalid - less than 4 values), Result: False
+Testing 355.0.168.0 (Invalid - value greater than 255), Result: False
+```
 
 <!-- Don't remove -->
 Go to [Top](#top)
