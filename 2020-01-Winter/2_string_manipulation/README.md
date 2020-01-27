@@ -132,7 +132,7 @@ def isValidIP(IP):
 
 #### Driver For Solution
 
-The solution code is [in the repository]()  TODO - add link :bug:
+The solution code is [in the repository](https://github.com/UWB-ACM/CTCI/tree/master/2020-01-Winter/2_string_manipulation/validate_IP/validate_IP.py)
 
 It produces the following output:
 
