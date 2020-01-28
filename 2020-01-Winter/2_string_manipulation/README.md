@@ -31,7 +31,8 @@ Source: [Leetcode](https://leetcode.com/problems/validate-ip-address/)
 
 Write a function to check whether an input string is a valid IPv4 address. 
 
-IPv4 addresses are canonically represented in dot-decimal notation, which consists of four decimal numbers, each ranging from 0 to 255, separated by dots ('.'), e.g., `172.16.254.1`.
+IPv4 addresses are canonically represented in dot-decimal notation, which consists of four decimal numbers, 
+each ranging from 0 to 255, separated by dots ('.'), e.g., `172.16.254.1`.
 
 Leading zeros in the IPv4 is invalid. For example, the address `172.16.254.01` is invalid.
 
@@ -114,8 +115,8 @@ If we don't have exactly four elements in our list, we know the input is invalid
 Otherwise, we will traverse through the four values, checking each one for leading zeros using the `[0]` index operator. 
 Then we  can cast each string value to an int to check that the values are between 0 and 255.
 
-If we are able to traverse through all four values without setting off any of these conditions, we know we have a valid IPv4 
-address. 
+If we are able to traverse through all four values without setting off any of these conditions, we know we have a valid 
+IPv4 address. 
 ```python
 def isValidIP(IP):
     values = IP.split('.')
@@ -132,7 +133,7 @@ def isValidIP(IP):
 
 #### Driver For Solution
 
-The solution code is [in the repository](https://github.com/UWB-ACM/CTCI/tree/master/2020-01-Winter/2_string_manipulation/validate_IP/validate_IP.py)
+The solution code is [in the repository](./validate_IP/validate_IP.py)
 
 It produces the following output:
 
@@ -141,7 +142,7 @@ $ python3 validate_IP.py
 IP Address Test Cases:
 Testing 192.168.1.1 (Valid - home <3), Result: True
 Testing 0.0.0.0 (Valid - standalone zeros are ok), Result: True
-Testing 355.0.168.0 (Invalid - leading zeros), Result: False
+Testing 88.088.088.88 (Invalid - leading zeros), Result: False
 Testing 192.168.0 (Invalid - less than 4 values), Result: False
 Testing 355.0.168.0 (Invalid - value greater than 255), Result: False
 ```
