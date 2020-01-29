@@ -45,21 +45,38 @@ Go to [Solution](#s1)   [Top](#top)
 <!-- Don't remove -->
 <a name="p2"/>
 
-### 2. PROBLEM 2 TODO :bug:
+### 2. GROUP ANAGRAMS:
 
-Source: TODO :bug:
+Source: LeetCode (https://leetcode.com/problems/group-anagrams/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Given an array of strings, group anagrams together.
+
+All inputs will be in lowercase.
+
+The order of your ouput does not matter.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+```
+Input = ["eat","tea","tan","ate","nat","bat"]
+
+Output = [
+  ["ate","eat","tea"],
+  ["nat","tan"],
+  ["bat"]
+]
+```
 
 #### Function Signature
 
-TODO :bug:
+Java:
+```
+public List<List<String>> groupAnagrams(String[] strs){
+	//Your code here
+}
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s2)   [Top](#top)
@@ -116,21 +133,66 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s2"/>
 
-### 2. SOLUTION 2 TODO :bug:
+### 2. GROUP ANAGRAMS
 
-Source: TODO :bug:
+Two strings are anagrams if their sorted strings are equal. Then, one way
+to solve this problem is by categorizing by sorting arrays.
 
-#### Naive/Simple Solution
+1. Check for an empty array, if the array is not empty, then use a hashtable
+where the key is the sorted string, and the value is the string that once is sorted, 
+it matches the key.
 
-TODO :bug:
+2. Iterate through the array of strings. For each string in the array of strings,
+create an array of chars, using the .toCharArray() function. 
+
+3. Sort the char array, and convert it into a string. This string will be used as the
+key for the key-value pair of the hashtable.
+
+4. If the hashtable does not contains the key(string value of sorted char array), add it to the map. 
+
+5. Add the original (unsorted) string as a new value of the key.
+ 
+6. Return the list of list of anagrams
+
+Time Complexity: The outer loop has complexity O(N) as we iterate through each string. 
+Then, we sort each string in O(N log N) time. Therefore, the time complexity of this 
+algorithm is O(N Log N)
+
+Space Complexity: O(N)
 
 #### Optimal Solution
 
-TODO :bug:
+Two strings are anagrams only if the characters counts are the same. 
+
+Another way to solve this problem is by transforming each string into a character count 
+"count", consisting of 26 non-negative integers representing the 
+number of times each character occurs in each string. 
+
+1. Check for an empty array, if the array is not empty, then use a hashtable
+where the key will be represented by a string delimited with '#' characters. For 
+example abbccdddd will be represented as "1#2#2#4" where 1,2, and 4 are the number of 
+times each character occurs in the string.
+
+2. Create an integer array of 26 spaces 'count'. Each index in the array represent a letter in the 
+alphabet ( a = 0, b = 1...)
+
+3. Iterate through the string array. For each string in the array, add 1 everytime a character 
+occurs in the string in the correspoding index (index representing character).
+
+4. Use a string builder to iterate  through 'counts'. Append ("#") before appending the total
+counts (times) per character.
+
+5. Convert the string builder into a string and add it to the map. The value for this key is the
+current original string.
+
+Time Complexity: O(NK). Counting every string in the array is O(N), and counting each character
+in each string is O(K), where K is the max length of a string in the string array.
+
+Space Complexity: O(N)
 
 #### Testing The Solutions OR Driver For Solution
 
-TODO :bug:
+[Available here: ](./2_string_manipulation/ Anagrams/ Anagram.java)
 
 <!-- Don't remove -->
 Go to [Top](#top)
