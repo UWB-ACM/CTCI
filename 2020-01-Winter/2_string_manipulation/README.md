@@ -47,7 +47,7 @@ Go to [Solution](#s1)   [Top](#top)
 
 ### 2. GROUP ANAGRAMS:
 
-Source: LeetCode (https://leetcode.com/problems/group-anagrams/)
+Source:  [LeetCode](https://leetcode.com/problems/group-anagrams/)
 
 #### Scenario
 
@@ -135,6 +135,8 @@ Go to [Top](#top)
 
 ### 2. GROUP ANAGRAMS
 
+Source:  [LeetCode](https://leetcode.com/problems/group-anagrams/)
+
 Two strings are anagrams if their sorted strings are equal. Then, one way
 to solve this problem is by categorizing by sorting arrays.
 
@@ -154,9 +156,37 @@ key for the key-value pair of the hashtable.
  
 6. Return the list of list of anagrams
 
+```
+ public static List<List<String>> groupAnagrams(String[] strs) {
+        if (strs.length == 0){
+            return new ArrayList<>();
+        }
+        
+        Map<String, List> map = new HashMap<>();
+        
+        for (String st:strs){
+            
+            char[] chars = st.toCharArray();
+            
+            Arrays.sort(chars);
+            
+            String key = String.valueOf(chars); // Converting the sorted char sequence into string
+            
+            if (!map.containsKey(key)) {
+                map.put(key, new ArrayList());
+            }
+            
+            map.get(key).add(st);
+        }
+        return new ArrayList(map.values());
+    }
+	```
 Time Complexity: The outer loop has complexity O(N) as we iterate through each string. 
-Then, we sort each string in O(N log N) time. Therefore, the time complexity of this 
-algorithm is O(N Log N)
+Then, we sort each string in O(K log K) time, where K is the length of each string.
+For many entries, we can assume K is the average length, resulting in a total complexity
+of O(N * K log K). However, K can be treated as a constant if we take it as the average 
+string length in our array. Then, N would be the best (greater) complexity indicator,
+resulting in complexity of O( N log N).
 
 Space Complexity: O(N)
 
@@ -168,22 +198,31 @@ Another way to solve this problem is by transforming each string into a characte
 "count", consisting of 26 non-negative integers representing the 
 number of times each character occurs in each string. 
 
-1. Check for an empty array, if the array is not empty, then use a hashtable
-where the key will be represented by a string delimited with '#' characters. For 
-example abbccdddd will be represented as "1#2#2#4" where 1,2, and 4 are the number of 
-times each character occurs in the string.
+We can transform each string s into a character count, count, consisting of 26 non-negative
+integers representing the number of a's, b's, c's, etc. 
+We use these counts as the basis for our hash map.
 
-2. Create an integer array of 26 spaces 'count'. Each index in the array represent a letter in the 
-alphabet ( a = 0, b = 1...)
+In Java, the hashable representation of our count will be a string delimited with '#' characters.
+For example, abbccc will be #1#2#3#0#0#0...#0 where there are 26 entries total.
 
-3. Iterate through the string array. For each string in the array, add 1 everytime a character 
-occurs in the string in the correspoding index (index representing character).
-
-4. Use a string builder to iterate  through 'counts'. Append ("#") before appending the total
-counts (times) per character.
-
-5. Convert the string builder into a string and add it to the map. The value for this key is the
-current original string.
+```java
+public static List<List<String>> groupAnagramsOpt(String[] strs) {
+    if (strs.length == 0) {
+        return new ArrayList<>();
+    }
+    Map<String, List<String>> map = new HashMap<>();    
+    for (String st:strs) {
+        char[] chars = st.toCharArray();    
+        Arrays.sort(chars);    
+        String key = String.valueOf(chars); // Converting the sorted char sequence into string    
+        if (!map.containsKey(key)) {
+            map.put(key, new ArrayList<String>());
+        }    
+        map.get(key).add(st);
+    }
+    return new ArrayList(map.values());
+}
+```
 
 Time Complexity: O(NK). Counting every string in the array is O(N), and counting each character
 in each string is O(K), where K is the max length of a string in the string array.
@@ -192,7 +231,8 @@ Space Complexity: O(N)
 
 #### Testing The Solutions OR Driver For Solution
 
-[Available here: ](./2_string_manipulation/ Anagrams/ Anagram.java)
+[Available in the repository.](./2_string_manipulation/2. Anagrams/Anagram.java)
+
 
 <!-- Don't remove -->
 Go to [Top](#top)
