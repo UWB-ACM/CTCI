@@ -186,7 +186,7 @@ Then, we sort each string in O(K log K) time, where K is the length of each stri
 For many entries, we can assume K is the average length, resulting in a total complexity
 of O(N * K log K). However, K can be treated as a constant if we take it as the average 
 string length in our array. Then, N would be the best (greater) complexity indicator,
-resulting in complexity of O( N log N).
+resulting in complexity of O( N ).
 
 Space Complexity: O(N)
 
