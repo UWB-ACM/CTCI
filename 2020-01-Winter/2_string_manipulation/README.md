@@ -156,7 +156,7 @@ key for the key-value pair of the hashtable.
  
 6. Return the list of list of anagrams
 
-```
+```java
  public static List<List<String>> groupAnagrams(String[] strs) {
         if (strs.length == 0){
             return new ArrayList<>();
