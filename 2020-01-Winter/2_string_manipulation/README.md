@@ -72,7 +72,7 @@ Output = [
 #### Function Signature
 
 Java:
-```
+```java
 public List<List<String>> groupAnagrams(String[] strs){
 	//Your code here
 }
