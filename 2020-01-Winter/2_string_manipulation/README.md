@@ -80,7 +80,9 @@ Source: [LeetCode](https://leetcode.com/problems/minimum-window-substring/)
 #### Scenario
 
 Given a string S and a string T, find the minimum window in S which 
-will contain all the characters in T in complexity O(n).
+will contain all the characters in T.
+
+Work to optimize your solution to have a time complexity of O(n).
 
 #### Example Input
 
