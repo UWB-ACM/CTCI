@@ -73,21 +73,38 @@ Go to [Solution](#s2)   [Top](#top)
 <!-- Don't remove -->
 <a name="p3"/>
 
-### 3. PROBLEM 3 TODO :bug:
+### 3. Minimum Window Substring
 
-Source: TODO :bug:
+Source: [LeetCode](https://leetcode.com/problems/minimum-window-substring/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Given a string S and a string T, find the minimum window in S which 
+will contain all the characters in T in complexity O(n).
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+```
+Input: S = "ADOBECODEBANC", T = "ABC"
+Output: "BANC"
+```
 
 #### Function Signature
 
-TODO :bug:
+C++:
+
+```c++
+std::string minimumWindow(std::string S, std::string T) {
+    // your code here
+}
+```
+
+Python:
+
+```python3
+def minimum_window(s, t):
+    # your code here
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s3)   [Top](#top)
