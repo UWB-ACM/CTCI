@@ -192,21 +192,85 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s3"/>
 
-### 3. SOLUTION 3 TODO :bug:
+### 3. Minimum Window Substring
 
-Source: TODO :bug:
+Source: [LeetCode](https://leetcode.com/problems/minimum-window-substring/)
 
-#### Naive/Simple Solution 
+#### Simple Solution 
 
-TODO :bug:
+The problem statement was:
+
+> Given a string S and a string T, find the minimum window in S which 
+> will contain all the characters in T in complexity O(n).
+
+We proceed to solve the problem by creating a window in S which contains 
+all the characters in T. We can compress the window from the left until the window no 
+longer contains all characters in T, and expand the window to the right and consume 
+characters that have not been visited yet. This is known as the **sliding 
+window** approach.
+
+As we compress and expand the substring window, we track the shortest 
+substring which contains all of T's characters.
+
+To compare the window's contents to T's contents, this solution builds 
+**frequency maps** of the characters occuring in T and in the window. 
+We can check that the window's frequency map contains, at a minimum, 
+all the elements that T contains.
+
+The frequency map creation and comparison are implemented as subroutines, 
+as seen below.
+
+```python3
+def freq(x):
+    return { c: x.count(c) for c in x }
+
+def is_dict_subset(stable, new):
+    """
+    Determine if one dictionary is a subset of another dictionary.
+    
+    For this to be true, all keys in 'stable' must be present in 'new' 
+    and the frequency count of all elements in 'stable' must be included 
+    in 'new'.
+    """
+    for k in stable:
+        if k not in new or new[k] < stable[k]:
+            return False
+    return True
+```
+
+The solution for the minimum window problem is given as follows:
+
+```python3
+def minimum_window(s, t):
+    if not s or not t: return ""
+    # s is a long string that we must search for minimum window
+    # t is a string containing all characters to be searched
+    left = right = 0    # indeces
+    window = ""
+    frequency_table = freq(t)
+    while right < len(s):
+        curr = freq(s[left:right + 1])
+        if is_dict_subset(frequency_table, curr):
+            if not window or right - left < len(window):
+                window = s[left:right + 1]
+            left += 1
+        else:
+            right += 1
+    return window
+```
 
 #### Optimal Solution
 
-TODO :bug:
+Two other solutions are available 
+[in the LeetCode page for the problem](https://leetcode.com/problems/minimum-window-substring/solution/).
+They are also variations on the **sliding window** implementation, and have 
+better performance characteristics than the simple solution given here.
 
 #### Testing The Solutions OR Driver For Solution
 
-TODO :bug:
+The solution provided here [is available in the repository](./minimum_window/solution.py), 
+along with [a driver for testing](./minimum_window/driver.py). 
+There are additional solutions [available on LeetCode](https://leetcode.com/problems/minimum-window-substring/solution/).
 
 <!-- Don't remove -->
 Go to [Top](#top)
