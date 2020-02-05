@@ -45,21 +45,62 @@ Go to [Solution](#s1)   [Top](#top)
 <!-- Don't remove -->
 <a name="p2"/>
 
-### 2. PROBLEM 2 TODO :bug:
+### 2. Recent Counter
 
-Source: TODO :bug:
+Source: https://leetcode.com/problems/number-of-recent-calls/
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Problem Statement:
+Write a class named `RecentCounter` to count recent requests. It has only one method: `ping(int t)`, where `t` represents some time in milliseconds.
+
+Return the **number of pings** that have been made from 3000 milliseconds ago until now.
+Any ping from time `t-3000` (3000 milliseconds ago) to `t` (now, when this function was called) will count.
+
+It is guaranteed that every call to ping uses a strictly larger value of `t` than before. Therefore, if the previous call to ping was made with `t=4500`, in the next call to ping it is guaranteed that `t > 4500`. It is also guaranteed that `t` will be a positive integer.
+
 
 #### Example Input
+```
+[0]
+[1000]
+[2000]
+[3000]
+[4000]
+[5000]
+[6000]
+[7000]
+[8000]
+[9000]
+[10000]
+```
+Each number represents a separate call to `ping()`.
 
-If the problem is simple enough, remove this section. TODO :bug:
+#### Example Output
+```
+[1]
+[2]
+[3]
+[4]
+[4]
+[4]
+[4]
+[4]
+[4]
+[4]
+[4]
+```
+Each number represents a separate return from `ping()`.
 
 #### Function Signature
-
-TODO :bug:
+Example Java function signature:
+```java
+public int ping(int t);
+```
+Example Python function signature:
+```
+ping(self, t)
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s2)   [Top](#top)
@@ -116,21 +157,108 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s2"/>
 
-### 2. SOLUTION 2 TODO :bug:
+### 2. Recent Counter
 
-Source: TODO :bug:
+Source: https://leetcode.com/problems/number-of-recent-calls/solution/
 
 #### Naive/Simple Solution
+**Time Complexity**: O(n) where N is the number of times `ping()` is called.
+**Space Complexity:** O(n) where N is the size of the window. In this case, 3000.
 
-TODO :bug:
+Java Solution:
+```java
+import java.util.LinkedList;
+import java.util.Queue;
 
-#### Optimal Solution
+public class Main {
 
-TODO :bug:
+    public static void main(String[] args) {
+        System.out.println("Test Ping Function");
+
+        //create a new RecentCounter object
+        RecentCounter r = new RecentCounter();
+
+        //from i = 0 to i = 10000 in increments of 1000, call ping with i as the time in ms
+        for(int i = 0; i <= 10000; i += 1000){
+            //print the returned value
+            System.out.println("Number of Pings in the last 3000ms: " + r.ping(i));
+        }
+    }
+}
+
+class RecentCounter{
+    //This is one way of making a FIFO Queue in Java
+    Queue<Integer> queue = new LinkedList<>();
+
+    //The ping function.
+    //Calling this function requires passing in the time t in milliseconds
+    public int ping(int t){
+        //First, we eneueue the new time into the end of the queue
+        queue.add(t);
+
+        //Now we loop through the queue and dequeue from the front
+        //any pings that happened more that 3000 seconds ago
+        for(int i = 0; i < queue.size(); i++){
+            if(queue.peek() < t-3000){
+                queue.remove();
+            }
+        }
+
+        //Since the problem statement wants the number of pings in
+        //the previous 3000 milliseconds, we can now simply return
+        //the number of elements in the queue
+        return queue.size();
+    }
+}
+```
+
+Python Solution:
+```python
+class RecentCounter:
+    #This queue is a Python list
+    #In this problem, we treat it like a FIFO Queue
+    queue = []
+
+    #The ping function. The self is implicit, so calling
+    #this function requires passing in the time t in milliseconds
+    #self is like "this" in Java
+    def ping(self, t):
+        #First, we eneueue the new time into the end of the queue
+        self.queue.append(t)
+
+        #Now we loop through the queue and dequeue from the front
+        #any pings that happened more that 3000 seconds ago
+        for t in self.queue:
+            if(self.queue[0] < t-3000):
+                self.queue.pop(0)
+
+        #Since the problem statement wants the number of pings in
+        #the previous 3000 milliseconds, we can now simply return
+        #the number of elements in the queue
+        return len(self.queue)
+
+#main function
+def main():
+    print("Test Ping Function")
+
+    #create a new RecentCounter object
+    r = RecentCounter()
+
+    #from i = 0 to i = 10000 in increments of 1000, call ping with i as the time in ms
+    for i in range (0, 10000, 1000):
+        #print the returned value
+        print('Number of Pings in the last 3000ms: ', r.ping(i))
+
+#required code for python to automatically execute the main
+#mains are not required, but included here for simplicity
+if __name__ == '__main__':
+    main()
+```
 
 #### Testing The Solutions OR Driver For Solution
-
-TODO :bug:
+[Solutions available in the repository.]
+**Java Solution:** (./3_stacks_queues/recent_counter/recent_counter_java.java)
+**Python Solution:** (./3_stacks_queues/recent_counter/recent_counter_python.py)
 
 <!-- Don't remove -->
 Go to [Top](#top)
