@@ -1,7 +1,8 @@
 class RecentCounter:
     #This queue is a Python list
     #In this problem, we treat it like a FIFO Queue
-    queue = []
+    def __init__(self):
+        self.queue = []
 
     #The ping function. The self is implicit, so calling
     #this function requires passing in the time t in milliseconds
