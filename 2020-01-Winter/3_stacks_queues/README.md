@@ -168,25 +168,6 @@ Source: https://leetcode.com/problems/number-of-recent-calls/solution/
 
 Java Solution:
 ```java
-import java.util.LinkedList;
-import java.util.Queue;
-
-public class Main {
-
-    public static void main(String[] args) {
-        System.out.println("Test Ping Function");
-
-        //create a new RecentCounter object
-        RecentCounter r = new RecentCounter();
-
-        //from i = 0 to i = 10000 in increments of 1000, call ping with i as the time in ms
-        for(int i = 0; i <= 10000; i += 1000){
-            //print the returned value
-            System.out.println("Number of Pings in the last 3000ms: " + r.ping(i));
-        }
-    }
-}
-
 class RecentCounter{
     //This is one way of making a FIFO Queue in Java
     Queue<Integer> queue = new LinkedList<>();
@@ -237,23 +218,6 @@ class RecentCounter:
         #the previous 3000 milliseconds, we can now simply return
         #the number of elements in the queue
         return len(self.queue)
-
-#main function
-def main():
-    print("Test Ping Function")
-
-    #create a new RecentCounter object
-    r = RecentCounter()
-
-    #from i = 0 to i = 10000 in increments of 1000, call ping with i as the time in ms
-    for i in range (0, 10000, 1000):
-        #print the returned value
-        print('Number of Pings in the last 3000ms: ', r.ping(i))
-
-#required code for python to automatically execute the main
-#mains are not required, but included here for simplicity
-if __name__ == '__main__':
-    main()
 ```
 
 #### Testing The Solutions OR Driver For Solution
