@@ -163,6 +163,7 @@ Source: https://leetcode.com/problems/number-of-recent-calls/solution/
 
 #### Naive/Simple Solution
 **Time Complexity**: O(n) where N is the number of times `ping()` is called.
+
 **Space Complexity:** O(n) where N is the size of the window. In this case, 3000.
 
 Java Solution:
