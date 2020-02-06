@@ -174,7 +174,7 @@ Source: https://leetcode.com/problems/number-of-recent-calls/solution/
 #### Naive/Simple Solution
 **Time Complexity**: O(n) where N is the number of times `ping()` is called.
 
-**Space Complexity:** O(n) where N is the size of the window. In this case, 3000.
+**Space Complexity:** O(n) where N is the number of times `ping()` is called. In this case, the maximum size of the queue is bounded at 3001 elements.
 
 Java Solution:
 ```java
