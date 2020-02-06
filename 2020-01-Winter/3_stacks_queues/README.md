@@ -231,7 +231,7 @@ class RecentCounter:
 
 **Java Solution:** (./3_stacks_queues/recent_counter/recent_counter_java.java)
 
-**Python Solution:** (./3_stacks_queues/recent_counter/recent_counter_python.py)
+[**Python Solution**](./3_stacks_queues/recent_counter/recent_counter_python.py)
 
 <!-- Don't remove -->
 Go to [Top](#top)
