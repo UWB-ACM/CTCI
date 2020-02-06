@@ -95,7 +95,13 @@ Each number represents a separate return from `ping()`.
 #### Function Signature
 Example Java function signature:
 ```java
-public int ping(int t);
+class RecentCounter {
+    public RecentCounter() {
+    }
+    public int ping(int t) {
+        // your code here
+    }
+}
 ```
 Example Python function signature:
 ```
