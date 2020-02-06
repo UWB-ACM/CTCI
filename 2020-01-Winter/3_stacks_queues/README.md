@@ -258,7 +258,9 @@ if __name__ == '__main__':
 
 #### Testing The Solutions OR Driver For Solution
 [Solutions available in the repository.]
+
 **Java Solution:** (./3_stacks_queues/recent_counter/recent_counter_java.java)
+
 **Python Solution:** (./3_stacks_queues/recent_counter/recent_counter_python.py)
 
 <!-- Don't remove -->
