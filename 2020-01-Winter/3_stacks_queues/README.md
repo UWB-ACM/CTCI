@@ -233,7 +233,7 @@ class RecentCounter:
 
 #### Testing The Solutions OR Driver For Solution
 
-**Java Solution:** (./3_stacks_queues/recent_counter/recent_counter_java.java)
+[**Java Solution**](./3_stacks_queues/recent_counter/recent_counter_java.java)
 
 [**Python Solution**](./3_stacks_queues/recent_counter/recent_counter_python.py)
 
