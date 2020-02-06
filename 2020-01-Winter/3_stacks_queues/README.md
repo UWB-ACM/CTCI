@@ -105,7 +105,11 @@ class RecentCounter {
 ```
 Example Python function signature:
 ```
-ping(self, t)
+class RecentCounter:
+    def __init__(self):
+        # your code here
+    def ping(self, t):
+        # your code here
 ```
 
 <!-- Don't remove -->
