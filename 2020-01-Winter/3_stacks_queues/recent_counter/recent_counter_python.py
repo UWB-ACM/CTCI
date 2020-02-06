@@ -13,9 +13,8 @@ class RecentCounter:
 
         #Now we loop through the queue and dequeue from the front
         #any pings that happened more that 3000 seconds ago
-        for t in self.queue:
-            if(self.queue[0] < t-3000):
-                self.queue.pop(0)
+        while self.queue and self.queue[0] < t - 3000:
+            self.queue.pop(0)
 
         #Since the problem statement wants the number of pings in
         #the previous 3000 milliseconds, we can now simply return
@@ -30,9 +29,19 @@ def main():
     r = RecentCounter()
 
     #from i = 0 to i = 10000 in increments of 1000, call ping with i as the time in ms
-    for i in range (0, 10000, 1000):
+    #for i in range (0, 30000, 1500):
         #print the returned value
-        print('Number of Pings in the last 3000ms: ', r.ping(i))
+        #print('Number of Pings in the last 3000ms: ', r.ping(i))
+    print('Number of Pings in the last 3000ms: ', r.ping(0))
+    print('Number of Pings in the last 3000ms: ', r.ping(1))
+    print('Number of Pings in the last 3000ms: ', r.ping(2))
+    print('Number of Pings in the last 3000ms: ', r.ping(3))
+    print('Number of Pings in the last 3000ms: ', r.ping(100))
+    print('Number of Pings in the last 3000ms: ', r.ping(1000))
+    print('Number of Pings in the last 3000ms: ', r.ping(2000))
+    print('Number of Pings in the last 3000ms: ', r.ping(3003))
+    print('Number of Pings in the last 3000ms: ', r.ping(3005))
+    print('Number of Pings in the last 3000ms: ', r.ping(4000))
 
 #required code for python to automatically execute the main
 #mains are not required, but included here for simplicity

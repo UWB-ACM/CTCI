@@ -1,9 +1,7 @@
-package com.company;
-
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Main {
+public class RecentCounterJava {
 
     public static void main(String[] args) {
         System.out.println("Test Ping Function");
@@ -12,7 +10,7 @@ public class Main {
         RecentCounter r = new RecentCounter();
 
         //from i = 0 to i = 10000 in increments of 1000, call ping with i as the time in ms
-        for(int i = 0; i <= 10000; i += 1000){
+        for(int i = 0; i <= 20000; i += 1500){
             //print the returned value
             System.out.println("Number of Pings in the last 3000ms: " + r.ping(i));
         }
@@ -21,7 +19,11 @@ public class Main {
 
 class RecentCounter{
     //This is one way of making a FIFO Queue in Java
-    Queue<Integer> queue = new LinkedList<>();
+    Queue<Integer> queue = null;
+
+    public RecentCounter(){
+        queue = new LinkedList<>();
+    }
 
     //The ping function.
     //Calling this function requires passing in the time t in milliseconds
