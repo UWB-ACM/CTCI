@@ -221,7 +221,6 @@ class RecentCounter:
 
         #Now we loop through the queue and dequeue from the front
         #any pings that happened more that 3000 seconds ago
-            if(self.queue[0] < t-3000):
                 self.queue.pop(0)
         while self.queue and self.queue[0] < t - 3000:
             self.queue.pop(0)
