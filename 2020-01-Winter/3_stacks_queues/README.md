@@ -227,7 +227,6 @@ class RecentCounter:
 ```
 
 #### Testing The Solutions OR Driver For Solution
-[Solutions available in the repository.]
 
 **Java Solution:** (./3_stacks_queues/recent_counter/recent_counter_java.java)
 
