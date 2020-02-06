@@ -224,7 +224,9 @@ class RecentCounter:
         for t in self.queue:
             if(self.queue[0] < t-3000):
                 self.queue.pop(0)
-
+        while self.queue and self.queue[0] < t - 3000:
+            self.queue.pop(0)
+            
         #Since the problem statement wants the number of pings in
         #the previous 3000 milliseconds, we can now simply return
         #the number of elements in the queue
