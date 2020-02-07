@@ -7,13 +7,17 @@
   
   int main() {
     string test0 = "()"; // Output: true
-    string test1; = "()[]{}" //Output: true
-    string test2 = (]; // Output: false
-    string test3 = "{[]}; // Output: true
-    cout << "test0 = " << boolaplha << test0 << endl;
-    cout << "test1 = " << test1 << endl;
-    cout << "test2 = " << test2 << endl;
-    cout << "test3 = " << test3 << endl;
+    string test1 = "()[]{}"; //Output: true
+    string test2 = "(]"; // Output: false
+    string test3 = "{[]}"; // Output: true
+    string test4 = "";      // Output: true
+    string test5 = "abc[]"; // Output: false, per problem statement
+    cout << "test0 = " << test0 << ". Valid?: " << isValid(test0) << endl;
+    cout << "test1 = " << test1 << ". Valid?: " << isValid(test1) << endl;
+    cout << "test2 = " << test2 << ". Valid?: " << isValid(test2) << endl;
+    cout << "test3 = " << test3 << ". Valid?: " << isValid(test3) << endl;
+    cout << "test4 = " << test4 << ". Valid?: " << isValid(test4) << endl;
+    cout << "test5 = " << test5 << ". Valid?: " << isValid(test5) << endl;
   }
   
   bool isValid(string s) {
