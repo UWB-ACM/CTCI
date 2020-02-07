@@ -1,19 +1,20 @@
 def trap(height):
-    s = 0
-    l, r = 0, len(height)-1
-    while l < r:
-        i = 1
-        if height[l] < height[r]:
-            while height[l] > height[l+i]:
-                s += height[l] - height[l+i]
-                i += 1
-            l += i
-        else:
-            while height[r] > height[r-i]:
-                s += height[r] - height[r-i]
-                i += 1
-            r -= i
-    return s
+        if not height:
+            return 0
+        height.append(0)
+        stack = []
+        result = 0
+        for i in range(len(height)):
+            while stack and height[stack[-1]] < height[i]:
+                baseline=height[stack.pop()]
+                if not stack:
+                    break
+                leftboundry = stack[-1]
+                high = min(height[leftboundry], height[i])-baseline
+                width = i-(leftboundry + 1)
+                result += high * width
+            stack.append(i)
+        return result
 
 def main():
     print("Test Begins")
@@ -29,3 +30,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
