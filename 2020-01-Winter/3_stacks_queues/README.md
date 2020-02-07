@@ -207,6 +207,7 @@ Source: https://leetcode.com/problems/valid-parentheses/
 
 #### Solution
 
+```c++
 bool isValid(string s) {
       stack<char> st;
 
