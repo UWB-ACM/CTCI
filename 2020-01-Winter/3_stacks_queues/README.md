@@ -23,47 +23,21 @@ Problems and solutions for Stacks & Queues session on February 7, 2020.
 
 <a name="p1"/>
 
-### 1. ValidParenthses
+### 1. PROBLEM 1 TODO :bug:
 
-Source: https://leetcode.com/problems/valid-parentheses/
+Source: TODO :bug:
 
 #### Scenario
 
-Problem Statement:
-Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
-
-An input string is valid if:
-
-* Open brackets must be closed by the same type of brackets.
-* Open brackets must be closed in the correct logical order.
-Note that an empty string is also considered valid.
+Problem Statement TODO :bug:
 
 #### Example Input
-```
-"()"
-"()[]{}"
-"(]"
-"([)]"
-"{[]}"
-```
 
-#### Example Output
-```
-true
-true
-false
-false
-true
-```
+If the problem is simple enough, remove this section. TODO :bug:
 
 #### Function Signature
 
-```c++
-public:
-    bool isValid(string s) {
-        
-    }
-```
+TODO :bug:
 
 <!-- Don't remove -->
 Go to [Solution](#s1)   [Top](#top)
@@ -201,60 +175,21 @@ Go to [Solution](#s3)   [Top](#top)
 <!-- Don't remove -->
 <a name="s1"/>
 
-### 1. ValidParentheses
+### 1. SOLUTION 1 TODO :bug:
 
-Source: https://leetcode.com/problems/valid-parentheses/
+Source: TODO :bug:
 
-#### Solution
+#### Naive/Simple Solution
 
-```c++
-bool isValid(string s) {
-      stack<char> st;
+TODO :bug:
 
-      for(int i=0;i<s.length();i++)
-      {
-          if(s[i] == '(' || s[i] == '{' || s[i] == '[')
-              st.push(s[i]);
-          // Can't be empty at this point...
-          if(st.empty())
-              return false;
-          if(s[i] == ')')
-          {
-              int x = st.top();
-              st.pop();
-              if(x != '(')
-                  return false;
-          }
-          else if(s[i] == '}')
-          {
-              int x = st.top();
-              st.pop();
-              if(x != '{')
-                  return false;
-          }
-          else if(s[i] == ']')
-          {
-              int x = st.top();
-              st.pop();
-              if(x != '[')
-                  return false;
-          }
-      }    
-     return st.empty();
-  }
-  ```
+#### Optimal Solution
+
+TODO :bug:
 
 #### Testing The Solutions OR Driver For Solution
 
-```console
-$ g++ ValidParentheses.cpp && ./a.out
-test0 = (). Valid?: 1
-test1 = ()[]{}. Valid?: 1
-test2 = (]. Valid?: 0
-test3 = {[]}. Valid?: 1
-test4 = . Valid?: 1
-test5 = abc[]. Valid?: 0
-```
+TODO :bug:
 
 <!-- Don't remove -->
 Go to [Top](#top)
