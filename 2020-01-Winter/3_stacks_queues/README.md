@@ -23,21 +23,47 @@ Problems and solutions for Stacks & Queues session on February 7, 2020.
 
 <a name="p1"/>
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. ValidParenthses
 
-Source: TODO :bug:
+Source: https://leetcode.com/problems/valid-parentheses/
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Problem Statement:
+Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+
+* Open brackets must be closed by the same type of brackets.
+* Open brackets must be closed in the correct logical order.
+Note that an empty string is also considered valid.
 
 #### Example Input
+```
+"()"
+"()[]{}"
+"(]"
+"([)]"
+"{[]}"
+```
 
-If the problem is simple enough, remove this section. TODO :bug:
+#### Example Output
+```
+true
+true
+false
+false
+true
+```
 
 #### Function Signature
 
-TODO :bug:
+```c++
+public:
+    bool isValid(string s) {
+        
+    }
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s1)   [Top](#top)
@@ -175,21 +201,60 @@ Go to [Solution](#s3)   [Top](#top)
 <!-- Don't remove -->
 <a name="s1"/>
 
-### 1. SOLUTION 1 TODO :bug:
+### 1. ValidParentheses
 
-Source: TODO :bug:
+Source: https://leetcode.com/problems/valid-parentheses/
 
-#### Naive/Simple Solution
+#### Solution
 
-TODO :bug:
+```c++
+bool isValid(string s) {
+      stack<char> st;
 
-#### Optimal Solution
-
-TODO :bug:
+      for(int i=0;i<s.length();i++)
+      {
+          if(s[i] == '(' || s[i] == '{' || s[i] == '[')
+              st.push(s[i]);
+          // Can't be empty at this point...
+          if(st.empty())
+              return false;
+          if(s[i] == ')')
+          {
+              int x = st.top();
+              st.pop();
+              if(x != '(')
+                  return false;
+          }
+          else if(s[i] == '}')
+          {
+              int x = st.top();
+              st.pop();
+              if(x != '{')
+                  return false;
+          }
+          else if(s[i] == ']')
+          {
+              int x = st.top();
+              st.pop();
+              if(x != '[')
+                  return false;
+          }
+      }    
+     return st.empty();
+  }
+  ```
 
 #### Testing The Solutions OR Driver For Solution
 
-TODO :bug:
+```console
+$ g++ ValidParentheses.cpp && ./a.out
+test0 = (). Valid?: 1
+test1 = ()[]{}. Valid?: 1
+test2 = (]. Valid?: 0
+test3 = {[]}. Valid?: 1
+test4 = . Valid?: 1
+test5 = abc[]. Valid?: 0
+```
 
 <!-- Don't remove -->
 Go to [Top](#top)
@@ -278,28 +343,37 @@ Source: [LeetCode](https://leetcode.com/problems/trapping-rain-water/)
 
 #### Solution
 
-We check the left most bar and right most bar, if the left most bar is smaller or equal to the right most bar, 
-we know that the water level on the right side of the left most bar should be at the left most bar's level. 
-At this point, we can check the height of our new left most bar without the right most bar. 
-We keep doing this until those 2 pointers meet each other.
+There are multiple ways to solve this problem; this writeup will focus on 
+a solution which uses stacks.
+
+We keep a stack and iterate over the array. We add the index of the bar 
+to the stack if bar is smaller than or equal to the bar at top of stack, 
+which means that the current bar is bounded by the previous bar in the 
+stack. 
+
+If we found a bar longer than that at the top, we are sure that the bar 
+at the top of the stack is bounded by the current bar and a previous bar 
+in the stack, hence, we can pop it and add resulting trapped water to `ans`.
+
 
 ```python
 def trap(self, height):
-        s = 0
-        l, r = 0, len(height)-1
-        while l < r:
-            i = 1
-            if height[l] < height[r]:
-                while height[l] > height[l+i]:
-                    s += height[l] - height[l+i]
-                    i += 1
-                l += i
-            else:
-                while height[r] > height[r-i]:
-                    s += height[r] - height[r-i]
-                    i += 1
-                r -= i
-        return s
+    if not height:
+        return 0
+    height.append(0)
+    stack = []
+    result = 0
+    for i in range(len(height)):
+        while stack and height[stack[-1]] < height[i]:
+            baseline=height[stack.pop()]
+            if not stack:
+                break
+            leftboundry = stack[-1]
+            high = min(height[leftboundry], height[i])-baseline
+            width = i-(leftboundry + 1)
+            result += high * width
+        stack.append(i)
+    return result
  ```
  
 
