@@ -45,6 +45,7 @@ Note that an empty string is also considered valid.
 "(]"
 "([)]"
 "{[]}"
+```
 
 #### Example Output
 ```
