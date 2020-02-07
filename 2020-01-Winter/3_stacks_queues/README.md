@@ -246,24 +246,14 @@ bool isValid(string s) {
 
 #### Testing The Solutions OR Driver For Solution
 
-```c++
-    #include <iostream>
-  #include <stack>
-
-  using namespace std;
-
-  bool isValid(string s);
-
-  int main() {
-    string test0 = "()"; // Output: true
-    string test1; = "()[]{}" //Output: true
-    string test2 = (]; // Output: false
-    string test3 = "{[]}; // Output: true
-    cout << "test0 = " << boolaplha << test0 << endl;
-    cout << "test1 = " << test1 << endl;
-    cout << "test2 = " << test2 << endl;
-    cout << "test3 = " << test3 << endl;
-  }
+```console
+$ g++ ValidParentheses.cpp && ./a.out
+test0 = (). Valid?: 1
+test1 = ()[]{}. Valid?: 1
+test2 = (]. Valid?: 0
+test3 = {[]}. Valid?: 1
+test4 = . Valid?: 1
+test5 = abc[]. Valid?: 0
 ```
 
 <!-- Don't remove -->
