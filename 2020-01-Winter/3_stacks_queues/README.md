@@ -23,21 +23,48 @@ Problems and solutions for Stacks & Queues session on February 7, 2020.
 
 <a name="p1"/>
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. Valid Parentheses
 
-Source: TODO :bug:
+Source: https://leetcode.com/problems/valid-parentheses/
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Problem Statement:
+Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Note that an empty string is also considered valid.
 
 #### Example Input
+Input: "()"
+Input: "()[]{}"
+Input: "(]"
+Input: "([)]"
+Input: "{[]}"
 
-If the problem is simple enough, remove this section. TODO :bug:
+#### Example Output
+Output: true
+Output: true
+Output: false
+Output: false
+Output: true
 
 #### Function Signature
+Example c++ signature
+public:
+    bool isValid(string s) {   
+    // your code here
+    }
 
-TODO :bug:
+
+Example java signature
+    public boolean isValid(String s) {
+      // your code here  
+    }
+
 
 <!-- Don't remove -->
 Go to [Solution](#s1)   [Top](#top)
