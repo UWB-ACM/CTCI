@@ -353,28 +353,37 @@ Source: [LeetCode](https://leetcode.com/problems/trapping-rain-water/)
 
 #### Solution
 
-We check the left most bar and right most bar, if the left most bar is smaller or equal to the right most bar, 
-we know that the water level on the right side of the left most bar should be at the left most bar's level. 
-At this point, we can check the height of our new left most bar without the right most bar. 
-We keep doing this until those 2 pointers meet each other.
+There are multiple ways to solve this problem; this writeup will focus on 
+a solution which uses stacks.
+
+We keep a stack and iterate over the array. We add the index of the bar 
+to the stack if bar is smaller than or equal to the bar at top of stack, 
+which means that the current bar is bounded by the previous bar in the 
+stack. 
+
+If we found a bar longer than that at the top, we are sure that the bar 
+at the top of the stack is bounded by the current bar and a previous bar 
+in the stack, hence, we can pop it and add resulting trapped water to `ans`.
+
 
 ```python
 def trap(self, height):
-        s = 0
-        l, r = 0, len(height)-1
-        while l < r:
-            i = 1
-            if height[l] < height[r]:
-                while height[l] > height[l+i]:
-                    s += height[l] - height[l+i]
-                    i += 1
-                l += i
-            else:
-                while height[r] > height[r-i]:
-                    s += height[r] - height[r-i]
-                    i += 1
-                r -= i
-        return s
+    if not height:
+        return 0
+    height.append(0)
+    stack = []
+    result = 0
+    for i in range(len(height)):
+        while stack and height[stack[-1]] < height[i]:
+            baseline=height[stack.pop()]
+            if not stack:
+                break
+            leftboundry = stack[-1]
+            high = min(height[leftboundry], height[i])-baseline
+            width = i-(leftboundry + 1)
+            result += high * width
+        stack.append(i)
+    return result
  ```
  
 
