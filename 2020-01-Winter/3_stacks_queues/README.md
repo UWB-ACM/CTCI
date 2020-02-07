@@ -58,6 +58,7 @@ true
 
 #### Function Signature
 
+```c++
 public:
     bool isValid(string s) {
         
