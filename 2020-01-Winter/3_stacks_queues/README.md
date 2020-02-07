@@ -63,7 +63,7 @@ public:
     bool isValid(string s) {
         
     }
-
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s1)   [Top](#top)
