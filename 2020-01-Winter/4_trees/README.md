@@ -47,16 +47,38 @@ Go to [Solution](#s1)   [Top](#top)
 
 ### 2. PROBLEM 2 TODO :bug:
 
-Source: TODO :bug:
+Source: https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Problem Statement
+Given a binary search tree, write a function kthSmallest to find the kth smallest element in it.
+Note:
+You may assume k is always valid, 1 ≤ k ≤ BST's total elements.
 
 #### Example Input
-
-If the problem is simple enough, remove this section. TODO :bug:
-
+Example 1
+```
+Input: root = [3,1,4,null,2], k = 1
+   3
+  / \
+ 1   4
+  \
+   2
+Output: 1
+```
+Example 2
+```
+Input: root = [5,3,6,2,4,null,null,1], k = 3
+       5
+      / \
+     3   6
+    / \
+   2   4
+  /
+ 1
+Output: 3
+```
 #### Function Signature
 
 TODO :bug:
@@ -142,7 +164,7 @@ Go to [Top](#top)
 
 Source: TODO :bug:
 
-#### Naive/Simple Solution 
+#### Naive/Simple Solution
 
 TODO :bug:
 
