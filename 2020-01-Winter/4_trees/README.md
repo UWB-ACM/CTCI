@@ -142,13 +142,53 @@ Go to [Top](#top)
 
 Source: TODO :bug:
 
-#### Naive/Simple Solution
+#### Recursion Solution
+```
+class Solution:
+  def findNode(self,node, count, result):
+      if result[0] != -1:
+          return
+      if node.left:
+          self.findNode(node.left,count,result)
+      count[0] -= 1
+      if count[0] == 0:
+          result[0] = node.val
+          return
+      if node.right:
+          self.findNode(node.right,count, result)
 
-TODO :bug:
 
-#### Optimal Solution
+  def kthSmallest(self, root: TreeNode, k: int) -> int:                
+      count = [k] #<= why use list when it's only 1 element? because list and set is the only thing that is mutable in python. So we can "pass by reference"
+      result = [-1]
+      self.findNode(root,count,result)
+      return result[0]
+```
+#### Iteration Solution
+```
+class Solution:
+    def kthSmallest(self, root: TreeNode, k: int) -> int:                
+        # Set current to root of binary tree
+        current = root  
+        stack = [] # initialize stack
+        count = 0 #initialize count
+        while True:
+            # Reach the left most Node of the current Node
+            if current is not None:  #if the current node is not Null or None
+                stack.append(current)  #add the current node to stack so we can go back
+                current = current.left  #go to the left node
+            elif(stack):             #if the current node is null and stack is not empty
+                current = stack.pop() #go back to previous node by popping the stack
+                count+=1               # the value of the node is the (count)th smallest number
+                if count == k:         #until count == k => the kth smallest value in the tree => return
+                    return current.val
+                current = current.right #if not check the right side.  
+            else:
+                break
+        return -1 # no solution found
+```        
 
-TODO :bug:
+
 
 #### Testing The Solutions OR Driver For Solution
 
