@@ -207,6 +207,7 @@ public:
 		return (hasPathSum(root->left, sum) || hasPathSum(root->right, sum));
 	}
 };
+```
 #### Testing The Solutions OR Driver For Solution
 
 [Available in the repository](./4_trees/pathSum/pathSum.cpp)
