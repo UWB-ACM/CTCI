@@ -25,13 +25,14 @@ def kthSmallest(root: TreeNode, k: int) -> int:
   findNode(root,count,result)
   return result[0]
 
+#Create first tree to test
 root = TreeNode(3)
 root.left = TreeNode(1)
 root.right = TreeNode(4)
 root.left.right = TreeNode(2)
 ans = kthSmallest(root,1)
 assert(ans == 1)
-
+#Create Second tree
 root2 = TreeNode(5)
 root2.right = TreeNode(6)
 root2.left = TreeNode(3)

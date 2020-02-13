@@ -45,7 +45,7 @@ Go to [Solution](#s1)   [Top](#top)
 <!-- Don't remove -->
 <a name="p2"/>
 
-### 2. PROBLEM 2 TODO :bug:
+### 2. PROBLEM 2 k smallest element in a BST
 
 Source: https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 
@@ -145,9 +145,9 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s2"/>
 
-### 2. SOLUTION 2 TODO :bug:
+### 2. SOLUTION 2
 
-Source: TODO :bug:
+Source:
 
 #### Recursion Solution
 ```python3
@@ -199,7 +199,7 @@ class Solution:
 
 #### Testing The Solutions OR Driver For Solution
 
-TODO :bug:
+The Testing is in Kth_Smallest_Element_in_BST
 
 <!-- Don't remove -->
 Go to [Top](#top)
