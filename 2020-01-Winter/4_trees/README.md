@@ -137,7 +137,7 @@ Go to [Solution](#s3)   [Top](#top)
 
 ### 1. Path Sum
 
-Source: [Leetcode]https://leetcode.com/problems/path-sum/
+Source: [Leetcode](https://leetcode.com/problems/path-sum/)
 
 #### Naive/Simple Solution
 This implementation uses the queue for BFS iterating over the nodes.
