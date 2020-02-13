@@ -38,6 +38,7 @@ Example 1:
 
 Given the below binary tree and sum = 22,
 
+```
       5
      / \
     4   8
