@@ -45,7 +45,7 @@ Go to [Solution](#s1)   [Top](#top)
 <!-- Don't remove -->
 <a name="p2"/>
 
-### 2. PROBLEM 2 k smallest element in a BST
+### 2. Kth Smallest Element in a BST
 
 Source: [LeetCode](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)
 
