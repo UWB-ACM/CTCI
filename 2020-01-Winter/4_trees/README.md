@@ -156,7 +156,8 @@ using recursion or iteration.
 ```python3
 class Solution:
   def findNode(self,node, count, result):
-      if result[0] != -1:
+      # have we found the kth node and added its value?
+      if result:
           return
       if node.left:
           self.findNode(node.left,count,result)
