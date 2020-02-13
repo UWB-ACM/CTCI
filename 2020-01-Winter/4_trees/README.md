@@ -166,7 +166,7 @@ class Solution:
 
 
   def kthSmallest(self, root: TreeNode, k: int) -> int:                
-      count = [k] #<= why use list when it's only 1 element? because list and set is the only thing that is mutable in python. So we can "pass by reference"
+      count = [k] #<= why use list when it's only 1 element? because list is mutable in python. So we can "pass by reference", while an int or float is immutable and cannot pass by reference.
       result = [-1]
       self.findNode(root,count,result)
       return result[0]
