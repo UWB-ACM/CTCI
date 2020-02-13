@@ -202,7 +202,7 @@ class Solution:
 
 #### Testing The Solutions OR Driver For Solution
 
-The Testing is in Kth_Smallest_Element_in_BST
+The Testing is in [the repository](./Kth_Smallest_Element_in_BST).
 
 <!-- Don't remove -->
 Go to [Top](#top)
