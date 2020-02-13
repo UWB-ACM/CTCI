@@ -54,7 +54,8 @@ Given the below binary tree and sum = 1,
 ```
       1
      / \
-    -2  3
+   -2   3
+```
 return false, as there does not exist a root-to-leaf path which sums 1.
 
 #### Function Signature
