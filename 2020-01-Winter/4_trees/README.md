@@ -140,6 +140,7 @@ Source: [Leetcode]https://leetcode.com/problems/path-sum/
 This implementation uses the queue for BFS iterating over the nodes.
 **Time Complexity**: O(n) where N is the number of nodes in the tree.
 
+```c++
 class Solution {
 public:
  bool hasPathSum(TreeNode* root, int sum) {
