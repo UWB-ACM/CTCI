@@ -80,9 +80,16 @@ Input: root = [5,3,6,2,4,null,null,1], k = 3
 Output: 3
 ```
 #### Function Signature
-
-TODO :bug:
-
+```python3
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+class Solution:
+    def kthSmallest(self, root: TreeNode, k: int) -> int:
+```
 <!-- Don't remove -->
 Go to [Solution](#s2)   [Top](#top)
 
@@ -143,7 +150,7 @@ Go to [Top](#top)
 Source: TODO :bug:
 
 #### Recursion Solution
-```
+```python3
 class Solution:
   def findNode(self,node, count, result):
       if result[0] != -1:
@@ -165,7 +172,7 @@ class Solution:
       return result[0]
 ```
 #### Iteration Solution
-```
+```python3
 class Solution:
     def kthSmallest(self, root: TreeNode, k: int) -> int:                
         # Set current to root of binary tree
