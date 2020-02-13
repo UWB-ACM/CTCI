@@ -25,7 +25,7 @@ Problems and solutions for Trees session on February 14, 2020.
 
 ### 1. Path Sum
 
-Source: [Leetcode] https://leetcode.com/problems/path-sum/
+Source: [Leetcode](https://leetcode.com/problems/path-sum/)
 
 #### Scenario
 
