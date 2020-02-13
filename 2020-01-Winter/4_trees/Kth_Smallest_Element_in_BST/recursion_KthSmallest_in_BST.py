@@ -11,7 +11,7 @@ def findNode(node, count, result):
       findNode(node.left,count,result)
   count[0] -= 1
   if count[0] == 0:
-      result[0] = node.val
+      result.append(node.val)
       return
   if node.right:
       findNode(node.right,count, result)
