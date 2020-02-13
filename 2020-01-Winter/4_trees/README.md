@@ -23,9 +23,9 @@ Problems and solutions for Trees session on February 14, 2020.
 
 <a name="p1"/>
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. Path Sum
 
-Source: https://leetcode.com/problems/path-sum/
+Source: [Leetcode] https://leetcode.com/problems/path-sum/
 
 #### Scenario
 
@@ -35,7 +35,6 @@ Note: A leaf is a node with no children.
 
 #### Example Input
 Example 1:
-Example:
 
 Given the below binary tree and sum = 22,
 
@@ -130,9 +129,9 @@ Go to [Solution](#s3)   [Top](#top)
 <!-- Don't remove -->
 <a name="s1"/>
 
-### 1. SOLUTION 1 TODO :bug:
+### 1. Path Sum
 
-Source: https://leetcode.com/problems/path-sum/
+Source: [Leetcode]https://leetcode.com/problems/path-sum/
 
 #### Naive/Simple Solution
 This implementation uses the queue for BFS iterating over the nodes.
@@ -207,7 +206,7 @@ public:
 };
 #### Testing The Solutions OR Driver For Solution
 
-[Available in the repository.](./4_trees/pathSum.cpp)
+[Available in the repository](./4_trees/pathSum/pathSum.cpp)
 ```[5,4,8,11,null,13,4,7,2,null,null,null,1] sum=22 : 1(true)
     [1,-2,3] sum=1 : 0(false)
 ```
