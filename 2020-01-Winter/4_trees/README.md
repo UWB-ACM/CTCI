@@ -96,21 +96,45 @@ Go to [Solution](#s2)   [Top](#top)
 <!-- Don't remove -->
 <a name="p3"/>
 
-### 3. PROBLEM 3 TODO :bug:
+### 3. Serialize and Deserialize Binary Tree
 
-Source: TODO :bug:
+Source: [LeetCode](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.
+
+Design an algorithm to **serialize** and **deserialize** a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.
+
+Note: Do not use class member/global/static variables to store states. Your serialize and deserialize algorithms should be stateless.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+```
+You may serialize the following tree:
+
+    1
+   / \
+  2   3
+     / \
+    4   5
+
+as "[1,2,3,null,null,4,5]"
+```
 
 #### Function Signature
 
-TODO :bug:
+```java
+    // Encodes a tree to a single string.
+    string serialize(TreeNode* root) {
+
+    }
+
+    // Decodes your encoded data to tree.
+    TreeNode* deserialize(string data) {
+
+    }
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s3)   [Top](#top)
@@ -211,21 +235,82 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s3"/>
 
-### 3. SOLUTION 3 TODO :bug:
+### 3. Serialize and Deserialize Binary Tree
 
-Source: TODO :bug:
-
-#### Naive/Simple Solution
-
-TODO :bug:
+Serialize using pre-order traversal and preserve nulls in the output. To deserialize, create a list and start "consuming" the nodes from left to right creating new `TreeNode`s as you find values.
 
 #### Optimal Solution
 
-TODO :bug:
+```java
+class Codec {
+    // Encodes a tree to a single string.
+    public String serialize(TreeNode root) {
+        if (root == null) {
+            // Keep track of the nulls in the serialized string
+            return "null,";
+        }
+
+        // Pre-order traversal of the tree will serialize
+        // the tree easily. Pre-order traversing visits
+        // current node, then left, then right.
+        //
+        // Traversing in this way uses the fact that recursive
+        // calls keep the state of each call and this allows us
+        // to keep track of where we are in the tree.
+        //
+        // Pre-order traversal is O(n) where n is the number of
+        // nodes in the tree. Space complexity is O(n), on average
+        // it can be O(height of tree).
+        //
+        // Appending to the string can be something to consider, in
+        // Java string are immutable and appending will create a new
+        // string in the string pool every time. An improvement would
+        // be to use a more efficient structure like StringBuilder.
+        String s = root.val + ",";
+        s += serialize(root.left);
+        s += serialize(root.right);
+        return s;
+    }
+
+    // Decodes your encoded data to tree.
+    public TreeNode deserialize(String data) {
+        // First thing we can do to make things easy is to
+        // turn the string into a list of Integers. A list
+        // is useful becuase we can remove elements from it
+        // as we process them.
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        for (String s : data.split(",")) {
+            list.add(s.equals("null") ? null : Integer.parseInt(s));
+        }
+
+        // Now call the real deserialize logic:
+        return deserialize(list);
+    }
+
+    private TreeNode deserialize(ArrayList<Integer> list) {
+        // Read and remove the first element of the list
+        Integer value = list.get(0);
+        list.remove(0);
+
+        // If the element is null, lets return null
+        if (value == null) {
+            return null;
+        }
+
+        // If not, let's create the node and recursively
+        // deserialize the REMAINING (remember we already
+        // sliced the list) elements of the list.
+        TreeNode node = new TreeNode(value);
+        node.left = deserialize(list);
+        node.right = deserialize(list);
+        return node;
+    }
+}
+```
 
 #### Testing The Solutions OR Driver For Solution
 
-TODO :bug:
+The solution code is [in the repository](./serialize-and-deserialize-a-tree/serialize-and-deserialize-a-tree.java).
 
 <!-- Don't remove -->
 Go to [Top](#top)
