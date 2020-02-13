@@ -187,7 +187,7 @@ public:
 
 #### Optimal Solution
 This implementation uses recursion  for DFS.
-**Time Complexity**: O(2^n) the branch factor is two in a binary search tree and N is the number of times the function is called.
+**Time Complexity**: `O(2^n)` -- the branch factor is two in a binary search tree and N is the number of nodes in the tree.
 
 class Solution {
 public:
