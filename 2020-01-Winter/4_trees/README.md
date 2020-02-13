@@ -145,7 +145,7 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s2"/>
 
-### 2. SOLUTION 2
+### 2. Kth Smallest Element in a BST
 
 
 As we know that BST is already sorted if we transverse the tree in order. Therefore,
