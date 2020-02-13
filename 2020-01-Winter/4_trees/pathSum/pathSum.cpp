@@ -116,6 +116,5 @@ int main() {
 	cout << "[1,-2,3] sum=1 : " << (temp.hasPathSum(root, sum)) << endl; //output:false
 	cout << "[1,-2,3] sum=1 : " << (temp2.hasPathSum(root, sum)) << endl; // output:false
 
-	cin.get();
 	return 0;
 }
