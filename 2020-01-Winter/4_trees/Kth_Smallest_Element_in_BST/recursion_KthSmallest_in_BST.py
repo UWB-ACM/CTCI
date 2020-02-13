@@ -5,7 +5,7 @@ class TreeNode:
          self.right = None
 
 def findNode(node, count, result):
-  if result[0] != -1:
+  if result:
       return
   if node.left:
       findNode(node.left,count,result)
