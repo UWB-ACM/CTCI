@@ -192,6 +192,7 @@ public:
 This implementation uses recursion  for DFS.
 **Time Complexity**: `O(2^n)` -- the branch factor is two in a binary search tree and N is the number of nodes in the tree.
 
+```c++
 class Solution {
 public:
 	bool hasPathSum(TreeNode* root, int sum) {
