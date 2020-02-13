@@ -147,8 +147,11 @@ Go to [Top](#top)
 
 ### 2. SOLUTION 2
 
-Source:
 
+As we know that BST is already sorted if we transverse the tree in order. Therefore,
+if we transverse the tree in order, the k node we find is the k smallest value. The
+time complexity to transverse through the tree is O(2n-1) = O(n). Below is the solutions
+using recursion or iteration. 
 #### Recursion Solution
 ```python3
 class Solution:
