@@ -23,21 +23,62 @@ Problems and solutions for Trees session on February 14, 2020.
 
 <a name="p1"/>
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. Path Sum
 
-Source: TODO :bug:
+Source: [Leetcode](https://leetcode.com/problems/path-sum/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Problem Statement: Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
+
+Note: A leaf is a node with no children.
 
 #### Example Input
+Example 1:
 
-If the problem is simple enough, remove this section. TODO :bug:
+Given the below binary tree and sum = 22,
+
+```
+      5
+     / \
+    4   8
+   /   / \
+  11  13  4
+ /  \      \
+7    2      1
+```
+return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
+
+Example 2:
+Given the below binary tree and sum = 1,
+```
+      1
+     / \
+   -2   3
+```
+return false, as there does not exist a root-to-leaf path which sums 1.
 
 #### Function Signature
+Example C++ function signature:
 
-TODO :bug:
+```c++
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasPathSum(TreeNode* root, int sum) {
+
+    //your code here
+}
+};
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s1)   [Top](#top)
@@ -147,22 +188,91 @@ Go to [Solution](#s3)   [Top](#top)
 <!-- Don't remove -->
 <a name="s1"/>
 
-### 1. SOLUTION 1 TODO :bug:
+### 1. Path Sum
 
-Source: TODO :bug:
+Source: [Leetcode](https://leetcode.com/problems/path-sum/)
 
 #### Naive/Simple Solution
+This implementation uses the queue for BFS iterating over the nodes.
+**Time Complexity**: O(n) where N is the number of nodes in the tree.
 
-TODO :bug:
+```c++
+class Solution {
+public:
+ bool hasPathSum(TreeNode* root, int sum) {
+  //gone through the tree, no path
+  if (root == NULL)
+	  return false;
+ 
+  queue <TreeNode*> qlayer;
+  qlayer.push(root);
+  while (!qlayer.empty())
+  {
+	  TreeNode *ptr= qlayer.front();
+	  //if no children
+	  if (ptr->left == NULL && ptr->right == NULL)
+	  {
+		  //value at the end is equal to sum
+		  //means there is a path from root to leaf 
+		  if (ptr->val==sum)
+			  return true;
+	  }
+	  else
+	  {
+		  //go layer by layer
+		  //the current value is added to the left child
+		  //add the node to the queue
+		  if (ptr->left != NULL)
+		  {
+			  ptr->left->val += ptr->val;
+			  qlayer.push(ptr->left);
+		  }
+		  //the current value is added to the right child
+		  if (ptr->right != NULL)
+		  {
+			  ptr->right->val += ptr->val;
+			  qlayer.push(ptr->right);
+		  }
+	  }
+	  qlayer.pop();
+  }
+  return false;
+ }
+};
+```
 
 #### Optimal Solution
+This implementation uses recursion  for DFS.
+**Time Complexity**: `O(2^n)` -- the branch factor is two in a binary search tree and N is the number of nodes in the tree.
 
-TODO :bug:
-
+```c++
+class Solution {
+public:
+	bool hasPathSum(TreeNode* root, int sum) {
+		//gone through the tree, no path
+		if (root == NULL)
+			return false;
+		//subtract root from the sum at each visited node
+		sum -= root->val;
+		//if no children
+		if (root->left == NULL && root->right == NULL)
+		{
+			//sum after subtracting is equal to 0
+			//means there is a path from root to leaf 
+			if (sum == 0)
+				return true;
+		}
+		//recursive call passing left child or right child as root and new sum
+		return (hasPathSum(root->left, sum) || hasPathSum(root->right, sum));
+	}
+};
+```
 #### Testing The Solutions OR Driver For Solution
 
-TODO :bug:
-
+[Available in the repository](./4_trees/pathSum/pathSum.cpp)
+```[5,4,8,11,null,13,4,7,2,null,null,null,1] sum=22 : 1(true)
+    [1,-2,3] sum=1 : 0(false)
+```
 <!-- Don't remove -->
 Go to [Top](#top)
 
