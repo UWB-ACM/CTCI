@@ -40,10 +40,6 @@ Additional info:
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
-
-#### Function Signature
-
 We shorten phone numbers in the examples for readability.
 
 **Example 1**
@@ -59,6 +55,10 @@ Input:   m = { '1': ['2', '3', '4'], '2': ['1', '4'], '3': ['1'], '4': ['1', '2'
 Output:  [('2', '3'), ('3', '4')]
 ```
 '1' had phone calls with all other phone numbers in the map. '2' and '4' are missing phone calls with '3', forming two pairs of telephone strangers.
+
+#### Function Signature
+
+
 
 <!-- Don't remove -->
 Go to [Solution](#s1)   [Top](#top)
