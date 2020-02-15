@@ -23,13 +23,20 @@ Problems and solutions for Graphs session on February 21, 2020.
 
 <a name="p1"/>
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. Telephone Strangers
 
-Source: TODO :bug:
+Source: Lizzy
 
 #### Scenario
 
-Problem Statement TODO :bug:
+You are given a map m which represents a graph of phone calls between distinct numbers. Each entry in m maps a phone number to an array of all individual phone calls on that line from the previous 30 days.
+
+Find all the pairs of phone numbers which didn't have any calls placed to each other.
+
+Additional info:
+
+- You may assume that map entries are reflexive; if a call between Line A and Line B is placed, the map entry for Line B will contain Line A, and vice versa.
+- A phone number cannot place a call to itself.
 
 #### Example Input
 
@@ -37,7 +44,21 @@ If the problem is simple enough, remove this section. TODO :bug:
 
 #### Function Signature
 
-TODO :bug:
+We shorten phone numbers in the examples for readability.
+
+**Example 1**
+```
+Input:   m = { '206': [], '940': ['425'], '425': ['940'] }
+Output:  [('206', '940'), ('206', '425')]
+```
+Reasoning: '206' did not speak to anyone on the phone, and is therefore a stranger to '425' and '940'. This produces the two pairs of telephone strangers.
+
+**Example 2**
+```
+Input:   m = { '1': ['2', '3', '4'], '2': ['1', '4'], '3': ['1'], '4': ['1', '2'] }
+Output:  [('2', '3'), ('3', '4')]
+```
+'1' had phone calls with all other phone numbers in the map. '2' and '4' are missing phone calls with '3', forming two pairs of telephone strangers.
 
 <!-- Don't remove -->
 Go to [Solution](#s1)   [Top](#top)
