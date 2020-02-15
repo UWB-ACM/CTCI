@@ -45,21 +45,53 @@ Go to [Solution](#s1)   [Top](#top)
 <!-- Don't remove -->
 <a name="p2"/>
 
-### 2. PROBLEM 2 TODO :bug:
-
-Source: TODO :bug:
+### 2. PROBLEM 2 
+Find the Town Judge
+Source: [Leetcode](https://leetcode.com/problems/find-the-town-judge/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+In a town, there are N people labelled from 1 to N.  There is a rumor that one of these people is secretly the town judge.
+
+If the town judge exists, then:
+
+The town judge trusts nobody.
+Everybody (except for the town judge) trusts the town judge.
+There is exactly one person that satisfies properties 1 and 2.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
-
+Example 1:
+```
+Input: N = 2, trust = [[1,2]]
+Output: 2
+```
+Example 2:
+```
+Input: N = 3, trust = [[1,3],[2,3]]
+Output: 3
+```
+Example 3:
+```
+Input: N = 3, trust = [[1,3],[2,3],[3,1]]
+Output: -1
+```
+Example 4:
+```
+Input: N = 3, trust = [[1,2],[2,3]]
+Output: -1
+```
+Example 5:
+```
+Input: N = 4, trust = [[1,3],[1,4],[2,3],[2,4],[4,3]]
+Output: 3
+```
 #### Function Signature
 
-TODO :bug:
+```
+int findJudge(int N, vector<vector<int>>& Trust) {}
+```
+
 
 <!-- Don't remove -->
 Go to [Solution](#s2)   [Top](#top)
