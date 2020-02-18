@@ -104,7 +104,8 @@ Output: false
 ````
 #### Function Signature
 
-````
+```` 
+// Java
 public boolean isBipartite(int[][] graph)
 ````
 
@@ -134,7 +135,6 @@ TODO :bug:
 #### Testing The Solutions OR Driver For Solution
 
 TODO :bug:
-
 
 <!-- Don't remove -->
 Go to [Top](#top)
@@ -170,7 +170,21 @@ Source: [Leetcode](https://leetcode.com/problems/is-graph-bipartite/)
 
 #### Solution
 
+The idea of this solution is to assign the nodes with two different colors,
+in this case, a graph is only bipartite if any of the two adjacent nodes does
+not have the same color.
+
+Using Breadth First Search to traverse all nodes, color the first node as 1, 
+then color all its neighbors as 0, continue until all nodes are traversed.
+
+As we said before, if two adjacent nodes have the same color, it is not
+bipartite. If all nodes follows the rule, it is bipartite, therefore,
+return true.
+
+Time Complexity: O(n), n is the sum of #nodes and #edges
+ 
 ````
+// Solution in Java
 public boolean isBipartite(int[][] Graph) {
   int NumOfNodes = Graph.length;
   int[] Group = new int[NumOfNodes];
