@@ -88,7 +88,7 @@ Output: 3
 ```
 #### Function Signature
 
-```
+```c++
 int findJudge(int N, vector<vector<int>>& Trust) {}
 ```
 
