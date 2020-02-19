@@ -193,14 +193,6 @@ public:
 };
 ```
 
-#### Naive/Simple Solution
-
-TODO :bug:
-
-#### Optimal Solution
-
-TODO :bug:
-
 #### Testing The Solutions OR Driver For Solution
 
 [Link to .cpp file](./townjudge/townjudge.cpp)
