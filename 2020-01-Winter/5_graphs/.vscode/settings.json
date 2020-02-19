@@ -40,6 +40,10 @@
         "sstream": "cpp",
         "stdexcept": "cpp",
         "streambuf": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "cinttypes": "cpp",
+        "cstring": "cpp",
+        "functional": "cpp",
+        "iterator": "cpp"
     }
 }
