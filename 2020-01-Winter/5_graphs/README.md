@@ -62,27 +62,27 @@ There is exactly one person that satisfies properties 1 and 2.
 #### Example Input
 
 Example 1:
-```
+```c++
 Input: N = 2, trust = [[1,2]]
 Output: 2
 ```
 Example 2:
-```
+```c++
 Input: N = 3, trust = [[1,3],[2,3]]
 Output: 3
 ```
 Example 3:
-```
+```c++
 Input: N = 3, trust = [[1,3],[2,3],[3,1]]
 Output: -1
 ```
 Example 4:
-```
+```c++
 Input: N = 3, trust = [[1,2],[2,3]]
 Output: -1
 ```
 Example 5:
-```
+```c++
 Input: N = 4, trust = [[1,3],[1,4],[2,3],[2,4],[4,3]]
 Output: 3
 ```
