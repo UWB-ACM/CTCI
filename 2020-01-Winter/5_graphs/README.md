@@ -183,7 +183,7 @@ return true.
 
 Time Complexity: O(n), n is the sum of #nodes and #edges
  
-````
+````java
 // Solution in Java
 public boolean isBipartite(int[][] Graph) {
   int NumOfNodes = Graph.length;
