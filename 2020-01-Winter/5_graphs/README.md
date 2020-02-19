@@ -104,7 +104,7 @@ Output: false
 ````
 #### Function Signature
 
-```` 
+````java
 // Java
 public boolean isBipartite(int[][] graph)
 ````
