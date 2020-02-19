@@ -150,7 +150,48 @@ Go to [Top](#top)
 
 ### 2. SOLUTION 2 TODO :bug:
 
-Source: TODO :bug:
+Source: 
+
+Using two vectors to count the number of incoming and outgoing trusted edges [TrustCounter]. For outgoing edges from A to B, we immediately invalidate A being the town judge according to the problem statement. (Judge CANNOT trust anyone)
+
+For incoming edges A to B, we increment the counter Count[B]. When we know there are N-1 incoming connections, we make a note on the B. However, if there is a second candidate that has received N-1 connections, we know there are no answers which we can simply return -1.
+
+One edge case is when there is only 1 person and the trust vector is empty, the person himself/herself is the judge.
+
+```c++
+class Solution {
+public:
+  int findJudge(int N, std::vector<std::vector<int>> &Trust) {
+
+    std::vector<int> TrustCounter(N, 0);
+    std::vector<bool> ValidJudge(N, true);
+
+    int Count = 0;
+    int X = -1;
+
+    for (const auto &Person : Trust) {
+      TrustCounter[Person[1] - 1] ++;
+      if (TrustCounter[Person[1] - 1] == N - 1) {
+        Count++;
+        X = Person[1];
+        // no judge
+        if (Count >= 2) {
+          return -1;
+        }
+      }
+      // judge trusts nobody
+      ValidJudge[Person[0] - 1] = false;
+    }
+    if (Count == 0) {
+      return N == 1 ? 1 : -1;
+    }
+    if (ValidJudge[X - 1]) {
+      return X;
+    }
+    return -1;
+  }
+};
+```
 
 #### Naive/Simple Solution
 
@@ -162,7 +203,7 @@ TODO :bug:
 
 #### Testing The Solutions OR Driver For Solution
 
-TODO :bug:
+[Link to .cpp file](./townjudge/townjudge.cpp)
 
 <!-- Don't remove -->
 Go to [Top](#top)
