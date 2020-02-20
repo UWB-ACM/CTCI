@@ -25,7 +25,7 @@ Problems and solutions for Graphs session on February 21, 2020.
 
 ### 1. Telephone Strangers
 
-Source: Lizzy
+Source: Lizzy, inspired by multigraph definition in [Rosen et. al.](https://www.amazon.com/Discrete-Mathematics-Applications-Kenneth-Rosen-ebook/dp/B07FF9DY66)
 
 #### Scenario
 
