@@ -128,6 +128,12 @@ Source: ACM
 
 #### Naive/Simple Solution
 
+If two numbers are telephone strangers, _they will not have any edges between them_. So, we develop an algorithm which identifies those cases.
+
+We iterate through each graph node (aka telephone number) and check for the presence of all other vertices in the number's call list. If any vertex is missing from the list, we have found a pair of vertices with no edges, and these nodes are strangers to each other.
+
+We assemble pairs of strangers and return the resulting array/list/vector.
+
 ```c++
 std::pair<std::string, std::string> Helper(std::set<Vertex *> InCallHistory, Vertex *Curr)
 {
