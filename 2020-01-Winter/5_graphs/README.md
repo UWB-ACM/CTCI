@@ -195,7 +195,7 @@ public:
 
 #### Testing The Solutions OR Driver For Solution
 
-[Link to .cpp file](./townjudge/townjudge.cpp)
+[Link to .cpp file](./TownJudge/TownJudge.cpp)
 
 <!-- Don't remove -->
 Go to [Top](#top)
