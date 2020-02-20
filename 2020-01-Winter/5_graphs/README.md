@@ -99,21 +99,47 @@ Go to [Solution](#s2)   [Top](#top)
 <!-- Don't remove -->
 <a name="p3"/>
 
-### 3. PROBLEM 3 TODO :bug:
+### 3. Is Graph Bipartite
 
-Source: TODO :bug:
+Source: [Leetcode](https://leetcode.com/problems/is-graph-bipartite/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Given an undirected `graph`, return `true` if and only if it is bipartite.
+
+Recall that a graph is bipartite if we can split it's set of nodes into
+two independent subsets A and B such that every edge in the graph has 
+one node in A and another node in B.
+
+The graph is given in the following form: `graph[i]` is a list of indexes `j`
+for which the edge between nodes i and j exists.  Each node is an integer
+between `0` and `graph.length - 1`.  There are no self edges or parallel edges:
+`graph[i]` does not contain `i`, and it doesn't contain any element twice.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
-
+````
+Input: [[1,3], [0,2], [1,3], [0,2]]
+Output: true
+0----1
+|    |
+|    |
+3----2
+````
+````
+Input: [[1,2,3], [0,2], [0,1,3], [0,2]]
+Output: false
+0----1
+| \  |
+|  \ |
+3----2
+````
 #### Function Signature
 
-TODO :bug:
+````java
+// Java
+public boolean isBipartite(int[][] graph)
+````
 
 <!-- Don't remove -->
 Go to [Solution](#s3)   [Top](#top)
@@ -203,21 +229,59 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s3"/>
 
-### 3. SOLUTION 3 TODO :bug:
+### 3. Is Graph Bipartite
 
-Source: TODO :bug:
+Source: [Leetcode](https://leetcode.com/problems/is-graph-bipartite/)
 
-#### Naive/Simple Solution 
+#### Solution
 
-TODO :bug:
+The idea of this solution is to assign the nodes with two different colors,
+in this case, a graph is only bipartite if any of the two adjacent nodes does
+not have the same color.
 
-#### Optimal Solution
+Using Breadth First Search to traverse all nodes, color the first node as 1, 
+then color all its neighbors as 0, continue until all nodes are traversed.
 
-TODO :bug:
+As we said before, if two adjacent nodes have the same color, it is not
+bipartite. If all nodes follows the rule, it is bipartite, therefore,
+return true.
+
+Time Complexity: O(n), n is the sum of #nodes and #edges
+ 
+````java
+// Solution in Java
+public boolean isBipartite(int[][] Graph) {
+  int NumOfNodes = Graph.length;
+  int[] Group = new int[NumOfNodes];
+
+  for (int I = 0; I < NumOfNodes; ++I) {
+    if (Group[I] != 0) continue;
+    Queue<Integer> Groups = new LinkedList<>();
+    Groups.add(I);
+    Group[I] = 1;
+
+    while (!Groups.isEmpty()) {
+      int Tmp = Groups.remove();
+      for (int Neighbor : Graph[Tmp]) {
+        if (Group[Neighbor] == Group[Tmp])
+          return false;
+        if (Group[Neighbor] == 0) {
+          Group[Neighbor] = -Group[Tmp];
+          Groups.add(Neighbor);
+        }
+      }
+    }
+  }
+  return true;
+}
+````
 
 #### Testing The Solutions OR Driver For Solution
 
-TODO :bug:
+The solution for this problem is
+[available in this repository](./Bipartite/Bipartite_Solution.java).
+<br> Additional solutions could be found on
+[LeetCode](https://leetcode.com/problems/is-graph-bipartite/).
 
 <!-- Don't remove -->
 Go to [Top](#top)
