@@ -105,10 +105,29 @@ void test2()
     printStrangers(res);
 }
 
+void test3() {
+    auto G1 = new Graph();
+    std::map<std::string, std::vector<std::string>> CallHistory;
+    std::vector<std::string> VectList = {};
+    VectList = {"b", "b", "b", "b", "c"};
+    CallHistory.insert({"a", VectList});
+    VectList = {"a", "a", "c", "a", "a"};
+    CallHistory.insert({"b", VectList});
+    VectList = {"b", "a"};
+    CallHistory.insert({"c", VectList});
+    G1->addPhone(CallHistory);
+    std::cout << "\nTest 3:" << std::endl;
+    G1->printPhoneNumbers();
+    std::vector<std::pair<std::string, std::string>> res = FindStrangers(G1);
+    // print results
+    printStrangers(res);
+}
+
 int main()
 {
     test1();
     test2();
+    test3();
     std::cout << "Done!" << std::endl;
     return 0;
 }
