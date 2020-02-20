@@ -25,8 +25,11 @@ std::pair<std::string, std::string> Helper(std::set<Vertex *> InCallHistory, Ver
     {
         Temp.push_back(I);
     }
-    auto Foo = std::make_pair(Temp[0]->returnNumber(), Temp[1]->returnNumber());
-    return Foo;
+    if (Temp.size() > 1) {
+        auto Foo = std::make_pair(Temp[0]->returnNumber(), Temp[1]->returnNumber());
+        return Foo;
+    }
+    return std::make_pair("", "");
 }
 
 std::vector<std::pair<std::string, std::string>>
