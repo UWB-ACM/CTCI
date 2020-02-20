@@ -124,7 +124,7 @@ Go to [Solution](#s3)   [Top](#top)
 
 ### 1. Telephone Strangers
 
-Source: ACM
+Source: Lizzy & Erica
 
 #### Naive/Simple Solution
 
