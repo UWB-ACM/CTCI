@@ -150,7 +150,7 @@ Go to [Top](#top)
 
 ### 2. SOLUTION 2 TODO :bug:
 
-Source: 
+Source: [Leetcode](https://leetcode.com/problems/find-the-town-judge/)
 
 Using two vectors to count the number of incoming and outgoing trusted edges [TrustCounter]. For outgoing edges from A to B, we immediately invalidate A being the town judge according to the problem statement. (Judge CANNOT trust anyone)
 
