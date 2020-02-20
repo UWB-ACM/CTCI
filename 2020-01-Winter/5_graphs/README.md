@@ -45,21 +45,53 @@ Go to [Solution](#s1)   [Top](#top)
 <!-- Don't remove -->
 <a name="p2"/>
 
-### 2. PROBLEM 2 TODO :bug:
-
-Source: TODO :bug:
+### 2. PROBLEM 2 
+Find the Town Judge
+Source: [Leetcode](https://leetcode.com/problems/find-the-town-judge/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+In a town, there are N people labelled from 1 to N.  There is a rumor that one of these people is secretly the town judge.
+
+If the town judge exists, then:
+
+The town judge trusts nobody.
+Everybody (except for the town judge) trusts the town judge.
+There is exactly one person that satisfies properties 1 and 2.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
-
+Example 1:
+```c++
+Input: N = 2, trust = [[1,2]]
+Output: 2
+```
+Example 2:
+```c++
+Input: N = 3, trust = [[1,3],[2,3]]
+Output: 3
+```
+Example 3:
+```c++
+Input: N = 3, trust = [[1,3],[2,3],[3,1]]
+Output: -1
+```
+Example 4:
+```c++
+Input: N = 3, trust = [[1,2],[2,3]]
+Output: -1
+```
+Example 5:
+```c++
+Input: N = 4, trust = [[1,3],[1,4],[2,3],[2,4],[4,3]]
+Output: 3
+```
 #### Function Signature
 
-TODO :bug:
+```
+int findJudge(int N, vector<vector<int>>& Trust) {}
+```
+
 
 <!-- Don't remove -->
 Go to [Solution](#s2)   [Top](#top)
@@ -116,21 +148,54 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s2"/>
 
-### 2. SOLUTION 2 TODO :bug:
+### 2. Town Judge
 
-Source: TODO :bug:
+Source: [Leetcode](https://leetcode.com/problems/find-the-town-judge/)
 
-#### Naive/Simple Solution
+Using two vectors to count the number of incoming and outgoing trusted edges [TrustCounter]. For outgoing edges from A to B, we immediately invalidate A being the town judge according to the problem statement. (Judge CANNOT trust anyone)
 
-TODO :bug:
+For incoming edges A to B, we increment the counter Count[B]. When we know there are N-1 incoming connections, we make a note on the B. However, if there is a second candidate that has received N-1 connections, we know there are no answers which we can simply return -1.
 
-#### Optimal Solution
+One edge case is when there is only 1 person and the trust vector is empty, the person himself/herself is the judge.
 
-TODO :bug:
+```c++
+class Solution {
+public:
+  int findJudge(int N, std::vector<std::vector<int>> &Trust) {
+
+    std::vector<int> TrustCounter(N, 0);
+    std::vector<bool> ValidJudge(N, true);
+
+    int Count = 0;
+    int X = -1;
+
+    for (const auto &Person : Trust) {
+      TrustCounter[Person[1] - 1] ++;
+      if (TrustCounter[Person[1] - 1] == N - 1) {
+        Count++;
+        X = Person[1];
+        // no judge
+        if (Count >= 2) {
+          return -1;
+        }
+      }
+      // judge trusts nobody
+      ValidJudge[Person[0] - 1] = false;
+    }
+    if (Count == 0) {
+      return N == 1 ? 1 : -1;
+    }
+    if (ValidJudge[X - 1]) {
+      return X;
+    }
+    return -1;
+  }
+};
+```
 
 #### Testing The Solutions OR Driver For Solution
 
-TODO :bug:
+[Link to .cpp file](./TownJudge/TownJudge.cpp)
 
 <!-- Don't remove -->
 Go to [Top](#top)
