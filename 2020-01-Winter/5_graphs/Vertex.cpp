@@ -1,6 +1,6 @@
 #include "Vertex.h"
 
-bool Vertex::connect(std::map<std::string, Vertex*> &Phones, std::vector<std::string> &CallsMade)
+bool Vertex::connect(std::map<std::string, Vertex *> &Phones, std::vector<std::string> &CallsMade)
 {
     for (auto I : CallsMade)
     {
@@ -15,4 +15,15 @@ bool Vertex::connect(std::map<std::string, Vertex*> &Phones, std::vector<std::st
         auto Temp = new Edge(It->second);
         TheCallsMade.push_back(Temp);
     }
+    return true;
+}
+
+void Vertex::printCallsMade()
+{
+    std::cout << "[" << Number << "::";
+    for (auto I : TheCallsMade)
+    {
+        std::cout << "(" << I->Called->Number << "), "; 
+    }
+    std::cout << "]" << std::endl;
 }

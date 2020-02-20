@@ -8,9 +8,10 @@ class Edge
     friend class Vertex;
 public:
     Edge(Vertex *BeingCalled) : Called(BeingCalled){};
+    Vertex *returnCalled() {return Called;};
 
 private:
-    Vertex *Called;
+    Vertex *Called{nullptr};
 };
 
 #endif

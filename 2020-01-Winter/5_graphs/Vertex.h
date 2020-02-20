@@ -13,6 +13,9 @@ class Vertex
 public:
     Vertex(std::string PhoneNum) : Number(PhoneNum){};
     bool connect(std::map<std::string, Vertex*> &Phones, std::vector<std::string> &CallsMade);
+    void printCallsMade();
+    std::vector<Edge *> returnCallsMade() {return TheCallsMade;};
+    std::string returnNumber() {return Number;};
 
 private:
     std::string Number;
