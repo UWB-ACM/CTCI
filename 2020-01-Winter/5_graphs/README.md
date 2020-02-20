@@ -56,6 +56,13 @@ Output:  [('2', '3'), ('3', '4')]
 ```
 '1' had phone calls with all other phone numbers in the map. '2' and '4' are missing phone calls with '3', forming two pairs of telephone strangers.
 
+**Example 3**
+```
+Input:   m = { 'a': ['b', 'b', 'b', 'b', 'c'], 'b': ['a', 'a', 'c', 'a', 'a'], 'c': ['b', 'a'] }
+Output:  []
+```
+'a' and 'b' had many calls with each other (perfectly legal in this scenario), and both 'a' and 'b' had calls with 'c'. There are no strangers in this scenario.
+
 #### Function Signature
 
 **D**esign **I**t **Y**ourself
