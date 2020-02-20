@@ -185,7 +185,6 @@ FindStrangers(Graph *PhoneHistory)
 }
 ```
 
-#### Optimal Solution
 
 
 #### Testing The Solutions OR Driver For Solution
