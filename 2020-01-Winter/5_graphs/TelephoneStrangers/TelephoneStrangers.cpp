@@ -56,6 +56,14 @@ FindStrangers(Graph *PhoneHistory)
     return StrangerPairs;
 }
 
+void printStrangers(std::vector<std::pair<std::string, std::string>> res) {
+    std::cout << "Stranger pairs are: ";
+    std::vector<std::pair<std::string, std::string>>::iterator it;
+    for (it = res.begin(); it != res.end(); ++it) {
+        std::cout << "(" << (*it).first << ", " << (*it).second << ") ";
+    }
+    std::cout << std::endl;
+}
 
 void test1()
 {
@@ -68,17 +76,39 @@ void test1()
     VectList = {"940"};
     CallHistory.insert({"425", VectList});
     G1->addPhone(CallHistory);
-    FindStrangers(G1);
+    std::cout << "Test 1:" << std::endl;
+    G1->printPhoneNumbers();
+    std::vector<std::pair<std::string, std::string>> res = FindStrangers(G1);
+    // print results
+    printStrangers(res);
 }
 
 void test2()
 {
     // ? Test the second case in problem
+    auto G1 = new Graph();
+    std::map<std::string, std::vector<std::string>> CallHistory;
+    std::vector<std::string> VectList = {};
+    VectList = {"2", "3", "4"};
+    CallHistory.insert({"1", VectList});
+    VectList = {"1", "4"};
+    CallHistory.insert({"2", VectList});
+    VectList = {"1"};
+    CallHistory.insert({"3", VectList});
+    VectList = {"1", "2"};
+    CallHistory.insert({"4", VectList});
+    G1->addPhone(CallHistory);
+    std::cout << "\nTest 2:" << std::endl;
+    G1->printPhoneNumbers();
+    std::vector<std::pair<std::string, std::string>> res = FindStrangers(G1);
+    // print results
+    printStrangers(res);
 }
 
 int main()
 {
     test1();
+    test2();
     std::cout << "Done!" << std::endl;
     return 0;
 }
