@@ -148,7 +148,7 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s2"/>
 
-### 2. SOLUTION 2 TODO :bug:
+### 2. Town Judge
 
 Source: [Leetcode](https://leetcode.com/problems/find-the-town-judge/)
 
