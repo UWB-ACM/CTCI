@@ -191,7 +191,7 @@ TODO :bug:
 
 #### Testing The Solutions OR Driver For Solution
 
-The full solution to the optomized solution can be found at `CTCI/2020-01-Winter/5_graphs/TelephoneStrangers/TelephoneStrangers.cpp`
+The [C++](./TelephoneStrangers/TelephoneStrangers.cpp) and [Python](./TelephoneStrangers/strangers.py) solutions are in the repository.
 
 <!-- Don't remove -->
 Go to [Top](#top)
