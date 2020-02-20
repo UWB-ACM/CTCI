@@ -115,13 +115,59 @@ Go to [Solution](#s3)   [Top](#top)
 <!-- Don't remove -->
 <a name="s1"/>
 
-### 1. SOLUTION 1 TODO :bug:
+### 1. Telephone Strangers
 
-Source: TODO :bug:
+Source: ACM
 
 #### Naive/Simple Solution
 
-TODO :bug:
+```c++
+std::pair<std::string, std::string> Helper(std::set<Vertex *> InCallHistory, Vertex *Curr)
+{
+    for (auto I : Curr->returnCallsMade())
+    {
+        auto Temp = InCallHistory.find(I->returnCalled()); 
+        if(Temp == InCallHistory.end())
+        {
+            continue;
+        }
+
+        InCallHistory.erase(I->returnCalled());
+    }
+
+    std::vector<Vertex *> Temp;
+    for (auto I : InCallHistory)
+    {
+        Temp.push_back(I);
+    }
+    auto Foo = std::make_pair(Temp[0]->returnNumber(), Temp[1]->returnNumber());
+    return Foo;
+}
+
+std::vector<std::pair<std::string, std::string>>
+FindStrangers(Graph *PhoneHistory)
+{
+    std::vector<std::pair<std::string, std::string>> StrangerPairs;
+    std::set<Vertex *> PrevCallStack;
+    auto Numbs = PhoneHistory->returnPhoneNumbers();
+
+    for (auto I : Numbs)
+    {
+        PrevCallStack.insert(I.second);
+    }
+
+    for (auto I : Numbs)
+    {
+        if(I.second->returnCallsMade().empty())
+        {
+            continue;
+        }
+        StrangerPairs.push_back(Helper(PrevCallStack, I.second));
+    }
+
+    return StrangerPairs;
+}
+```
 
 #### Optimal Solution
 
@@ -129,7 +175,7 @@ TODO :bug:
 
 #### Testing The Solutions OR Driver For Solution
 
-TODO :bug:
+The full solution to the optomized solution can be found at `CTCI/2020-01-Winter/5_graphs/TelephoneStrangers/TelephoneStrangers.cpp`
 
 <!-- Don't remove -->
 Go to [Top](#top)
