@@ -31,6 +31,7 @@
 *.out
 *.app
 test
+hello
 
 # Other common files/dirs
 *.class
@@ -43,3 +44,4 @@ __pycache__/
 cmake-build-debug
 CMakeLists.txt
 ~$*.md
+.vscode/
