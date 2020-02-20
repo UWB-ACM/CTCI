@@ -187,7 +187,6 @@ FindStrangers(Graph *PhoneHistory)
 
 #### Optimal Solution
 
-TODO :bug:
 
 #### Testing The Solutions OR Driver For Solution
 
