@@ -198,7 +198,45 @@ Here are some ideas to get you started:
 
 ## Question Examples
 
+1. Tell me about a recent project you worked that you're proud of.
 
+<br/><br/><br/><br/><br/>
+
+2. Think back to an experience where you disagreed with someone about a project. Tell us about that experience. What was the outcome?
+
+<br/><br/><br/><br/><br/>
+
+3. Tell me about a goal you failed to achieve.
+
+<br/><br/><br/><br/><br/>
+
+4. Describe a situation in which you felt you had not communicated well enough. What did you do? How did you handle it?
+
+<br/><br/><br/><br/><br/>
+
+5.  Describe a situation when you did much more than it was expected from you to get the project done. Were your efforts recognized? By whom and how? How did that make you feel?
+
+<br/><br/><br/><br/><br/>
+
+6. Give me an example of a time you had to take a creative and unusual approach to solve coding problem. How did this idea come to your mind? Why do you think it was unusual?
+
+<br/><br/><br/><br/><br/>
+
+7. Have you ever had to “sell” an idea to your project team? How did you do it? Did they “buy” it?
+
+<br/><br/><br/><br/><br/>
+
+8. Describe a situation where you had to make a tough decision that normally would have been escalated to your boss. How did you handle the decision-making process? What was the result?
+
+<br/><br/><br/><br/><br/>
+
+9. If you were an individual contributor on a team at this company and one of your colleagues was struggling, what would you do to help them?
+
+<br/><br/><br/><br/><br/>
+
+10. Tell me about a mistake you made at work or school. What did you do to resolve it? What did you learn from it?
+
+<br/><br/><br/><br/><br/>
 
 <!-- Don't remove -->
 Go to [Top](#top)
