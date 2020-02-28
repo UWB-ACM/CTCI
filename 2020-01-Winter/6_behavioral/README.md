@@ -198,27 +198,6 @@ Here are some ideas to get you started:
 
 ## Question Examples
 
-<a name="p1"/>
-
-### 1. PROBLEM 1 TODO :bug:
-
-
-<!-- Don't remove -->
-Go to [Top](#top)
-
-<!-- Don't remove -->
-<a name="p2"/>
-
-### 2. PROBLEM 2 TODO :bug:
-
-
-<!-- Don't remove -->
-Go to [Top](#top)
-
-<!-- Don't remove -->
-<a name="p3"/>
-
-### 3. PROBLEM 3 TODO :bug:
 
 
 <!-- Don't remove -->
