@@ -14,9 +14,6 @@ in pairs with brand-new problems.
 
 The problem sets will be given in the following format:
 
-TODO :bug: is this still the case?
-
-* One skills check question
 * One behavioral interview question
 * One technical interview question
 
