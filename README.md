@@ -27,7 +27,8 @@ communicating thought processes to participants' peers. It is lead by
 current UW Bothell students.
 
 * 2019-2020 Hosts: [Lizzy](https://github.com/etcadinfinitum),
-[Kevin](https://github.com/mkhsu), [Ryan](https://github.com/RyanRussell00)
+[Kevin](https://github.com/mkhsu), [Ryan](https://github.com/RyanRussell00),
+[Anish](https://github.com/anishprasad01)
 * 2018-2019 Hosts: [Thomas](https://github.com/spacekatt), 
 [Brady](https://github.com/bpas247), [Lizzy](https://github.com/etcadinfinitum)
 
