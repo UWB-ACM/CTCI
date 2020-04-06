@@ -1,0 +1,15 @@
+name: InvitationExpress
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  build:
+    name: Add collaborator!
+    runs-on: ubuntu-latest
+    steps:
+      - uses: etcadinfinitum/inviteme@master
+        name: Perform invitation action
+        env:
+          # REQUIRED
+          INVITATION_TOKEN: ${{ secrets.INVITE_COLLABORATORS }}
