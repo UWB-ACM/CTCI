@@ -50,19 +50,25 @@ Go to [Solution](#s1)   [Top](#top)
 
 ### 2. PROBLEM 2 TODO :bug:
 
-Source: TODO :bug:
+Source: https://leetcode.com/problems/maximum-subarray/
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+```
+Input: [-2,1,-3,4,-1,2,1,-5,4],
+Output: 6
+Explanation: [4,-1,2,1] has the largest sum = 6.
+```
 
 #### Function Signature
 
-TODO :bug:
+```java
+public int maxSubArray(int[] nums)
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s2)   [Top](#top)
@@ -119,21 +125,43 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s2"/>
 
-### 2. SOLUTION 2 TODO :bug:
+### 2. SOLUTION 2
 
-Source: TODO :bug:
+Source: https://leetcode.com/problems/maximum-subarray/
 
-#### Naive/Simple Solution
+We will traverse over the array and keep track of 2 variables: Total maximum sum, and the current sum.
+We will look at each number and add it to the current sum, if the current sum becomes negative, we ignore the numbers that made it negative.
+Resetting the current to 0 is basically saying "Ignore everything we looked at previously because it's not getting us the greatest sum."
+So if we are looking at this array: `[-2,1,-3,4,-1,2,1,-5,4]`
+We will look at -2 and see we have a negative number, so set curr to 0. 
+Then we see that 1 is postive, set curr & max to 1. 
+Then -3 gives us a curr of -2, set curr to 0, but the max is still 1.
+Then 4 gives us a curr of 4, and update max to 4. Since our curr is now 4, we have ignored all the values before 4 (-2, 1, -3).
 
-TODO :bug:
+#### Solution
 
-#### Optimal Solution
-
-TODO :bug:
-
-#### Testing The Solutions OR Driver For Solution
-
-TODO :bug:
+```java
+public int maxSubArray(int[] nums) {
+    if (nums.length == 1) {
+        return nums[0];
+    }
+    //Keep track of the max sum seen so far, and the current running sum.
+    int max = nums[0];
+    int curr = 0;
+    for (int i = 0; i < nums.length; i++) {
+        curr += nums[i];
+        //If the current running sum is greater than the total, set it to max.
+        if (curr > max) {
+            max = curr;
+        }
+        //If the current running total becomes negative, we ignore the numbers
+        if (curr < 0) {
+            curr = 0;
+        }
+    }
+    return max;
+}
+```
 
 <!-- Don't remove -->
 Go to [Top](#top)
