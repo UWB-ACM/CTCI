@@ -38,9 +38,9 @@ def main():
     test_board = [['A','B','C','E'],
                   ['S','F','C','S'],
                   ['A','D','E','E' ]]
-    print(exist(test_board, "ABCCED"))
-    print(exist(test_board, "SEE"))
-    print(exist(test_board, "ABCB"))
+    print(exist(test_board, "ABCCED")) # Should print true
+    print(exist(test_board, "SEE"))    # Should print true
+    print(exist(test_board, "ABCB"))   # Should print false
 
 if __name__ == "__main__":
     main()

@@ -171,10 +171,47 @@ Go to [Top](#top)
 #### Solution
 
 
-Time Complexity: `O(N * 4^{L})` where `N` is the number of cells in the board and `L` is the length of the word to be matched.
+This is a typical 2D grid traversal problem that searches the grid for a solution using DFS (Depth-First Search). 
+In other words, we want to go as far as possible before we try another direction.
+
+You may recognize this as recursive backtracking. 
+
+##### Algorithm Overview 
+
+For every cell in the grid, we call a `backtrack` function to check if we can obtain a solution starting from that cell.
+This is often implemented recursively. 
+
+For each call of the function, we follow the following steps:
+
+1. Check to see if we've reached the base case (i.e, have we found the word we want?)
+2. Check to see if we've reached an invalid state (i.e, out of bounds, not part of the word)
+3. Continue exploring recursively:
+
+  i) Mark the current cell as visited
+  
+  ii) Try all four possible directions. 
+4. At the end of exploration, revert back to our original state. 
+
+The last step is very important. We need to do that so we can have a clean board for trying different directions in other recursive calls.
+
+
+##### Complexity Analysis
+
+**Time Complexity**: `O(N * 4^L)` where `N` is the number of cells in the board and `L` is the length of the word to be matched.
+
+* `4` - There are four possible choices we can take for each recursive call. In the worst case, we may have to try all 4 directions for every character in the word. This forms an 4-nary tree in the worst case. 
+
+* `N` - There are N possible times the `backtrack` function could be called.
+
+**Space Complexity**: `O(L)` where `L` is the length of the word to be matched. This space is occupied by the recursive calls of the `backtrack` function, which occupy space in the call stack. Up to `L` stack frames will be used at any fiv
+
+
 
 
 ##### Java
+<details>
+<summary>Click to see solution</summary>
+
 ```java
   public static boolean exist(char[][] board, String word) {
         // For every single cell in the board, we want to try searching for the word.
@@ -216,8 +253,14 @@ Time Complexity: `O(N * 4^{L})` where `N` is the number of cells in the board an
     }
 
 ```
+</details>
+
 
 ##### Python
+
+<details>
+<summary>Click to see solution</summary>
+
 ```python
 def exist(board, word):
     """
@@ -256,16 +299,18 @@ def backtrack(row, col, word, board):
     return result
 ```
 
-#### Testing The Solutions OR Driver For Solution
+</details>
+
+#### Tests for Solutions
 
 ##### Java
 ```java
-    public static void main(String[] args) {
-        char[][] testBoard = {{ 'A','B','C','E' }, { 'S','F','C','S' }, { 'A','D','E','E' }};
-        System.out.println(exist(testBoard, "ABCCED")); // Should print true
-        System.out.println(exist(testBoard,"SEE"));     // Should print true
-        System.out.println(exist(testBoard, "ABCB"));   // Should print false
-    }
+public static void main(String[] args) {
+    char[][] testBoard = {{ 'A','B','C','E' }, { 'S','F','C','S' }, { 'A','D','E','E' }};
+    System.out.println(exist(testBoard, "ABCCED")); // Should print true
+    System.out.println(exist(testBoard,"SEE"));     // Should print true
+    System.out.println(exist(testBoard, "ABCB"));   // Should print false
+}
 ```
 
 ##### Python

@@ -39,7 +39,7 @@ class Solution {
                              backtrack(board, index + 1, row - 1, col, word) ||
                              backtrack(board, index + 1, row, col - 1, word);
             // Revert this cell back to its original state after backtracking
-            // We do this so other explorations of the board starting can use this cell again
+            // We do this so other explorations of the board can use this cell again
             board[row][col] = word.charAt(index);
             return result;
         }
