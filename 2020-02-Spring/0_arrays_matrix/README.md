@@ -36,7 +36,7 @@ Say you have an array of n elements representing stock prices.
 
 Price of the stock on the first day is the first element, second day is the second element and so on. 
 
-If you were only permitted to complete at most two transactions (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.
+If you were only permitted to complete at most two transactions (i.e., buy one and sell one share of the stock) on any given days, design an algorithm to find the maximum profit.
 
 Note that you cannot sell a stock before you buy one.
 
@@ -49,7 +49,7 @@ Note that you can only sell forwards, not backwards.
 **Output:** 5
 
 **Explanation:** 
-Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+Buy on day 2 (price = 1) and sell on day 5 (price = 6), would produce the max profit = 6-1 = 5.
 Not 7-1 = 6, as the selling date needs to follow the purchase date.
 
 #### Function Signature
