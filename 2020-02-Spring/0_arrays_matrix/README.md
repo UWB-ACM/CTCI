@@ -92,7 +92,9 @@ board =
 ```
 
 Given word = "ABCCED", return true.
+
 Given word = "SEE", return true.
+
 Given word = "ABCB", return false.
 
 #### Function Signature
@@ -104,11 +106,13 @@ def exist(board, word):
     # your code here
 ```
 
-Java:   
+Java: 
+  
 ```java
 public boolean exist(char[][] board, String word) {
-    // your code here
+    // your code here 
 }
+
 ```
 
 <!-- Don't remove -->
@@ -168,15 +172,13 @@ Go to [Top](#top)
 
 ### 3. Word Search Solution 
 
-#### Solution
-
 
 This is a typical 2D grid traversal problem that searches the grid for a solution using DFS (Depth-First Search). 
 In other words, we want to go as far as possible before we try another direction.
 
 You may recognize this as recursive backtracking. 
 
-##### Algorithm Overview 
+#### Algorithm Overview 
 
 For every cell in the grid, we call a `backtrack` function to check if we can obtain a solution starting from that cell.
 This is often implemented recursively. 
@@ -190,20 +192,21 @@ For each call of the function, we follow the following steps:
   i) Mark the current cell as visited
   
   ii) Try all four possible directions. 
+  
 4. At the end of exploration, revert back to our original state. 
 
 The last step is very important. We need to do that so we can have a clean board for trying different directions in other recursive calls.
 
 
-##### Complexity Analysis
+#### Complexity Analysis
 
-**Time Complexity**: `O(N * 4^L)` where `N` is the number of cells in the board and `L` is the length of the word to be matched.
+***Time Complexity***: `O(N * 4^L)` where `N` is the number of cells in the board and `L` is the length of the word to be matched.
 
-* `4` - There are four possible choices we can take for each recursive call. In the worst case, we may have to try all 4 directions for every character in the word. This forms an 4-nary tree in the worst case. 
+* `4^L` - There are four possible choices we can take for each recursive call. In the worst case, we may have to try all 4 directions for every character in the word. This forms an 4-nary tree in the worst case. 
 
 * `N` - There are N possible times the `backtrack` function could be called.
 
-**Space Complexity**: `O(L)` where `L` is the length of the word to be matched. This space is occupied by the recursive calls of the `backtrack` function, which occupy space in the call stack. Up to `L` stack frames will be used at any fiv
+***Space Complexity***: `O(L)` where `L` is the length of the word to be matched. This space is occupied by the recursive calls of the `backtrack` function, which occupy space in the call stack. Up to `L` stack frames will be used at any given time during the algorithm.
 
 
 
