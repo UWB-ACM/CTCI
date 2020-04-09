@@ -3,7 +3,7 @@
 
 # Array & Matrix
 
-Simple description TODO :bug:
+Practice solving array and matrix related problems.
 
 In the style of:
 ***Problems and solutions for Maze & Dynamic Programming session on March 1, 2019.***
