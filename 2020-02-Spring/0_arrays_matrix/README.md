@@ -50,7 +50,7 @@ Note that you can only sell forwards, not backwards.
 
 **Explanation:** 
 Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
-Not 7-1 = 6, as selling price needs to be larger than buying price.
+Not 7-1 = 6, as the selling date needs to follow the purchase date.
 
 #### Function Signature
 
