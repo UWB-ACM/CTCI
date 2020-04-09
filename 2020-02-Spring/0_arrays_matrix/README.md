@@ -36,7 +36,7 @@ Say you have an array of n elements representing stock prices.
 
 Price of the stock on the first day is the first element, second day is the second element and so on. 
 
-If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.
+If you were only permitted to complete at most two transactions (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.
 
 Note that you cannot sell a stock before you buy one.
 
