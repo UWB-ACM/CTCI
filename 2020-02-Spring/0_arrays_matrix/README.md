@@ -56,7 +56,7 @@ Not 7-1 = 6, as the selling date needs to follow the purchase date.
 
 **Java:**
 
-```
+```java
 class Solution {
     public int maxProfit(int[] prices) {
         
