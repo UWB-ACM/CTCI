@@ -95,8 +95,19 @@ Given word = "ABCB", return false.
 
 #### Function Signature
 
-* Python: `def exist(board, word)`
-* Java:   `public boolean exist(char[][] board, String word)`
+Python: 
+
+```python
+def exist(board, word):
+    # your code here
+```
+
+Java:   
+```java
+public boolean exist(char[][] board, String word) {
+    // your code here
+}
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s3)   [Top](#top)
