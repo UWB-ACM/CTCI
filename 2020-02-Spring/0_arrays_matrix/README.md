@@ -171,7 +171,7 @@ Go to [Top](#top)
 #### Solution
 
 
-Time Complexity: O(N * 4^{L}) where N is the number of cells in the board and L is the length of the word to be matched.
+Time Complexity: `O(N * 4^{L})` where `N` is the number of cells in the board and `L` is the length of the word to be matched.
 
 
 ##### Java
