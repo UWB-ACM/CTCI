@@ -26,21 +26,56 @@ In the style of:
 
 <a name="p1"/>
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. Best Time to Buy and Sell Stock
 
-Source: TODO :bug:
+Source: [LeetCode](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Say you have an array of n elements representing stock prices.
+
+Price of the stock on the first day is the first element, second day is the second element and so on. 
+
+If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.
+
+Note that you cannot sell a stock before you buy one.
+
+Note that you can only sell forwards, not backwards. 
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+**Input:** \[7,1,5,3,6,4]
+
+**Output:** 5
+
+**Explanation:** 
+Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+Not 7-1 = 6, as selling price needs to be larger than buying price.
 
 #### Function Signature
 
-TODO :bug:
+**Java:**
+
+```
+class Solution {
+    public int maxProfit(int[] prices) {
+        
+    }
+}
+
+```
+
+**C++:**
+
+```
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        
+    }
+};
+
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s1)   [Top](#top)
