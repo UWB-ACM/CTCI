@@ -129,14 +129,14 @@ Go to [Top](#top)
 
 Source: https://leetcode.com/problems/maximum-subarray/
 
-We will traverse over the array and keep track of 2 variables: Total maximum sum, and the current sum.
-We will look at each number and add it to the current sum, if the current sum becomes negative, we ignore the numbers that made it negative.
-Resetting the current to 0 is basically saying "Ignore everything we looked at previously because it's not getting us the greatest sum."
-So if we are looking at this array: `[-2,1,-3,4,-1,2,1,-5,4]`
-We will look at -2 and see we have a negative number, so set curr to 0. 
-Then we see that 1 is postive, set curr & max to 1. 
-Then -3 gives us a curr of -2, set curr to 0, but the max is still 1.
-Then 4 gives us a curr of 4, and update max to 4. Since our curr is now 4, we have ignored all the values before 4 (-2, 1, -3).
+We will traverse over the array and keep track of 2 variables: Total maximum sum, and the current sum.<br/>
+We will look at each number and add it to the current sum, if the current sum becomes negative, we ignore the numbers that made it negative.<br/>
+Resetting the current to 0 is basically saying "Ignore everything we looked at previously because it's not getting us the greatest sum."<br/>
+So if we are looking at this array: `[-2,1,-3,4,-1,2,1,-5,4]`<br/>
+We will look at -2 and see we have a negative number, so set curr to 0.<br/> 
+Then we see that 1 is postive, set curr & max to 1. <br/>
+Then -3 gives us a curr of -2, set curr to 0, but the max is still 1.<br/>
+Then 4 gives us a curr of 4, and update max to 4. Since our curr is now 4, we have ignored all the values before 4 (-2, 1, -3).<br/>
 
 #### Solution
 

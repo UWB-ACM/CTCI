@@ -1,4 +1,4 @@
-class Solution {
+class maxSubArray {
     public int maxSubArray(int[] nums) {
     if (nums.length == 1) {
         return nums[0];
