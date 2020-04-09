@@ -1,5 +1,4 @@
-class Solution {
-    public int maxSubArray(int[] nums) {
+public int maxSubArray(int[] nums) {
     if (nums.length == 1) {
         return nums[0];
     }
@@ -12,11 +11,8 @@ class Solution {
         if (curr > max) {
             max = curr;
         }
-        //If the current running total becomes negative, we ignore the numbers
-        if (curr < 0) {
+    //If the current running total becomes negative, we ignore all previous numbers        if (curr < 0) {
             curr = 0;
         }
-    }
     return max;
-}
-}
+    }

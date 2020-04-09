@@ -54,7 +54,7 @@ Source: https://leetcode.com/problems/maximum-subarray/
 
 #### Scenario
 
-Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+Given an array of integers, find the contiguous subarray (containing at least one number) which has the largest sum and return the sum.
 
 #### Example Input
 
@@ -130,13 +130,18 @@ Go to [Top](#top)
 Source: https://leetcode.com/problems/maximum-subarray/
 
 We will traverse over the array and keep track of 2 variables: Total maximum sum, and the current sum.
+
 We will look at each number and add it to the current sum, if the current sum becomes negative, we ignore the numbers that made it negative.
+
 Resetting the current to 0 is basically saying "Ignore everything we looked at previously because it's not getting us the greatest sum."
 So if we are looking at this array: `[-2,1,-3,4,-1,2,1,-5,4]`
 We will look at -2 and see we have a negative number, so set curr to 0. 
 Then we see that 1 is postive, set curr & max to 1. 
 Then -3 gives us a curr of -2, set curr to 0, but the max is still 1.
 Then 4 gives us a curr of 4, and update max to 4. Since our curr is now 4, we have ignored all the values before 4 (-2, 1, -3).
+We continue to add numbers -1, 2, 1 and get a sum of (4+-1+2+1 = 6).
+Once we get to -5 it reduces our sum to 1, so we ignore it.
+Our max is 6.
 
 #### Solution
 
@@ -154,13 +159,20 @@ public int maxSubArray(int[] nums) {
         if (curr > max) {
             max = curr;
         }
-        //If the current running total becomes negative, we ignore the numbers
+        //If the current running total becomes negative, we ignore all previous numbers
         if (curr < 0) {
             curr = 0;
         }
     }
     return max;
 }
+```
+
+### Testing
+```
+    All negative numbers ([ -3 -16 -4 -1 -2 -6])
+    Not front-loaded arrays, where the max is at the end of the array ([ -1 1 3 4 5 ])
+    A normal-ish array ([ 3 2 6 0 1 -3 1 ])
 ```
 
 <!-- Don't remove -->
