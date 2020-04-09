@@ -48,7 +48,7 @@ Go to [Solution](#s1)   [Top](#top)
 <!-- Don't remove -->
 <a name="p2"/>
 
-### 2. PROBLEM 2 TODO :bug:
+### 2. Maximum Subarray
 
 Source: https://leetcode.com/problems/maximum-subarray/
 
@@ -125,7 +125,7 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s2"/>
 
-### 2. SOLUTION 2
+### 2. Maximum Subarray SOLUTION
 
 Source: https://leetcode.com/problems/maximum-subarray/
 
