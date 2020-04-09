@@ -3,7 +3,7 @@
 
 # Array & Matrix
 
-Practice solving array and matrix related problems.
+Practice solving array and matrix related problems. Session on April 09, 2020.
 
 In the style of:
 ***Problems and solutions for Maze & Dynamic Programming session on March 1, 2019.***
