@@ -153,11 +153,13 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s3"/>
 
-### 3. SOLUTION 3 TODO :bug:
-
-Source: TODO :bug:
+### 3. Word Search Solution 
 
 #### Solution
+
+
+Time Complexity: O(N * 4^{L}) where N is the number of cells in the board and L is the length of the word to be matched.
+
 
 ##### Java
 ```java
