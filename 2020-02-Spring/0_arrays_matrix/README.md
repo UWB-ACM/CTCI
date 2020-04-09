@@ -1,9 +1,9 @@
 <!-- Don't remove -->
 <a name="top"/>
 
-# Topic Name TODO :bug:
+# Array & Matrix
 
-Simple description TODO :bug:
+Practice solving array and matrix related problems. Session on April 09, 2020.
 
 In the style of:
 ***Problems and solutions for Maze & Dynamic Programming session on March 1, 2019.***
