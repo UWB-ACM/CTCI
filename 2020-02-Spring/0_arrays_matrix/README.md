@@ -82,12 +82,14 @@ The word can be constructed from letters of sequentially adjacent cell, where "a
 
 #### Example Input
 
+```
 board =
 [
   ['A','B','C','E'],
   ['S','F','C','S'],
   ['A','D','E','E']
 ]
+```
 
 Given word = "ABCCED", return true.
 Given word = "SEE", return true.
