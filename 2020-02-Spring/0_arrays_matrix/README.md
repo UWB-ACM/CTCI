@@ -132,21 +132,45 @@ Go to [Solution](#s3)   [Top](#top)
 <!-- Don't remove -->
 <a name="s1"/>
 
-### 1. SOLUTION 1 TODO :bug:
+### 1. Best Time to Buy and Sell Stock
 
-Source: TODO :bug:
+Source: [LeetCode](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/solution/)
 
 #### Naive/Simple Solution
 
-TODO :bug:
+We need to find out the maximum difference (which will be the maximum profit) between two numbers in the given array. Also, the second number (selling price) must be after the first one (buying price) because you sell in the future, not in the past.
+
+In other terms, we need to find max(prices[j]−prices[i]), for every i and j such that j > i.
+
+```Approach 1: Brute Force
+
+public int maxProfit(int prices[]) {
+        int maxprofit = 0;
+        for (int i = 0; i < prices.length - 1; i++) {
+            for (int j = i + 1; j < prices.length; j++) {
+                int profit = prices[j] - prices[i];
+                if (profit > maxprofit)
+                    maxprofit = profit;
+            }
+        }
+        return maxprofit;
+    }
+    
+Complexity Analysis
+
+   Time complexity: O(n^2)
+  
+   Space complexity : O(1). Only two variables - maxprofit and profit are used.
+
+```
 
 #### Optimal Solution
 
-TODO :bug:
+See [solution](/buy_stock/solution.java)
 
 #### Testing The Solutions OR Driver For Solution
 
-TODO :bug:
+See [driver](/buy_stock/driver.java)
 
 <!-- Don't remove -->
 Go to [Top](#top)
