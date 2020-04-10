@@ -4,7 +4,7 @@ public int maxSubArray(int[] nums) {
     if (nums.length == 1) {
         return nums[0];
     }
-    //Keep track of the max sum seen so far, and the current running sum.
+    //Keep track of the max sum seen so far, and the current     //running sum.
     int max = nums[0];
     int curr = 0;
     for (int i = 0; i < nums.length; i++) {
@@ -18,3 +18,4 @@ public int maxSubArray(int[] nums) {
         }
     return max;
     }
+}
