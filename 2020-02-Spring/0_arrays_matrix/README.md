@@ -83,21 +83,27 @@ Go to [Solution](#s1)   [Top](#top)
 <!-- Don't remove -->
 <a name="p2"/>
 
-### 2. PROBLEM 2 TODO :bug:
+### 2. Maximum Subarray
 
-Source: TODO :bug:
+Source: https://leetcode.com/problems/maximum-subarray/
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Given an array of integers, find the contiguous subarray (containing at least one number) which has the largest sum and return the sum.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+```
+Input: [-2,1,-3,4,-1,2,1,-5,4],
+Output: 6
+Explanation: [4,-1,2,1] has the largest sum = 6.
+```
 
 #### Function Signature
 
-TODO :bug:
+```java
+public int maxSubArray(int[] nums)
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s2)   [Top](#top)
@@ -208,21 +214,55 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s2"/>
 
-### 2. SOLUTION 2 TODO :bug:
+### 2. Maximum Subarray SOLUTION
 
-Source: TODO :bug:
+Source: https://leetcode.com/problems/maximum-subarray/
 
-#### Naive/Simple Solution
+We will traverse over the array and keep track of 2 variables: Total maximum sum, and the current sum.<br/>
 
-TODO :bug:
+We will look at each number and add it to the current sum, if the current sum becomes negative, we ignore the numbers that made it negative.<br/>
 
-#### Optimal Solution
+Resetting the current to 0 is basically saying "Ignore everything we looked at previously because it's not getting us the greatest sum."<br/>
+So if we are looking at this array: `[-2,1,-3,4,-1,2,1,-5,4]`<br/>
+We will look at -2 and see we have a negative number, so set curr to 0. <br/>
+Then we see that 1 is postive, set curr & max to 1. <br/>
+Then -3 gives us a curr of -2, set curr to 0, but the max is still 1.<br/>
+Then 4 gives us a curr of 4, and update max to 4. Since our curr is now 4, we have ignored all the values before 4 (-2, 1, -3).<br/>
+We continue to add numbers -1, 2, 1 and get a sum of (4+-1+2+1 = 6).<br/>
+Once we get to -5 it reduces our sum to 1, so we ignore it.<br/>
+Our max is 6.
 
-TODO :bug:
+#### Solution
 
-#### Testing The Solutions OR Driver For Solution
+```java
+public int maxSubArray(int[] nums) {
+    if (nums.length == 1) {
+        return nums[0];
+    }
+    //Keep track of the max sum seen so far, and the current running sum.
+    int max = nums[0];
+    int curr = 0;
+    for (int i = 0; i < nums.length; i++) {
+        curr += nums[i];
+        //If the current running sum is greater than the total, set it to max.
+        if (curr > max) {
+            max = curr;
+        }
+        //If the current running total becomes negative, we ignore all previous numbers
+        if (curr < 0) {
+            curr = 0;
+        }
+    }
+    return max;
+}
+```
 
-TODO :bug:
+### Testing
+```
+    All negative numbers ([ -3 -16 -4 -1 -2 -6])
+    Not front-loaded arrays, where the max is at the end of the array ([ -1 1 3 4 5 ])
+    A normal-ish array ([ 3 2 6 0 1 -3 1 ])
+```
 
 <!-- Don't remove -->
 Go to [Top](#top)
