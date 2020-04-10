@@ -15,11 +15,6 @@ public class driver{
 
     }
 
-    //Your solution here
-    public static int maxProfit(int prices[]) {
-        return maxprofit;
-    }
-
     //For testing
     public static void Test(String testDescription, boolean testPasses) {
 		if (testPasses)
