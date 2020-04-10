@@ -167,7 +167,7 @@ Complexity Analysis
 
 #### Optimal Solution
 
-See [solution](/buy_stock/solution.java)
+See [solution](./buy_stock/solution.java)
 
 #### Testing The Solutions OR Driver For Solution
 
