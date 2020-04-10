@@ -1,9 +1,6 @@
-<<<<<<< HEAD
+
 class maxSubArray {
-    public int maxSubArray(int[] nums) {
-=======
 public int maxSubArray(int[] nums) {
->>>>>>> b414c690747c14860bd950be536b7b77faf30ddf
     if (nums.length == 1) {
         return nums[0];
     }
