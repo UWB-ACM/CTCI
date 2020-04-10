@@ -142,8 +142,8 @@ We need to find out the maximum difference (which will be the maximum profit) be
 
 In other terms, we need to find max(prices[j]−prices[i]), for every i and j such that j > i.
 
+**Brute Force:**
 ```
-Approach 1: Brute Force
 
 public int maxProfit(int prices[]) {
         int maxprofit = 0;
