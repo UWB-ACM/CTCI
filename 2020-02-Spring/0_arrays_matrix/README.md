@@ -171,7 +171,7 @@ See [solution](./buy_stock/solution.java)
 
 #### Testing The Solutions OR Driver For Solution
 
-See [driver](/buy_stock/driver.java)
+See [driver](./buy_stock/driver.java)
 
 <!-- Don't remove -->
 Go to [Top](#top)
