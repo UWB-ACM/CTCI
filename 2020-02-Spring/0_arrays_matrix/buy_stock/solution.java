@@ -11,10 +11,19 @@ public class solution {
         return maxprofit;
     }
 
-//Complexity Analysis
+/*
+Complexity Analysis
 
-//Time complexity : O(n)O(n). Only a single pass is needed.
+Time complexity : O(n). Only a single pass is needed.
 
-//Space complexity : O(1)O(1). Only two variables are used.
+Space complexity : O(1). Only two variables are used.
+    
+Say the given array is:
 
+[7, 1, 5, 3, 6, 4]
+
+We need to find the lowest buying price and the highest selling price. Store those in two variables,
+minprice and maxprofit, then we can find the difference between them when the loop finishes.
+*/
+    
 }
