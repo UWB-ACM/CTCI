@@ -1,5 +1,6 @@
 public class driver{
     public static void main(String [] args){
+        solution sol = new solution();
         int [] arr1 = {3};
         int [] arr2 = {1,9};
         int [] arr3 = {8,1};
