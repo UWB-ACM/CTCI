@@ -1,7 +1,7 @@
 <!-- Don't remove -->
 <a name="top"/>
 
-# Topic Name TODO :bug:
+# Strings
 
 Simple description TODO :bug:
 
@@ -48,19 +48,32 @@ Go to [Solution](#s1)   [Top](#top)
 <!-- Don't remove -->
 <a name="p2"/>
 
-### 2. PROBLEM 2 TODO :bug:
+### 2. PROBLEM 2 Sort Characters By Frequency
 
-Source: TODO :bug:
+Source: [LeetCode](https://leetcode.com/problems/sort-characters-by-frequency/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Given a string, sort it in decreasing order based on the frequency of characters.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+**Input**: "tree"
+**Output**: "eert"
+
+**Input**: "cccaaa"
+**Output**: "cccaaa" or "aaaccc"
+
+**Input**: "Aabb"
+**Output**: "bbAa"
 
 #### Function Signature
+
+Java: `public String frequencySort(String s)`
+
+Python: `def frequencySort(self, s : str) -> str:`
+
+Golang: `func frequencySort(s string) string`
 
 TODO :bug:
 
