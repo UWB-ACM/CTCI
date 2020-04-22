@@ -175,9 +175,9 @@ class Solution:
 
 **Complexity Analysis:**
 
-Time complexity : \mathcal{O}(N)O(N) to swap N/2N/2 element.
+Time complexity: O(N) to swap N/2 element.
 
-Space complexity : \mathcal{O}(1)O(1), it's a constant space solution.
+Space complexity: O(1), it's a constant space solution.
 
 </details>
  
