@@ -186,7 +186,7 @@ There is a way you can solve this problem in `O(n)` time complexity, using bucke
 
     * `O(n)` - Since Strings are immutable, we have to at least create a new string to return the result.
 
-**Solution 2**
+**Solution 2 (using maps)**
 
 Suppose `n` is the length of the input string, and `k` is the number of unique characters in the string.
 
