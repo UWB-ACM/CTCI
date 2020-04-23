@@ -172,7 +172,7 @@ There is a way you can solve this problem in `O(n)` time complexity, using bucke
 
 #### Complexity Analysis
 
-**Solution 1**
+**Solution 1 (using arrays)**
 
 * ***Time Complexity***: `O(n log n)`
 
