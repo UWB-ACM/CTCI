@@ -147,7 +147,7 @@ Go to [Top](#top)
 3. Sort the strings by length in ascending order
 4. Create the result string
 
-There are many ways that you can do this. I've covered two solutions that use maps and arrays respectively, but you could also solve this using a priority queue.
+There are many ways that you can do this. I've covered two solutions that use arrays and maps respectively, but you could also solve this using a priority queue.
 
 
 **Immutability**
