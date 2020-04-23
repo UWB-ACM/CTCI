@@ -73,7 +73,7 @@ Java: `public String frequencySort(String s)`
 
 Python: `def frequencySort(self, s : str) -> str:`
 
-Golang: `func frequencySort(s string) string`
+Go: `func frequencySort(s string) string`
 
 TODO :bug:
 
