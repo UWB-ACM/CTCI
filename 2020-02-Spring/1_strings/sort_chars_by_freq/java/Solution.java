@@ -45,7 +45,7 @@ public class Solution {
         }
         identicalGroups.add(group.toString());
 
-        // Sort the list of strings by length, from longest to shortest
+        // Sort the groups of characters by length, from longest to shortest
         // ["e", "h", "ll", "o"] --> ["ll", "e", "h", "o"]
         Collections.sort(identicalGroups, (a, b) -> b.length() - a.length());
         
