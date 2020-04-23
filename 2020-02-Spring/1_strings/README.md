@@ -46,7 +46,7 @@ You may assume that all array indices contain printable ASCII characters.
 ```
 class Solution {
     public void reverseString(char[] s) {
-        
+       //Do not return anything, modify s in-place instead
     }
 }
 
