@@ -13,11 +13,11 @@ In the style of:
 * [Problems](#problems)
   * [1](#p1)
   * [2](#p2)
-  * [3](#p3)
+  * [3](#p3) Add Strings
 * [Solutions](#solutions)
   * [1](#s1)
   * [2](#s2)
-  * [3](#s3)
+  * [3](#s3) Add Strings
 
 <!-- Don't remove -->
 <a name="problems"/>
@@ -70,22 +70,38 @@ Go to [Solution](#s2)   [Top](#top)
 <!-- Don't remove -->
 <a name="p3"/>
 
-### 3. PROBLEM 3 TODO :bug:
+### 3. Add Strings
 
-Source: TODO :bug:
+Source: https://leetcode.com/problems/add-strings/
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Problem Statement
+
+Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
+
+Note:
+
+The length of both num1 and num2 is < 5100.
+Both num1 and num2 contains only digits 0-9.
+Both num1 and num2 does not contain any leading zero.
+You must not use any built-in BigInteger library or convert the inputs to integer directly.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+num1 = '0'; num2 = '0'; output = '0';
+num1 = '123'; num2 = '9'; output = '132';
 
 #### Function Signature
 
-TODO :bug:
-
+C++
+```class Solution {
+public:
+    string addStrings(string num1, string num2) {
+        
+    }
+};
+```
 <!-- Don't remove -->
 Go to [Solution](#s3)   [Top](#top)
 
@@ -141,21 +157,35 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s3"/>
 
-### 3. SOLUTION 3 TODO :bug:
+### 3. SOLUTION Add String
 
-Source: TODO :bug:
-
-#### Naive/Simple Solution 
-
-TODO :bug:
 
 #### Optimal Solution
 
-TODO :bug:
+C++ solution
 
-#### Testing The Solutions OR Driver For Solution
+```C++
+class Solution {
+public:
+    string addStrings(string num1, string num2) {
+        int n1 = num1.size() - 1;
+        int n2 = num2.size() - 1;
+        int remain = 0;
+        string ans;
 
-TODO :bug:
+        while(n1 >= 0 || n2 >= 0 || remain) {
+            int d1 = (n1 >= 0) ? num1[n1--] - '0' : 0;
+            int d2 = (n2 >= 0) ? num2[n2--] - '0' : 0;
+            int sum = d1 + d2 + remain;
+            remain = sum/10;
+            ans += '0' + (sum % 10); 
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
+```
+
 
 <!-- Don't remove -->
 Go to [Top](#top)
