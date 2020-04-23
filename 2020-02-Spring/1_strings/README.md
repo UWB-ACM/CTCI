@@ -143,23 +143,68 @@ Go to [Top](#top)
 
 ### 2. SOLUTION 2 TODO :bug:
 
+#### Algorithm Overview
+
+1. Count the number of times each character occurs in the string
+2. Group the characters into strings with identical characters
+3. Sort the strings by length in ascending order
+4. Create the result string
+
+There are many ways that you can do this. I've covered two solutions that use maps and arrays respectively, but you could also solve this using a priority queue.
 
 
+#### Notes and Tips
+
+**Immutability**
+
+Remember to check if strings are immutable in your language of choice. If strings *are* immutable, you cannot modify them once they are created.
+
+If you perform the following operation in Java:
+
+```java
+String websiteName = "This is a tomato site";
+websiteName += " for tomato friends";
+```
+
+`websiteName` is never actually modified. Instead, an entirely new `String` is created which copies over every character in `websiteName`, throwing away the old `String`. This has a cost of `O(n)`.
+
+Make sure to use `StringBuilder` or similar language constructs so your solution does not have this extra cost.
+
+
+**Bucket Sort**
+
+There is a way you can solve this problem in `O(n)` time complexity, using bucket sort. Knowing to use bucket sort probably isn't expected for an interview since it's a somewhat obscure sorting algorithm, but still fun to know.
 
 #### Complexity Analysis
 
 **Solution 1**
 
-* ***Time Complexity***: 
+* ***Time Complexity***: `O(n log n)`
 
-* ***Space Complexity***:
+* `O(n)` - Converting String to a list of characters
+* `O(n log n)` - Sorting the list of characters lexigraphically
+* `O(n)` - Grouping characters into strings of identical characters
+* `O(n)` - Sorting strings by length (if all of the characters are unique, in the worst case)
+* `O(n)` - Building the result string
 
+* ***Space Complexity***: `O(n)`
+
+* `O(n)` - Since Strings are immutable, we have to at least create a new string to return the result.
 
 **Solution 2**
 
-* ***Time Complexity***
+* ***Time Complexity*** `O(n log n)`
+
+Suppose `n` is the length of the input string, and `k` is the number of unique characters in the string.
+
+* `O(n)` - Building the frequency map
+* `O(k log k)` Sorting the frequency map by 
+* `O(n)` - Traversing over the frequency map keys and building the result string
+
+In the worst case, `k = n`, so we can say the final worst-case time complexity is still `O(n log n)`.
 
 * ***Space Complexity***
+* `O(n)` - Since Strings are immutable, we have to at least create a new string to return the result. Note that the frequency map is `O(k)`, but that is dominated by `O(n)`.
 
 ##### Java
 
