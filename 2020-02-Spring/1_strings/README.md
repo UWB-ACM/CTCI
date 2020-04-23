@@ -136,13 +136,13 @@ In this approach, two pointers are used to process two array elements at the sam
 
 **Algorithm:**
 
-Set pointer left at index 0, and pointer right at index n - 1, where n is a number of elements in the array.
+- Set pointer left at index 0, and pointer right at index n - 1, where n is a number of elements in the array.
 
-While left < right:
+- While left < right:
 
-Swap char[left] and char[right].
+   - Swap char[left] and char[right].
 
-Move left pointer one step right, and right pointer one step left.
+   - Move left pointer one step right, and right pointer one step left.
 
 **Java:**
 ```
