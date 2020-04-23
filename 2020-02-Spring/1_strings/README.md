@@ -48,7 +48,7 @@ Go to [Solution](#s1)   [Top](#top)
 <!-- Don't remove -->
 <a name="p2"/>
 
-### 2. PROBLEM 2 Sort Characters By Frequency
+### 2. Sort Characters By Frequency
 
 Source: [LeetCode](https://leetcode.com/problems/sort-characters-by-frequency/)
 
@@ -80,11 +80,8 @@ public String frequencySort(String s) {
 
 ```python
 def frequency_sort(s : str) -> str:
-
+  # your code here
 ```
-
-
-TODO :bug:
 
 <!-- Don't remove -->
 Go to [Solution](#s2)   [Top](#top)
@@ -141,7 +138,7 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s2"/>
 
-### 2. SOLUTION 2 TODO :bug:
+### 2. Sort Characters By Frequency Solution
 
 #### Algorithm Overview
 
@@ -152,8 +149,6 @@ Go to [Top](#top)
 
 There are many ways that you can do this. I've covered two solutions that use maps and arrays respectively, but you could also solve this using a priority queue.
 
-
-#### Notes and Tips
 
 **Immutability**
 
@@ -181,30 +176,30 @@ There is a way you can solve this problem in `O(n)` time complexity, using bucke
 
 * ***Time Complexity***: `O(n log n)`
 
-* `O(n)` - Converting String to a list of characters
-* `O(n log n)` - Sorting the list of characters lexigraphically
-* `O(n)` - Grouping characters into strings of identical characters
-* `O(n)` - Sorting strings by length (if all of the characters are unique, in the worst case)
-* `O(n)` - Building the result string
+    * `O(n)` - Converting String to a list of characters
+    * `O(n log n)` - Sorting the list of characters lexigraphically
+    * `O(n)` - Grouping characters into strings of identical characters
+    * `O(n)` - Sorting strings by length (if all of the characters are unique, in the worst case)
+    * `O(n)` - Building the result string
 
 * ***Space Complexity***: `O(n)`
 
-* `O(n)` - Since Strings are immutable, we have to at least create a new string to return the result.
+    * `O(n)` - Since Strings are immutable, we have to at least create a new string to return the result.
 
 **Solution 2**
 
-* ***Time Complexity*** `O(n log n)`
-
 Suppose `n` is the length of the input string, and `k` is the number of unique characters in the string.
 
-* `O(n)` - Building the frequency map
-* `O(k log k)` Sorting the frequency map by 
-* `O(n)` - Traversing over the frequency map keys and building the result string
+* ***Time Complexity***: `O(n log n)`
+
+    * `O(n)` - Building the frequency map
+    * `O(k log k)` Sorting the frequency map by 
+    * `O(n)` - Traversing over the frequency map keys and building the result string
 
 In the worst case, `k = n`, so we can say the final worst-case time complexity is still `O(n log n)`.
 
-* ***Space Complexity***
-* `O(n)` - Since Strings are immutable, we have to at least create a new string to return the result. Note that the frequency map is `O(k)`, but that is dominated by `O(n)`.
+* ***Space Complexity***: `O(n)`
+    * `O(n)` - Since Strings are immutable, we have to at least create a new string to return the result. Note that the frequency map is `O(k)`, but that is dominated by `O(n)`.
 
 ##### Java
 
