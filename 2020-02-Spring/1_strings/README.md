@@ -5,9 +5,6 @@
 
 Practice solving string related problems. Session on April 24, 2020.
 
-In the style of:
-***Problems and solutions for Maze & Dynamic Programming session on March 1, 2019.***
-
 ### Table of Contents
 
 * [Problems](#problems)
