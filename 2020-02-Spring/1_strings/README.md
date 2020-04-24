@@ -112,7 +112,7 @@ num1 = '123'; num2 = '9'; output = '132';
 
 #### Function Signature
 
-```C++
+```c++
 class Solution {
 public:
     string addStrings(string num1, string num2) {
@@ -237,7 +237,13 @@ Go to [Top](#top)
 
 ### 3. Add String
 
-C++ solution
+#### Optimal Solution
+
+<details>
+<summary>Click to see solution</summary>
+
+C++ Solution
+
 Since we are not allowed to use library tools to convert our strings to integers we can evaluate the last string values individually and build our answer forward with ASCII conversion. By starting our loop with the end values it allows us to build a new string that accounts for a resulting string that may be longer than arugument strings.
 
 ASCII conversion translates that the string "0" equals the ASCII code of 48. This builds 1 single digit value equivilantly, up to ASCII value of 57 which equates to the string value of "9".
@@ -250,11 +256,7 @@ Next we convert those values back to string by adding the string character "0" (
 
 The after we exit the while loop we simply reverse the string we have and return that answer.
 
-#### Optimal Solution
-
-C++ solution
-
-```C++
+```c++
 class Solution {
 public:
     string addStrings(string num1, string num2) {
@@ -286,6 +288,8 @@ public:
     }
 };
 ```
+</details>
+
 #### Testing The Solutions OR Driver For Solution
 
 <!-- Don't remove -->
