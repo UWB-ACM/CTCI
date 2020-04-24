@@ -43,23 +43,21 @@ You may assume that all array indices contain printable ASCII characters.
 #### Function Signature
 
 **Java:**
-```
+```java
 class Solution {
     public void reverseString(char[] s) {
        //Do not return anything, modify s in-place instead
     }
 }
-
 ```
 
 **Python:**
-```
+```python
 class Solution:
     def reverseString(self, s: List[str]) -> None:
         """
         Do not return anything, modify s in-place instead.
         """
-        
 ```
 
 <!-- Don't remove -->
