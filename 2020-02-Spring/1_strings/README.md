@@ -145,7 +145,7 @@ In this approach, two pointers are used to process two array elements at the sam
    - Move left pointer one step right, and right pointer one step left.
 
 **Java:**
-```
+```java
 class Solution {
     public void reverseString(char[] s) {
         int left = 0, right = s.length - 1;
