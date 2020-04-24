@@ -204,7 +204,7 @@ In the worst case, `k = n`, so we can say the final worst-case time complexity i
 ##### Java
 
 <details>
-<summary>Click to see solution 1</summary>
+<summary>Click to see solution 1 (arrays)</summary>
 
 ```java
     public static String frequencySort1(String word) {
