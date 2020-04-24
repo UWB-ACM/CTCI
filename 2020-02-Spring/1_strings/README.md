@@ -235,7 +235,7 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s3"/>
 
-### 3. SOLUTION Add String
+### 3. Add String
 
 C++ solution
 Since we are not allowed to use library tools to convert our strings to integers we can evaluate the last string values individually and build our answer forward with ASCII conversion. By starting our loop with the end values it allows us to build a new string that accounts for a resulting string that may be longer than arugument strings.
