@@ -161,7 +161,7 @@ class Solution {
 
 **Python:**
 
-```
+```python
 class Solution:
     def reverseString(self, s):
         left, right = 0, len(s) - 1
