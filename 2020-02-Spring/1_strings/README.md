@@ -193,7 +193,7 @@ Suppose `n` is the length of the input string, and `k` is the number of unique c
 * ***Time Complexity***: `O(n log n)`
 
     * `O(n)` - Building the frequency map
-    * `O(k log k)` Sorting the frequency map by 
+    * `O(k log k)` Sorting the frequency map by frequency of character occurrence (large to small)
     * `O(n)` - Traversing over the frequency map keys and building the result string
 
 In the worst case, `k = n`, so we can say the final worst-case time complexity is still `O(n log n)`.
