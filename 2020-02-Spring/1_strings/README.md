@@ -333,7 +333,7 @@ def frequency_sort1(word : str) -> str:
 
 
 <details>
-<summary>Click to see solution 2</summary>
+<summary>Click to see solution 2 (maps)</summary>
 
 
 ```python
