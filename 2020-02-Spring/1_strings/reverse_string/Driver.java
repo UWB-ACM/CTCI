@@ -31,14 +31,12 @@ public class Driver{
 
     //TO-DO: REPLACE YOUR SOLUTION HERE
     public static void reverseString(char[] s) {
-        //TO-DO: REPLACE YOUR SOLUTION HERE
-        
-        // int left = 0, right = s.length - 1;
-        // while (left < right) {
-        //     char tmp = s[left];
-        //     s[left++] = s[right];
-        //     s[right--] = tmp;
-        // }
+        int left = 0, right = s.length - 1;
+        while (left < right) {
+            char tmp = s[left];
+            s[left++] = s[right];
+            s[right--] = tmp;
+        }
     }
 
 }
