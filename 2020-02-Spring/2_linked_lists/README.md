@@ -1,12 +1,9 @@
 <!-- Don't remove -->
 <a name="top"/>
 
-# Topic Name TODO :bug:
+# Linked List Manipulation
 
-Simple description TODO :bug:
-
-In the style of:
-***Problems and solutions for Maze & Dynamic Programming session on March 1, 2019.***
+Practice solving linked list related problems. Session on May 1, 2020.
 
 ### Table of Contents
 
@@ -102,12 +99,22 @@ Go to [Solution](#s3)   [Top](#top)
 Source: TODO :bug:
 
 #### Naive/Simple Solution
+<details>
+<summary>Click to see solution</summary>
 
-TODO :bug:
+TODO put your solution here :bug:
+
+</details>
+
 
 #### Optimal Solution
 
-TODO :bug:
+<details>
+<summary>Click to see solution</summary>
+
+TODO put your solution here :bug:
+
+</details>
 
 #### Testing The Solutions OR Driver For Solution
 
@@ -125,11 +132,21 @@ Source: TODO :bug:
 
 #### Naive/Simple Solution
 
-TODO :bug:
+<details>
+<summary>Click to see solution</summary>
+
+TODO put your solution here :bug:
+
+</details>
 
 #### Optimal Solution
 
-TODO :bug:
+<details>
+<summary>Click to see solution</summary>
+
+TODO put your solution here :bug:
+
+</details>
 
 #### Testing The Solutions OR Driver For Solution
 
@@ -147,11 +164,21 @@ Source: TODO :bug:
 
 #### Naive/Simple Solution 
 
-TODO :bug:
+<details>
+<summary>Click to see solution</summary>
+
+TODO put your solution here :bug:
+
+</details>
 
 #### Optimal Solution
 
-TODO :bug:
+<details>
+<summary>Click to see solution</summary>
+
+TODO put your solution here :bug:
+
+</details>
 
 #### Testing The Solutions OR Driver For Solution
 
