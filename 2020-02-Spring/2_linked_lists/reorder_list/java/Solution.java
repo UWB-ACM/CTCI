@@ -2,7 +2,7 @@
 // 05/01/2020 
 // Week 3: Linked Lists
 
-// Solution for LeetCode #143 Reorder List
+// Solution for LeetCode #143 Reorder List with a garbage collected language
 // Compile and run using: javac Solution.java ; java Solution.class
 
 import java.util.ArrayList;
@@ -53,8 +53,8 @@ public class Solution {
     }
 
     public void reorderList(ListNode head) {
-        
         // Find the middle node of the linked list
+        // 1->2->3->4->5->6, find 4
         ListNode slow = head, fast = head;
         while (fast && fast.next) {
             slow = slow.next;
@@ -62,6 +62,7 @@ public class Solution {
         }
 
         // Reverse the second half of the linked list
+        // 1->2->3->4->5->6 ----> 1->2->3->4, 6->5->4
         ListNode previous = null, current = slow, temp;
         while (current) {
             temp = current.next;
@@ -71,6 +72,7 @@ public class Solution {
         }
 
         // Merge the two linked lists
+        // 1->2->3->4, 6->5->4 ----> 1->6->2->5->3->4
         ListNode first = head, second = previous;
         while (second.next) {
             temp = first.next;
@@ -91,7 +93,7 @@ public class Solution {
         reorderList(testCase1);
         
         System.out.print("After: ");
-        printList(testCase1);
+        printList(testCase1); // Expected: 1, 4, 2, 3
 
         ArrayList<Integer> list2 = new ArrayList<>({1, 2, 3, 4, 5});
         ListNode testCase2 = makeBasicList(list2);
@@ -100,6 +102,6 @@ public class Solution {
         reorderList(testCase2);
         
         System.out.print("After: ");
-        printList(testCase2);
+        printList(testCase2); // Expected: 1, 5, 2, 4, 3
     }
 }

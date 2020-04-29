@@ -3,21 +3,22 @@
 // Week 3: Linked Lists
 
 // Solution for LeetCode #143 Reorder List using manual memory management
+// Compile and run using: make ; ./Solution_Manual
 
 
 #include <iostream>
 #include <vector>
 
-    struct ListNode {
-        int val;
-        ListNode *next;
-        ListNode() : val(0), next(nullptr) {}
-        ListNode(int x) : val(x), next(nullptr) {}
-        ListNode(int x, ListNode *next) : val(x), next(next) {}
-        ~ListNode() {
-            delete next;
-        }
-    };
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+    ~ListNode() {
+        delete next;
+    }
+};
 
 // Helper method that inserts a new node at the end of the linked list
 ListNode* insert(ListNode* head, int element) {
@@ -26,7 +27,7 @@ ListNode* insert(ListNode* head, int element) {
         head = newNode;
     } else {
         ListNode* current = head;
-        while (current->next) {
+        while (current && current->next) {
             current = current->next;
         }
         current->next = newNode;
@@ -60,6 +61,7 @@ void printList(ListNode* head) {
 
 void reorderList(ListNode *head) {
     // Find the middle element of the linked list
+    // 1->2->3->4->5->6, find 4
     ListNode *slow = head, *fast = head;
     while (fast && fast->next) {
         slow = slow->next;
@@ -67,6 +69,7 @@ void reorderList(ListNode *head) {
     }
 
     // Reverse the second half of the linked list
+    // 1->2->3->4->5->6 ----> 1->2->3->4, 6->5->4
     ListNode *previous = nullptr, *current = slow, *temp;
     while (current) {
         temp = current->next;
@@ -76,6 +79,7 @@ void reorderList(ListNode *head) {
     }
 
     // Merge the two linked lists
+    // 1->2->3->4, 6->5->4 ----> 1->6->2->5->3->4
     ListNode *first = head, *second = previous;
     while (second->next) {
         temp = first->next;

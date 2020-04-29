@@ -3,6 +3,8 @@
 // Week 3: Linked Lists
 
 // Solution for LeetCode #143 Reorder List using shared pointers 
+// Compile and run using: make ; ./Solution_SmartPtr
+
 
 #include <iostream>
 #include <memory> 
@@ -16,13 +18,14 @@ struct ListNode {
     ListNode(int x, std::shared_ptr<ListNode> next) : val(x), next(next) {}
 };
 
+// Helper method that inserts a new node at the end of the linked list
 std::shared_ptr<ListNode> insert(std::shared_ptr<ListNode> head, int element) {
     std::shared_ptr<ListNode> newNode(new ListNode(element));
     if (head == nullptr) {
         head = newNode;
     } else {
         std::shared_ptr<ListNode> current = head;
-        while (current->next) {
+        while (current && current->next) {
             current = current->next;
         }
         current->next = newNode;
@@ -39,6 +42,8 @@ std::shared_ptr<ListNode> createBasicList(std::vector<int> list) {
     return front;
 }
 
+
+// Helper method for printing the linked list
 void printList(std::shared_ptr<ListNode> head) {
     std::shared_ptr<ListNode> current = head;
     std::cout << "[";
@@ -55,14 +60,16 @@ void printList(std::shared_ptr<ListNode> head) {
 
 
 void reorderList(std::shared_ptr<ListNode> head) {
-    // Find the middle element of the linked list
+    // Find the middle node of the linked list
+    // 1->2->3->4->5->6, find 4
     std::shared_ptr<ListNode> slow = head, fast = head;
     while (fast && fast->next) {
         slow = slow->next;
         fast = fast->next->next;
     }
 
-    // Reverse the second half of the linked list
+     // Reverse the second half of the linked list
+    // 1->2->3->4->5->6 ----> 1->2->3->4, 6->5->4
     std::shared_ptr<ListNode> previous = nullptr, current = slow, temp;
     while (current) {
         temp = current->next;
@@ -72,6 +79,7 @@ void reorderList(std::shared_ptr<ListNode> head) {
     }
 
     // Merge the two linked lists
+    // 1->2->3->4, 6->5->4 ----> 1->6->2->5->3->4
     std::shared_ptr<ListNode> first = head, second = previous;
     while (second->next) {
         temp = first->next;
