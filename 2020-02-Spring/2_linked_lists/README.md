@@ -67,7 +67,7 @@ Go to [Solution](#s2)   [Top](#top)
 <!-- Don't remove -->
 <a name="p3"/>
 
-### 3. PROBLEM 3 TODO :bug:
+### 3. Reorder List
 
 Source: TODO :bug:
 
