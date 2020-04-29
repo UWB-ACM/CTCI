@@ -207,7 +207,7 @@ One approach is to calculate the accumulated sum that is defined by Sum<sub>i</s
 
 ###### The following diagram illustrates how the algorithm works.
 
-![Algorithm Illustration](https://github.com/mduw/CTCI/blob/mitchell/linkedlist/2020-02-Spring/2_linked_lists/ZeroSumConsec/Algorithm_Illustration.png)
+![Algorithm Illustration](2020-02-Spring/2_linked_lists/ZeroSumConsec/Algorithm_Illustration.png)
 
 <details>
 <summary>Click to see solution</summary>
