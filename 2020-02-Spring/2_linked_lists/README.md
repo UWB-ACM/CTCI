@@ -255,7 +255,7 @@ This problem is a combination of three common linked list manipulations:
 </details>
 
 
-![End of reversing list](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/reorder_list_final.PNG)
+![End of reversing list](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/reverse_result.PNG)
 
 </details>
 
