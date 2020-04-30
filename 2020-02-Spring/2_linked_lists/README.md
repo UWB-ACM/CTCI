@@ -74,11 +74,14 @@ Source: [LeetCode](https://leetcode.com/problems/reorder-list/)
 #### Scenario
 
 Given a singly linked list
-<a href="https://www.codecogs.com/eqnedit.php?latex=L:&space;L_0&space;\rightarrow&space;L_1&space;\rightarrow&space;...&space;\rightarrow&space;L_{n-1}&space;\rightarrow&space;L_{n}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?L:&space;L_0&space;\rightarrow&space;L_1&space;\rightarrow&space;...&space;\rightarrow&space;L_{n-1}&space;\rightarrow&space;L_{n}" title="L: L_0 \rightarrow L_1 \rightarrow ... \rightarrow L_{n-1} \rightarrow L_{n}" /></a>
+
+![Starting linked list](images/start_ll)
 
 Reorder it to: 
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=L:&space;L_0&space;\rightarrow&space;L_n&space;\rightarrow&space;L_1&space;\rightarrow&space;L_{n-1}&space;\rightarrow&space;L_2&space;\rightarrow&space;L_{n-2}&space;\rightarrow&space;..." target="_blank"><img src="https://latex.codecogs.com/gif.latex?L:&space;L_0&space;\rightarrow&space;L_n&space;\rightarrow&space;L_1&space;\rightarrow&space;L_{n-1}&space;\rightarrow&space;L_2&space;\rightarrow&space;L_{n-2}&space;\rightarrow&space;..." title="L: L_0 \rightarrow L_n \rightarrow L_1 \rightarrow L_{n-1} \rightarrow L_2 \rightarrow L_{n-2} \rightarrow ..." /></a>
+![Ending linked list](images/end_ll)
+
+
 
 You may **not** modify the values in the list's nodes. 
 Only the pointers of the nodes may be changed.
