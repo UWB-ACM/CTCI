@@ -225,25 +225,31 @@ This problem is a combination of three common linked list manipulations:
 
 
 
-![Start of reversing list](./images/reverse_start.PNG)
+![Start of reversing list](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/reverse_start.PNG)
 
 <details>
 <summary>Step 1 of Reversing the List</summary>
-![Reversing list step 1](./images/reverse_part_1.PNG)
+
+![Reversing list step 1](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/reverse_part_1.PNG)
+
 </details>
 
 <details>
 <summary>Step 2 of Reversing the List</summary>
-![Reversing list step 2](./images/reverse_part_2.PNG)
+
+![Reversing list step 2](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/reverse_part_2.PNG)
+
 </details>
 
 <details>
 <summary>Step 3 of Reversing the List</summary>
-![Reversing list step 3](./images/reverse_part_3.png)
+
+![Reversing list step 3](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/reverse_part_3.png)
+
 </details>
 
 
-![End of reversing list](./images/reverse_result.png)
+![End of reversing list](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/reorder_list_final.PNG)
 
 
 ###### Merging Two Linked Lists
@@ -254,7 +260,7 @@ This problem is a combination of three common linked list manipulations:
 
 ###### Final Result
 
-![Final result diagram](./images/reorder_list_final.PNG)
+![Final result diagram](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/reorder_list_final.PNG)
 
 
 #### Complexity Analysis
