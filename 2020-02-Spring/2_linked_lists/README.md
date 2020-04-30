@@ -75,11 +75,11 @@ Source: [LeetCode](https://leetcode.com/problems/reorder-list/)
 
 Given a singly linked list
 
-![Starting linked list](images/end_ll.png)
+![Starting linked list](./images/end_ll.png)
 
 Reorder it to: 
 
-![Ending linked list](images/start_ll.gif)
+![Ending linked list](./images/start_ll.gif)
 
 
 
@@ -217,42 +217,43 @@ This problem is a combination of three common linked list manipulations:
 
 ##### Finding the Middle of a Linked List
 
-![Middle of Linked List Diagram](images/find_middle_node.PNG)
+![Middle of Linked List Diagram](./images/find_middle_node.PNG)
 
 
 ##### Reversing the Second Half of the Linked List
 
 
-![Starting linked list](images/reverse_start.PNG)
+
+![Start of reversing list](./images/reverse_start.PNG)
 
 <details>
 <summary>Step 1 of Reversing the List</summary>
-![Starting linked list](images/reverse_part_1.PNG)
+![Reversing list step 1](./images/reverse_part_1.PNG)
 </details>
 
 <details>
 <summary>Step 2 of Reversing the List</summary>
-![Starting linked list](images/reverse_part_2.PNG)
+![Reversing list step 2](./images/reverse_part_2.PNG)
 </details>
 
 <details>
 <summary>Step 3 of Reversing the List</summary>
-![Starting linked list](images/reverse_part_3.png)
+![Reversing list step 3](./images/reverse_part_3.png)
 </details>
 
 
-![Starting linked list](images/reverse_result.png)
+![End of reversing list](./images/reverse_result.png)
 
 
 ###### Merging Two Linked Lists
 
-![Starting linked list](images/merge_sorted_lists.png)
+![Merging lists](./images/merge_sorted_lists.png)
 
 
 
 ###### Final Result
 
-![Final result diagram](images/reorder_list_final.PNG)
+![Final result diagram](./images/reorder_list_final.PNG)
 
 
 #### Complexity Analysis
