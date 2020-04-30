@@ -79,7 +79,7 @@ Given a singly linked list
 
 Reorder it to: 
 
-![Ending linked list](images/end_ll)
+![Ending linked list](images/start_ll.gif)
 
 
 
@@ -214,6 +214,47 @@ This problem is a combination of three common linked list manipulations:
 * Merging two linked lists
 
 
+
+##### Finding the Middle of a Linked List
+
+![Middle of Linked List Diagram](images/find_middle_node.PNG)
+
+
+##### Reversing the Second Half of the Linked List
+
+
+![Starting linked list](images/reverse_start.PNG)
+
+<details>
+<summary>Step 1 of Reversing the List</summary>
+![Starting linked list](images/reverse_part_1.PNG)
+</details>
+
+<details>
+<summary>Step 2 of Reversing the List</summary>
+![Starting linked list](images/reverse_part_2.PNG)
+</details>
+
+<details>
+<summary>Step 3 of Reversing the List</summary>
+![Starting linked list](images/reverse_part_3.png)
+</details>
+
+
+![Starting linked list](images/reverse_result.png)
+
+
+###### Merging Two Linked Lists
+
+![Starting linked list](images/merge_sorted_lists.png)
+
+
+
+###### Final Result
+
+![Final result diagram](images/reorder_list_final.PNG)
+
+
 #### Complexity Analysis
 
 * ***Time Complexity***: `O(N)`
@@ -272,7 +313,7 @@ This problem is a combination of three common linked list manipulations:
 
 <details>
 
-<summary>Click to see C++ solution</summary>
+<summary>Click to see C++ solution with manual memory management</summary>
 
 ```cpp
 void reorderList(ListNode *head) {
@@ -311,6 +352,47 @@ void reorderList(ListNode *head) {
 ```
 </details>
 
+
+<details>
+<summary>Click to see C++ solution with shared pointers</summary>
+
+```cpp
+
+void reorderList(std::shared_ptr<ListNode> head) {
+    // Find the middle node of the linked list
+    // 1->2->3->4->5->6, find 4
+    std::shared_ptr<ListNode> slow = head, fast = head;
+    while (fast && fast->next) {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+     // Reverse the second half of the linked list
+    // 1->2->3->4->5->6 ----> 1->2->3->4, 6->5->4
+    std::shared_ptr<ListNode> previous = nullptr, current = slow, temp;
+    while (current) {
+        temp = current->next;
+        current->next = previous;
+        previous = current;
+        current = temp;
+    }
+
+    // Merge the two linked lists
+    // 1->2->3->4, 6->5->4 ----> 1->6->2->5->3->4
+    std::shared_ptr<ListNode> first = head, second = previous;
+    while (second->next) {
+        temp = first->next;
+        first->next = second;
+        first = temp;
+
+        temp = second->next;
+        second->next = first;
+        second = temp;
+    }
+};
+```
+
+</details>
 
 #### Tests for Solution
 
@@ -372,7 +454,9 @@ int main() {
 
 ```
 
-TODO :bug:
+</details>
+
+
 
 <!-- Don't remove -->
 Go to [Top](#top)
