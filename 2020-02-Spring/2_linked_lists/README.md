@@ -75,16 +75,11 @@ Source: [LeetCode](https://leetcode.com/problems/reorder-list/)
 
 Given a singly linked list
 
-![Starting linked list](./images/end_ll.png)
 ![Starting linked list](https://github.com/UWB-ACM/CTCI/blob/3ec09954a8dfff8efc184dbb041e31656cb7ed68/2020-02-Spring/2_linked_lists/images/start_ll.gif)
-
-
-![Starting linked list](2020-02-Spring/2_linked_lists/images/start_ll.gif)
-
 
 Reorder it to: 
 
-![Ending linked list](./images/start_ll.gif)
+![Ending linked list](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/end_ll.png)
 
 
 
@@ -205,11 +200,6 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s3"/>
 
-<img src="./images/merge_sorted_lists.png">
-<img src="./images/merge_sorted_lists.png">
-<img src="./images/merge_sorted_lists.png">
-<img src="./images/merge_sorted_lists.png">
-<img src="./images/merge_sorted_lists.png">
 
 ### 3. Reorder List Solution
 
@@ -224,13 +214,11 @@ This problem is a combination of three common linked list manipulations:
 * Reversing a linked list
 * Merging two linked lists
 
-<img src="./images/merge_sorted_lists.png">
-
 
 
 ##### Finding the Middle of a Linked List
 
-![Middle of Linked List Diagram](./images/find_middle_node.PNG)
+![Middle of Linked List Diagram](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/find_middle_node.PNG)
 
 
 ##### Reversing the Second Half of the Linked List
@@ -260,7 +248,7 @@ This problem is a combination of three common linked list manipulations:
 
 ###### Merging Two Linked Lists
 
-![Merging lists](./images/merge_sorted_lists.png)
+![Merging lists](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/merge_sorted_lists.png)
 <img src="./images/merge_sorted_lists.png">
 
 
