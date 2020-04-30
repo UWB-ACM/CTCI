@@ -409,6 +409,7 @@ void reorderList(std::shared_ptr<ListNode> head) {
         second = temp;
     }
 };
+
 ```
 
 </details>
@@ -420,6 +421,7 @@ void reorderList(std::shared_ptr<ListNode> head) {
 See `reorder_list/java/Solution.java` for helper methods.
 
 ```java
+
     public static void main(String[] args) {
         ArrayList<Integer> list1 = new ArrayList<>({1, 2, 3, 4});
         ListNode testCase1 = makeBasicList(list1);
@@ -439,6 +441,7 @@ See `reorder_list/java/Solution.java` for helper methods.
         System.out.print("After: ");
         printList(testCase2); // Expected: 1, 5, 2, 4, 3
     }
+
 ```
 
 ##### C++
@@ -446,6 +449,7 @@ See `reorder_list/java/Solution.java` for helper methods.
 See `reorder_list/cpp/Solution_Manual.cpp` for helper methods.
 
 ```cpp
+
 int main() {
     std::vector<int> vec{1, 2, 3, 4};
     ListNode* testCase1 = createBasicList(vec);
