@@ -75,7 +75,7 @@ Source: [LeetCode](https://leetcode.com/problems/reorder-list/)
 
 Given a singly linked list
 
-![Starting linked list](images/start_ll)
+![Starting linked list](images/end_ll.png)
 
 Reorder it to: 
 
