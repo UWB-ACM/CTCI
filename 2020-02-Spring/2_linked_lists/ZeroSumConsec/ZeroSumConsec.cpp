@@ -109,6 +109,7 @@ int main(int argc, const char * argv[]) {
     printList(List);
     
     // add your code here or uncomment one of these solutions
+    // Result = .....
     
     // Result = SimpleSolution().removeZeroSumSublists(List);
     Result = OptimalSolution().removeZeroSumSublists(List);
