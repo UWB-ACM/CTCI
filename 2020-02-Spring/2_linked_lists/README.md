@@ -418,7 +418,7 @@ void reorderList(std::shared_ptr<ListNode> head) {
 
 ##### Java 
 
-See `reorder_list/java/Solution.java` for helper methods.
+See [the full solution file](./reorder_list/java/Solution.java) for helper methods.
 
 ```java
 
@@ -446,7 +446,7 @@ See `reorder_list/java/Solution.java` for helper methods.
 
 ##### C++
 
-See `reorder_list/cpp/Solution_Manual.cpp` for helper methods.
+See [the full solution file](./reorder_list/cpp/Solution_Manual.cpp) for helper methods.
 
 ```cpp
 
