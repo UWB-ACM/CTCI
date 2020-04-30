@@ -160,7 +160,7 @@ The idea is to use an outer loop iterating through N nodes, at every node i-th w
 
 For every i-th node of N nodes, the algorithm iterates from node i-th to the last node for the total of ``N*(N-i)`` times. Therefore, this solution has time complexity of ``O(N^2)``. Space complexity is ``O(1)``.
 
-```C++
+```c++
 
 ListNode* removeZeroSumSublists(ListNode* head) {
     ListNode *Edge, *PreLBound, *UBound;
@@ -195,6 +195,7 @@ ListNode* removeZeroSumSublists(ListNode* head) {
     // returning the result without the edging node
     return Edge->next;
 }
+
 ```
 
 </details>
@@ -216,7 +217,8 @@ Instead of going through ``N-i`` nodes for every node i-th to calculate the accu
 
 ![Algorithm Illustration](./ZeroSumConsec/Algorithm_Illustration.png)
 
-```C++
+```c++
+
 ListNode* removeZeroSumSublists(ListNode* head) {
     // create edging node. Reason explained above.
     ListNode* Edge =new ListNode(0);
@@ -255,6 +257,7 @@ ListNode* removeZeroSumSublists(ListNode* head) {
     // returning the result without the edging node
     return Edge->next;
 }
+
 ```
 
 </details>
