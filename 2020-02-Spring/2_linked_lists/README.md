@@ -47,13 +47,13 @@ Go to [Solution](#s1)   [Top](#top)
 
 ### 2. Remove Zero Sum Consecutive Nodes from Linked List
 
-Source: https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/
+[LeetCode](https://leetcode.com/problems/remove-zero-sum-consecutive-nodes-from-linked-list/)
 
 #### Scenario
 
-Given the head of a linked list, we repeatedly delete consecutive sequences of nodes that sum to 0 until there are no such sequences.
+Given the head of a linked list, we repeatedly delete consecutive sequences of nodes that sum to 0 until there are no such sequences in the list.
 
-After doing so, return the head of the final linked list.  You may return any such answer.
+After removing all consecutive nodes that sum to 0, print the final linked list (e.g. [3, 5, 8]). If all nodes are removed, print out the empty list (e.g. []).
 
 (Note that in the examples below, all sequences are serializations of ListNode objects.)
 
@@ -69,8 +69,7 @@ Input: head = [5,-3,-4,1,6,-2,5]
 Output: [5,-2,5]
 ```
 #### Function Signature
-##### C++:
-```
+```C++
 // Definition for singly-linked list.
 struct ListNode {
   int val;
@@ -150,15 +149,16 @@ Go to [Top](#top)
 ### 2. Remove Zero Sum Consecutive Nodes from Linked List
 
 #### Naive/Simple Solution
-The idea is to locate the sublist of nodes that sum to 0 and de-list them.<br>
-- Starting at the edging node, find lower-bound and upper-bound node of the sublist that sum to 0.
-- if found, de-list nodes from [LBound, UBound], including by re-link PreLBound->next = UBound->next;
-- If not found, move forward and check the next node.
-For every i-th node of N nodes, the algorithm iterates from node i-th to the last node for the total of N*(N-i) times.
-- This solution has time complexity of O(N<sup>2</sup>).
 
 <details>
 <summary>Click to see solution</summary>
+
+// NOTE: This solution does not take into account memory leaks. <br>
+The idea is to use an outer loop iterating through N nodes, at every node i-th we use a nested loop iterating to the end of the list to check whether or not that node and the following nodes cause a zero-sum. The list of nodes causes zero-sum if "the accumulated sum of all nodes in that list equals zero". The inner loop stops as the accumulated sum equals 0 ``Sum == 0`` or it reaches the end of the list.
+- If zero-sum list is found by the inner loop ``Sum == 0``, we de-list nodes from nodes [LBound, UBound] including the LBound node and the UBound node, where the node UBound is the node that the inner loop stopped at as the ``Sum == 0``.
+- If ``Sum != 0``, the inner loop continues till the end of the list ``UBound == NULL``, which means there is no zero-sum found, then the outer loop will repeat the same searching process beginning at the next nodes till the end of the list.
+
+For every i-th node of N nodes, the algorithm iterates from node i-th to the last node for the total of ``N * (N - i)`` times. Therefore, this solution has time complexity of ``O(N^2)``. Space complexity is ``O(1)``.
 
 ```C++
 ListNode* removeZeroSumSublists(ListNode* head) {
@@ -173,15 +173,15 @@ ListNode* removeZeroSumSublists(ListNode* head) {
     {
         Sum = Sum + UBound->val;
 
-        // if found zero sum range [LBound,UBound]
+        // if  zero-sum list of nodes is found [LBound,UBound]
         // where LBound == PreLBound->Next;
-        // then re-link from Prev to UBound->Next
+        // then modify the list to remove nodes from LBound to UBound
         if(Sum == 0) {
             PreLBound->next = UBound->next;
         }
         UBound = UBound->next;
         // no zero-sum found in the range [Prev, End]
-        // continue checking from [Prev->next, End]
+        // outer loop continues checking beginning at the next node
         if(UBound == NULL)
         {
             PreLBound = PreLBound->next;
@@ -199,20 +199,19 @@ ListNode* removeZeroSumSublists(ListNode* head) {
 </details>
 
 #### Optimal Solution
-One approach is to calculate the accumulated sum that is defined by Sum<sub>i</sub> = Sum <sub>i - 1</sub> + List <sub>i</sub> -> val. The accumulated Sum is tracked by using the hash table SumMap.
-- if Sum is found in SumMap (accumulated Sum is repeated), this means there is a zero-sum range existing between the two nodes, then we remove all nodes between those two(s) and continue scanning until no zero-sum range found.
-- if Sum is not repeated, this means there is NO zero-sum range existing between the two nodes, therefore, we will record the accumulated sum and examine the next node. <br>
-- Instead of going through from (N-i) nodes for every i-th node explained in the previous solution, this solution uses a hash table to record the node before the zero-sum range and only goes through the list once.
-- Time complexity of this solution is O(N). <br>
+<details>
+<summary>Click to see solution</summary>
+// NOTE: This solution does not take into account memory leaks.<br>
+Another approach is to check for the repetition of the accumulated sum that is defined by ``Sum = Sum + head->val``. Tracking the accumulated sum of each node is optimized by using the hash table ``map<int,NodeList*> SumMap``.
+- If the accumulated sum at node ``head`` is found in ``SumMap`` (accumulated Sum is repeated), this means there is a zero-sum list between the two nodes ``[LBound, head]`` that needs to be removed. After removing the zero-sum list, make sure you reset the node before the ``LBound`` to the one after the ``head``.
+- If ``Sum`` is not repeated (not found in SumMap), this means the current node is not contributing to the zero-sum list, the accumulated sum at the current is recorded ``SumMap[Sum] = head``, and the loop continues till the end of the list.
+Instead of going through ``N-i`` nodes for every node i-th to calculate the accumulated sum that is explained in the first solution, this solution uses a hash table to record the accumulated sum of visited nodes and only goes through the list once. Time complexity of this solution is ``O(N)``. The space complexity of ``O(N)`` is the trade-off.
 
 ###### The following diagram illustrates how the algorithm works.
 
 ![Algorithm Illustration](./ZeroSumConsec/Algorithm_Illustration.png)
 
-<details>
-<summary>Click to see solution</summary>
-
-```
+```C++
 ListNode* removeZeroSumSublists(ListNode* head) {
     // create edging node. Reason explained above.
     ListNode* Edge =new ListNode(0);
@@ -226,7 +225,7 @@ ListNode* removeZeroSumSublists(ListNode* head) {
         Sum += head->val;
         // if found zero-sum range: [LBound,head]
         // then delete from SumMap Sums recorded between [LBound,head]
-        // then re-link from Prev to UBound->Next
+        // then re-link PrevLBound to head->Next
         if(SumMap.find(Sum) != SumMap.end()) {
             ListNode* LBound = SumMap[Sum];
             ListNode* PreLBound = LBound;
