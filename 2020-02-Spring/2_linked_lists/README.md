@@ -218,12 +218,18 @@ This problem is a combination of three common linked list manipulations:
 
 ##### Finding the Middle of a Linked List
 
+
+<details>
+<summary>Expand to see diagram</summary>
+
 ![Middle of Linked List Diagram](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/find_middle_node.PNG)
 
+</details>
 
 ##### Reversing the Second Half of the Linked List
 
-
+<details>
+<summary>Expand to see diagrams</summary>
 
 ![Start of reversing list](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/reverse_start.PNG)
 
@@ -251,14 +257,19 @@ This problem is a combination of three common linked list manipulations:
 
 ![End of reversing list](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/reorder_list_final.PNG)
 
+</details>
 
-###### Merging Two Linked Lists
+
+##### Merging Two Linked Lists
+
+<details>
+<summary>Expand to see diagram</summary>
 
 ![Merging lists](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/merge_sorted_lists.png)
-<img src="./images/merge_sorted_lists.png">
 
+</details>
 
-###### Final Result
+##### Final Result
 
 ![Final result diagram](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/reorder_list_final.PNG)
 
