@@ -291,11 +291,15 @@ This problem is a combination of three common linked list manipulations:
 <summary>Click to see Java solution</summary>
 
 ```java
-    public void reorderList(ListNode head) {
+
+    public static void reorderList(ListNode head) {
+        // Edge case handling
+        if (head == null) return;
+        
         // Find the middle node of the linked list
         // 1->2->3->4->5->6, find 4
         ListNode slow = head, fast = head;
-        while (fast && fast.next) {
+        while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
@@ -303,7 +307,7 @@ This problem is a combination of three common linked list manipulations:
         // Reverse the second half of the linked list
         // 1->2->3->4->5->6 ----> 1->2->3->4, 6->5->4
         ListNode previous = null, current = slow, temp;
-        while (current) {
+        while (current != null) {
             temp = current.next;
             current.next = previous;
             previous = current;
@@ -313,7 +317,7 @@ This problem is a combination of three common linked list manipulations:
         // Merge the two linked lists
         // 1->2->3->4, 6->5->4 ----> 1->6->2->5->3->4
         ListNode first = head, second = previous;
-        while (second.next) {
+        while (second.next != null) {
             temp = first.next;
             first.next = second;
             first = temp;
