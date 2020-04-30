@@ -446,6 +446,7 @@ See [the full solution file](./reorder_list/java/Solution.java) for helper metho
 See [the full solution file](./reorder_list/cpp/Solution_Manual.cpp) for helper methods.
 
 ```cpp
+
 int main() {
     std::vector<int> vec{1, 2, 3, 4};
     ListNode* testCase1 = createBasicList(vec);
