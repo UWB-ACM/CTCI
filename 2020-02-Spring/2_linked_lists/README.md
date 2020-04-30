@@ -33,14 +33,9 @@ Given a linked list, remove the n-th node from the end of list and return its he
 
 #### Example Input
 
-**Example:**
-
-```
 Given linked list: 1->2->3->4->5, and n = 2.
 
 After removing the second to last node, the linked list becomes 1->2->3->5.
-
-```
 
 **Note:** Given n will always be valid.
 
