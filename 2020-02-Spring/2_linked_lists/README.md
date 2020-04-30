@@ -76,6 +76,11 @@ Source: [LeetCode](https://leetcode.com/problems/reorder-list/)
 Given a singly linked list
 
 ![Starting linked list](./images/end_ll.png)
+![Starting linked list](https://github.com/UWB-ACM/CTCI/blob/3ec09954a8dfff8efc184dbb041e31656cb7ed68/2020-02-Spring/2_linked_lists/images/start_ll.gif)
+
+
+![Starting linked list](2020-02-Spring/2_linked_lists/images/start_ll.gif)
+
 
 Reorder it to: 
 
@@ -200,6 +205,12 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s3"/>
 
+<img src="./images/merge_sorted_lists.png">
+<img src="./images/merge_sorted_lists.png">
+<img src="./images/merge_sorted_lists.png">
+<img src="./images/merge_sorted_lists.png">
+<img src="./images/merge_sorted_lists.png">
+
 ### 3. Reorder List Solution
 
 <details>
@@ -212,6 +223,8 @@ This problem is a combination of three common linked list manipulations:
 * Finding the middle of a linked list
 * Reversing a linked list
 * Merging two linked lists
+
+<img src="./images/merge_sorted_lists.png">
 
 
 
@@ -248,7 +261,7 @@ This problem is a combination of three common linked list manipulations:
 ###### Merging Two Linked Lists
 
 ![Merging lists](./images/merge_sorted_lists.png)
-
+<img src="./images/merge_sorted_lists.png">
 
 
 ###### Final Result
