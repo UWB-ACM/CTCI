@@ -108,7 +108,9 @@ int main(int argc, const char * argv[]) {
     cout << "Input:\t[";
     printList(List);
     
-    Result = SimpleSolution().removeZeroSumSublists(List);
+    // add your code here or uncomment one of these solutions
+    
+    // Result = SimpleSolution().removeZeroSumSublists(List);
     Result = OptimalSolution().removeZeroSumSublists(List);
     
     cout << "Output:\t[";
