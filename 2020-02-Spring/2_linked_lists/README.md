@@ -53,15 +53,15 @@ Go to [Solution](#s1)   [Top](#top)
 
 Given the head of a linked list, we repeatedly delete consecutive sequences of nodes that sum to 0 until there are no such sequences in the list.
 
-After removing all consecutive nodes that sum to 0, print the final linked list (e.g. [3, 5, 8]). If all nodes are removed, print out the empty list (e.g. []).
+After removing all consecutive nodes that sum to 0, print the final linked list (e.g. [1,2,1]). If all nodes are removed, print out an empty list (e.g. []).
 
 (Note that in the examples below, all sequences are serializations of ListNode objects.)
 
 #### Example Input
 ##### Example 1: <br>
 ```
-Input: head = [1,2,-3,3,1]
-Output: [3,1]
+Input: head = [1,2,-3,3,0,1]
+Output: [1,2,1]
 ```
 ##### Example 2:<br>
 ```
