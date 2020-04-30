@@ -209,6 +209,7 @@ Another approach is to check for the repetition of the accumulated sum that is d
 - If the accumulated sum at node ``head`` is found in ``SumMap`` (accumulated Sum is repeated), this means there is a zero-sum list between the two nodes ``[LBound, head]`` that needs to be removed. After removing the zero-sum list, make sure you reset the node before the ``LBound`` to the one after the ``head``.
 
 - If ``Sum`` is not repeated (not found in SumMap), this means the current node is not contributing to the zero-sum list, the accumulated sum at the current is recorded ``SumMap[Sum] = head``, and the loop continues till the end of the list.
+
 Instead of going through ``N-i`` nodes for every node i-th to calculate the accumulated sum that is explained in the first solution, this solution uses a hash table to record the accumulated sum of visited nodes and only goes through the list once. Time complexity of this solution is ``O(N)``. The space complexity of ``O(N)`` is the trade-off.
 
 ###### The following diagram illustrates how the algorithm works.
