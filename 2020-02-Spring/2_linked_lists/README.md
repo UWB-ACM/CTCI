@@ -158,9 +158,10 @@ The idea is to use an outer loop iterating through N nodes, at every node i-th w
 - If zero-sum list is found by the inner loop ``Sum == 0``, we de-list nodes from nodes [LBound, UBound] including the LBound node and the UBound node, where the node UBound is the node that the inner loop stopped at as the ``Sum == 0``.
 - If ``Sum != 0``, the inner loop continues till the end of the list ``UBound == NULL``, which means there is no zero-sum found, then the outer loop will repeat the same searching process beginning at the next nodes till the end of the list.
 
-For every i-th node of N nodes, the algorithm iterates from node i-th to the last node for the total of ``N * (N - i)`` times. Therefore, this solution has time complexity of ``O(N^2)``. Space complexity is ``O(1)``.
+For every i-th node of N nodes, the algorithm iterates from node i-th to the last node for the total of ``N*(N-i)`` times. Therefore, this solution has time complexity of ``O(N^2)``. Space complexity is ``O(1)``.
 
 ```C++
+
 ListNode* removeZeroSumSublists(ListNode* head) {
     ListNode *Edge, *PreLBound, *UBound;
     // create edging node
@@ -201,9 +202,12 @@ ListNode* removeZeroSumSublists(ListNode* head) {
 #### Optimal Solution
 <details>
 <summary>Click to see solution</summary>
-// NOTE: This solution does not take into account memory leaks.<br>
+
+// NOTE: This solution does not take into account memory leaks. <br>
 Another approach is to check for the repetition of the accumulated sum that is defined by ``Sum = Sum + head->val``. Tracking the accumulated sum of each node is optimized by using the hash table ``map<int,NodeList*> SumMap``.
+
 - If the accumulated sum at node ``head`` is found in ``SumMap`` (accumulated Sum is repeated), this means there is a zero-sum list between the two nodes ``[LBound, head]`` that needs to be removed. After removing the zero-sum list, make sure you reset the node before the ``LBound`` to the one after the ``head``.
+
 - If ``Sum`` is not repeated (not found in SumMap), this means the current node is not contributing to the zero-sum list, the accumulated sum at the current is recorded ``SumMap[Sum] = head``, and the loop continues till the end of the list.
 Instead of going through ``N-i`` nodes for every node i-th to calculate the accumulated sum that is explained in the first solution, this solution uses a hash table to record the accumulated sum of visited nodes and only goes through the list once. Time complexity of this solution is ``O(N)``. The space complexity of ``O(N)`` is the trade-off.
 
