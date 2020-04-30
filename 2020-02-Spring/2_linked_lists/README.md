@@ -58,12 +58,12 @@ After removing all consecutive nodes that sum to 0, print the final linked list 
 (Note that in the examples below, all sequences are serializations of ListNode objects.)
 
 #### Example Input
-##### Example 1: <br>
+##### Example 1:
 ```
 Input: head = [1,2,-3,3,0,1]
 Output: [1,2,1]
 ```
-##### Example 2:<br>
+##### Example 2:
 ```
 Input: head = [5,-3,-4,1,6,-2,5]
 Output: [5,-2,5]
