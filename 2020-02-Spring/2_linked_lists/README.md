@@ -197,7 +197,7 @@ Go to [Top](#top)
 
 // NOTE: This solution does not take into account memory leaks. <br>
 The idea is to use an outer loop iterating through N nodes, at every node i-th we use a nested loop iterating to the end of the list to check whether or not that node and the following nodes cause a zero-sum. The list of nodes causes zero-sum if "the accumulated sum of all nodes in that list equals zero". The inner loop stops as the accumulated sum equals 0 ``Sum == 0`` or it reaches the end of the list.
-- If zero-sum list is found by the inner loop ``Sum == 0``, we de-list nodes from nodes [LBound, UBound] including the LBound node and the UBound node, where the node UBound is the node that the inner loop stopped at as the ``Sum == 0``.
+- If zero-sum list is found by the inner loop ``Sum == 0``, we remove nodes between [LBound, UBound] including the LBound node and the UBound node, where the node UBound is the node that the inner loop stopped at as the ``Sum == 0``.
 - If ``Sum != 0``, the inner loop continues till the end of the list ``UBound == NULL``, which means there is no zero-sum found, then the outer loop will repeat the same searching process beginning at the next nodes till the end of the list.
 
 For every i-th node of N nodes, the algorithm iterates from node i-th to the last node for the total of ``N*(N-i)`` times. Therefore, this solution has time complexity of ``O(N^2)``. Space complexity is ``O(1)``.
