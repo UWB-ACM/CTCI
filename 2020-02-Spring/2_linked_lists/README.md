@@ -67,21 +67,63 @@ Go to [Solution](#s2)   [Top](#top)
 <!-- Don't remove -->
 <a name="p3"/>
 
-### 3. PROBLEM 3 TODO :bug:
+### 3. Reorder List
 
-Source: TODO :bug:
+Source: [LeetCode](https://leetcode.com/problems/reorder-list/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Given a singly linked list
+
+![Starting linked list](https://github.com/UWB-ACM/CTCI/blob/3ec09954a8dfff8efc184dbb041e31656cb7ed68/2020-02-Spring/2_linked_lists/images/start_ll.gif)
+
+Reorder it to: 
+
+![Ending linked list](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/end_ll.png)
+
+
+
+You may **not** modify the values in the list's nodes. 
+Only the pointers of the nodes may be changed.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+Given 1->2->3->4, reorder to 1->4->2->3.
+
+Given 1->2->3->4->5, reorder to 1->5->2->4->3.
 
 #### Function Signature
 
-TODO :bug:
+```java
+// Definition for singly linked list
+public class ListNode {
+  int val;
+  ListNode next;
+  ListNode(int x) { val = x; }
+}
+
+void reorderList(ListNode head) {
+  // Your code here
+}
+```
+
+```cpp
+// Definition for singly linked list
+struct ListNode {
+  int val;
+  ListNode* next;
+  ListNode() : val(0), next(nullptr) {}
+  ListNode(int x) : val(x), next(nullptr) {}
+  ListNode(int x, ListNode* next) : val(x), next(next) {}
+  ~ListNode() {
+      delete next;
+  }
+};
+
+void reorderList(ListNode* head) {
+  // Your code here
+}
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s3)   [Top](#top)
@@ -158,31 +200,290 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s3"/>
 
-### 3. SOLUTION 3 TODO :bug:
 
-Source: TODO :bug:
-
-#### Naive/Simple Solution 
+### 3. Reorder List Solution
 
 <details>
-<summary>Click to see solution</summary>
+<summary>Click to see solutions and solution explanation</summary>
 
-TODO put your solution here :bug:
+#### Algorithm Overview
+
+This problem is a combination of three common linked list manipulations:
+
+* Finding the middle of a linked list
+* Reversing a linked list
+* Merging two linked lists
+
+
+
+##### Finding the Middle of a Linked List
+
+
+<details>
+<summary>Expand to see diagram</summary>
+
+![Middle of Linked List Diagram](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/find_middle_node.PNG)
 
 </details>
 
-#### Optimal Solution
+##### Reversing the Second Half of the Linked List
 
 <details>
-<summary>Click to see solution</summary>
+<summary>Expand to see diagrams</summary>
 
-TODO put your solution here :bug:
+![Start of reversing list](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/reverse_start.PNG)
+
+<details>
+<summary>Step 1 of Reversing the List</summary>
+
+![Reversing list step 1](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/reverse_part_1.PNG)
 
 </details>
 
-#### Testing The Solutions OR Driver For Solution
+<details>
+<summary>Step 2 of Reversing the List</summary>
 
-TODO :bug:
+![Reversing list step 2](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/reverse_part_2.PNG)
+
+</details>
+
+<details>
+<summary>Step 3 of Reversing the List</summary>
+
+![Reversing list step 3](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/reverse_part_3.png)
+
+</details>
+
+
+![End of reversing list](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/reverse_result.png)
+
+</details>
+
+
+##### Merging Two Linked Lists
+
+<details>
+<summary>Expand to see diagram</summary>
+
+![Merging lists](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/merge_sorted_lists.png)
+
+</details>
+
+##### Final Result
+
+![Final result diagram](https://github.com/UWB-ACM/CTCI/blob/94bf9cc8b21e9feea21672a3bdcd78baa259d061/2020-02-Spring/2_linked_lists/images/reorder_list_final.PNG)
+
+
+#### Complexity Analysis
+
+* ***Time Complexity***: `O(N)`
+
+    * O(N) - Finding the middle node of the linked list (N / 2 operations, which is asymptotically O(N))
+    * O(N) - Reversing the second half of the linked list (N / 2 operations, which is asymptotically O(N))
+    * O(N) - Merging the in-order list and reversed linked list (N / 2 operations, which is asymptotically O(N))
+
+* ***Space Complexity***: `O(1)`
+
+    * No new data structures are created. Only pointers are used to manipulate the nodes of the linked list. 
+
+
+<details>
+<summary>Click to see Java solution</summary>
+
+```java
+
+    public static void reorderList(ListNode head) {
+        // Edge case handling
+        if (head == null) return;
+        
+        // Find the middle node of the linked list
+        // 1->2->3->4->5->6, find 4
+        ListNode slow = head, fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        // Reverse the second half of the linked list
+        // 1->2->3->4->5->6 ----> 1->2->3->4, 6->5->4
+        ListNode previous = null, current = slow, temp;
+        while (current != null) {
+            temp = current.next;
+            current.next = previous;
+            previous = current;
+            current = temp;
+        }
+
+        // Merge the two linked lists
+        // 1->2->3->4, 6->5->4 ----> 1->6->2->5->3->4
+        ListNode first = head, second = previous;
+        while (second.next != null) {
+            temp = first.next;
+            first.next = second;
+            first = temp;
+
+            temp = second.next;
+            second.next = first;
+            second = temp;
+        }
+    }
+
+```
+
+</details>
+
+
+
+<details>
+
+<summary>Click to see C++ solution with manual memory management</summary>
+
+```cpp
+void reorderList(ListNode *head) {
+    // Find the middle element of the linked list
+    // 1->2->3->4->5->6, find 4
+    ListNode *slow = head, *fast = head;
+    while (fast && fast->next) {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    // Reverse the second half of the linked list
+    // 1->2->3->4->5->6 ----> 1->2->3->4, 6->5->4
+    ListNode *previous = nullptr, *current = slow, *temp;
+    while (current) {
+        temp = current->next;
+        current->next = previous;
+        previous = current;
+        current = temp;
+    }
+
+    // Merge the two linked lists
+    // 1->2->3->4, 6->5->4 ----> 1->6->2->5->3->4
+    ListNode *first = head, *second = previous;
+    while (second->next) {
+        temp = first->next;
+        first->next = second;
+        first = temp;
+
+        temp = second->next;
+        second->next = first;
+        second = temp;
+    }
+};
+
+```
+</details>
+
+
+<details>
+<summary>Click to see C++ solution with shared pointers</summary>
+
+```cpp
+
+void reorderList(std::shared_ptr<ListNode> head) {
+    // Find the middle node of the linked list
+    // 1->2->3->4->5->6, find 4
+    std::shared_ptr<ListNode> slow = head, fast = head;
+    while (fast && fast->next) {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+     // Reverse the second half of the linked list
+    // 1->2->3->4->5->6 ----> 1->2->3->4, 6->5->4
+    std::shared_ptr<ListNode> previous = nullptr, current = slow, temp;
+    while (current) {
+        temp = current->next;
+        current->next = previous;
+        previous = current;
+        current = temp;
+    }
+
+    // Merge the two linked lists
+    // 1->2->3->4, 6->5->4 ----> 1->6->2->5->3->4
+    std::shared_ptr<ListNode> first = head, second = previous;
+    while (second->next) {
+        temp = first->next;
+        first->next = second;
+        first = temp;
+
+        temp = second->next;
+        second->next = first;
+        second = temp;
+    }
+};
+
+```
+
+</details>
+
+#### Tests for Solution
+
+##### Java 
+
+See [the full solution file](./reorder_list/java/Solution.java) for helper methods.
+
+```java
+
+    public static void main(String[] args) {
+        ArrayList<Integer> list1 = new ArrayList<>({1, 2, 3, 4});
+        ListNode testCase1 = makeBasicList(list1);
+        System.out.print("Before: ");
+        printList(testCase1);
+        reorderList(testCase1);
+        
+        System.out.print("After: ");
+        printList(testCase1); // Expected: 1, 4, 2, 3
+
+        ArrayList<Integer> list2 = new ArrayList<>({1, 2, 3, 4, 5});
+        ListNode testCase2 = makeBasicList(list2);
+        System.out.print("Before: ");
+        printList(testCase2);
+        reorderList(testCase2);
+        
+        System.out.print("After: ");
+        printList(testCase2); // Expected: 1, 5, 2, 4, 3
+    }
+
+```
+
+##### C++
+
+See [the full solution file](./reorder_list/cpp/Solution_Manual.cpp) for helper methods.
+
+```cpp
+
+int main() {
+    std::vector<int> vec{1, 2, 3, 4};
+    ListNode* testCase1 = createBasicList(vec);
+    std::cout << "Before: ";
+    printList(testCase1);
+    reorderList(testCase1);
+
+    std::cout << "After: ";
+    printList(testCase1); // Expected: 1, 4, 2, 3
+
+
+    std::vector<int> vec2{1, 2, 3, 4, 5};
+    ListNode* testCase2 = createBasicList(vec2);
+
+    std::cout << "Before: ";
+    printList(testCase2);
+    reorderList(testCase2);
+
+    std::cout << "After: ";
+    printList(testCase2); // Expected: 1, 5, 2, 4, 3
+
+    delete testCase1;
+    delete testCase2;
+}
+
+```
+
+</details>
+
+
 
 <!-- Don't remove -->
 Go to [Top](#top)
