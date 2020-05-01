@@ -49,11 +49,11 @@ After removing the second to last node, the linked list becomes 1->2->3->5.
 
 //Definition for singly-linked list.
 public class ListNode {
-  int val;
-  ListNode next;
-  ListNode() {}
-  ListNode(int val) { this.val = val; }
-  ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    int val;
+    ListNode next;
+    ListNode() {}
+    ListNode(int val) { this.val = val; }
+    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 }
 
 class Solution {
@@ -142,7 +142,7 @@ Source: [LeetCode](https://leetcode.com/problems/remove-nth-node-from-end-of-lis
 <details>
 <summary>Click to see solution</summary>
 
-### One pass algorithm
+### One-Pass Algorithm
 
 **Algorithm:**
 
@@ -157,21 +157,21 @@ We will use the two pointers approach for this problem. The first pointer advanc
 ```java
 
 public ListNode removeNthFromEnd(ListNode head, int n) {
-  ListNode dummy = new ListNode(0);
-  dummy.next = head;
-  ListNode first = dummy;
-  ListNode second = dummy;
-  // Advances first pointer so that the gap between first and second is n nodes apart
-  for (int i = 1; i <= n + 1; i++) {
-      first = first.next;
-  }
-  // Move first to the end, maintaining the gap
-  while (first != null) {
-      first = first.next;
-      second = second.next;
-  }
-  second.next = second.next.next;
-  return dummy.next;
+    ListNode dummy = new ListNode(0);
+    dummy.next = head;
+    ListNode first = dummy;
+    ListNode second = dummy;
+    // Advances first pointer so that the gap between first and second is n nodes apart
+    for (int i = 1; i <= n + 1; i++) {
+        first = first.next;
+    }
+    // Move first to the end, maintaining the gap
+    while (first != null) {
+        first = first.next;
+        second = second.next;
+    }
+    second.next = second.next.next;
+    return dummy.next;
 }
 
 ```
@@ -190,7 +190,7 @@ public ListNode removeNthFromEnd(ListNode head, int n) {
 
 #### Testing Driver For Solution
 
-See [driver](./remove_node_from_end/Driver.java)
+See [Driver](./remove_node_from_end/Driver.java)
 
 <!-- Don't remove -->
 Go to [Top](#top)
