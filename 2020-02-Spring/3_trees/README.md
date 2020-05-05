@@ -53,7 +53,7 @@ We are given a tree which looks like:
 
 <details>
 
-<summary>**Example 1**</summary>
+<summary>Example 1</summary>
 
 Input: `root = Node(6)`, `p = Node(2)`, `q = Node(8)`
 
@@ -66,7 +66,7 @@ so the root node is returned as the LCA.
 
 <details>
 
-<summary>**Example 2**</summary>
+<summary>Example 2</summary>
 
 Input: `root = Node(6)`, `p = Node(2)`, `q = Node(4)`
 
@@ -79,7 +79,7 @@ to be an ancestor of itself. So, we return `Node(2)` as the LCA.
 
 <details>
 
-<summary>**Example 3**</summary>
+<summary>Example 3</summary>
 
 Input: `root = Node(6)`, `p = Node(5)`, `q = Node(0)`
 
