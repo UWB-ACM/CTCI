@@ -52,9 +52,8 @@ We are given a tree which looks like:
 ```
 
 <details>
-<summary>
-**Example 1**
-</summary>
+
+<summary>**Example 1**</summary>
 
 Input: `root = Node(6)`, `p = Node(2)`, `q = Node(8)`
 
@@ -62,13 +61,12 @@ Output: `Node(6)`
 
 The nodes with values `2` and `8` are direct children of the root node, 
 so the root node is returned as the LCA.
+
 </details>
 
 <details>
-<summary>
-**Example 2**
-</summary>
 
+<summary>**Example 2**</summary>
 
 Input: `root = Node(6)`, `p = Node(2)`, `q = Node(4)`
 
@@ -76,12 +74,12 @@ Output: `Node(2)`
 
 `Node(4)` is a direct descendant of `Node(2)`, and a node is allowed 
 to be an ancestor of itself. So, we return `Node(2)` as the LCA.
+
 </details>
 
 <details>
-<summary>
-**Example 3**
-</summary>
+
+<summary>**Example 3**</summary>
 
 Input: `root = Node(6)`, `p = Node(5)`, `q = Node(0)`
 
@@ -89,14 +87,15 @@ Output: `Node(2)`
 
 The `p` node is one level lower than the `q` node, so the `p` node is 
 not a direct decendant of the LCA. 
+
 </details>
 
 #### Function Signature
 
 <details>
-<summary>
-Java Signature
-</summary>
+
+<summary>Java Signature</summary>
+
 ```java
 /*
  * public class Node {
@@ -110,12 +109,13 @@ public Node findAncestor(Node root, Node p, Node q) {
     // your code here
 }
 ```
+
 </details>
 
 <details>
-<summary>
-Python Signature
-</summary>
+
+<summary>Python Signature</summary>
+
 ```python
 # class Node:
 #     def __init__(self, val):
@@ -126,6 +126,7 @@ Python Signature
 def find_ancestor(root, p, q):
     # your code here
 ```
+
 </details>
 
 <!-- Don't remove -->
