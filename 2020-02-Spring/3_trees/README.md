@@ -1,12 +1,9 @@
 <!-- Don't remove -->
 <a name="top"/>
 
-# Topic Name TODO :bug:
+# Trees
 
-Simple description TODO :bug:
-
-In the style of:
-***Problems and solutions for Maze & Dynamic Programming session on March 1, 2019.***
+Problems and solutions for Trees session on May 8, 2020.
 
 ### Table of Contents
 
