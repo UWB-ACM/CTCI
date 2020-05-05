@@ -184,21 +184,81 @@ Go to [Solution](#s3)   [Top](#top)
 <!-- Don't remove -->
 <a name="s1"/>
 
-### 1. SOLUTION 1 TODO :bug:
+### 1. Lowest Common Ancestor
 
-Source: TODO :bug:
+Source: [LeetCode](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
 
-#### Naive/Simple Solution
+#### Solution
 
-TODO :bug:
+In this problem, there are a few crucial axioms that help simplify 
+the solution approach. Those axioms are:
 
-#### Optimal Solution
+* Both target nodes are guaranteed to exist in the tree if the tree is not empty.
+* The tree is guaranteed to be a binary search tree, with all nodes in sorted order.
 
-TODO :bug:
+Using this information, we can formulate a traversal strategy that 
+harnesses these properties. At each visited node, we test for the 
+following properties:
+
+1. Is the root `null`? If so, we return `null`.
+2. Is the current root equal to one of the target nodes? If so, the 
+   current root must be the LCA of both of the target nodes. We return 
+   the current root.
+3. Is the root's value **greater** than both of the target nodes? If so, 
+   both nodes must be in the _left-hand side_ of the tree. So, we call 
+   the same method on the left-hand child of the current node and 
+   return the result of that call.
+4. Is the root's value **less** than both of the target nodes? If so, 
+   we search the _right-hand_ tree and return the result.
+5. At this point, the only other possible outcome is that the target 
+   nodes are **divided between the two child subtrees** of the current 
+   root. If this is the case, the current node is the Lowest Common 
+   Ancestor (LCA), and we return the current node.
+
+The coded solution is given here:
+
+<details>
+
+<summary>Python solution code</summary>
+
+```python
+def find_ancestor(root, p, q):
+    # edge case -- root is null
+    if not root: return None
+
+    # if we found one of the target nodes, return that node
+    if root.val == p.val or root.val == q.val:
+        return root
+
+    # if both nodes are in left-hand subtree, recurse 
+    # into that subtree to find the ancestor
+    if root.val > p.val and root.val > q.val:
+        return find_ancestor(root.left, p, q)
+
+    # if both nodes are in right-hand subtree, recurse 
+    # into that subtree to find the ancestor
+    if root.val < p.val and root.val < q.val:
+        return find_ancestor(root.right, p, q)
+
+    # otherwise, the nodes are distributed across the 
+    # two subtrees of the current node. this implies 
+    # that the current node is the LCA.
+    return root
+```
+
+</details>
 
 #### Testing The Solutions OR Driver For Solution
 
-TODO :bug:
+The coded solution is in [this `solution.py` file](./common_ancestor/solution.py). 
+
+We wrote a few [utility functions](./common_ancestor/utils.py) which 
+generate the trees and locate target nodes in the tree to set up the 
+test cases. 
+
+Lastly, the [driver file containing test cases](./common_ancestor/driver.py) 
+was created to run test cases. The driver uses Python `assert` statements 
+to validate the function's output, and nothing is printed to the terminal.
 
 <!-- Don't remove -->
 Go to [Top](#top)
