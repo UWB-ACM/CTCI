@@ -227,12 +227,15 @@ def find_ancestor(root, p, q):
     if not root: return None
 
     # if we found one of the target nodes, return that node
-    if root.val == p.val or root.val == q.val:
+    if root == p or root == q:
         return root
 
     # if both nodes are in left-hand subtree, recurse 
     # into that subtree to find the ancestor
-    if root.val > p.val and root.val > q.val:
+    # NOTE: this implementation supports the convention 
+    # of allowing duplicate BST entries, but all duplicates 
+    # are sorted into the left-hand subtree.
+    if root.val >= p.val and root.val >= q.val:
         return find_ancestor(root.left, p, q)
 
     # if both nodes are in right-hand subtree, recurse 
