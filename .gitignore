@@ -39,6 +39,7 @@ env/
 .*.sw?
 *.pdf
 __pycache__/
+*.pyc
 .DS_Store
 .idea/
 cmake-build-debug
