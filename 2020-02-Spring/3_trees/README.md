@@ -86,7 +86,7 @@ Input: `root = Node(6)`, `p = Node(5)`, `q = Node(0)`
 Output: `Node(2)`
 
 The `p` node is one level lower than the `q` node, so the `p` node is 
-not a direct decendant of the LCA. 
+not a direct descendant of the LCA. 
 
 </details>
 
