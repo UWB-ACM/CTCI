@@ -70,19 +70,105 @@ Go to [Solution](#s2)   [Top](#top)
 <!-- Don't remove -->
 <a name="p3"/>
 
-### 3. PROBLEM 3 TODO :bug:
+### 3. Recover Binary Search Tree
 
-Source: TODO :bug:
+[LeetCode](https://leetcode.com/problems/recover-binary-search-tree/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Two elements of a binary search tree (BST) are swapped by mistake.
+
+Recover the tree without changing its structure.
+
+**Follow-up**: Can you devise a constant space solution?
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+**Example 1:**
+
+
+Input: [1,3,null,null,2]
+
+   1
+  /
+ 3
+  \
+   2
+
+Output: [3,1,null,null,2]
+
+   3
+  /
+ 1
+  \
+   2
+
+
+**Example 2:**
+
+Input: [3,1,4,null,null,2]
+
+  3
+ / \
+1   4
+   /
+  2
+
+Output: [2,1,4,null,null,3]
+
+  2
+ / \
+1   4
+   /
+  3
+
 
 #### Function Signature
+
+##### Java
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+
+public void recoverTree(TreeNode root) {
+  // your code here
+}
+
+```
+
+
+##### Python
+
+```python
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def recoverTree(self, root: TreeNode) -> None:
+        """
+        Do not return anything, modify root in-place instead.
+        """
+      
+```
+
 
 TODO :bug:
 
@@ -143,9 +229,7 @@ Go to [Top](#top)
 
 ### 3. SOLUTION 3 TODO :bug:
 
-Source: TODO :bug:
-
-#### Naive/Simple Solution 
+#### Basic Solution 
 
 TODO :bug:
 
