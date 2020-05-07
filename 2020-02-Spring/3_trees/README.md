@@ -45,21 +45,41 @@ Go to [Solution](#s1)   [Top](#top)
 <!-- Don't remove -->
 <a name="p2"/>
 
-### 2. PROBLEM 2 TODO :bug:
+### 2. Deepest Leaves Sum
 
-Source: TODO :bug:
+Source: https://leetcode.com/problems/deepest-leaves-sum/
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Given a binary tree, return the sum of values of its deepest leaves.
+Example 1:
+
+![Images](./Images/Deepest_Leaves_Sum.PNG)
+Constraints:
+
+- The number of nodes in the tree is between 1 and 10^4.
+- The value of nodes is between 1 and 100.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+Input: root = [1,2,3,4,5,null,6,7,null,null,null,null,8]
+Output: 15
 
 #### Function Signature
 
-TODO :bug:
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+ 
+ int deepestLeavesSum(TreeNode* root){}
 
 <!-- Don't remove -->
 Go to [Solution](#s2)   [Top](#top)
@@ -116,21 +136,60 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s2"/>
 
-### 2. SOLUTION 2 TODO :bug:
+### 2. Deepest Leaves Sum
 
-Source: TODO :bug:
-
-#### Naive/Simple Solution
-
-TODO :bug:
 
 #### Optimal Solution
 
-TODO :bug:
+We need the sum of the leaves at the very very last level of the tree. To do this, we 
+can implement a Breath-first search traversal, tracking the sum of the values of the nodes at each level 
+of the tree, and reseting the sum everytime we go to a further level down the tree. .
+Once we get to the last level, we will get the sum of the value of the nodes at that level, exit the 
+loop, and return the sum.
+
+**C++:**
+```
+int deepestLeavesSum(TreeNode* root) {
+        
+        queue<TreeNode*> queue;
+        queue.push(root); // we insert the root into the queue
+        int currSum = 0;  //will store the sum of the nodes at the current level
+        
+        while(!queue.empty()){
+            currSum = 0; // reset the sum at each new level of the tree
+            int size = queue.size(); // locking the size of the queue at the current level
+									//before we add more nodes to it
+            
+            //for the size of the queue
+            for(int i =0; i< size;i++){
+                auto node = queue.front();
+                // Pop one node of the queue
+                queue.pop();
+                
+                currSum += node->val;
+                 //get left child into queue
+                if(node->left !=nullptr){
+                
+                    queue.push(node->left);
+                }
+                //get right child into queue
+                if(node->right !=nullptr){
+                    queue.push(node->right);
+                }
+               
+            }   
+        }
+        return currSum;   
+    }
+	```
+**Complexity Analysis:**
+- Space Complexity: O(n), because we are using a queue
+- Time Complexity: O (n), because we are traversing the entire tree, node 
+by node, and adding them up at each level of the tree.
 
 #### Testing The Solutions OR Driver For Solution
 
-TODO :bug:
+See [Driver](./DeepestLeavesSum/DeepestLeavesSum.cpp)
 
 <!-- Don't remove -->
 Go to [Top](#top)
