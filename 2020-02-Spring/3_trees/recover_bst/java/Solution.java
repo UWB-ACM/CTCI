@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Solution {
-    public class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
@@ -16,7 +16,7 @@ public class Solution {
     }
 
     // Recursive inorder traversal with O(n) space
-    public void inorderTraversal(TreeNode root, List<Integer> nodes) {
+    public static void inorderTraversal(TreeNode root, List<Integer> nodes) {
         if (root != null) {
             inorderTraversal(root.left, nodes);
             nodes.add(root.val);
@@ -26,7 +26,7 @@ public class Solution {
 
     // Helper method that finds the first two values
     // that are not in ascending order
-    public int[] findSwappedValues(List<Integer> values) {
+    public static int[] findSwappedValues(List<Integer> values) {
         int length = values.size();
         int first = -1;
         int second = -1;
@@ -44,16 +44,31 @@ public class Solution {
         return new int[]{first, second};
     }
 
-    public void recover(TreeNode root, int first, int second) {
-        
+    public static void fixSwaps(TreeNode root, int fixes, int first, int second) {
+        if (root != null) {
+            if (root.val == first || root.val == second) {
+                if (root.val == first) {
+                    root.val = second;
+                } else {
+                    root.val = first;
+                }
+                if (--fixes == 0) return;
+            }
+            fixSwaps(root.left, fixes, first, second);
+            fixSwaps(root.right, fixes, first, second);
+        }
     }
  
-    public void recoverTree(TreeNode root) {
+    public static void recoverTree(TreeNode root) {
         List<Integer> nodes = new ArrayList<>();
         inorderTraversal(root, nodes);
         int[] swapped = findSwappedValues(nodes);
-        recover(root, swapped[0], swapped[1]);
+        fixSwaps(root, 2, swapped[0], swapped[1]);
         
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Hello");
     }
 }
 
