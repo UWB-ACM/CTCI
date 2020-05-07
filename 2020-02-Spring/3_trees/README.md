@@ -69,7 +69,7 @@ Output: 15
 
 **C++:**
 ```c++
-  Definition for a binary tree node.
+  //Definition for a binary tree node.
   struct TreeNode {
       int val;
       TreeNode *left;
@@ -80,7 +80,7 @@ Output: 15
   };
  
  int deepestLeavesSum(TreeNode* root){}
-```c++
+```
 
 <!-- Don't remove -->
 Go to [Solution](#s2)   [Top](#top)
@@ -145,9 +145,9 @@ Go to [Top](#top)
 <details>
 <summary>Click to see solution</summary>
 
-We need the sum of the leaves at the very very last level of the tree. To do this, we 
+We need the sum of the leaves at the very last level of the tree. To do this, we 
 can implement a Breath-first search traversal, tracking the sum of the values of the nodes at each level 
-of the tree, and reseting the sum everytime we go to a further level down the tree. .
+of the tree, and reseting the sum everytime we go to a further level down the tree.
 Once we get to the last level, we will get the sum of the value of the nodes at that level, exit the 
 loop, and return the sum.
 
@@ -185,11 +185,11 @@ int deepestLeavesSum(TreeNode* root) {
         }
         return currSum;   
     }
-```c++
+```
 	
 **Complexity Analysis:**
-- Space Complexity: O(n), because we are using a queue
-- Time Complexity: O (n), because we are traversing the entire tree, node 
+- Space Complexity:  `O(n)`, because we are using a queue
+- Time Complexity:  `O(n)`, because we are traversing the entire tree, node 
 by node, and adding them up at each level of the tree.
 
 </details>
