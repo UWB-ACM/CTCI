@@ -209,11 +209,11 @@ following properties:
    current root must be the LCA of both of the target nodes. We return 
    the current root.
 3. Is the root's value **greater** than both of the target nodes? If so, 
-   both nodes must be in the _left-hand side_ of the tree. So, we call 
+   both nodes must be in the _left-hand subtree_. So, we call 
    the same method on the left-hand child of the current node and 
    return the result of that call.
 4. Is the root's value **less** than both of the target nodes? If so, 
-   we search the _right-hand_ tree and return the result.
+   we search the _right-hand_ subtree and return the result.
 5. At this point, the only other possible outcome is that the target 
    nodes are **divided between the two child subtrees** of the current 
    root. If this is the case, the current node is the Lowest Common 
