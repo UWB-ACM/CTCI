@@ -1,5 +1,5 @@
 # Definition for a binary tree node.
-class TreeNode(object):
+class Node(object):
     def __init__(self, x):
         self.val = x
         self.left = None
@@ -13,18 +13,18 @@ def build_tree(values):
     if not values: return head
     
     # allocate head
-    head = TreeNode(values.pop(0))
+    head = Node(values.pop(0))
     q = [head]
     
     while q and values:
         curr = q.pop(0)
         # make left node
         left = values.pop(0)
-        if left: curr.left = TreeNode(left)
+        if left: curr.left = Node(left)
         if curr.left: q.append(curr.left)
         # make right node
         right = values.pop(0)
-        if right: curr.right = TreeNode(right)
+        if right: curr.right = Node(right)
         if curr.right: q.append(curr.right)
     
     return head
