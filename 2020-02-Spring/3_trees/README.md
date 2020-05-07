@@ -251,7 +251,7 @@ def find_ancestor(root, p, q):
 
 </details>
 
-#### Testing The Solutions OR Driver For Solution
+#### Testing The Solutions
 
 The coded solution is in [this `solution.py` file](./common_ancestor/solution.py). 
 
