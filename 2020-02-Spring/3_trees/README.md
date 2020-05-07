@@ -47,7 +47,7 @@ Go to [Solution](#s1)   [Top](#top)
 
 ### 2. Deepest Leaves Sum
 
-Source: https://leetcode.com/problems/deepest-leaves-sum/
+Source:[LeetCode](https://leetcode.com/problems/deepest-leaves-sum/)
 
 #### Scenario
 
@@ -67,19 +67,20 @@ Output: 15
 
 #### Function Signature
 
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
+**C++:**
+```c++
+  Definition for a binary tree node.
+  struct TreeNode {
+      int val;
+      TreeNode *left;
+      TreeNode *right;
+      TreeNode() : val(0), left(nullptr), right(nullptr) {}
+      TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+      TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  };
  
  int deepestLeavesSum(TreeNode* root){}
+```c++
 
 <!-- Don't remove -->
 Go to [Solution](#s2)   [Top](#top)
@@ -141,6 +142,9 @@ Go to [Top](#top)
 
 #### Optimal Solution
 
+<details>
+<summary>Click to see solution</summary>
+
 We need the sum of the leaves at the very very last level of the tree. To do this, we 
 can implement a Breath-first search traversal, tracking the sum of the values of the nodes at each level 
 of the tree, and reseting the sum everytime we go to a further level down the tree. .
@@ -148,7 +152,7 @@ Once we get to the last level, we will get the sum of the value of the nodes at 
 loop, and return the sum.
 
 **C++:**
-```
+```c++
 int deepestLeavesSum(TreeNode* root) {
         
         queue<TreeNode*> queue;
@@ -181,11 +185,14 @@ int deepestLeavesSum(TreeNode* root) {
         }
         return currSum;   
     }
-	```
+```c++
+	
 **Complexity Analysis:**
 - Space Complexity: O(n), because we are using a queue
 - Time Complexity: O (n), because we are traversing the entire tree, node 
 by node, and adding them up at each level of the tree.
+
+</details>
 
 #### Testing The Solutions OR Driver For Solution
 
