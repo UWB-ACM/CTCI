@@ -190,6 +190,10 @@ Source: [LeetCode](https://leetcode.com/problems/lowest-common-ancestor-of-a-bin
 
 #### Solution
 
+<details>
+
+<summary>Solution strategy</summary>
+
 In this problem, there are a few crucial axioms that help simplify 
 the solution approach. Those axioms are:
 
@@ -215,7 +219,7 @@ following properties:
    root. If this is the case, the current node is the Lowest Common 
    Ancestor (LCA), and we return the current node.
 
-The coded solution is given here:
+</details>
 
 <details>
 
