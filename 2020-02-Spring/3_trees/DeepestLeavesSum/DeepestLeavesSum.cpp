@@ -11,18 +11,19 @@ struct TreeNode {
   TreeNode *right;
   TreeNode() : val(0), left(nullptr), right(nullptr) {}
   TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-  TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+  TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left),
+                                                     right(right) {}
 };
 
 static int deepestLeavesSum(TreeNode* root) {
 
   queue<TreeNode*> queue;
   queue.push(root);                         // we insert the root into the queue
-  int currSum = 0;                          //will store the sum of the nodes at the current level
+  int currSum = 0;        //will store the sum of the nodes at the current level
 
   while(!queue.empty()){
-    currSum = 0;                           // reset the sum at each new level of the tree
-    int size = queue.size();              // locking the size of the queue before we add more nodes to it
+    currSum = 0;                  // reset the sum at each new level of the tree
+    int size = queue.size();     // locking the size of the queue before we add more nodes to it
 
     //for the size of the queue
     for(int i =0; i< size;i++){
@@ -40,7 +41,6 @@ static int deepestLeavesSum(TreeNode* root) {
       if(node->right !=nullptr){
         queue.push(node->right);
       }
-
     }
   }
   return currSum;
@@ -51,6 +51,15 @@ int main() {
    * Please note: This code does not check for memory leaks
    */
 
+  /**
+   *             1
+               /   \
+             2      3
+            / \     \
+          4   5      6
+         /            \
+        7              8
+   */
   TreeNode *test1= new TreeNode(1);
   TreeNode *test2= new TreeNode(2);
   TreeNode *test3= new TreeNode(3);
@@ -71,8 +80,6 @@ int main() {
 
   int result = deepestLeavesSum(test1);
   cout << "Result is: " <<result<<endl;
-
-  cout << "Passed tests!"<<endl;
 
   return 0;
 }
