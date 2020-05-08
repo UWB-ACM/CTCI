@@ -156,10 +156,6 @@ public void recoverTree(TreeNode root) {
 
 ```
 
-
-
-TODO :bug:
-
 <!-- Don't remove -->
 Go to [Solution](#s3)   [Top](#top)
 
@@ -312,6 +308,7 @@ The key idea behind this problem is using the properties of the inorder traversa
 #### Optimal Solution
 
 <details>
+
 <summary>Click to see optimal solution</summary>
 
 ##### Algorithm Overview
@@ -401,71 +398,6 @@ Also see [this Google Slides presentation](https://docs.google.com/presentation/
 
     * No new data structures are created. Only pointers are used.
 
-
-<details>
-<summary>Click to see Morris traversal solution</summary>
-
-```java
-
-// Helper method for swapping the values of two nodes
-public void swap(TreeNode a, TreeNode b) {
-  int temp = a.val;
-  a.val = b.val;
-  b.val = temp;
-}
-
-public void recoverTree(TreeNode root) {
-  TreeNode first = null;
-  TreeNode second = null;
-  TreeNode predecessor = null; // For Morris traversal
-  TreeNode previous = null;    // For finding the swapped nodes
-
-  while (root != null) {
-    if (root.left != null) {
-      // Find inorder predecessor of root
-      predecessor = root.left;
-      while (predecessor.right != null && predecessor.right != root) {
-        predecessor = predecessor.right;
-      }
-      // If there is no link to the parent node
-      // Create one, then visit the left subtree
-      if (predecessor.right == null) {
-        predecessor.right = root;
-        root = root.left;
-      } else {
-        // Link already exists. We're done with the left subtree
-
-        // Check to see if this node is swapped
-        if (previous != null && root.val < previous.val) {
-          second = root;
-          if (first == null) first = previous;
-        }
-        previous = root;          // Save this node for swap comparison
-
-        predecessor.right = null; // Break the existing link
-        root = root.right;        // Go to the right subtree
-      }
-    } else {
-      // No left subtree. No need to check for predecessors. Just go right.
-      
-      // Check to see if this node is swapped
-      if (previous != null && root.val < previous.val) {
-        second = root;
-         if (first == null) first = previous;
-      }
-      previous = root;          // Save this node for swap comparison
-      
-      root = root.right; // Go to the right subtree
-    }
-  }
-  // We are done traversing through the tree.
-  // We can swap the nodes now.
-  swap(first, second);
-}
-
-```
-
-</details>
 
 </details>
 
