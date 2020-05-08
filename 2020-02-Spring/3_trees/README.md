@@ -315,7 +315,6 @@ Additionally, you must also use the properties of the inorder traversal of a bin
 
 </details>
 
-
 </details>
 
 
