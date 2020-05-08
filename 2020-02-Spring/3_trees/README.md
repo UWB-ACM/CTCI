@@ -77,10 +77,11 @@ Go to [Solution](#s2)   [Top](#top)
 #### Scenario
 
 Two elements of a binary search tree (BST) are swapped by mistake.
+The tree is now no longer a binary search tree.
 
-Recover the tree without changing its structure.
+Recover the tree so it is a binary search tree again without changing its structure.
 
-**Follow-up**: Can you devise a constant space solution?
+**Follow-up**: Can you devise a constant space solution? In other words, can you come up with a solution that does not use an auxilliary data structure?
 
 #### Example Input
 
@@ -220,7 +221,20 @@ Go to [Top](#top)
 
 ##### Algorithm Overview
 
-The key idea behind this problem is using the properties of the inorder traversal of a binary search tree to identify the nodes that you must fix.
+Recall the invariants of a binary search tree:
+
+* **Structural property**: a BST is a binary search tree
+
+* **Ordering propety**: For every node `X` in a BST:
+  
+  * the key in `X` is greater than every key in the node's LEFT subtree
+  * the key in `X` is smaller than every key in the node's RIGHT subtree
+
+
+Also recall that the inorder traversal of a binary search tree is sorted in ascending order. 
+
+The key idea behind this problem is understanding which invariant would be violated if a pair of the nodes were swapped.
+Additionally, you must also use the properties of the inorder traversal of a binary search tree to identify the nodes that you must fix.
 
 1. Create an inorder traversal of the tree. This will be an almost sorted list.
 2. Find two nodes in the almost sorted list that are not in sorted order.
@@ -308,7 +322,6 @@ The key idea behind this problem is using the properties of the inorder traversa
 #### Optimal Solution
 
 <details>
-
 <summary>Click to see optimal solution</summary>
 
 ##### Algorithm Overview
@@ -359,7 +372,7 @@ while current exists
 ```
 
 
-![Morris example 2](./images/morris-example.png)
+![Morris example 2](./images/morris-example.PNG)
 
 **Morris Traversal Pseudocode**
 ```
