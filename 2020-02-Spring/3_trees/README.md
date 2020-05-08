@@ -310,20 +310,157 @@ The key idea behind this problem is using the properties of the inorder traversa
 
 ##### Algorithm Overview
 
+**Inorder Traversal + Swap Detection in One Pass**
+
+Instead of building the inorder traversal list and traversing that list to find the swapped nodes, we can combine these steps to traverse the tree and find the swapped nodes in one pass.
+While performing the inorder traversal, we can compare the previous node to the current node that we are visiting.
+If we find a node that is not smaller than the previous node, the node must be a swapped node. 
+
+
+**Morris Traversal** 
+
+This answers the follow-up question: Can you solve this using `O(1)` space?
+
+Normally, with inorder traversal, you traverse the left subtree, then you visit the current node, then you traverse the right subtree.
+
+You normally must use recursion or a stack is used so:
+
+* You know when the left subtree has been fully visited
+* You can revisit the left subtree's parent node and traverse the right subtree
+
+Morris traversal gets around this by setting a link between a node that has a left subtree and its ***inorder predecessor***.
+The inorder predecessor is the node that occurs immediately before a node in an inorder traversal.
+It also happens to be the last node that is visited when you're done traversing a node's left subtree.
+
+We can take advantage of this property to always have a "portal" back to a parent node without needing to store nodes in a stack of some kind, whether it be the call stack or an stack that you create.
+
+![Morris example 1](./images/del_pred.png)
+
+
+**Finding Inorder Predecessor Pseudocode**
+
+```
+current = root
+predecessor = null
+while current exists
+  # Take one step left
+  predecessor = root.left
+  while predecessor.right exists
+    # Morris traversal modification:
+    # Check if we have a link to the parent node
+    if predecessor.right is root
+      break
+    # Otherwise, go as far right as possible
+    predecessor = predecessor.right
+
+```
+
+
+![Morris example 2](./images/morris-example.png)
+
+**Morris Traversal Pseudocode**
+```
+current = root
+while current exists
+  if current->left doesn't exist
+    # If there is no left subtree, no need to look for predecessor
+    visit(current)
+    current = current.right
+  else
+    # Before visiting left subtree, find predecessor
+    predecessor = findInorderPredecessor(current)
+    if predecessor.right doesn't exist
+      predecessor.right = current  # Link predecessor to parent node
+      current = current.left       # Visit left subtree
+    else
+      predecessor.right = null    # Predecessor link already exists
+      visit(current)
+      current = current.right     # Visit right subtree (no more left subtree to visit)
+```
+
+
+See [this YouTube video](https://www.youtube.com/watch?v=wGXB9OWhPTg) for a more detailed step-by-step explanation of Morris inorder traversal.
+
+Also see [this Google Slides presentation](https://docs.google.com/presentation/d/11GWAeUN0ckP7yjHrQkIB0WT9ZUhDBSa-WR0VsPU38fg/edit#slide=id.g61bfb572cf_0_214) to see another example of stepping through a binary tree with Morris inorder traversal.
+
+* **inorder predecessor of a node**
 
 ##### Complexity Analysis
 
 * ***Time Complexity***: `O(N)`
 
-    * O(N) - Finding the middle node of the linked list (N / 2 operations, which is asymptotically O(N))
-    * O(N) - Reversing the second half of the linked list (N / 2 operations, which is asymptotically O(N))
-    * O(N) - Merging the in-order list and reversed linked list (N / 2 operations, which is asymptotically O(N))
-
+    * O(N) - Every node must be visited at least once during the traversal
+    * O(N) - In the worst case, every node is visited again while searching for an inorder predecessor, in the case of a degenerate tree
+  
 * ***Space Complexity***: `O(1)`
 
-    * No new data structures are created. Only pointers are used to manipulate the nodes of the linked list. 
+    * No new data structures are created. Only pointers are used.
 
 
+<details>
+<summary>Click to see Morris traversal solution</summary>
+
+```java
+
+// Helper method for swapping the values of two nodes
+public void swap(TreeNode a, TreeNode b) {
+  int temp = a.val;
+  a.val = b.val;
+  b.val = temp;
+}
+
+public void recoverTree(TreeNode root) {
+  TreeNode first = null;
+  TreeNode second = null;
+  TreeNode predecessor = null; // For Morris traversal
+  TreeNode previous = null;    // For finding the swapped nodes
+
+  while (root != null) {
+    if (root.left != null) {
+      // Find inorder predecessor of root
+      predecessor = root.left;
+      while (predecessor.right != null && predecessor.right != root) {
+        predecessor = predecessor.right;
+      }
+      // If there is no link to the parent node
+      // Create one, then visit the left subtree
+      if (predecessor.right == null) {
+        predecessor.right = root;
+        root = root.left;
+      } else {
+        // Link already exists. We're done with the left subtree
+
+        // Check to see if this node is swapped
+        if (previous != null && root.val < previous.val) {
+          second = root;
+          if (first == null) first = previous;
+        }
+        previous = root;          // Save this node for swap comparison
+
+        predecessor.right = null; // Break the existing link
+        root = root.right;        // Go to the right subtree
+      }
+    } else {
+      // No left subtree. No need to check for predecessors. Just go right.
+      
+      // Check to see if this node is swapped
+      if (previous != null && root.val < previous.val) {
+        second = root;
+         if (first == null) first = previous;
+      }
+      previous = root;          // Save this node for swap comparison
+      
+      root = root.right; // Go to the right subtree
+    }
+  }
+  // We are done traversing through the tree.
+  // We can swap the nodes now.
+  swap(first, second);
+}
+
+```
+
+</details>
 
 </details>
 
