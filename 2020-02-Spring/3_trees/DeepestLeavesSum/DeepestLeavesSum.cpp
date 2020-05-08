@@ -77,7 +77,6 @@ int main() {
   test3->right = test6;
   test6->right = test8;
 
-
   int result = deepestLeavesSum(test1);
   cout << "Result is: " <<result<<endl;
 

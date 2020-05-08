@@ -63,7 +63,7 @@ Constraints:
 
 #### Example Input
 
-Input: root = [1,2,3,4,5,null,6,7,null,null,null,null,8]
+Input: root = [1, 2, 3, 4, 5, null, 6, 7, null , null, null, null, 8]
 Output: 15
 
 #### Function Signature
@@ -147,8 +147,8 @@ Go to [Top](#top)
 <summary>Click to see solution</summary>
 
 We need the sum of the leaves at the very last level of the tree. To do this, we 
-can implement a Breath-first search traversal, tracking the sum of the values of the nodes at each level 
-of the tree, and reseting the sum everytime we go to a further level down the tree.
+can implement a breath-first search traversal, tracking the sum of the values of the nodes at each level 
+of the tree, and resetting the sum every time we go another level down the tree.
 Once we get to the last level, we will get the sum of the value of the nodes at that level, exit the 
 loop, and return the sum.
 
@@ -162,8 +162,8 @@ int deepestLeavesSum(TreeNode* root) {
         
         while(!queue.empty()){
             currSum = 0; // reset the sum at each new level of the tree
-            int size = queue.size(); // locking the size of the queue at the current level
-									//before we add more nodes to it
+            int size = queue.size(); // locking the size of the queue at the current level before we add more nodes to it
+									
             
             //for the size of the queue
             for(int i =0; i< size;i++){
@@ -195,7 +195,7 @@ by node, and adding them up at each level of the tree.
 
 </details>
 
-#### Testing The Solutions OR Driver For Solution
+####Driver For Solution
 
 See [Driver](./DeepestLeavesSum/DeepestLeavesSum.cpp)
 
