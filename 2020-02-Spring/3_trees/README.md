@@ -89,39 +89,45 @@ Recover the tree without changing its structure.
 
 Input: [1,3,null,null,2]
 
+```
    1
   /
  3
   \
    2
+```
 
 Output: [3,1,null,null,2]
 
+```
    3
   /
  1
   \
    2
-
+```
 
 **Example 2:**
 
 Input: [3,1,4,null,null,2]
 
+```
   3
  / \
 1   4
    /
   2
+```
 
 Output: [2,1,4,null,null,3]
 
+```
   2
  / \
 1   4
    /
   3
-
+```
 
 #### Function Signature
 
@@ -383,7 +389,6 @@ See [this YouTube video](https://www.youtube.com/watch?v=wGXB9OWhPTg) for a more
 
 Also see [this Google Slides presentation](https://docs.google.com/presentation/d/11GWAeUN0ckP7yjHrQkIB0WT9ZUhDBSa-WR0VsPU38fg/edit#slide=id.g61bfb572cf_0_214) to see another example of stepping through a binary tree with Morris inorder traversal.
 
-* **inorder predecessor of a node**
 
 ##### Complexity Analysis
 
@@ -464,7 +469,6 @@ public void recoverTree(TreeNode root) {
 
 </details>
 
-TODO :bug:
 
 #### Driver for Solution
 
