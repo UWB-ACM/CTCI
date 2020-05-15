@@ -91,7 +91,7 @@ There's no way to do this. Thus, this is impossible.
 <details>
 <summary>Click to see example diagrams</summary>
 
-![LeetCode examples](./images/lc-examples)
+![LeetCode examples](./images/lc-examples.PNG)
 
 </details>
 
@@ -166,6 +166,12 @@ Go to [Top](#top)
 
 ### 2. Course Schedule Solution
 
+
+<details>
+<summary>Click to see naive solution</summary>
+
+#### Naive/Simple Solution 
+
 This problem can be modeled as a graph traversal problem. Each course can be represented 
 
 The main idea behind this problem is that if there is a course that is a prerequisite of one of its prerequisites,
@@ -178,12 +184,9 @@ For example, if we represent `[[1, 0], [0, 1]]` as a directed graph:
 
 this forms a directed cycle.
 
-![Cycle example](./images/cycle-example)
+![Cycle example](./images/cycle-example.PNG)
 
 So, in other words, we need to determine if the corresponding graph is a directed acyclic graph.
-
-
-#### Naive/Simple Solution 
 
 An easy way to check if a graph has a circle is to perform depth-first search starting from each vertex in the graph.
 
@@ -249,13 +252,19 @@ Before doing this, we'll want to transform `prerequisites`, the list of edges we
 
 </details>
 
+</details>
+
+
+<details>
+<summary>Click to see optimal solution</summary>
+
 #### Optimal Solution
 
 One way to find whether or not a graph is a directed acyclic graph is to check if it has a valid topological ordering.
 
 A topological ordering of a directed graph is a ordering of the vertices of the graph, such that for all edges `(v, w)` in the set of edges of the graph `E`, `v` always comes before `w`.
 
-![Topological Sort Example](./images/topological-sort-example)
+![Topological Sort Example](./images/topological-sort-example.PNG)
 
 A common algorithm for finding topological sortings, Kahn's algorithm, is specified below: 
 
@@ -333,6 +342,8 @@ else:
     }
 
 ```
+
+</details>
 
 </details>
 
