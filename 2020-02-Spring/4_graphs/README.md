@@ -26,21 +26,52 @@ In the style of:
 
 <a name="p1"/>
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. Lonely on Twitter :bird:
 
-Source: TODO :bug:
+Source: Lizzy
 
 #### Scenario
 
-Problem Statement TODO :bug:
+On Twitter, users can follow other users, but the other users do not have 
+to follow the initiator back. In this problem, we want to find the 
+loneliest Twitter user -- the account with the highest number of 
+followed accounts who did not follow back.
+
+You are given a collection of users, and each user has a collection of accounts 
+they are following. This data structure represents the directed graph of a Twitter network. 
+Find the user with the highest number of unreciprocated follows.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+Here's a simple example:
+
+```
+Input:
+    - Mindy: [Mork]
+    - Mork: [Mindy]
+    - Orson: [Mork, Mindy]
+Output: Orson
+```
+
+Orson follows both other users, but neither of them follow him. Orson 
+is the loneliest user.
+
+```
+Input:
+    - Peter: [Lois, Chris, Brian]
+    - Lois: [Chris, Brian, Stewie]
+    - Brian: [Stewie, Lois]
+    - Meg: [Peter, Lois, Chris, Brian, Stewie]
+    - Chris: [Peter, Lois, Brian]
+    - Stewie: []
+Output: Meg
+```
+
+Meg has followed 5 users, but none of them have reciprocated; she is by far the loneliest user.
 
 #### Function Signature
 
-TODO :bug:
+**D**esign **I**t **Y**ourself. _Hint: what input data structures would be most helpful for this scenario?_
 
 <!-- Don't remove -->
 Go to [Solution](#s1)   [Top](#top)
