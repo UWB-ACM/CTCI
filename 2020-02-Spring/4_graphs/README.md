@@ -88,12 +88,8 @@ However, to complete course 0, you must complete course 1.
 There's no way to do this. Thus, this is impossible.
 
 
-<details>
-<summary>Click to see example diagrams</summary>
-
 ![LeetCode examples](./images/lc-examples.PNG)
 
-</details>
 
 #### Function Signature
 
@@ -168,6 +164,7 @@ Go to [Top](#top)
 
 
 <details>
+
 <summary>Click to see naive solution</summary>
 
 #### Naive/Simple Solution 
@@ -207,7 +204,7 @@ Before doing this, we'll want to transform `prerequisites`, the list of edges we
     * O(|V|) - Max space occupied by the call stack during the recursive calls of DFS in the worst case
 
 <details>
-<summary>Click to see naive solution</summary>
+<summary>Click to see implementation of naive solution</summary>
 
 ```java
     public boolean canFinishNaive(int numCourses, int[][] prerequisites) {
@@ -302,7 +299,7 @@ else:
     * O(|V|) - Max space occupied to track the courses with no prerequisite (the vertices with in-degree 0)
 
 <details>
-<summary>Click to see optimal solution</summary>
+<summary>Click to see implementation of optimal solution</summary>
 
 ```java
     public boolean canFinishOptimal(int numCourses, int[][] prerequisites) {
