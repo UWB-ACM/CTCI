@@ -196,7 +196,7 @@ Before doing this, we'll want to transform `prerequisites`, the list of edges we
     * O(|V|) - Space occupied to track if each of the vertices have been visited
     * O(|V|) - Max space occupied by the call stack during the recursive calls of DFS in the worst case
 
-<details>\
+<details>
 <summary>Click to see naive solution</summary>
 
 ```java
