@@ -3,10 +3,7 @@
 
 # Graphs
 
-Simple description TODO :bug:
-
-In the style of:
-***Problems and solutions for Maze & Dynamic Programming session on March 1, 2019.***
+Problems and solutions for Graphs session on May 15th, 2020.
 
 ### Table of Contents
 
