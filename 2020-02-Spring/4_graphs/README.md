@@ -72,6 +72,8 @@ Go to [Solution](#s2)   [Top](#top)
 
 ### 3. Power Stations
 
+Source: Mitchell
+
 #### Scenario
 
 The electrical system of HappyLand consists of ``N`` stations from ``0`` to ``N-1`` including ``M`` power plants where electricity is produced and the rest ``N-M`` stations are used for transmitting electricity, ``M <= N``. After a hurricane, HappyLand’s authorities need to shut down ``K`` station(s) for maintenance. For safety reasons, a shutdown station has no electricity coming in/out of it. To be considered active, a station, unless it is a power plant which can power itself and stations receiving electricity from it, must receive electricity from at least one active station. Otherwise, it is also shut down indirectly. **Find out all stations that are shutdown by disconnecting K stations.**
