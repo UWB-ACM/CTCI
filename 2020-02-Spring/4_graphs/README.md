@@ -78,7 +78,7 @@ It is possible to complete all of thse courses.
 
 **Example 2**:
 
-Input: `numCourses = 2, prerequisites = [[1, 0]]`
+Input: `numCourses = 2, prerequisites = [[1, 0], [0, 1]]`
 Output: `true`
 
 There are two courses you must complete.
