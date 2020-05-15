@@ -136,7 +136,7 @@ Source: Lizzy
 
 We want to track how much lower the reciprocation of each follow 
 is for each user. So, we inspect each user, and one by one, we 
-inpsect that user's followed list. We lookup that followed account 
+inspect that user's followed list. We lookup that followed account 
 and see if the user is in the followed account's set; if it is, 
 the follow is reciprocated. If it is not, we subtract 1 from the 
 differential.
