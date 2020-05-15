@@ -88,7 +88,12 @@ However, to complete course 0, you must complete course 1.
 There's no way to do this. Thus, this is impossible.
 
 
+<details>
+<summary>Click to see example diagrams</summary>
 
+![LeetCode examples](./images/lc-examples)
+
+</details>
 
 #### Function Signature
 
@@ -173,6 +178,8 @@ For example, if we represent `[[1, 0], [0, 1]]` as a directed graph:
 
 this forms a directed cycle.
 
+![Cycle example](./images/cycle-example)
+
 So, in other words, we need to determine if the corresponding graph is a directed acyclic graph.
 
 
@@ -248,6 +255,7 @@ One way to find whether or not a graph is a directed acyclic graph is to check i
 
 A topological ordering of a directed graph is a ordering of the vertices of the graph, such that for all edges `(v, w)` in the set of edges of the graph `E`, `v` always comes before `w`.
 
+![Topological Sort Example](./images/topological-sort-example)
 
 A common algorithm for finding topological sortings, Kahn's algorithm, is specified below: 
 
