@@ -1,8 +1,10 @@
-// Bill Zhao
+// Solution to Question 1: Most Consecutive Ones
+// Prepared for ACM CTCI 10/09/2020
+// Bill Zhao, 10/07/2020
 
-#include <vector>
 #include <algorithm>
 #include <iostream>
+#include <vector>
 
 int findMaxConsecutiveOnes(std::vector<int>& nums) {
     int max = 0;
