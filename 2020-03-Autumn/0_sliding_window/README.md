@@ -138,7 +138,7 @@ int findMaxConsecutiveOnes(vector<int>& nums) {
 
 Instead of counting the maximum numbers of 1s in a group, we can also define 
 where the group is for faster calculation. In the following solution, the program 
-uses two indecies to keep track of the start and the end of a group of 1s. This is 
+uses two indices to keep track of the start and the end of a group of 1s. This is 
 called the "Sliding window" technique. You can move this window around while going 
 through the binary array, checking its value and update the maximum variable.
 
