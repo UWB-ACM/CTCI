@@ -111,12 +111,40 @@ Source: [LeetCode](https://leetcode.com/problems/max-consecutive-ones/)
 
 #### Brute Force Solution
 
+The direct solution would go through the array, find the first 1, and 
+start counting all 1s after it until the cursor reaches 0. This solution
+works, however, leads to very bad time complexity (O(N^2)).
+
+```
+int findMaxConsecutiveOnes(vector<int>& nums) {
+    int max = 0;
+    int count = 0;
+    for (int i = 0; i < nums.size(); ++i) {
+        if (nums[i] == 1) {
+            for (int j = i; j < nums.size(); ++j){
+                if (nums[j] == 1) {
+                    count++;
+                } else {
+                    max = std::max(count, max);
+                    count = 0;
+                    break;
+                }
+            }
+        }
+    }
+    return max;
+}
+```
+
+
+#### Better Solution
+
 At the first glance of this question, we can see that the program wants to 
 count the most 1s that are grouped together. As we go through the binary 
 array, we can count along the way: If it is a 0, we would stop counting 
 and reset the counter to 0. Otherwise, we would increment the counter by 1. 
 The maximum number of the counter will always be stored in a variable called 
-`max`.
+`max`. (Time complexity: O(N))
 
 ```
 int findMaxConsecutiveOnes(vector<int>& nums) {
@@ -137,10 +165,11 @@ int findMaxConsecutiveOnes(vector<int>& nums) {
 #### Optimal Solution
 
 Instead of counting the maximum numbers of 1s in a group, we can also define 
-where the group is for faster calculation. In the following solution, the program 
-uses two indices to keep track of the start and the end of a group of 1s. This is 
-called the "Sliding window" technique. You can move this window around while going 
-through the binary array, checking its value and update the maximum variable.
+where the group is for faster calculation. In the following solution, the 
+program uses two indices to keep track of the start and the end of a group 
+of 1s. This is called the "Sliding window" technique. You can move this 
+window around while going through the binary array, checking its value and 
+update the maximum variable. (Time complexity: O(N))
 
 ```
 int findMaxConsecutiveOnes(vector<int>& nums) {
