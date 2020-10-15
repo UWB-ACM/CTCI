@@ -4,7 +4,7 @@ using namespace std;
 
 int removeDuplicates(std::vector<int>& nums) {
 
-    if(nums.size() == 0){
+    if (nums.size() == 0) {
         return 0;
     }
 
@@ -13,12 +13,12 @@ int removeDuplicates(std::vector<int>& nums) {
     int right = 1;
     int size = nums.size();
 
-    //Iterate through thr entire vector
-    while ( right < size ){
+    //Iterate through the entire vector
+    while (right < size) {
 
-        if ( nums[right] == nums[left]) {
+        if (nums[right] == nums[left]) {
             right++;
-        }else{
+        } else {
             left++;
             nums[left] = nums[right];
             right++;
@@ -30,8 +30,6 @@ int removeDuplicates(std::vector<int>& nums) {
 
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-
     vector<int> nums;
     nums.push_back(1);
     nums.push_back(1);
@@ -39,6 +37,7 @@ int main() {
 
     int unique = removeDuplicates(nums);
 
+    //The output should be: 1 2
     for (int i = 0; i < unique ; ++i) {
         cout << nums[i] <<" ";
     }
@@ -57,7 +56,7 @@ int main() {
     nums2.push_back(4);
 
     int unique2 = removeDuplicates(nums2);
-
+    //The output should be: 0 1 2 3 4
     for (int i = 0; i < unique2 ; ++i) {
         cout << nums2[i] <<" ";
     }

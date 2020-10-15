@@ -121,18 +121,20 @@ Go to [Solution](#s3)   [Top](#top)
 
 [LeetCode](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
 
-#### Optimal solution
+#### Optimal solution 
 
-Since the array is already sorted, we can keep two pointers, left and right, where left is the slow runner and right is the fast runner. As long as nums[left] == nums[right], right will continue moving one element forward, skipping the dupplicate. 
+Utilizing fast and slow pointers.
 
-When we find that nums[left] != nums[right], we have passed all duplicate numbers, then we need to copy the new,different value to nums[ left + 1]. After the values has been copied, left and right move one element forward, until right reaches the end of the vector.
+Since the array is already sorted, we can keep two pointers, `left` and `right`, where `left` is the slow runner and `right` is the fast runner. As long as `nums[left] == nums[right]`, `right` will continue moving one element forward, skipping the duplicate. 
+
+When we find that `nums[left] != nums[right]`, we have passed all duplicate numbers, then we need to copy the new, different value to `nums[left + 1]`. After the values has been copied, `left` and `right` move one element forward, until right reaches the end of the vector.
 
 
 Example code of this implementation:
 ```c++
 	int removeDuplicates(vector<int>& nums) {
         
-        if(nums.size() == 0){
+        if (nums.size() == 0) {
             return 0;
         }
         
@@ -141,12 +143,12 @@ Example code of this implementation:
         int right = 1; 
         int size = nums.size();
         
-        //Iterate through thr entire vector
-        while ( right < size ){
+        //Iterate through the entire vector
+        while (right < size) {
             
-            if ( nums[right] == nums[left]) {
+            if (nums[right] == nums[left]) {
                 right++;
-            }else{
+            } else {
                 left++;
                 nums[left] = nums[right];                
                 right++;
