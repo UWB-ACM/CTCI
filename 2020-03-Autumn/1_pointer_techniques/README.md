@@ -56,21 +56,30 @@ Go to [Solution](#s1)   [Top](#top)
 <!-- Don't remove -->
 <a name="p2"/>
 
-### 2. PROBLEM 2 TODO :bug:
+### 2. Linked List Cycle
 
-Source: TODO :bug:
+Source: [LeetCode]https://leetcode.com/problems/linked-list-cycle/
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Given `head`, the head of a linked list, determine if the linked list has a cycle in it.
+
+There is a cycle in a linked list if there is some node in the list that can be reached again by 
+continuously following the `next` pointer. Internally, `pos` is used to denote the index of the node 
+that tail's `next` pointer is conected to. **NOTE that** `pos` **is not passed as a parameter.**
 
 #### Example Input
+![githubSSTest](https://user-images.githubusercontent.com/56414351/96056908-9c6abe80-0e3c-11eb-82fd-4c6faeb2d3f4.PNG)
 
-If the problem is simple enough, remove this section. TODO :bug:
+**Input:** head = [3,2,0,-4], pos = 1
+**Output:** true
+**Explanation:** There is a cycle in the linked list, where the tail connects to the 1st node (first index)
 
 #### Function Signature
 
-TODO :bug:
+**C++:** `bool hasCycle(ListNode *head)`
+
+**Java:** `public boolean hasCycle(ListNode head)`
 
 <!-- Don't remove -->
 Go to [Solution](#s2)   [Top](#top)
@@ -197,17 +206,98 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s2"/>
 
-### 2. SOLUTION 2 TODO :bug:
+### 2. Linked List Cycle
 
-Source: TODO :bug:
+Source: [LeetCode]https://leetcode.com/problems/linked-list-cycle/
 
-#### Naive/Simple Solution
+#### O(n) space solution
 
-TODO :bug:
+**C++ Solution**
 
-#### Optimal Solution
+```
+bool hasCycle(ListNode *head) {
+    unordered_set<ListNode *> mySet;
+    while (head) {
+        if (mySet.find(head) != mySet.end()) {
+            return true;
+        mySet.insert(head);
+        head = head->next;
+    }
+    return false;
+}
+```
 
-TODO :bug:
+**Java Solution**
+
+We go through each node one by one and record each node's reference (or memory address)
+in a hash table. If the current node is `null`, we have reached the end of teh list and
+it must not be cyclic. If current node's reference is in the hash table, then return true.
+
+Time Complexity: O(n). We visit each of the n elements in the list at most once. Adding
+a node to the hash table costs only O(1) time.
+Space Compexity: O(n). The space depends on the number of elements added to the hash table,
+which contains at most n elements.
+
+```
+public boolean hasCycle(ListNode head) {
+    Set<ListNode> nodesSeen = new HashSet<>();
+    while (head != null) {
+        if (nodesSeen.contains(head)) {
+            return true;
+        } else {
+            nodesSeen.add(head);
+        }
+        head = head.next;
+    }
+    return false;
+}
+```
+
+#### O(1) space solution
+
+**C++ Solution**
+```
+bool hasCycle(ListNode* head) {
+    ListNode *fast, *slow;
+    fast = slow = head;
+    while (fast && fast->next) {
+        fast = fast->next->next;
+        slow = slow->next;
+        if (slow == fast) {
+            return true;
+        }
+    }
+    return false;
+}
+```
+
+**Java Solution**
+
+To solve this problem we can use a slow and fast pointer technique. This technique moves two pointers 
+along our list at different paces. We move our slow pointer one node at a time (slow = slow.next) and 
+we move our fast pointer two nodes at a time (fast = fast.next.next). If the list contains a cycle, 
+then at some point slow and fast will meet. Otherwise, if the list does not contain a cycle, eventually 
+fast will reach the end of our list and we can return accordingly based on these two possibilities.
+
+Time Complexity: O(n). Where n is the number of nodes in our list.
+
+Space Compexity: O(n). Or constant.
+
+```
+public boolean containsCycle(ListNode head) {
+    ListNode slow = head;
+    ListNode fast = head;
+    while (fast != null && fast.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
+        if (slow == fast) {
+            return true;
+        }
+    }
+
+    return false;
+}
+```
 
 #### Testing The Solutions OR Driver For Solution
 
