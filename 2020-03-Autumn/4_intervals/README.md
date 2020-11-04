@@ -117,6 +117,12 @@ Go to [Solution](#s3)   [Top](#top)
 ### 1. Insert Interval
 
 Source: [LeetCode](https://leetcode.com/problems/insert-interval/)
+#### Brute Force
+
+One brute force way to solve it is to add the new interval into the list of intervals, then sort the list, and then merge the 
+necessary intervals that need to be merge (if any).
+
+This solution will result in a time complexity of O(N log N), assuming we used a built-in sorting algorithm.
 
 #### Greedy algorithm
 
