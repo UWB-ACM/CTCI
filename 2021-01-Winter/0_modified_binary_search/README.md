@@ -256,7 +256,49 @@ Source: [LeetCode] https://leetcode.com/problems/find-first-and-last-position-of
 #### Binary Search Solution
 Since the array that is given to us is already sorted, we can use binary search to find the index of the leftmost and rightmost indices.
 
+1. Lets make a helper method that uses binary search to find the target, initialize `public int search(int[] nums, int target, boolean left)
+2. In this method, initialize variables `int left = 0, right = nums.length -1, res = -1;`.
+3. Make a while loop, `while(left <= right){`, initialize `int mid = (left + right) /2`.
+4. If statement:
 ```
+if(nums[mid] == target){
+                res = mid;
+            if(end)
+                left = mid + 1;
+            else
+                right = mid - 1;
+            }
+```
+5. Write else if statement: `else if(nums[mid] < target), then left = mid+1. `
+6. else, `right = mid -1`.
+7. End while loop, `return res`.
+8. Implement search range method, `return new int[] {search(nums, target, false), search(nums, target, true)`.
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        return new int[] {search(nums, target, false), search(nums, target, true)};
+    }
+    
+    public int search(int[] nums, int target, boolean end){
+        int left = 0, right = nums.length-1, res = -1;
+        while(left <= right){
+            int mid = (left + right) / 2;
+            if(nums[mid] == target){
+                res = mid;
+            if(end)
+                left = mid + 1;
+            else
+                right = mid - 1;
+            }
+        else if (nums[mid] < target){
+            left = mid + 1;
+        }
+        else{
+            right = mid - 1;
+        }
+        }
+        return res;
+        }
+    }
 
 ```
 
