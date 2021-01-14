@@ -13,7 +13,7 @@ In the style of:
 * [Problems](#problems)
   * [1](Binary Search)
   * [2](Sqrtx)
-  * [3](Find the duplicate number)
+  * [3](Find first and last position of element in sorted array)
 * [Solutions](#solutions)
   * [1](#s1)
   * [2](#s2)
@@ -94,21 +94,39 @@ Go to [Solution](#s2)   [Top](#top)
 <!-- Don't remove -->
 <a name="p3"/>
 
-### 3. PROBLEM 3 TODO :bug:
+### 3. Find First and Last Position of Element in Sorted Array
 
-Source: TODO :bug:
+Source: [LeetCode] https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/ 
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Given an array of Integers sorted in ascending order, find the starting and edning position of a given target value.
+If the target is not found in the array, return {-1, -1}.
+
+Follow up: Could you write this algorithm in O(log n) runtime complexity?
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+Example 1:
+
+Input: nums = [5,7,7,8,8,10], target = 8
+Output: [3,4]
+
+Example 2:
+
+Input: nums = [5,7,7,8,8,10], target = 6
+Output: [-1,-1]
+
+Example 3:
+
+Input: nums = [], target = 0
+Output: [-1,-1]
 
 #### Function Signature
 
-TODO :bug:
+Java: public int[] searchRange(int[] nums, int target)
+C++: public:
+vector<int> searchRange(Vector<int>& nums, int target)
 
 <!-- Don't remove -->
 Go to [Solution](#s3)   [Top](#top)
@@ -135,6 +153,26 @@ Source: https://leetcode.com/problems/binary-search/
 6. Create else statement, `else`, `left = pivot + 1`.
 7. Outside of our while loop, we will `return -1`, when we reach here, we've searched through our whole array and failed to find our target index, so return -1.
 
+Complexity: O(N log N) since we divide the array in half each time.
+Space Complexity: o(1) no extra space used 
+
+```
+Example Code of Solution
+    public int search(int[] nums, int target) {
+        int left = 0, right = nums.length - 1; //Initialize two pointers, one at the beginning of the array, and one at the very end.
+        while(left <= right){
+            int pivot = (left + right) / 2; //Pivot starts at the middle.
+            if(nums[pivot] == target)
+                return pivot; //Our target is found, return index.
+            else if(target < nums[pivot])
+                right = pivot - 1; //If our target is less than our pivot, we close out the right side from mid, since we know our target isn't there.
+            else
+                left = pivot + 1; //Our target is greater than pivot, close out the left side from mid.
+        }
+        return -1; //Return -1 if not found.
+        }
+
+```
 
 <!-- Don't remove -->
 Go to [Top](#top)
@@ -142,7 +180,7 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s2"/>
 
-### 2. 1. Sqrtx
+### 2. Sqrtx
 
 Source: [LeetCode]((https://leetcode.com/problems/sqrtx/)
 
@@ -211,15 +249,57 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s3"/>
 
-### 3. SOLUTION 3 TODO :bug:
+### 3. Find First and Last Position Of Element in Sorted Array
 
-Source: TODO :bug:
+Source: [LeetCode] https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
 
-#### Naive/Simple Solution 
+#### Binary Search Solution
+Since the array that is given to us is already sorted, we can use binary search to find the index of the leftmost and rightmost indices.
 
-TODO :bug:
+```
 
-#### Optimal Solution
+```
+
+Time Complexity: O(log N) Binary Search used twice, two is a constant, therefore, O(log N)
+Space Complexity: O(1) since all work is done in place, memory usage is constant.
+
+#### Linear Scan (Brute Force)
+We will first do a linear scan of the numbers on the left, and break once we find an instance of the target, if we never break, then we can return the error case of {-1, -1}. If we find a valid left index, we will do a second linear scan starting from the right side of the array, (Question constraint: IF THERE IS A LEFTMOST TARGET, THERE GUARAUNTEED WILL BE A RIGHTMOST TARGET. We will then return a list that contains the indices of the target being found.
+
+1. Initialize array with error case - `int[] res = {-1. -1};` res stands for result, fyi, name it whatever you want.
+2. Write a for loop that goes from 0 to nums.length : `for(int i = 0; i < nums.length; i++){
+3. If `(nums[i] == target)` then our result `res[0] = i`. Break here: `break;`
+4. In the scenario where we didnt find the target, `if(res[0] == -1)`, then return res.
+5. Write a for loop that goes from nums.length-1 to 0: `for(int j = nums.length-1; j >=0; j--){`
+6. Inside this loop, `if(nums[j] ==target)` then `res[1] = j;`, break
+7. return res. 
+
+```
+Example Solution
+    public int[] searchRange(int[] nums, int target) {
+        int[] res = {-1, -1};
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] == target){
+                res[0] = i;
+                break;
+            }
+        }
+        if(res[0] == -1){
+            return res;
+        }
+        for(int j = nums.length -1; j >= 0; j--){
+            if(nums[j] == target){
+                res[1] = j;
+                break;
+                }
+        }
+        return res;
+    }
+}
+```
+
+Time Complexity: O(n)
+Space Complexity: O(1)
 
 TODO :bug:
 
