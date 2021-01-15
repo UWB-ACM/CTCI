@@ -186,7 +186,7 @@ Source: [LeetCode]((https://leetcode.com/problems/sqrtx/)
 
 #### Binary Search Solution
 
-For `x > = 2`, the square root is smaller than `x/2` and greater than `0`. 
+For `x >= 2`, the square root is smaller than `x/2` and greater than `0`. 
 
 We can take advantage of this knowledge and iterate over the sorted set of integer numbers from `2` to `x`, dividing the problem in half in each iteration, until we find the square root.
 
