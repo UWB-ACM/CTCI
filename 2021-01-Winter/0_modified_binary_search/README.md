@@ -273,6 +273,8 @@ if(end)
 6. else, `right = mid -1`.
 7. End while loop, `return res`.
 8. Implement search range method, `return new int[] {search(nums, target, false), search(nums, target, true)`.
+Answer:
+```
 class Solution {
     public int[] searchRange(int[] nums, int target) {
         return new int[] {search(nums, target, false), search(nums, target, true)};
