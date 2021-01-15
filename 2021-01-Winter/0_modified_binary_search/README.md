@@ -233,7 +233,7 @@ int mySqrt(int x) {
         }
         //if we were not able to find an exact square root, we return the closes estimate (int representation) 
         return res;
-    }
+}
 ```
 
 The time complexity of this solution is `O(N log N)`. Since we are dividing our problem by half on each iteration.
