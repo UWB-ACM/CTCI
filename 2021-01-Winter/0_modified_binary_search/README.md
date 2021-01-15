@@ -236,7 +236,7 @@ int mySqrt(int x) {
     }
 ```
 
-The time complexity of this solution is O(N log N). Since we are dividing our problem by half on each iteration.
+The time complexity of this solution is `O(N log N)`. Since we are dividing our problem by half on each iteration.
 The space complexity is O(1), because we are not using any extra space to store information. 
 
 #### Testing The Solutions OR Driver For Solution
