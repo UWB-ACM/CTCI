@@ -306,7 +306,7 @@ Time Complexity: O(log N) Binary Search used twice, two is a constant, therefore
 Space Complexity: O(1) since all work is done in place, memory usage is constant.
 
 #### Linear Scan (Brute Force)
-We will first do a linear scan of the numbers on the left, and break once we find an instance of the target, if we never break, then we can return the error case of {-1, -1}. If we find a valid left index, we will do a second linear scan starting from the right side of the array, (Question constraint: IF THERE IS A LEFTMOST TARGET, THERE GUARAUNTEED WILL BE A RIGHTMOST TARGET. We will then return a list that contains the indices of the target being found.
+We will first do a linear scan of the numbers on the left, and break once we find an instance of the target, if we never break, then we can return the error case of {-1, -1}. If we find a valid left index, we will do a second linear scan starting from the right side of the array, (Question constraint: IF THERE IS A LEFTMOST TARGET, THERE GUARANTEED WILL BE A RIGHTMOST TARGET. We will then return a list that contains the indices of the target being found.
 
 1. Initialize array with error case - `int[] res = {-1. -1};` res stands for result, fyi, name it whatever you want.
 2. Write a for loop that goes from 0 to nums.length : `for(int i = 0; i < nums.length; i++){
