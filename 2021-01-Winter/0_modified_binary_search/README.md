@@ -26,7 +26,7 @@ In the style of:
 
 <a name="p1"/>
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. Binary Search
 
 Source: https://leetcode.com/problems/binary-search/
 
@@ -262,11 +262,11 @@ Since the array that is given to us is already sorted, we can use binary search 
 4. If statement:
 ```
 if(nums[mid] == target){
-                res = mid;
-            if(end)
-                left = mid + 1;
-            else
-                right = mid - 1;
+   res = mid;
+if(end)
+   left = mid + 1;
+  else
+   right = mid - 1;
             }
 ```
 5. Write else if statement: `else if(nums[mid] < target), then left = mid+1. `
