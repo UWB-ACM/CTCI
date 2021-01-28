@@ -12,7 +12,7 @@ In the style of:
 
 * [Problems](#problems)
   * [1](#p1)
-  * [2](#p2) Subsets
+  * [2](#p2) 
   * [3](#p3)
 * [Solutions](#solutions)
   * [1](#s1)
@@ -135,6 +135,7 @@ Go to [Top](#top)
 <a name="s2"/>
 
 ### 2. SOLUTION 2
+Time Complexity: O(2^N) where N is the length of the Array nums.
 
 Java Solution:
 
@@ -144,6 +145,7 @@ class Solution {
         
         List<List<Integer>> result = new ArrayList<List<Integer>> ();
         
+        // add empty list
         result.add(new ArrayList<Integer>());
                 
         for (int i = 0; i < nums.length; i++) {
