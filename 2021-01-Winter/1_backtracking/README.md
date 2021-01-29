@@ -26,21 +26,25 @@ In the style of:
 
 <a name="p1"/>
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. Permutations
 
-Source: TODO :bug:
+Source: Source: [LeetCode](https://leetcode.com/problems/permutations/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Given an array `nums` of distinct integers, return all the possible permutations. You can return the answer in any order.
 
-#### Example Input
+#### Example
 
-If the problem is simple enough, remove this section. TODO :bug:
+**Input:** `nums = [1,2,3]`
+
+**Output:** `[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]`
+
+**Explanation:** 
+Returns a list of all possible permutations of `nums`.
 
 #### Function Signature
-
-TODO :bug:
+**Java:** `public List<List<Integer>> permute(int[] nums)`
 
 <!-- Don't remove -->
 Go to [Solution](#s1)   [Top](#top)
@@ -112,21 +116,68 @@ Go to [Solution](#s3)   [Top](#top)
 <!-- Don't remove -->
 <a name="s1"/>
 
-### 1. SOLUTION 1 TODO :bug:
+### 1. Permutations
 
-Source: TODO :bug:
+Source: [LeetCode](https://leetcode.com/problems/permutations/)
 
-#### Naive/Simple Solution
+#### Solution
 
-TODO :bug:
+This solution puts the original array as an argument into 
+the backtrack method, which creates a list of ints from the 
+original array by using a for loop that adds the elements of 
+the array in order, one at a time, while checking to see if 
+each element is already in the array. If it is already in
+the array, it's skipped and the for loop goes to the next
+iteration. Then it puts this list as an argument back into 
+the backtrack method, which checks to see if the list is 
+the same length as the original array. If it is, it’s added 
+to the final list that’s going to be returned. 
 
-#### Optimal Solution
+Then the backtrack method creates the next list of ints by 
+removing elements from the previous list, one at a time, because 
+the previous list is full. The current for loop iteration changes the order 
+that the elements are added so they aren’t consecutive like in 
+the original array, because the method took in a full list, 
+and the first list/original array copy list started the process 
+with an empty list. It repeats the steps of adding a current 
+list to the final list when the current list is full, until 
+all permutated lists are found.
 
-TODO :bug:
+```
+Java implementation:
+class Solution { 
+    public List<List<Integer>> permute(int[] nums) {
+        //Create final list to be returned
+        List<List<Integer>> list = new ArrayList<>();
 
-#### Testing The Solutions OR Driver For Solution
+        //Call backtrack function
+        backtrack(list, new ArrayList<>(), nums);
 
-TODO :bug:
+        //Return final list
+        return list;
+}
+
+private void backtrack(List<List<Integer>> list, List<Integer> tempList, int [] nums) {
+    //Add current list to final list if same length as original array
+    if(tempList.size() == nums.length) {
+        list.add(new ArrayList<>(tempList));
+    } 
+    else {
+        for(int i = 0; i < nums.length; i++) {
+            //If element already exists, skip
+            if(tempList.contains(nums[i])) continue;
+            tempList.add(nums[i]);
+            backtrack(list, tempList, nums);
+            tempList.remove(tempList.size() - 1);
+        }
+    }
+} 
+}
+```
+
+The time complexity of this solution is O(2^N). Where `N` is the length of the array `nums`. This is the worst-case scenario, because all permutations need to be found.
+
+The space complexity of this solution is O(N),where `N` is the length of the string `nums`. This space will be used to store the recursion stack. 
 
 <!-- Don't remove -->
 Go to [Top](#top)
