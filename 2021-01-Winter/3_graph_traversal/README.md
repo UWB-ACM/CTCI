@@ -36,7 +36,7 @@ Recursively check to see if the roots of a given binary tree are the same or not
 
 #### Example Input
 
-	      1	            	1
+        1	        1
        / \             / \
       2   3           2   3
 
