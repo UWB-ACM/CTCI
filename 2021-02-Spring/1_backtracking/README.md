@@ -46,10 +46,11 @@ Output: [[2,2,3],[7]]
 #### Function Signature
 
 class Solution {
-    public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        // your code here
+public:
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        
     }
-}
+};
 
 <!-- Don't remove -->
 Go to [Solution](#s1)   [Top](#top)
