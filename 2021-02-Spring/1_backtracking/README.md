@@ -12,11 +12,11 @@ In the style of:
 
 * [Problems](#problems)
   * [1](#p1)
-  * [2](#p2)
+  * [2. Letter Combinations of a Phone Number](#p2)
   * [3](#p3)
 * [Solutions](#solutions)
   * [1](#s1)
-  * [2](#s2)
+  * [2. Letter Combinations of a Phone Number](#s2)
   * [3](#s3)
 
 <!-- Don't remove -->
@@ -58,21 +58,24 @@ Go to [Solution](#s1)   [Top](#top)
 <!-- Don't remove -->
 <a name="p2"/>
 
-### 2. PROBLEM 2 TODO :bug:
+### 2. Letter Combinations of a Phone Number
 
-Source: TODO :bug:
+Source: [LeetCode] (https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. Return the answer in any order.
+
+A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+Input: digits = "23"
+Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
 
 #### Function Signature
 
-TODO :bug:
+    public List<String> letterCombinations(String digits)
 
 <!-- Don't remove -->
 Go to [Solution](#s2)   [Top](#top)
@@ -127,18 +130,23 @@ Go to [Top](#top)
 <!-- Don't remove -->
 <a name="s2"/>
 
-### 2. SOLUTION 2 TODO :bug:
+### 2. Letter Combinations of a Phone Number Solution
 
-Source: TODO :bug:
+Source: [LeetCode] (https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
 
 #### Naive/Simple Solution
 
-TODO :bug:
 
 #### Optimal Solution
 
-TODO :bug:
-
+First, we create a string array to map out the corresponding numbers and letters. Since "0" and "1" don't have any letters attached to them, they may be left as blank or simply filled with "0" and "1" in the array. We then use a helper method to help add combinations to our list. This helper method is recursive and works by appending the current letter to our current string until that string's length is the same as digits' length. Specifically, the helper method uses two variables - one to keep track of the length of the string and one to keep track of the current digit we're on. These are updated each iteration and allow for us to add all combinations using a single for loop that calls the helper method while adding the current letter to the current string.  
+This backtracking method will look like this:
+  
+     int i = s.length();
+     int digit = digits[i] - '0';
+     for (char letter : dict[digit].toCharArray()) {
+       backtrack(combos, digits, s + Character.toString(letter), dict);
+     }
 #### Testing The Solutions OR Driver For Solution
 
 TODO :bug:
