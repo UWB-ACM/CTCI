@@ -26,21 +26,30 @@ In the style of:
 
 <a name="p1"/>
 
-### 1. PROBLEM 1 TODO :bug:
+### 1. Combination Sum
 
-Source: TODO :bug:
+Source: [LeetCode] (https://leetcode.com/problems/combination-sum/)
 
 #### Scenario
 
-Problem Statement TODO :bug:
+Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of candidates where the chosen numbers sum to target. You may return the combinations in any order.
+
+The same number may be chosen from candidates an unlimited number of times. Two combinations are unique if the frequency of at least one of the chosen numbers is different.
+
+It is guaranteed that the number of unique combinations that sum up to target is less than 150 combinations for the given input.
 
 #### Example Input
 
-If the problem is simple enough, remove this section. TODO :bug:
+Input: candidates = [2,3,6,7], target = 7
+Output: [[2,2,3],[7]]
 
 #### Function Signature
 
-TODO :bug:
+class Solution {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        // your code here
+    }
+}
 
 <!-- Don't remove -->
 Go to [Solution](#s1)   [Top](#top)
@@ -97,17 +106,15 @@ Go to [Solution](#s3)   [Top](#top)
 <!-- Don't remove -->
 <a name="s1"/>
 
-### 1. SOLUTION 1 TODO :bug:
+### 1. Combination Sum
 
-Source: TODO :bug:
+Source: [LeetCode] (https://leetcode.com/problems/combination-sum/discuss/16496/Accepted-16ms-c%2B%2B-solution-use-backtracking-easy-understand.)
 
-#### Naive/Simple Solution
+#### Solution
 
-TODO :bug:
+We can find the correct combinations by using a mix of iterative and recursive techniques while using a separate helper method. 
 
-#### Optimal Solution
-
-TODO :bug:
+One vector is used to keep track of combinations that are attempted. A separate vector is used to keep track of correct combinations. 
 
 #### Testing The Solutions OR Driver For Solution
 
