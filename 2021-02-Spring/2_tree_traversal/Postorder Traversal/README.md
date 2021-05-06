@@ -1,21 +1,31 @@
-###145. Binary Tree Postorder Traversal
+### 145. Binary Tree Postorder Traversal
 
 Given the root of a binary tree, return the postorder traversal of its nodes' values.
 
-
-
 ```
-Example:
-
+**Example 1:**
   1
     \
       2
     /
-   3 
-   
+   3    
 Input: root = [1,null,2,3]
 Output: [3,2,1]
 
+**Example 2:**
+Input: root = []
+Output: []
+
+**Example 3:**
+Input: root = [1]
+Output: [1]
+
+**Example 4:**
+    1
+   / 
+  2   
+Input: root = [1,2]
+Output: [2,1]
 ```
 
 **Constraints:**
