@@ -1,8 +1,8 @@
-#Modified Binary
+# Modified Binary
 
-##Table of Contents
+## Table of Contents
 
-###Problems
+### Problems
 1. [One Problem]
 2. [Second Problem]
 3. [Third Problem]
