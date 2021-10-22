@@ -9,6 +9,7 @@
 4. [Find Peak Element](https://leetcode.com/problems/find-peak-element/) (Medium)
 5. [Missing Element in Sorted Array](https://leetcode.com/problems/missing-element-in-sorted-array/) (Medium)
 6. [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) (Medium)
+7. [Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) (Easy)
 
 ## Problem 1
 
@@ -248,6 +249,29 @@ The tests are generated such that there is exactly one solution.
 ### Binary Search:
 
 **Approach** 
+<br>
+We need to find smallest divisor such that sum of arr divided
+by divisor is just less than threshold
+Here is the pattern to observe
+arr = [ 1 ,  2 , 5 , 9  ]
+the max elem(9) of the arr which when divided gives= 1+1+1+1=4
+so 4 is surely one of the ans.
+and the min divisor (i.e 1) can be one which when divided gives = 1+2+5+9=17
+which is actually sum of the array
+            
+so our ans lies in b/w 1 to max elem of arr
+            
+why binary search:
+when divided by 1 :     17
+when divided by 2 :     10    (1+1+3+5)
+when divided by 3 :     7      (1+1+2+3)
+.....
+when divided by 9 :     4     (1+1+1+1)
+            
+we can see a pattern of monotonic decreasing function
+this type of question comes under binary search on answer
+
+<br>
 
 ```
 class Solution {
@@ -356,6 +380,14 @@ class Solution {
 ### Binary Search 
 
 **Approach**
+<br>
+We need m boquets consisting of k flowers
+Using binary search we can find the mid point and pass that into solve() and see if nums[i] is less than the mid value
+If so then we know nums[i] will bloom before mid and increment count. 
+Repeat this process until count is greater than or equal to mid, which count represents the number of flowers that have bloomed.
+Return 1 representing mid is an acceptable value or pass 0 representing a bad value. 
+Continue this process until l value is greater than r value and return ans that represents the minimum days it will take to complete m boquet order of k flowers.
+<br>
 ```
 class Solution {
 public:
@@ -384,6 +416,25 @@ public:
         }
         return 0;
     }
+    int minDays(vector<int>& nums, int m, int k) {
+        int i,l=0,r,ans=-1;
+        r=*max_element(nums.begin(),nums.end());
+        while(l<=r)
+        {
+            int mid=(l+r)/2;
+            if(solve(nums,m,k,mid))
+            {
+                ans=mid;
+                r=mid-1;
+            }
+            else
+            {
+                l=mid+1;
+            }
+        }
+        return ans;
+    }
+};
 ```
 <br>
 <br>
@@ -521,6 +572,9 @@ class Solution {
 
 ### Binary Search
 **Aproach**
+<br>
+We use two indices, initially pointing to the first and the last element, respectively. Compare the sum of these two elements with target. If the sum is equal to target, we found the exactly only solution. If it is less than target, we increase the smaller index by one. If it is greater than target, we decrease the larger index by one. Move the indices and repeat the comparison until the solution is found.
+<br>
 ```
 class Solution {
 public:
