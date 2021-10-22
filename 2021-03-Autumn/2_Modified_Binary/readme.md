@@ -12,6 +12,49 @@
 
 ## Problem 1
 
+### Title: 
+[Find the Smallest Divisor Given a Threshold](https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/) (Medium)
+
+### Description: 
+Given an array of integers nums and an integer threshold, we will choose a positive integer divisor, divide all the array by it, and sum the division's result.
+Find the smallest divisor such that the result mentioned above is less than or equal to threshold.
+
+Each result of the division is rounded to the nearest integer greater than or equal to that element. (For example: 7/3 = 3 and 10/2 = 5).
+
+It is guaranteed that there will be an answer.
+
+ 
+
+Example 1:
+
+Input: nums = [1,2,5,9], threshold = 6
+Output: 5
+Explanation: We can get a sum to 17 (1+2+5+9) if the divisor is 1. 
+If the divisor is 4 we can get a sum of 7 (1+1+2+3) and if the divisor is 5 the sum will be 5 (1+1+1+2). 
+Example 2:
+
+Input: nums = [44,22,33,11,1], threshold = 5
+Output: 44
+Example 3:
+
+Input: nums = [21212,10101,12121], threshold = 1000000
+Output: 1
+Example 4:
+
+Input: nums = [2,3,5,7,11], threshold = 11
+Output: 3
+ 
+
+Constraints:
+
+1 <= nums.length <= 5 * 104
+1 <= nums[i] <= 106
+nums.length <= threshold <= 106
+
+<br>
+<br>
+<br>
+
 ## Problem 2 (Medium)
 
 ### Title:
@@ -33,6 +76,67 @@ Notice that the answer is not neccesarilly a number from arr.
 <br>
 
 ## Problem 3 
+
+### Title: 
+[Minimum Number of Days to Make m Bouqets](https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/) (Medium)
+
+### Description:
+Given an integer array bloomDay, an integer m and an integer k.
+
+We need to make m bouquets. To make a bouquet, you need to use k adjacent flowers from the garden.
+
+The garden consists of n flowers, the ith flower will bloom in the bloomDay[i] and then can be used in exactly one bouquet.
+
+Return the minimum number of days you need to wait to be able to make m bouquets from the garden. If it is impossible to make m bouquets return -1.
+
+ 
+
+Example 1:
+
+Input: bloomDay = [1,10,3,10,2], m = 3, k = 1
+Output: 3
+Explanation: Let's see what happened in the first three days. x means flower bloomed and _ means flower didn't bloom in the garden.
+We need 3 bouquets each should contain 1 flower.
+After day 1: [x, _, _, _, _]   // we can only make one bouquet.
+After day 2: [x, _, _, _, x]   // we can only make two bouquets.
+After day 3: [x, _, x, _, x]   // we can make 3 bouquets. The answer is 3.
+Example 2:
+
+Input: bloomDay = [1,10,3,10,2], m = 3, k = 2
+Output: -1
+Explanation: We need 3 bouquets each has 2 flowers, that means we need 6 flowers. We only have 5 flowers so it is impossible to get the needed bouquets and we return -1.
+Example 3:
+
+Input: bloomDay = [7,7,7,7,12,7,7], m = 2, k = 3
+Output: 12
+Explanation: We need 2 bouquets each should have 3 flowers.
+Here's the garden after the 7 and 12 days:
+After day 7: [x, x, x, x, _, x, x]
+We can make one bouquet of the first three flowers that bloomed. We cannot make another bouquet from the last three flowers that bloomed because they are not adjacent.
+After day 12: [x, x, x, x, x, x, x]
+It is obvious that we can make two bouquets in different ways.
+Example 4:
+
+Input: bloomDay = [1000000000,1000000000], m = 1, k = 1
+Output: 1000000000
+Explanation: You need to wait 1000000000 days to have a flower ready for a bouquet.
+Example 5:
+
+Input: bloomDay = [1,10,2,9,3,8,4,7,5,6], m = 4, k = 2
+Output: 9
+ 
+
+Constraints:
+
+bloomDay.length == n
+1 <= n <= 10^5
+1 <= bloomDay[i] <= 10^9
+1 <= m <= 10^6
+1 <= k <= n
+
+<br>
+<br>
+<br>
 
 ## Problem 4
 
@@ -93,9 +197,86 @@ You must write an algorithm with O(log n) runtime complexity.
 <br>
 <br>
 
+## Problem 7
+
+### Title:
+[Two Sum II - Input array is sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) (Easy)
+
+### Description:
+Given a 1-indexed array of integers numbers that is already sorted in non-decreasing order, find two numbers such that they add up to a specific target number. Let these two numbers be numbers[index1] and numbers[index2] where 1 <= first < second <= numbers.length.
+
+Return the indices of the two numbers, index1 and index2, as an integer array [index1, index2] of length 2.
+
+The tests are generated such that there is exactly one solution. You may not use the same element twice.
+
+ 
+
+Example 1:
+
+Input: numbers = [2,7,11,15], target = 9
+Output: [1,2]
+Explanation: The sum of 2 and 7 is 9. Therefore index1 = 1, index2 = 2.
+Example 2:
+
+Input: numbers = [2,3,4], target = 6
+Output: [1,3]
+Explanation: The sum of 2 and 4 is 6. Therefore index1 = 1, index2 = 3.
+Example 3:
+
+Input: numbers = [-1,0], target = -1
+Output: [1,2]
+Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2.
+ 
+
+Constraints:
+
+2 <= numbers.length <= 3 * 104
+-1000 <= numbers[i] <= 1000
+numbers is sorted in non-decreasing order.
+-1000 <= target <= 1000
+The tests are generated such that there is exactly one solution.
+
+<br>
+<br>
+<br>
+
+
 # Solutions
 
 ## Solution 1
+
+### Binary Search:
+
+**Approach** 
+
+```
+class Solution {
+public:
+    int helper(vector<int>& arr,int k){
+        int sum=0;
+        for(auto &a:arr){
+            sum+=(a+k-1)/k;
+        }
+        return sum;
+    }
+    int smallestDivisor(vector<int>& nums, int threshold) {
+        int n=nums.size();
+        int l=1,h=1000000;
+        while(l<h){
+            int mid=l+((h-l)>>1);
+            if(helper(nums,mid)>threshold){
+                l=mid+1;
+            }else{
+                h=mid;
+            }
+        }
+        return l;
+    }
+};
+```
+<br>
+<br>
+
 
 ## Solution 2
 
@@ -171,6 +352,41 @@ class Solution {
 <br>
 
 ## Solution 3
+
+### Binary Search 
+
+**Approach**
+```
+class Solution {
+public:
+    bool solve(vector<int>&nums,int m,int k,int mid)
+    {
+        int i,f=0,count=0;
+        for(i=0;i<nums.size();i++)
+        {
+            if(nums[i]<=mid)
+            {
+                f++;
+            }
+            else
+            {
+                f=0;
+            }
+            if(f==k)
+            {
+                count++;
+                f=0;
+            }
+        }
+        if(count>=m)
+        {
+            return 1;
+        }
+        return 0;
+    }
+```
+<br>
+<br>
 
 ## Solution 4
 
@@ -298,3 +514,35 @@ class Solution {
     }
 }
 ```
+<br>
+<br>
+
+## Solution 7
+
+### Binary Search
+**Aproach**
+```
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        int low = 0;
+        int high = numbers.size() - 1;
+        while (low < high) {
+            int sum = numbers[low] + numbers[high];
+                          
+            if (sum == target) {
+                return {low + 1, high + 1};
+            } else if (sum < target) {
+                ++low;
+            } else {
+                --high;
+            }
+        }
+        // In case there is no solution, return {-1, -1}.
+        return {-1, -1};
+    }
+};
+```
+
+<br>
+<br>
