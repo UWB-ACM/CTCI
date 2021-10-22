@@ -174,10 +174,32 @@ class Solution {
 
 ## Solution 4
 
-### Iterative Binary Search
-
+### Linear Scan
 **Approach**
+Using this approach make sure that there is no two consecutive numbers that is equal.
+1. Just check if the number at i is greater than number at i + 1, it means number at i is the peak element, return i;
+2. If the number at i is smaller than number at i + 1, the loop will keep going until it found the condition at step 1.
+```
+public class Solution {
+    public int findPeakElement(int[] nums) {
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] > nums[i + 1])
+                return i;
+        }
+        return nums.length - 1;
+    }
+```
 
+### Iterative Binary Search
+Because we know that the number will 
+**Approach**
+1. Set left to 0.
+2. Set right which is equal to the length of the array - 1.
+3. While `left < right`, set a Mid to be the number of `(left + right) / 2`. 
+4. Check the index at the middle and compare it with the index after.
+5. if the index at the middle is larger than teh index after, it means that it can be the peak number, so move right to the middle also.
+6. If the index is smaller than index after, we will reduce the search space by moving the left to the middle + 1, to check the index after middle, because we know that index at the middle aboviously is not the peak number. 
+7. By doing this it will reduce the search space until eventually reach a state where only one element is remaining in the search space. This single element is the peak element.
 ```
 public class Solution {
     public int findPeakElement(int[] nums) {
@@ -201,26 +223,33 @@ public class Solution {
 ### Binary-search
 
 **Approach**
-The idea is  that if K > nums.length; then the result is nums[nums.length - 1] + (k - nums.length)
-so we need to find a largest index that missing number count < k 
-as equal condition is in right that we need to use (j - i + 1) / 2 + i
+The steps:
+1. Set left to 0.
+2. Set right which is equal to the length of the array - 1.
+3. While `left < right`, set a Mid to be the number of `left + (right - left + 1) / 2`. +1 is because we want to do round up instead of round down. 
+4. Find how many number from left to mid with the formula `nums[mid] - nums[left] + 1` for example 4,7,9,10 with left at 4 and mid at 9. From 4 - 9 there is 6 number.
+5. Find how many number that is just in the array between left and right with the formula `int indexDiff = mid - left + 1`. For example from 4 - 9 there should be 6 number, but in the given array there is just 3 (4,7,9).
+6. Check if the totalIndex - index is less than k, so the missing number within the count is not in the left - mid. So move the left to the mid.
+7. If the totalIndex - index not less than k, so it means the missing index in within range from left to mid.
+8. Because we move left it means that the starting point also move so we have to modify the k by finding how many lost number before the mid by minus the k with the totalIndex - index.
+9. last return the left index now + updated k.
 ```
 class Solution {
-    
-    public int missingElement(int[] nums, int k) {
-        int i = 0;
-        int j = nums.length - 1;
-        while (i < j) {
-            int mid = (j - i + 1) / 2 + i;
-            // nums[mid] - nums[0] + 1 total number count, mid + 1 total number we have (nums[mid] - nums[0] + 1) - (mid + 1) = missing number count;
-            if (nums[mid] - nums[0] - mid >= k) {   
-                j = mid - 1;
+     public int missingElement(int[] nums, int k) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            int mid = left + (right - left + 1) / 2;
+            int totalIndex = nums[mid] - nums[left] + 1;
+            int index = mid - left + 1;
+            if (totalIndex - index < k) {
+                left = mid;
+                k -= (totalIndex - index);
             } else {
-                i = mid;
+                right = mid - 1;
             }
-        }        
-        // nums[i] + (k - missing number count before i) = nums[i] + (k - (nums[i] - nums[0] - i))
-        return k + nums[0] + i;     
+        }
+        return nums[left] + k;
     }
 }
 ```
@@ -247,22 +276,22 @@ The steps:
 ```
 class Solution {
     public int search(int[] nums, int target) {
-        int lo = 0, hi = nums.length - 1;
-        while (lo <= hi) {
-            int mid = lo + (hi - lo) / 2;
+        int left = 0, right = nums.length - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
             if (target == nums[mid])
                 return mid;
             
-            if (nums[mid] < nums[lo]) {
-                if (target < nums[mid] || target >= nums[lo])
-                    hi = mid - 1;
+            if (nums[mid] < nums[left]) {
+                if (target < nums[mid] || target >= nums[left])
+                    right = mid - 1;
                 else
-                    lo = mid + 1;
+                    left = mid + 1;
             } else {
-                if (target > nums[mid] || target < nums[lo])
-                    lo = mid + 1;
+                if (target > nums[mid] || target < nums[left])
+                    left = mid + 1;
                 else
-                    hi = mid - 1;
+                    right = mid - 1;
             }
         }
         return -1;
