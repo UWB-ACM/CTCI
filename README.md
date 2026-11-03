@@ -98,6 +98,8 @@ and guides.
     best practices and company-specific advice that helps your resume 
     make an impression on recruiters and engineers (at Google and elsewhere).
 
+* [JobEmerge](https://www.jobemerge.work): AI career copilot with a job-fit test, resume translation in 19 languages, and a Markdown resume editor.
+
 Make sure you get other humans to review your resume drafts for issues and 
 points of interest; a second pair of eyes is your best defense against typos.
 
